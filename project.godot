@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Untitled"
+run/main_scene="res://scenes/level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
