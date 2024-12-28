@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=7 format=4 uid="uid://biampqlhctoid"]
 
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/moving_platform.tscn" id="3_4ubyi"]
+[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/free_tile.tscn" id="4_7ors7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"
@@ -35,3 +36,6 @@ tile_set = SubResource("TileSet_r1dbd")
 position = Vector2(162, 282)
 offset = Vector2(500, 0)
 duration = 8.0
+
+[node name="FreeTile" parent="." instance=ExtResource("4_7ors7")]
+position = Vector2(2, 287)
