@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=6 format=4 uid="uid://biampqlhctoid"]
 
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
+[ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/moving_platform.tscn" id="3_4ubyi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"
@@ -29,3 +30,8 @@ position = Vector2(554, 103)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAACAAAAAAAKAAgAAAAAAAAAAAALAAYAAAACAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAUAAAACAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAABAAcAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_r1dbd")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_4ubyi")]
+position = Vector2(162, 282)
+offset = Vector2(500, 0)
+duration = 8.0
