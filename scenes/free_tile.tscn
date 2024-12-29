@@ -22,6 +22,8 @@ size = Vector2(60, 59)
 script = ExtResource("1_lnyvo")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D"]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

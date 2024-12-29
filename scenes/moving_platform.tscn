@@ -21,6 +21,7 @@ size = Vector2(124, 59)
 script = ExtResource("1_dnxna")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_mask = 7
 
 [node name="TileMapLayer" type="TileMapLayer" parent="AnimatableBody2D"]
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
