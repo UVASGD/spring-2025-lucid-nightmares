@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://df73nfep6qcjo"]
 
-[ext_resource type="Texture2D" path="res://assets/top-left.png" id="1_j8vxc"]
-[ext_resource type="Texture2D" path="res://assets/top-right.png" id="2_1ajjs"]
-[ext_resource type="Texture2D" path="res://assets/bottom-left.png" id="3_pp266"]
-[ext_resource type="Texture2D" path="res://assets/bottom-right.png" id="4_2yiqt"]
+[ext_resource type="Texture2D" uid="uid://btughrahya0dg" path="res://assets/marker/top-left.png" id="1_j8vxc"]
+[ext_resource type="Texture2D" uid="uid://gq8hr343h17u" path="res://assets/marker/top-right.png" id="2_1ajjs"]
+[ext_resource type="Texture2D" uid="uid://cwyad1xdvhp3y" path="res://assets/marker/bottom-left.png" id="3_pp266"]
+[ext_resource type="Texture2D" uid="uid://d1johdl5wh6xd" path="res://assets/marker/bottom-right.png" id="4_2yiqt"]
 
 [node name="ColorRect" type="ColorRect"]
 offset_right = 98.0
