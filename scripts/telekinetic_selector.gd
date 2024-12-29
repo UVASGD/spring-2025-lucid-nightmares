@@ -34,7 +34,7 @@ func _on_telekinetic_area_body_exited(body: Node2D) -> void:
 		removeBody(body)
 		
 func cycleQueue(backwards: bool):
-	if queue.size() <= 1: return
+	if queue.size() == 0: return
 	
 	queue.sort_custom(sortByXGlobalPosition)
 	
