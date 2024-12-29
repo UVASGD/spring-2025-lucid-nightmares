@@ -8,9 +8,7 @@ var friction = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	marker.visible = true
-	is_selected = true
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,3 +24,6 @@ func set_selected(boo: bool):
 	is_selected = boo
 	if boo:
 		marker.visible = true
+	else:
+		marker.visible = false
+		charBody.velocity = Vector2.ZERO
