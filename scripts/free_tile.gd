@@ -49,7 +49,6 @@ func incrementBurnout():
 			triggerBurnout()
 	elif charBody.is_on_floor():
 		framesStoodOn = 0
-	print(framesStoodOn)
 			
 func triggerBurnout():
 	framesStoodOn = 0
