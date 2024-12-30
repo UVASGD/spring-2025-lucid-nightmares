@@ -76,7 +76,7 @@ collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_aw52p")
-animation = &"InactiveTile"
+animation = &"ActiveTile"
 
 [node name="Marker" parent="CharacterBody2D" instance=ExtResource("3_cd43f")]
 visible = false
