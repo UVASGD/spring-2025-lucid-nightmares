@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_telekinetic_area_body_entered(body: Node2D) -> void:
 	var parent = body.get_parent()
-	if parent is TelekineticObject:
+	if parent is TelekineticObject and parent.is_enabled:
 		queue.append(body)
 		if queue.size() == 1:
 			parent.set_selected(true)
