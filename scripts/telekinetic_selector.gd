@@ -21,7 +21,8 @@ func _process(delta: float) -> void:
 
 func _on_telekinetic_area_body_entered(body: Node2D) -> void:
 	var parent = body.get_parent()
-	if parent is TelekineticObject and parent.is_enabled:
+	# add all objects, even if disabled
+	if parent is TelekineticObject:
 		queue.append(body)
 		if queue.size() == 1:
 			parent.set_selected(true)
@@ -34,23 +35,24 @@ func _on_telekinetic_area_body_exited(body: Node2D) -> void:
 		removeBody(body)
 		
 func cycleQueue(backwards: bool):
-	if queue.size() == 0: return
+	var enabledQueue: Array = queue.filter(func(body): return body.get_parent().is_enabled)
+	if enabledQueue.size() == 0: return
 	
-	queue.sort_custom(sortByXGlobalPosition)
+	enabledQueue.sort_custom(sortByXGlobalPosition)
 	
-	var index = queue.find(selected_body)
+	var index = enabledQueue.find(selected_body)
 	if index != -1:
 		selected_body.get_parent().set_selected(false)
 		if backwards: index -= 1
 		else: index += 1
 	else:
-		if backwards: index = queue.size() - 1
+		if backwards: index = enabledQueue.size() - 1
 		else: index = 0
 	
-	if index == queue.size(): index = 0
-	if index == -1: index = queue.size() - 1
+	if index == enabledQueue.size(): index = 0
+	if index == -1: index = enabledQueue.size() - 1
 	
-	selected_body = queue[index]
+	selected_body = enabledQueue[index]
 	selected_body.get_parent().set_selected(true)
 	
 func insertNewBody(body: Node2D):

@@ -52,6 +52,7 @@ func incrementBurnout():
 	elif charBody.is_on_floor():
 		framesStoodOn = 0
 		animationPlayer.stop()
+
 func triggerBurnout():
 	framesStoodOn = 0
 	burnedOut = true
