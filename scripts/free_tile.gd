@@ -3,6 +3,7 @@ extends TelekineticObject
 @onready var charBody: CharacterBody2D = $CharacterBody2D
 @onready var marker = $CharacterBody2D/Marker
 @onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
+@onready var animationPlayer: AnimationPlayer = $CharacterBody2D/AnimationPlayer
 
 var maxSpeed = 300
 var friction = 50
@@ -44,11 +45,13 @@ func incrementBurnout():
 	if burnedOut: return
 	if playerStandingOn and not charBody.is_on_floor():
 		framesStoodOn += 1
+		if framesStoodOn >= 60:
+			animationPlayer.play("shake")
 		if framesStoodOn >= 120:
 			triggerBurnout()
 	elif charBody.is_on_floor():
 		framesStoodOn = 0
-			
+		animationPlayer.stop()
 func triggerBurnout():
 	framesStoodOn = 0
 	burnedOut = true
@@ -61,6 +64,7 @@ func recover():
 	burnedOut = false
 	charBody.velocity = Vector2.ZERO
 	sprite.play("ActiveTile")
+	animationPlayer.stop()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == Player.floor_area_name:
