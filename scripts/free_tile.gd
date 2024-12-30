@@ -2,6 +2,7 @@ extends TelekineticObject
 
 @onready var charBody: CharacterBody2D = $CharacterBody2D
 @onready var marker = $CharacterBody2D/Marker
+@onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
 
 var maxSpeed = 300
 var friction = 50
@@ -12,7 +13,7 @@ var burnedOut = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	sprite.play("ActiveTile")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -28,9 +29,7 @@ func _physics_process(delta: float) -> void:
 			charBody.velocity += charBody.get_gravity() * delta
 		elif charBody.is_on_floor() or charBody.velocity.is_zero_approx():
 			if burnedOut:
-				set_enabled(true)
-				burnedOut = false
-				charBody.velocity = Vector2.ZERO
+				recover()
 	charBody.move_and_slide()
 
 func set_selected(boo: bool):
@@ -55,6 +54,13 @@ func triggerBurnout():
 	burnedOut = true
 	set_selected(false)
 	set_enabled(false)
+	sprite.play("InactiveTile")
+	
+func recover():
+	set_enabled(true)
+	burnedOut = false
+	charBody.velocity = Vector2.ZERO
+	sprite.play("ActiveTile")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == Player.floor_area_name:
