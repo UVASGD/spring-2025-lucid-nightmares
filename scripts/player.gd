@@ -1,4 +1,7 @@
 extends CharacterBody2D
+class_name Player
+
+const floor_area_name = "StandingArea"
 
 const MAX_SPEED = 300.0
 const GROUND_FRICTION = MAX_SPEED * 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5fwpb217arma"]
+[gd_scene load_steps=6 format=3 uid="uid://c5fwpb217arma"]
 
 [ext_resource type="Script" path="res://scripts/free_tile.gd" id="1_lnyvo"]
 [ext_resource type="Texture2D" uid="uid://d032m0wuulela" path="res://assets/pinktile.png" id="2_j04nl"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(63.5, 63.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om7pb"]
+size = Vector2(64, 9)
 
 [node name="FreeTile" type="Node2D"]
 script = ExtResource("1_lnyvo")
@@ -25,6 +28,15 @@ offset_right = 50.0
 offset_bottom = 48.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 position = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(0, -31.5)
+shape = SubResource("RectangleShape2D_om7pb")
+debug_color = Color(0.881508, 0.27925, 0.488499, 0.42)
+
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_exited"]
