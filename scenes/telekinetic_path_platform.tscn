@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://buc8o5r408v7d"]
+
+[ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_th1uv"]
+[ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_5n4q1"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_76vt5"]
+
+[sub_resource type="Curve2D" id="Curve2D_uwdly"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2sqx"]
+texture = ExtResource("2_5n4q1")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j45mj"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_i2sqx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
+size = Vector2(124, 59)
+
+[node name="PathMovingPlatform" type="Path2D"]
+curve = SubResource("Curve2D_uwdly")
+script = ExtResource("1_th1uv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_mask = 7
+
+[node name="TileMapLayer" type="TileMapLayer" parent="AnimatableBody2D"]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_j45mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="Marker" parent="AnimatableBody2D" instance=ExtResource("3_76vt5")]
+visible = false
+offset_left = -84.0
+offset_top = -14.0
+offset_right = 83.0
+offset_bottom = 74.0

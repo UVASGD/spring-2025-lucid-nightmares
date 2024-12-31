@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=12 format=4 uid="uid://biampqlhctoid"]
 
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/free_tile.tscn" id="4_7ors7"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="5_4mhca"]
 [ext_resource type="PackedScene" uid="uid://dhj35qgxqpkna" path="res://scenes/path_moving_platform.tscn" id="5_vpwjr"]
+[ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="6_tvw0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"
@@ -35,6 +36,12 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_608pn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3786, 649, 0, 0, 0, 0, 3778, 163)
+}
+point_count = 2
+
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_x2e8k")]
@@ -52,3 +59,7 @@ tile_set = SubResource("TileSet_r1dbd")
 [node name="platform" parent="." instance=ExtResource("5_vpwjr")]
 position = Vector2(2948, 453)
 curve = SubResource("Curve2D_5oh4b")
+
+[node name="PathMovingPlatform" parent="." instance=ExtResource("6_tvw0b")]
+curve = SubResource("Curve2D_608pn")
+speed = 200
