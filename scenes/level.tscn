@@ -36,9 +36,9 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_608pn"]
+[sub_resource type="Curve2D" id="Curve2D_e67mj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3786, 649, 0, 0, 0, 0, 3778, 163)
+"points": PackedVector2Array(0, 0, 0, 0, 3830, 656, 0, 0, 0, 0, 3822, 177)
 }
 point_count = 2
 
@@ -59,7 +59,8 @@ tile_set = SubResource("TileSet_r1dbd")
 [node name="platform" parent="." instance=ExtResource("5_vpwjr")]
 position = Vector2(2948, 453)
 curve = SubResource("Curve2D_5oh4b")
+speed = 300
 
 [node name="PathMovingPlatform" parent="." instance=ExtResource("6_tvw0b")]
-curve = SubResource("Curve2D_608pn")
+curve = SubResource("Curve2D_e67mj")
 speed = 200

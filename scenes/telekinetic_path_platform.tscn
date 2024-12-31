@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://buc8o5r408v7d"]
+[gd_scene load_steps=7 format=3 uid="uid://buc8o5r408v7d"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_th1uv"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_5n4q1"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_76vt5"]
-
-[sub_resource type="Curve2D" id="Curve2D_uwdly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2sqx"]
 texture = ExtResource("2_5n4q1")
@@ -21,7 +19,6 @@ sources/0 = SubResource("TileSetAtlasSource_i2sqx")
 size = Vector2(124, 59)
 
 [node name="PathMovingPlatform" type="Path2D"]
-curve = SubResource("Curve2D_uwdly")
 script = ExtResource("1_th1uv")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]

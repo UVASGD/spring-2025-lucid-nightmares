@@ -8,10 +8,11 @@ extends TelekineticObject
 # define a Curve2D in the inspector of the scene node
 @onready var pathFollow: PathFollow2D = $PathFollow2D
 @export var speed = 100
+@export var loop = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pathFollow.loop = loop
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
