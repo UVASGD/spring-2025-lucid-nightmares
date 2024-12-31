@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=11 format=4 uid="uid://biampqlhctoid"]
 
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
@@ -29,11 +29,17 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_87rnx")
 sources/1 = SubResource("TileSetScenesCollectionSource_vljlh")
 
-[sub_resource type="Curve2D" id="Curve2D_sr0ws"]
+[sub_resource type="Curve2D" id="Curve2D_5oh4b"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 24, 0, 0, 0, 0, 585, 32, 0, 0, 0, 0, 587, 146, 0, 0, 0, 0, 8, 145, 0, 0, 0, 0, 1, 24, 0, 0, 0, 0, -23, 185)
+"points": PackedVector2Array(-306.161, -2.51984, 306.161, 2.51984, 256, -314, -1.25992, -234.345, 1.25992, 234.345, 568, -28, 264.583, 2.51984, -264.583, -2.51984, 248, 206, 2.51984, 143.631, -2.51984, -143.631, -15, -48, -269.623, 0, 269.623, 0, 256, -314)
 }
-point_count = 6
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_tteih"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -114, 33, 0, 0, 0, 0, -133, -440, 0, 0, 0, 0, 100, -445, 0, 0, 0, 0, 86, 38, 0, 0, 0, 0, -114, 33)
+}
+point_count = 5
 
 [node name="Level" type="Node2D"]
 
@@ -51,5 +57,9 @@ tile_set = SubResource("TileSet_r1dbd")
 
 [node name="platform" parent="." instance=ExtResource("5_vpwjr")]
 position = Vector2(2948, 453)
-scale = Vector2(1, 1)
-curve = SubResource("Curve2D_sr0ws")
+curve = SubResource("Curve2D_5oh4b")
+
+[node name="otherplatform" parent="." instance=ExtResource("5_vpwjr")]
+position = Vector2(3782, 602)
+curve = SubResource("Curve2D_tteih")
+speed = 200
