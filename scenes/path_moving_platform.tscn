@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhj35qgxqpkna"]
 
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="1_8vkfn"]
-[ext_resource type="Script" path="res://scripts/moving_platform_path.gd" id="1_kxrev"]
+[ext_resource type="Script" path="res://scripts/path_moving_platform.gd" id="1_kxrev"]
 
 [sub_resource type="Curve2D" id="Curve2D_uwdly"]
 
