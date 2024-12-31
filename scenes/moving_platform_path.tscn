@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhj35qgxqpkna"]
+[gd_scene load_steps=7 format=3 uid="uid://dhj35qgxqpkna"]
 
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="1_8vkfn"]
 [ext_resource type="Script" path="res://scripts/moving_platform_path.gd" id="1_kxrev"]
+
+[sub_resource type="Curve2D" id="Curve2D_uwdly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2sqx"]
 texture = ExtResource("1_8vkfn")
@@ -17,8 +19,15 @@ sources/0 = SubResource("TileSetAtlasSource_i2sqx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(124, 59)
 
-[node name="MovingPlatformPath" type="Node2D"]
+[node name="MovingPlatformPath" type="Path2D"]
+curve = SubResource("Curve2D_uwdly")
 script = ExtResource("1_kxrev")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 collision_mask = 7
@@ -28,6 +37,5 @@ tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 tile_set = SubResource("TileSet_j45mj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-visible = false
 position = Vector2(0, 31)
 shape = SubResource("RectangleShape2D_pn0ws")
