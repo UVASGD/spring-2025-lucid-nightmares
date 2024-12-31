@@ -18,7 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if is_selected:
+	if is_selected and not burnedOut:
 		incrementBurnout()
 		# calculate direction to go
 		var x = Input.get_axis("TelekineticLeft", "TelekineticRight")

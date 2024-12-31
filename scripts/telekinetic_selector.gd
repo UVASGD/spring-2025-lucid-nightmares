@@ -24,7 +24,7 @@ func _on_telekinetic_area_body_entered(body: Node2D) -> void:
 	# add all objects, even if disabled
 	if parent is TelekineticObject:
 		queue.append(body)
-		if queue.size() == 1:
+		if queue.size() == 1 and parent.is_enabled:
 			parent.set_selected(true)
 			selected_body = body
 
