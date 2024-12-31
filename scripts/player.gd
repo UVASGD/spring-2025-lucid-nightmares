@@ -36,10 +36,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func capSpeed(speed: float, max: float) -> float:
-	if abs(speed) < abs(max):
+func capSpeed(speed: float, maximum: float) -> float:
+	if abs(speed) < abs(maximum):
 		return speed
 	else:
 		if speed < 0:
-			return -max
-		return max
+			return -maximum
+		return maximum
