@@ -17,7 +17,7 @@ sources/0 = SubResource("TileSetAtlasSource_i2sqx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(124, 59)
 
-[node name="MovingPlatformTween" type="Node2D"]
+[node name="TweenMovingPlatform" type="Node2D"]
 script = ExtResource("1_xwv7p")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]

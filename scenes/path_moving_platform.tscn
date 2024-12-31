@@ -19,7 +19,7 @@ sources/0 = SubResource("TileSetAtlasSource_i2sqx")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(124, 59)
 
-[node name="MovingPlatformPath" type="Path2D"]
+[node name="PathMovingPlatform" type="Path2D"]
 curve = SubResource("Curve2D_uwdly")
 script = ExtResource("1_kxrev")
 
