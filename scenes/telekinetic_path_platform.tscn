@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://buc8o5r408v7d"]
+[gd_scene load_steps=6 format=3 uid="uid://buc8o5r408v7d"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_th1uv"]
 [ext_resource type="Texture2D" uid="uid://cayxr0ikh7c6i" path="res://assets/pinkplatform.png" id="2_neobf"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_76vt5"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_bnu63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(124, 59)
@@ -26,8 +27,10 @@ texture = ExtResource("2_neobf")
 shape = SubResource("RectangleShape2D_pn0ws")
 
 [node name="Marker" parent="AnimatableBody2D" instance=ExtResource("3_76vt5")]
-visible = false
 offset_left = -84.0
 offset_top = -43.0
 offset_right = 83.0
 offset_bottom = 45.0
+
+[node name="TelekineticController" parent="AnimatableBody2D" node_paths=PackedStringArray("marker") instance=ExtResource("4_bnu63")]
+marker = NodePath("../Marker")

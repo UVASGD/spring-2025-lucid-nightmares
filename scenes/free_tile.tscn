@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5fwpb217arma"]
+[gd_scene load_steps=12 format=3 uid="uid://c5fwpb217arma"]
 
 [ext_resource type="Script" path="res://scripts/free_tile.gd" id="1_lnyvo"]
 [ext_resource type="Texture2D" uid="uid://d032m0wuulela" path="res://assets/pinktile.png" id="2_j04nl"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_cd43f"]
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="3_ehphe"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="5_wo3rm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aw52p"]
 animations = [{
@@ -24,6 +25,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_pt8w3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_7oswh"]
 resource_name = "shake"
 loop_mode = 1
@@ -40,21 +56,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(4, -4), Vector2(-4, 4), Vector2(4, 5), Vector2(-4, -5), Vector2(5, 7), Vector2(-5, 5), Vector2(5, -6), Vector2(-4, -4)]
 }
 
-[sub_resource type="Animation" id="Animation_pt8w3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2skqb"]
 _data = {
 "RESET": SubResource("Animation_pt8w3"),
@@ -67,42 +68,41 @@ size = Vector2(63.5, 63.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om7pb"]
 size = Vector2(64, 9)
 
-[node name="FreeTile" type="Node2D"]
+[node name="FreeTile" type="CharacterBody2D"]
 script = ExtResource("1_lnyvo")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aw52p")
 animation = &"ActiveTile"
 
-[node name="Marker" parent="CharacterBody2D" instance=ExtResource("3_cd43f")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_2skqb")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -31.5)
+shape = SubResource("RectangleShape2D_om7pb")
+debug_color = Color(0.881508, 0.27925, 0.488499, 0.42)
+
+[node name="Marker" parent="." instance=ExtResource("3_cd43f")]
 visible = false
 offset_left = -53.0
 offset_top = -48.0
 offset_right = 50.0
 offset_bottom = 48.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
-root_node = NodePath("../AnimatedSprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_2skqb")
-}
+[node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("5_wo3rm")]
+marker = NodePath("../Marker")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(0.25, 0.25)
-shape = SubResource("RectangleShape2D_pn0ws")
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(0, -31.5)
-shape = SubResource("RectangleShape2D_om7pb")
-debug_color = Color(0.881508, 0.27925, 0.488499, 0.42)
-
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

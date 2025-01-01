@@ -1,7 +1,8 @@
-extends TelekineticObject
+extends Path2D
 
 @onready var animBody = $AnimatableBody2D
 @onready var marker = $AnimatableBody2D/Marker
+@onready var teleController = $AnimatableBody2D/TelekineticController
 
 # to set up:
 # instantiate this scene
@@ -17,13 +18,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if is_selected:
+	if teleController.is_selected:
 		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
 		pathFollow.progress += speed * delta * direction
-
-func set_selected(boo: bool):
-	is_selected = boo
-	if boo:
-		marker.visible = true
-	else:
-		marker.visible = false
