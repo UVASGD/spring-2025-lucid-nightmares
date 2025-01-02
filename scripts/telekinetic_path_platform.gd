@@ -3,6 +3,7 @@ extends Path2D
 @onready var animBody = $AnimatableBody2D
 @onready var marker = $AnimatableBody2D/Marker
 @onready var teleController: TelekineticController = $AnimatableBody2D/TelekineticController
+@onready var line: Line2D = $Line2D
 
 # to set up:
 # instantiate this scene
@@ -14,6 +15,9 @@ extends Path2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pathFollow.loop = loop
+	if curve:
+		var points = curve.get_baked_points()
+		line.points = points
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

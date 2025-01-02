@@ -9,6 +9,10 @@ size = Vector2(124, 59)
 [node name="PathMovingPlatform" type="Path2D"]
 script = ExtResource("1_kxrev")
 
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.67416, 0.66412, 0.662779, 1)
+
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotates = false
 
