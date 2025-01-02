@@ -11,6 +11,8 @@ extends Path2D
 @onready var pathFollow: PathFollow2D = $PathFollow2D
 @export var speed = 100
 @export var loop = false
+@export var returnToOriginalLocation: bool = false
+@export var returnToOriginalLocationSpeed: int = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,3 +27,8 @@ func _physics_process(delta: float) -> void:
 	if teleController.is_selected:
 		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
 		pathFollow.progress += speed * delta * direction
+	elif returnToOriginalLocation and pathFollow.progress != 0:
+		print("returning")
+		pathFollow.loop = false
+		pathFollow.progress -= returnToOriginalLocationSpeed * delta
+		pathFollow.loop = loop

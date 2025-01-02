@@ -81,6 +81,7 @@ duration = 8.0
 [node name="IntroPlatform" parent="." instance=ExtResource("6_tvw0b")]
 position = Vector2(748, 51)
 curve = SubResource("Curve2D_ogkqw")
+returnToOriginalLocation = true
 
 [node name="ExitPlatform" parent="." instance=ExtResource("6_tvw0b")]
 curve = SubResource("Curve2D_e67mj")
@@ -89,6 +90,7 @@ speed = 300
 [node name="BottomPlatform" parent="." instance=ExtResource("6_tvw0b")]
 curve = SubResource("Curve2D_gt3ih")
 speed = 500
+returnToOriginalLocation = true
 
 [node name="HighPlatform" parent="." instance=ExtResource("6_tvw0b")]
 curve = SubResource("Curve2D_fd63g")
