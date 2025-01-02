@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		elif is_on_floor() or velocity.is_zero_approx():
 			if burnedOut:
 				recover()
+			else:
+				animationPlayer.stop()
 	move_and_slide()
 
 func incrementBurnout():
