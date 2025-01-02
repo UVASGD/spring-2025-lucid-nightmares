@@ -13,6 +13,10 @@ var burnedOut = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	teleController.addControl("Left Arrow", "Move tile left")
+	teleController.addControl("Right Arrow", "Move tile right")
+	teleController.addControl("Down Arrow", "Move tile down")
+	teleController.addControl("Up Arrow", "Move tile up")
 	sprite.play("ActiveTile")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

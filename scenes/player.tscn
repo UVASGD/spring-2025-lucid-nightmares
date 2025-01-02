@@ -55,5 +55,13 @@ position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
+[node name="TelekineticControlLabel" type="Label" parent="."]
+offset_left = 465.0
+offset_top = -375.0
+offset_right = 670.0
+offset_bottom = -352.0
+horizontal_alignment = 2
+autowrap_mode = 3
+
 [connection signal="body_entered" from="Camera2D/TelekineticArea" to="Camera2D" method="_on_telekinetic_area_body_entered"]
 [connection signal="body_exited" from="Camera2D/TelekineticArea" to="Camera2D" method="_on_telekinetic_area_body_exited"]

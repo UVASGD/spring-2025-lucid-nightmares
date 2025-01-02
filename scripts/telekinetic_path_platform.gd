@@ -16,6 +16,8 @@ extends Path2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	teleController.addControl("Right Arrow", "Move platform along rail")
+	teleController.addControl("Left Arrow", "Move platform backwards along rail")
 	pathFollow.loop = loop
 	if curve:
 		var points = curve.get_baked_points()

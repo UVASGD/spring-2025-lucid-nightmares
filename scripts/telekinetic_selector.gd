@@ -1,13 +1,14 @@
 extends Camera2D
 
 @onready var area: Area2D = $TelekineticArea
+@onready var controlLabel: Label = $"../TelekineticControlLabel"
 
 # Handles selecting telekinetic objects that are in the camera view.
 # To be recognized, a body that comes into frame 
 # must have a TelekineticController object as a direct child.
 
 var queue: Array = []
-var selected_node: Node2D = null
+var selected_node: TelekineticController = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,8 +30,7 @@ func _on_telekinetic_area_body_entered(body: Node2D) -> void:
 		insertNewNode(teleNode)
 		# automatically select this object if it's the only one in the queue
 		if queue.size() == 1 and teleNode.is_enabled:
-			teleNode.set_selected(true)
-			selected_node = teleNode
+			selectNewNode(teleNode)
 
 func _on_telekinetic_area_body_exited(body: Node2D) -> void:
 	# should instead store mappings of bodies to telekinetic nodes - later though
@@ -58,9 +58,18 @@ func cycleQueue(backwards: bool):
 	if index == enabledQueue.size(): index = 0
 	if index == -1: index = enabledQueue.size() - 1
 	
-	selected_node = enabledQueue[index]
-	selected_node.set_selected(true)
+	selectNewNode(enabledQueue[index])
 	
+func deselectSelectedNode():
+	selected_node.set_selected(false)
+	selected_node = null
+	controlLabel.text = ""
+	
+func selectNewNode(node: TelekineticController):
+	selected_node = node
+	selected_node.set_selected(true)
+	controlLabel.text = selected_node.parseControlMap()
+
 func insertNewNode(node: TelekineticController):
 	# insert into the correct sorted location
 	var body = node.get_parent()
@@ -73,6 +82,7 @@ func insertNewNode(node: TelekineticController):
 func removeNode(node: TelekineticController):
 	var index = queue.find(node)
 	if index != -1: queue.remove_at(index)
+	if node == selected_node: deselectSelectedNode()
 	
 func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticController):
 	var body1 = node1.get_parent()
