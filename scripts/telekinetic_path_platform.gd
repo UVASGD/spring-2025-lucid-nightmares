@@ -2,7 +2,7 @@ extends Path2D
 
 @onready var animBody = $AnimatableBody2D
 @onready var marker = $AnimatableBody2D/Marker
-@onready var teleController = $AnimatableBody2D/TelekineticController
+@onready var teleController: TelekineticController = $AnimatableBody2D/TelekineticController
 
 # to set up:
 # instantiate this scene

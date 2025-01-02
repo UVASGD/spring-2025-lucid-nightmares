@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
-@onready var teleController: TelekineticObject = $TelekineticController
+@onready var teleController: TelekineticController = $TelekineticController
 
 var maxSpeed = 300
 var friction = 50

@@ -2,7 +2,10 @@ extends Camera2D
 
 @onready var area: Area2D = $TelekineticArea
 
-# Queue of 2D bodies
+# Handles selecting telekinetic objects that are in the camera view.
+# To be recognized, a body that comes into frame 
+# must have a TelekineticController object as a direct child.
+
 var queue: Array = []
 var selected_node: Node2D = null
 
@@ -20,26 +23,18 @@ func _process(delta: float) -> void:
 		
 
 func _on_telekinetic_area_body_entered(body: Node2D) -> void:
-	var teleNode = null
-	for node in body.get_children():
-		if node is TelekineticObject:
-			teleNode = node
-			break
+	var teleNode = getTelekineticNodeFromBody(body)
 	# add all objects, even if disabled
 	if teleNode != null:
 		insertNewNode(teleNode)
+		# automatically select this object if it's the only one in the queue
 		if queue.size() == 1 and teleNode.is_enabled:
 			teleNode.set_selected(true)
 			selected_node = teleNode
 
 func _on_telekinetic_area_body_exited(body: Node2D) -> void:
 	# should instead store mappings of bodies to telekinetic nodes - later though
-	var teleNode = null
-	for node in body.get_children():
-		if node is TelekineticObject:
-			teleNode = node
-			break
-
+	var teleNode = getTelekineticNodeFromBody(body)
 	if teleNode != null:
 		teleNode.set_selected(false)
 		removeNode(teleNode)
@@ -50,6 +45,7 @@ func cycleQueue(backwards: bool):
 	
 	enabledQueue.sort_custom(sortByXGlobalPosition)
 	
+	# find the currently selected node and select the node that's next in line
 	var index = enabledQueue.find(selected_node)
 	if index != -1:
 		selected_node.set_selected(false)
@@ -65,7 +61,7 @@ func cycleQueue(backwards: bool):
 	selected_node = enabledQueue[index]
 	selected_node.set_selected(true)
 	
-func insertNewNode(node: TelekineticObject):
+func insertNewNode(node: TelekineticController):
 	# insert into the correct sorted location
 	var body = node.get_parent()
 	for i in range(queue.size()):
@@ -74,14 +70,21 @@ func insertNewNode(node: TelekineticObject):
 			return
 	queue.append(node)
 
-func removeNode(node: TelekineticObject):
+func removeNode(node: TelekineticController):
 	var index = queue.find(node)
 	if index != -1: queue.remove_at(index)
 	
-func sortByXGlobalPosition(node1: TelekineticObject, node2: TelekineticObject):
+func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticController):
 	var body1 = node1.get_parent()
 	var body2 = node2.get_parent()
 	if body1.global_position.x < body2.global_position.x:
 		return true
-	return false 
+	return false
 	
+func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
+	var teleNode = null
+	for node in body.get_children():
+		if node is TelekineticController:
+			teleNode = node
+			break 
+	return teleNode
