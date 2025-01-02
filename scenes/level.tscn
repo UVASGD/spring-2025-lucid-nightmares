@@ -105,4 +105,4 @@ curve = SubResource("Curve2D_fvt1w")
 speed = 200
 
 [node name="Player" parent="." instance=ExtResource("1_x2e8k")]
-position = Vector2(3329, 695)
+position = Vector2(207, 478)

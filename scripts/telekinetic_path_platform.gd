@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
 		pathFollow.progress += speed * delta * direction
 	elif returnToOriginalLocation and pathFollow.progress != 0:
-		print("returning")
 		pathFollow.loop = false
 		pathFollow.progress -= returnToOriginalLocationSpeed * delta
 		pathFollow.loop = loop
