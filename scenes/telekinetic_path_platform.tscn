@@ -27,6 +27,7 @@ texture = ExtResource("2_neobf")
 shape = SubResource("RectangleShape2D_pn0ws")
 
 [node name="Marker" parent="AnimatableBody2D" instance=ExtResource("3_76vt5")]
+visible = false
 offset_left = -84.0
 offset_top = -43.0
 offset_right = 83.0
