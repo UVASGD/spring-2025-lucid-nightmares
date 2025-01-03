@@ -1,4 +1,5 @@
 extends Camera2D
+class_name TelekineticSelector
 
 @onready var area: Area2D = $TelekineticArea
 @onready var controlLabel: Label = $"../TelekineticControlLabel"
@@ -91,7 +92,7 @@ func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticContr
 		return true
 	return false
 	
-func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
+static func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
 	var teleNode = null
 	for node in body.get_children():
 		if node is TelekineticController:

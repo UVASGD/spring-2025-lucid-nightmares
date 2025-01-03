@@ -5,6 +5,8 @@ var is_selected: bool = false
 @export var is_enabled: bool = true
 @export var marker: Control = null
 var controlMap: Dictionary = {}
+# Vector2 is a primitive type. If you don't want the parent body to respawn, set this to Vector2.ZERO
+var respawnLocation = Vector2.ZERO
 
 func set_enabled(boo: bool):
 	is_enabled = boo
