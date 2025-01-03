@@ -19,3 +19,4 @@ func _on_body_entered(body: Node2D) -> void:
 	var controller = TelekineticSelector.getTelekineticNodeFromBody(body)
 	if controller and controller.respawnLocation != Vector2.ZERO:
 		body.position = controller.respawnLocation
+		if body is CharacterBody2D: body.velocity = Vector2.ZERO
