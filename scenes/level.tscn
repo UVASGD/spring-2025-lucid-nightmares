@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=18 format=4 uid="uid://biampqlhctoid"]
 
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
 [ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="5_4mhca"]
 [ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="6_tvw0b"]
 [ext_resource type="PackedScene" uid="uid://dhj35qgxqpkna" path="res://scenes/path_moving_platform.tscn" id="6_u6i5u"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="7_a1qtt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"
@@ -66,7 +67,13 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a10bm"]
+size = Vector2(8166, 65.5)
+
 [node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_x2e8k")]
+position = Vector2(207, 478)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)
@@ -104,5 +111,9 @@ speed = 150
 curve = SubResource("Curve2D_fvt1w")
 speed = 200
 
-[node name="Player" parent="." instance=ExtResource("1_x2e8k")]
-position = Vector2(207, 478)
+[node name="Deathzone" parent="." instance=ExtResource("7_a1qtt")]
+position = Vector2(748, 794)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(1375, 399)
+shape = SubResource("RectangleShape2D_a10bm")
