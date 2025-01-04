@@ -9,8 +9,8 @@ extends Path2D
 # instantiate this scene
 # define a Curve2D in the inspector of the scene node
 @onready var pathFollow: PathFollow2D = $PathFollow2D
-@export var speed = 100
-@export var loop = false
+@export var speed: int = 100
+@export var loop: bool = false
 @export var returnToOriginalLocation: bool = false
 @export var returnToOriginalLocationSpeed: int = 50
 
@@ -20,14 +20,14 @@ func _ready() -> void:
 	teleController.addControl("Left Arrow", "Move platform backwards along rail")
 	pathFollow.loop = loop
 	if curve:
-		var points = curve.get_baked_points()
+		var points: PackedVector2Array = curve.get_baked_points()
 		line.points = points
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if teleController.is_selected:
-		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
+		var direction: float = Input.get_axis("TelekineticLeft", "TelekineticRight")
 		pathFollow.progress += speed * delta * direction
 	elif returnToOriginalLocation and pathFollow.progress != 0:
 		pathFollow.loop = false

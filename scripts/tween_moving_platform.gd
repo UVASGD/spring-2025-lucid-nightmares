@@ -11,14 +11,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func tween():
-	var tween: Tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	tween.set_loops().set_parallel(false)
-	tween.tween_property(animBody, "position", offset, duration / 2)
-	tween.tween_property(animBody, "position", offset, pauseTime)
-	tween.tween_property(animBody, "position", Vector2.ZERO, duration / 2)
-	tween.tween_property(animBody, "position", Vector2.ZERO, pauseTime)
+	var tweenPlatform: Tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	tweenPlatform.set_loops().set_parallel(false)
+	tweenPlatform.tween_property(animBody, "position", offset, duration / 2)
+	tweenPlatform.tween_property(animBody, "position", offset, pauseTime)
+	tweenPlatform.tween_property(animBody, "position", Vector2.ZERO, duration / 2)
+	tweenPlatform.tween_property(animBody, "position", Vector2.ZERO, pauseTime)
 	

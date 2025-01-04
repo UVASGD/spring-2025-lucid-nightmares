@@ -25,7 +25,7 @@ func addControl(key: String, action: String):
 	controlMap[key] = action
 	
 func parseControlMap() -> String:
-	var str = ""
+	var string = ""
 	for key in controlMap:
-		str += key + ": " + controlMap[key] + "\n"
-	return str
+		string += key + ": " + controlMap[key] + "\n"
+	return string

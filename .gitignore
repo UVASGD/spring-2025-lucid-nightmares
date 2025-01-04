@@ -59,5 +59,6 @@ sysinfo.txt
 crashlytics-build.properties
 # Godot 4+ specific ignores
 .godot/
+.idea/
 /android/
 /addons/
