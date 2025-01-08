@@ -10,6 +10,7 @@ var friction = 50
 var framesStoodOn = 0
 var playerStandingOn = false
 var burnedOut = false
+var INERTIA = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,6 +39,11 @@ func _physics_process(delta: float) -> void:
 			else:
 				animationPlayer.stop()
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision: KinematicCollision2D = get_slide_collision(i)
+		if collision.get_collider() is RigidBody2D:
+			var body: RigidBody2D = collision.get_collider()
+			body.apply_central_impulse(-collision.get_normal() * INERTIA)
 
 func incrementBurnout():
 	if burnedOut: return
