@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://m7jaqa3msxgu"]
+
+[ext_resource type="Script" path="res://scripts/spring.gd" id="1_wlgta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bdnh"]
+size = Vector2(72, 10)
+
+[node name="Spring" type="Area2D"]
+collision_mask = 21
+script = ExtResource("1_wlgta")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -10.0
+offset_right = 36.0
+color = Color(0.572988, 0.572988, 0.572988, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_5bdnh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
