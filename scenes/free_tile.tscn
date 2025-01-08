@@ -69,6 +69,7 @@ size = Vector2(63.5, 63.5)
 size = Vector2(64, 9)
 
 [node name="FreeTile" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_lnyvo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
