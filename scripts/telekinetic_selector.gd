@@ -1,8 +1,8 @@
-extends Camera2D
+extends Area2D
 class_name TelekineticSelector
 
 @onready var area: Area2D = $TelekineticArea
-@onready var controlLabel: Label = $"../TelekineticControlLabel"
+@onready var controlLabel: Label = $"../../TelekineticControlLabel"
 
 # Handles selecting telekinetic objects that are in the camera view.
 # To be recognized, a body that comes into frame 
