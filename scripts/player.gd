@@ -9,6 +9,12 @@ const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 10.0
 const JUMP_VELOCITY = -400.0
 
+@export var camera: Camera2D = null
+@onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
+
+func _ready() -> void:
+	if camera != null:
+		remoteTransform.remote_path = camera.get_path()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
