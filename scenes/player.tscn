@@ -41,3 +41,6 @@ shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[connection signal="area_entered" from="StandingArea" to="." method="_on_enter_camera_override_area"]
+[connection signal="area_exited" from="StandingArea" to="." method="_on_exit_camera_override_area"]

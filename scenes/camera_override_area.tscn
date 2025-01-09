@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://4nyrjdn4pkp3"]
+
+[ext_resource type="Script" path="res://scripts/camera_override_area.gd" id="1_ml2fw"]
+
+[node name="CameraOverrideArea" type="Area2D"]
+script = ExtResource("1_ml2fw")
+zoom = Vector2(0.7, 0.7)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

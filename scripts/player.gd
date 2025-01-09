@@ -9,7 +9,7 @@ const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 10.0
 const JUMP_VELOCITY = -400.0
 
-@export var camera: Camera2D = null
+@export var camera: CustomCamera = null
 @onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
 
 func _ready() -> void:
@@ -49,3 +49,17 @@ func capSpeed(speed: float, maximum: float) -> float:
 		if speed < 0:
 			return -maximum
 		return maximum
+		
+# This is currently connected to the standing area node and should be connected to another Area2D in the future
+func _on_enter_camera_override_area(area: Area2D) -> void:
+	if area is not CameraOverrideArea: return
+	var cameraArea: CameraOverrideArea = area
+	remoteTransform.remote_path = ""
+	camera.cameraOverride(cameraArea.getZoom(), cameraArea.getCenter())
+	
+# Does not account for the player being inside multiple override areas
+func _on_exit_camera_override_area(area: Area2D) -> void:
+	if area is not CameraOverrideArea: return
+	var cameraArea: CameraOverrideArea = area
+	remoteTransform.remote_path = camera.get_path()
+	camera.resetOverride()
