@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ko5ephyjr58k"]
+
+[ext_resource type="Texture2D" uid="uid://dj5lmh776yg6n" path="res://assets/lectern.png" id="1_xh4j5"]
+[ext_resource type="Texture2D" uid="uid://d4vnkcckuah6" path="res://assets/lecternwithbook.png" id="2_xbxy4"]
+[ext_resource type="Script" path="res://scripts/lectern.gd" id="3_71gwy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kadjp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xh4j5")
+}],
+"loop": true,
+"name": &"lectern",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xbxy4")
+}],
+"loop": true,
+"name": &"lecternwithbook",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtpql"]
+size = Vector2(31, 66)
+
+[node name="Lectern" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kadjp")
+animation = &"lecternwithbook"
+script = ExtResource("3_71gwy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_vtpql")
