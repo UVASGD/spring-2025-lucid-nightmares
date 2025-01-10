@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/telekinetic_controller.gd" id="1_2w034"]
 
-[node name="TelekineticController" type="Node2D"]
+[node name="TelekineticController" type="Node2D" groups=["TelekineticControllers"]]
 script = ExtResource("1_2w034")

@@ -8,6 +8,10 @@ var controlMap: Dictionary = {}
 # Vector2 is a primitive type. If you don't want the parent body to respawn, set this to Vector2.ZERO
 var respawnLocation = Vector2.ZERO
 
+func _ready() -> void:
+	add_to_group("TelekineticControllers")
+	
+
 func set_enabled(boo: bool):
 	is_enabled = boo
 	# todo - fire signals that parent nodes can connect to here
