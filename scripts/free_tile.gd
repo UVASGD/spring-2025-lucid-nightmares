@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var teleController: TelekineticController = $TelekineticController
 
@@ -19,7 +19,6 @@ func _ready() -> void:
 	teleController.addControl("Right Arrow", "Move tile right")
 	teleController.addControl("Down Arrow", "Move tile down")
 	teleController.addControl("Up Arrow", "Move tile up")
-	sprite.play("ActiveTile")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -62,13 +61,13 @@ func triggerBurnout():
 	burnedOut = true
 	teleController.set_selected(false)
 	teleController.set_enabled(false)
-	sprite.play("InactiveTile")
+	sprite.modulate = Color("ffffff")
 	
 func recover():
 	teleController.set_enabled(true)
 	burnedOut = false
 	velocity = Vector2.ZERO
-	sprite.play("ActiveTile")
+	sprite.modulate = TelekineticController.spriteModulationColor
 	animationPlayer.stop()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -78,3 +77,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.name == Player.floor_area_name:
 		playerStandingOn = false
+
+
+func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
+	if is_enabled:
+		sprite.modulate = TelekineticController.spriteModulationColor
+	else:
+		sprite.modulate = Color("ffffff")
