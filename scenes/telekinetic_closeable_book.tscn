@@ -1,27 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxlcv4g7nhj3k"]
+[gd_scene load_steps=10 format=3 uid="uid://bxlcv4g7nhj3k"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_closeable_book.gd" id="1_c52s2"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="1_pl4ui"]
+[ext_resource type="Texture2D" uid="uid://u0gepseeu0yd" path="res://assets/bookside2.png" id="2_3j4ws"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="2_p0q6k"]
+[ext_resource type="Texture2D" uid="uid://bcc3jxmygoadc" path="res://assets/bookside1.png" id="3_vdqkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcg1"]
-size = Vector2(207, 34)
-
-[sub_resource type="Animation" id="Animation_tysmc"]
-resource_name = "fling"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatableBody2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 4),
-"transitions": PackedFloat32Array(1.55, 1, 1),
-"update": 0,
-"values": [0.0, 3.10669, 0.0]
-}
+size = Vector2(191.5, 32)
 
 [sub_resource type="Animation" id="Animation_rblm2"]
 length = 0.001
@@ -38,6 +24,22 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_tysmc"]
+resource_name = "fling"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 4),
+"transitions": PackedFloat32Array(1.55, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 3.14159, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_27gbe"]
 _data = {
 "RESET": SubResource("Animation_rblm2"),
@@ -49,29 +51,30 @@ script = ExtResource("1_c52s2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(104, 17)
-shape = SubResource("RectangleShape2D_1vcg1")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(96, 16)
+texture = ExtResource("2_3j4ws")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_right = 207.0
-offset_bottom = 34.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(96.25, 16)
+shape = SubResource("RectangleShape2D_1vcg1")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 constant_angular_velocity = 0.174533
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(-103.5, 17)
-shape = SubResource("RectangleShape2D_1vcg1")
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-96, 16)
+texture = ExtResource("3_vdqkl")
 
-[node name="ColorRect" type="ColorRect" parent="AnimatableBody2D"]
-offset_left = -206.0
-offset_bottom = 33.0
-color = Color(1, 0.4, 1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
+position = Vector2(-96, 16)
+shape = SubResource("RectangleShape2D_1vcg1")
 
 [node name="Marker" parent="AnimatableBody2D" instance=ExtResource("1_pl4ui")]
 visible = false
-offset_left = -223.0
+offset_left = -203.0
 offset_top = -14.0
 offset_right = 16.0
 offset_bottom = 44.0
@@ -83,3 +86,5 @@ marker = NodePath("../Marker")
 libraries = {
 "": SubResource("AnimationLibrary_27gbe")
 }
+
+[connection signal="on_set_enabled" from="AnimatableBody2D/TelekineticController" to="." method="_on_telekinetic_controller_on_set_enabled"]
