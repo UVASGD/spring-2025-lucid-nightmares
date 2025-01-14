@@ -18,9 +18,10 @@ func _process(delta: float) -> void:
 		
 
 func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
-	if is_enabled:
-		spriteLeft.modulate = TelekineticController.spriteModulationColor
-		spriteRight.modulate = TelekineticController.spriteModulationColor
-	else:
-		spriteLeft.modulate = Color("ffffff")
-		spriteRight.modulate = Color("ffffff")
+	pass
+	#if is_enabled:
+		#spriteLeft.modulate = TelekineticController.spriteModulationColor
+		#spriteRight.modulate = TelekineticController.spriteModulationColor
+	#else:
+		#spriteLeft.modulate = Color("ffffff")
+		#spriteRight.modulate = Color("ffffff")
