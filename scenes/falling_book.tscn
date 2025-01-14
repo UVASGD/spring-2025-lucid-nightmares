@@ -1,6 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf1daeyvukrkg"]
+[gd_scene load_steps=9 format=3 uid="uid://bf1daeyvukrkg"]
 
-[ext_resource type="Texture2D" uid="uid://bebo2mt5atq0s" path="res://assets/bookvertical.png" id="1_id2sr"]
+[ext_resource type="Texture2D" uid="uid://dfbkqi2kpxf8n" path="res://assets/rigidbook/black.png" id="1_mu17s"]
+[ext_resource type="Script" path="res://scripts/falling_book.gd" id="1_of8i5"]
+[ext_resource type="Texture2D" uid="uid://b0atx3abwgj3j" path="res://assets/rigidbook/brown.png" id="2_4smn1"]
+[ext_resource type="Texture2D" uid="uid://cj00p01omfrgr" path="res://assets/rigidbook/green.png" id="3_18e4l"]
+[ext_resource type="Texture2D" uid="uid://ue4ygvod3o05" path="res://assets/rigidbook/purple.png" id="4_n48k4"]
+[ext_resource type="Texture2D" uid="uid://b6pt0ia8y4yw" path="res://assets/rigidbook/red.png" id="5_ewfvq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mu17s")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4smn1")
+}],
+"loop": true,
+"name": &"brown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_18e4l")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n48k4")
+}],
+"loop": true,
+"name": &"purple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ewfvq")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3m0s"]
 radius = 37.0
@@ -9,9 +57,11 @@ height = 222.0
 [node name="FallingBook" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 23
+script = ExtResource("1_of8i5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_id2sr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybm7g")
+animation = &"brown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_j3m0s")
