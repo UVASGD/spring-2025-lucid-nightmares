@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwsep6ctbelnx"]
 
-[ext_resource type="Texture2D" uid="uid://l0mhg2ps5qxu" path="res://assets/book.png" id="1_0ngja"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_srlfy"]
+[ext_resource type="Texture2D" uid="uid://dct1emervvel0" path="res://assets/player/player.png" id="2_cytlb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4n1jq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0ngja")
+"texture": ExtResource("2_cytlb")
 }],
 "loop": true,
 "name": &"default",
@@ -15,8 +15,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa6ih"]
-radius = 32.0
-height = 64.0
+radius = 27.0
+height = 66.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4lao"]
 size = Vector2(34, 6)
@@ -27,16 +27,18 @@ collision_mask = 23
 script = ExtResource("1_srlfy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4n1jq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_oa6ih")
 
 [node name="StandingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
-position = Vector2(0, 28)
+position = Vector2(2, 28)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
