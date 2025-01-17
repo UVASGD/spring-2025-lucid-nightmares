@@ -11,6 +11,7 @@ const JUMP_VELOCITY = -400.0
 
 @export var camera: CustomCamera = null
 @onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
+@onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	if camera != null:
@@ -40,6 +41,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, AIR_FRICTION)
 	move_and_slide()
+	
+	if direction:
+		animSprite.play("walk")
+		if direction < 0:
+			animSprite.flip_h = true
+		else:
+			animSprite.flip_h = false
+	else:
+		animSprite.play("idle")
 
 
 func capSpeed(speed: float, maximum: float) -> float:

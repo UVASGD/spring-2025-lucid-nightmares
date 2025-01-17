@@ -1,17 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwsep6ctbelnx"]
+[gd_scene load_steps=14 format=3 uid="uid://cwsep6ctbelnx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_srlfy"]
-[ext_resource type="Texture2D" uid="uid://dct1emervvel0" path="res://assets/player/player.png" id="2_cytlb"]
+[ext_resource type="Texture2D" uid="uid://bsx8mgluau0cn" path="res://assets/player/idle.png" id="2_bst6x"]
+[ext_resource type="Texture2D" uid="uid://bacpftktg7kun" path="res://assets/player/walk1.png" id="3_2hk6m"]
+[ext_resource type="Texture2D" uid="uid://bw82ofnksohq" path="res://assets/player/walk2.png" id="4_jv3mj"]
+[ext_resource type="Texture2D" uid="uid://mogquqogxrya" path="res://assets/player/walk3.png" id="5_l1dqq"]
+[ext_resource type="Texture2D" uid="uid://or5hyy7s3ynu" path="res://assets/player/walk4.png" id="6_tcc3f"]
+[ext_resource type="Texture2D" uid="uid://cy4x18q6yw3h" path="res://assets/player/walk5.png" id="7_qygo2"]
+[ext_resource type="Texture2D" uid="uid://da78x58njviyb" path="res://assets/player/walk6.png" id="8_66u5p"]
+[ext_resource type="Texture2D" uid="uid://cin6oia37mhrp" path="res://assets/player/walk7.png" id="9_uk1gw"]
+[ext_resource type="Texture2D" uid="uid://cyly61w3u30yq" path="res://assets/player/walk8.png" id="10_ksv7l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4n1jq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cytlb")
+"texture": ExtResource("2_bst6x")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hk6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jv3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l1dqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tcc3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qygo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_66u5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uk1gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ksv7l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa6ih"]
@@ -30,15 +67,16 @@ script = ExtResource("1_srlfy")
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4n1jq")
+animation = &"walk"
+frame_progress = 0.395236
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_oa6ih")
 
 [node name="StandingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
-position = Vector2(2, 28)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
