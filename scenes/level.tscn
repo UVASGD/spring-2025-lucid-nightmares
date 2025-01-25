@@ -1,25 +1,14 @@
-[gd_scene load_steps=23 format=4 uid="uid://biampqlhctoid"]
+[gd_scene load_steps=21 format=4 uid="uid://biampqlhctoid"]
 
-[ext_resource type="Texture2D" uid="uid://5frf4iw8symj" path="res://assets/tileset/border.png" id="1_bqmyj"]
+[ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_102f0"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="1_x2e8k"]
-[ext_resource type="Texture2D" uid="uid://by3poox6dkvvr" path="res://assets/tileset/tileset.png" id="2_xsafv"]
+[ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="2_xsafv"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/free_tile.tscn" id="4_7ors7"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_ruv8g"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="5_4mhca"]
 [ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="6_tvw0b"]
 [ext_resource type="PackedScene" uid="uid://dhj35qgxqpkna" path="res://scenes/path_moving_platform.tscn" id="6_u6i5u"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="7_a1qtt"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anjwp"]
-texture = ExtResource("1_bqmyj")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-
-[sub_resource type="TileSet" id="TileSet_trlxb"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 8
-sources/1 = SubResource("TileSetAtlasSource_anjwp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"
@@ -92,9 +81,8 @@ size = Vector2(8946, 65.5)
 [node name="Level" type="Node2D"]
 
 [node name="HiddenBorder" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAAJAAQAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAP//AQAAAAAAAAAJAP7/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAPz/AQAAAAAAAAAKAPz/AQAAAAAAAAALAPz/AQAAAAAAAAAMAPz/AQAAAAAAAAANAPz/AQAAAAAAAAAOAPz/AQAAAAAAAAAPAPz/AQAAAAAAAAAQAPz/AQAAAAAAAAARAPz/AQAAAAAAAAASAPz/AQAAAAAAAAATAPz/AQAAAAAAAAATAP3/AQAAAAAAAAATAP7/AQAAAAAAAAATAP//AQAAAAAAAAATAAAAAQAAAAAAAAATAAEAAQAAAAAAAAAUAPz/AQAAAAAAAAAVAPz/AQAAAAAAAAAWAPz/AQAAAAAAAAAXAPz/AQAAAAAAAAAYAPz/AQAAAAAAAAAZAPz/AQAAAAAAAAAaAPz/AQAAAAAAAAAbAPz/AQAAAAAAAAAcAPz/AQAAAAAAAAAdAPz/AQAAAAAAAAAeAPz/AQAAAAAAAAAfAPz/AQAAAAAAAAAgAPz/AQAAAAAAAAAhAPz/AQAAAAAAAAAiAPz/AQAAAAAAAAAjAPz/AQAAAAAAAAAkAPz/AQAAAAAAAAAlAPz/AQAAAAAAAAAmAPz/AQAAAAAAAAAnAPz/AQAAAAAAAAAnAP3/AQAAAAAAAAAnAP7/AQAAAAAAAAAnAP//AQAAAAAAAAAnAAAAAQAAAAAAAAAnAAEAAQAAAAAAAABAAAEAAQAAAAAAAABAAAAAAQAAAAAAAABAAP//AQAAAAAAAABAAP7/AQAAAAAAAABAAP3/AQAAAAAAAABAAPz/AQAAAAAAAABAAPv/AQAAAAAAAABAAPr/AQAAAAAAAABAAPn/AQAAAAAAAABBAPn/AQAAAAAAAABCAPn/AQAAAAAAAABDAPn/AQAAAAAAAABEAPn/AQAAAAAAAABFAPn/AQAAAAAAAABGAPn/AQAAAAAAAABHAPn/AQAAAAAAAABIAPn/AQAAAAAAAABJAPn/AQAAAAAAAABKAPn/AQAAAAAAAABLAPn/AQAAAAAAAABMAPn/AQAAAAAAAABNAPn/AQAAAAAAAABOAPn/AQAAAAAAAABPAPn/AQAAAAAAAABQAPn/AQAAAAAAAABRAPn/AQAAAAAAAABSAPn/AQAAAAAAAABTAPn/AQAAAAAAAABUAPn/AQAAAAAAAABVAPn/AQAAAAAAAABVAPr/AQAAAAAAAABVAPz/AQAAAAAAAABVAP3/AQAAAAAAAAA=")
-tile_set = SubResource("TileSet_trlxb")
+tile_set = ExtResource("1_102f0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)
@@ -102,6 +90,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAA
 tile_set = SubResource("TileSet_r1dbd")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_ruv8g")]
+visible = false
 position = Vector2(207, 478)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_x2e8k")]
