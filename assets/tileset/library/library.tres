@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bdo83j5d75vqk"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_wnr31"]
-[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/free_tile.tscn" id="2_n37kh"]
+[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/telekinetic_free_tile.tscn" id="2_n37kh"]
 [ext_resource type="PackedScene" uid="uid://bf1daeyvukrkg" path="res://scenes/falling_book.tscn" id="3_bdhda"]
 [ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="4_e70if"]
 

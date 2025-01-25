@@ -67,8 +67,7 @@ script = ExtResource("1_srlfy")
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4n1jq")
-animation = &"walk"
-frame_progress = 0.395236
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_oa6ih")

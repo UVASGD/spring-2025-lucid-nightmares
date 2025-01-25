@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cwyad1xdvhp3y" path="res://assets/marker/bottom-left.png" id="3_pp266"]
 [ext_resource type="Texture2D" uid="uid://d1johdl5wh6xd" path="res://assets/marker/bottom-right.png" id="4_2yiqt"]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="Marker" type="ColorRect"]
 offset_right = 98.0
 offset_bottom = 88.0
 color = Color(1, 1, 1, 0)
