@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=4 uid="uid://b2tbjysoih4xw"]
+[gd_scene load_steps=32 format=4 uid="uid://b2tbjysoih4xw"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_77a8a"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_slf5w"]
+[ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="2_bkp5g"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="2_macdi"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/free_tile.tscn" id="3_7tlyo"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="3_tl2mn"]
@@ -271,6 +272,11 @@ point_count = 2
 [node name="Library1" type="Node2D"]
 script = ExtResource("1_slf5w")
 allowTelekinesis = false
+
+[node name="HiddenBorder" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AABpABcAAQAAAAAAAABpABYAAQAAAAAAAABpABUAAQAAAAAAAABpABQAAQAAAAAAAABpABMAAQAAAAAAAABpABIAAQAAAAAAAABpABEAAQAAAAAAAABpABAAAQAAAAAAAABpAA8AAQAAAAAAAAB+ABsAAQAAAAAAAAB+ABwAAQAAAAAAAACEABsAAQAAAAAAAACEABoAAQAAAAAAAACEABkAAQAAAAAAAACEABgAAQAAAAAAAACEABcAAQAAAAAAAACEABYAAQAAAAAAAACEABUAAQAAAAAAAACEABQAAQAAAAAAAACEABMAAQAAAAAAAACEABIAAQAAAAAAAACEABEAAQAAAAAAAACEABAAAQAAAAAAAACEAA4AAQAAAAAAAACDAA4AAQAAAAAAAACCAA4AAQAAAAAAAACBAA4AAQAAAAAAAACAAA4AAQAAAAAAAAB/AA4AAQAAAAAAAACEAA8AAQAAAAAAAAA=")
+tile_set = ExtResource("2_bkp5g")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.617455, 0.617455, 0.617455, 1)
