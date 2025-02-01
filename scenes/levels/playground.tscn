@@ -123,6 +123,7 @@ loop = true
 [node name="TelekineticMovingPlatform3" parent="Telekinetic Objects" instance=ExtResource("5_gqm8y")]
 curve = SubResource("Curve2D_gu7i7")
 speed = 200
+invertControls = true
 
 [node name="TelekineticCloseableBook" parent="Telekinetic Objects" instance=ExtResource("10_0e007")]
 position = Vector2(2370, -673)
