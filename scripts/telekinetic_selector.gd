@@ -18,10 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Tab"):
-		cycleQueue(true)
-	elif Input.is_action_just_pressed("Q"):
-		cycleQueue(false)
+	if Input.is_action_just_pressed("TelekineticCycleFwd"):
+		cycleQueue(DIRECTION.FORWARD)
+	elif Input.is_action_just_pressed("TelekineticCycleBck"):
+		cycleQueue(DIRECTION.BACKWARD)
 		
 
 func _on_telekinetic_area_body_entered(body: Node2D) -> void:
@@ -40,7 +40,9 @@ func _on_telekinetic_area_body_exited(body: Node2D) -> void:
 		teleNode.set_selected(false)
 		removeNode(teleNode)
 		
-func cycleQueue(backwards: bool):
+enum DIRECTION {FORWARD, BACKWARD}
+		
+func cycleQueue(direction: DIRECTION):
 	var enabledQueue: Array = queue.filter(func(node): return node.is_enabled)
 	if enabledQueue.size() == 0: return
 	
@@ -50,11 +52,15 @@ func cycleQueue(backwards: bool):
 	var index = enabledQueue.find(selected_node)
 	if index != -1:
 		selected_node.set_selected(false)
-		if backwards: index -= 1
-		else: index += 1
+		if direction == DIRECTION.BACKWARD: 
+			index -= 1
+		else: 
+			index += 1
 	else:
-		if backwards: index = enabledQueue.size() - 1
-		else: index = 0
+		if direction == DIRECTION.BACKWARD:
+			index = enabledQueue.size() - 1
+		else: 
+			index = 0
 	
 	if index == enabledQueue.size(): index = 0
 	if index == -1: index = enabledQueue.size() - 1
