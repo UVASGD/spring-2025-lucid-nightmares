@@ -13,12 +13,13 @@ const JUMP_VELOCITY = -400.0
 @onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var respawnNode: Node2D = null
+var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
 
 func _ready() -> void:
 	if camera != null:
 		remoteTransform.remote_path = camera.get_path()
+	respawnPosition = global_position
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -54,6 +55,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		animSprite.play("idle")
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ResetToCheckpoint"):
+		respawn()
 
 func capSpeed(speed: float, maximum: float) -> float:
 	if abs(speed) < abs(maximum):
@@ -76,3 +80,7 @@ func _on_exit_camera_override_area(area: Area2D) -> void:
 	var cameraArea: CameraOverrideArea = area
 	remoteTransform.remote_path = camera.get_path()
 	camera.resetOverride()
+	
+func respawn():
+	global_position = respawnPosition
+	velocity = Vector2.ZERO

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="13_p7vyu"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="14_ngifa"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="15_38f2n"]
-[ext_resource type="PackedScene" uid="uid://wm3rhvulq5ha" path="res://scenes/checkpoint.tscn" id="16_d551b"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="16_d551b"]
 
 [sub_resource type="Curve2D" id="Curve2D_oknp3"]
 _data = {
