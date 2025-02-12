@@ -80,7 +80,11 @@ func _on_exit_camera_override_area(area: Area2D) -> void:
 	var cameraArea: CameraOverrideArea = area
 	remoteTransform.remote_path = camera.get_path()
 	camera.resetOverride()
-	
+
+func _on_damage(amount: int):
+	if amount > 0:
+		respawn()
+
 func respawn():
 	global_position = respawnPosition
 	velocity = Vector2.ZERO

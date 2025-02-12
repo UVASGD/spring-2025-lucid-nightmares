@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwsep6ctbelnx"]
+[gd_scene load_steps=16 format=3 uid="uid://cwsep6ctbelnx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_srlfy"]
 [ext_resource type="Texture2D" uid="uid://bsx8mgluau0cn" path="res://assets/player/idle.png" id="2_bst6x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://da78x58njviyb" path="res://assets/player/walk6.png" id="8_66u5p"]
 [ext_resource type="Texture2D" uid="uid://cin6oia37mhrp" path="res://assets/player/walk7.png" id="9_uk1gw"]
 [ext_resource type="Texture2D" uid="uid://cyly61w3u30yq" path="res://assets/player/walk8.png" id="10_ksv7l"]
+[ext_resource type="PackedScene" uid="uid://bxojtkayb1nhy" path="res://scenes/hurt_box.tscn" id="11_ba76o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4n1jq"]
 animations = [{
@@ -58,6 +59,10 @@ height = 66.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4lao"]
 size = Vector2(34, 6)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2y0"]
+radius = 29.0
+height = 70.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 23
@@ -81,5 +86,13 @@ debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
+[node name="HurtBox" parent="." instance=ExtResource("11_ba76o")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+shape = SubResource("CapsuleShape2D_ks2y0")
+debug_color = Color(0.910591, 0.278651, 0.26905, 0.42)
+
 [connection signal="area_entered" from="StandingArea" to="." method="_on_enter_camera_override_area"]
 [connection signal="area_exited" from="StandingArea" to="." method="_on_exit_camera_override_area"]
+[connection signal="damage" from="HurtBox" to="." method="_on_damage"]
