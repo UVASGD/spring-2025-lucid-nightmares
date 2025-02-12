@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bdo83j5d75vqk"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bdo83j5d75vqk"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_wnr31"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/telekinetic_free_tile.tscn" id="2_n37kh"]
 [ext_resource type="PackedScene" uid="uid://bf1daeyvukrkg" path="res://scenes/falling_book.tscn" id="3_bdhda"]
+[ext_resource type="PackedScene" uid="uid://bltoce150lohr" path="res://scenes/spike.tscn" id="4_840jk"]
 [ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="4_e70if"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lna6j"]
@@ -116,6 +117,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lyoc6"]
 scenes/1/scene = ExtResource("2_n37kh")
 scenes/2/scene = ExtResource("3_bdhda")
+scenes/3/scene = ExtResource("4_840jk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wikfq"]
 texture = ExtResource("4_e70if")
