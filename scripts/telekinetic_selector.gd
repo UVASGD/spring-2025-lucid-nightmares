@@ -70,7 +70,7 @@ func cycleQueue(direction: DIRECTION):
 func deselectSelectedNode():
 	selected_node.set_selected(false)
 	selected_node = null
-	controlLabel.text = "Tab/Q: Select objects"
+	controlLabel.text = "Tab/Q: Select objects\nR: Reset to last checkpoint"
 	
 func selectNewNode(node: TelekineticController):
 	selected_node = node
