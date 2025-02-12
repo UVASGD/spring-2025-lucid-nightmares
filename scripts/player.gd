@@ -13,6 +13,9 @@ const JUMP_VELOCITY = -400.0
 @onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var respawnNode: Node2D = null
+var checkpoint_phase: int = -1
+
 func _ready() -> void:
 	if camera != null:
 		remoteTransform.remote_path = camera.get_path()

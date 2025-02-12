@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://wm3rhvulq5ha"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_7fqww"]
+[ext_resource type="Texture2D" uid="uid://c0l3gci5rlkej" path="res://assets/checkpoint/checkpointblue.png" id="1_7pbfh"]
+[ext_resource type="Texture2D" uid="uid://bayygp63whxfn" path="res://assets/checkpoint/checkpointred.png" id="2_muodr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52rvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7pbfh")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_muodr")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udd5r"]
+radius = 32.0156
+
+[node name="Checkpoint" type="Area2D"]
+collision_mask = 5
+script = ExtResource("1_7fqww")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_52rvq")
+animation = &"inactive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_udd5r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

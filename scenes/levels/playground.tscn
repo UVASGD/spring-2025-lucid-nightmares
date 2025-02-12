@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bxsl34nbkakxj"]
+[gd_scene load_steps=24 format=4 uid="uid://bxsl34nbkakxj"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_31qgn"]
 [ext_resource type="TileSet" uid="uid://bdo83j5d75vqk" path="res://assets/tileset/library/library.tres" id="2_dw8gq"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="13_p7vyu"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="14_ngifa"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="15_38f2n"]
+[ext_resource type="PackedScene" uid="uid://wm3rhvulq5ha" path="res://scenes/checkpoint.tscn" id="16_d551b"]
 
 [sub_resource type="Curve2D" id="Curve2D_oknp3"]
 _data = {
@@ -165,3 +166,13 @@ offset_top = -112.0
 offset_right = -546.0
 offset_bottom = 49.0
 color = Color(1, 0.403922, 1, 0.482353)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("16_d551b")]
+position = Vector2(-350, 33)
+phase = 1
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("16_d551b")]
+position = Vector2(160, -672)
+phase = 2
