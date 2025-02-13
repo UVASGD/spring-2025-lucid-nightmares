@@ -7,6 +7,11 @@ class_name Level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setAllowTelekinesis(allowTelekinesis)
+	# Locate camera node and make sure it is in front
+	for node in get_children():
+		if node is CustomCamera:
+			move_child(node, get_child_count())
+			break
 
 # A really scuffed way of properly initializing tilemap objects
 var delayedCall = false
