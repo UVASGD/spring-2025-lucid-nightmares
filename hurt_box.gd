@@ -7,4 +7,8 @@ signal damage(amount: int)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is DamageBox:
-		damage.emit(area.damage)
+		deal_damage(area.damage_amount)
+
+# Should be called by other objects that aren't DamageBoxes (like Raycasts)
+func deal_damage(amount: int):
+	damage.emit(amount)

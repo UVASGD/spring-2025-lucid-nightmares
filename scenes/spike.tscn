@@ -12,6 +12,7 @@ size = Vector2(20, 34)
 texture = ExtResource("1_t7j63")
 
 [node name="DamageBox" parent="." instance=ExtResource("2_gjyhu")]
+monitoring = false
 
 [node name="geometry dash ahh hitbox" type="CollisionShape2D" parent="DamageBox"]
 position = Vector2(0, 13)
