@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b07mpn2lwoxkm"]
+
+[ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_rmw0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vkcr"]
+size = Vector2(64, 8)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rmw0k")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 21
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+pivot_offset = Vector2(0, 8)
+color = Color(1, 0.41769, 0.0164613, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_1vkcr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
