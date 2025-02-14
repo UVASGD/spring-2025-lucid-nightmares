@@ -9,7 +9,7 @@ size = Vector2(64, 8)
 script = ExtResource("1_rmw0k")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 21
+collision_mask = 22
 
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
 offset_left = -32.0
