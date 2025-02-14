@@ -2,7 +2,7 @@ extends Area2D
 class_name TelekineticSelector
 
 @onready var area: Area2D = $TelekineticArea
-@onready var controlLabel: Label = $"../TelekineticControlLabel"
+@onready var controlLabel: Label = $"../CanvasLayer/TelekineticControlLabel"
 
 # Handles selecting telekinetic objects that are in the camera view.
 # To be recognized, a body that comes into frame 
@@ -70,7 +70,7 @@ func cycleQueue(direction: DIRECTION):
 func deselectSelectedNode():
 	selected_node.set_selected(false)
 	selected_node = null
-	controlLabel.text = "Tab/Q: Select objects"
+	controlLabel.text = "Tab/Q: Select objects\nR: Reset to last checkpoint"
 	
 func selectNewNode(node: TelekineticController):
 	selected_node = node

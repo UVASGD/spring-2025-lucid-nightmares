@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bltoce150lohr"]
+
+[ext_resource type="Texture2D" uid="uid://cdna8bbkmgqfb" path="res://assets/spike.png" id="1_t7j63"]
+[ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="2_gjyhu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg60"]
+size = Vector2(20, 34)
+
+[node name="Spike" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t7j63")
+
+[node name="DamageBox" parent="." instance=ExtResource("2_gjyhu")]
+monitoring = false
+
+[node name="geometry dash ahh hitbox" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_tdg60")
+debug_color = Color(0.960271, 0.17456, 0.255979, 0.42)
