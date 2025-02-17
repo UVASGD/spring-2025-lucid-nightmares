@@ -53,11 +53,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa6ih"]
-radius = 27.0
-height = 66.0
+radius = 22.0
+height = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4lao"]
-size = Vector2(34, 6)
+size = Vector2(27, 5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2y0"]
 radius = 29.0
@@ -80,7 +80,7 @@ shape = SubResource("CapsuleShape2D_oa6ih")
 [node name="StandingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
-position = Vector2(0, 28)
+position = Vector2(4.5, 27.5)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 

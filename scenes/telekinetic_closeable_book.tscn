@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcc3jxmygoadc" path="res://assets/bookside1.png" id="3_vdqkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcg1"]
-size = Vector2(191.5, 32)
+size = Vector2(192.609, 32)
 
 [sub_resource type="Animation" id="Animation_rblm2"]
 length = 0.001
@@ -56,8 +56,7 @@ position = Vector2(96, 16)
 texture = ExtResource("2_3j4ws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(96.25, 16)
+position = Vector2(97, 16)
 shape = SubResource("RectangleShape2D_1vcg1")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
@@ -68,8 +67,7 @@ position = Vector2(-96, 16)
 texture = ExtResource("3_vdqkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-visible = false
-position = Vector2(-96, 16)
+position = Vector2(-97, 16)
 shape = SubResource("RectangleShape2D_1vcg1")
 
 [node name="Marker" parent="AnimatableBody2D" instance=ExtResource("1_pl4ui")]
