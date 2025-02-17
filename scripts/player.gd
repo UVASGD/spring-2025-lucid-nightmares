@@ -10,13 +10,12 @@ const AIR_CHANGE_SPEED = 10.0
 const JUMP_VELOCITY = -400.0
 
 @export var camera: CustomCamera = null
-@onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	if camera != null:
-		remoteTransform.remote_path = camera.get_path()
 		camera.player = self
+		camera.position = position
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -65,14 +64,9 @@ func capSpeed(speed: float, maximum: float) -> float:
 func _on_enter_camera_override_area(area: Area2D) -> void:
 	if area is not CameraOverrideArea: return
 	var cameraArea: CameraOverrideArea = area
-	remoteTransform.remote_path = ""
 	camera.cameraOverride(cameraArea.getZoom(), cameraArea.getCenter())
 	
 # Does not account for the player being inside multiple override areas
 func _on_exit_camera_override_area(area: Area2D) -> void:
 	if area is not CameraOverrideArea: return
 	camera.resetOverride()
-	
-# Called by the camera once the camera has finished lerping back to the player
-func snapCamera():
-	remoteTransform.remote_path = camera.get_path()
