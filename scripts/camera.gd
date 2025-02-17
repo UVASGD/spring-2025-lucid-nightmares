@@ -2,10 +2,13 @@ extends Camera2D
 class_name CustomCamera
 
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
+var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
 var doOverride: bool = false
+var returnToPlayer: bool = false
 var lerpDelta = 2
+var returnLerpDelta = 5
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
 
 @export var shakeDecay = 0.8
@@ -23,6 +26,12 @@ func _process(delta: float) -> void:
 	if doOverride:
 		zoom = lerp(zoom, overrideZoom, lerpDelta * delta)
 		position = lerp(position, overridePosition, lerpDelta * delta)
+	elif returnToPlayer:
+		zoom = lerp(zoom, default_zoom, returnLerpDelta * delta)
+		position = lerp(position, player.position, returnLerpDelta * delta)
+		if position.distance_squared_to(player.position) <= 9 and zoom.distance_squared_to(default_zoom) <= 9:
+			returnToPlayer = false
+			player.snapCamera()
 	updateCollisionBox()
 	if shakeStrength:
 		shakeStrength = max(shakeStrength - shakeDecay * delta, 0)
@@ -39,12 +48,14 @@ func updateCollisionBox():
 
 func cameraOverride(newZoom: Vector2, newPosition: Vector2):
 	doOverride = true
+	returnToPlayer = false
 	overridePosition = newPosition
 	overrideZoom = newZoom
 
 func resetOverride():
 	doOverride = false
-	zoom = default_zoom
+	# Begin lerping back to the player
+	returnToPlayer = true
 	
 func shake():
 	shakeStrength += 0.5

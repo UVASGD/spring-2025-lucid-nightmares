@@ -16,6 +16,7 @@ const JUMP_VELOCITY = -400.0
 func _ready() -> void:
 	if camera != null:
 		remoteTransform.remote_path = camera.get_path()
+		camera.player = self
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -70,6 +71,8 @@ func _on_enter_camera_override_area(area: Area2D) -> void:
 # Does not account for the player being inside multiple override areas
 func _on_exit_camera_override_area(area: Area2D) -> void:
 	if area is not CameraOverrideArea: return
-	var cameraArea: CameraOverrideArea = area
-	remoteTransform.remote_path = camera.get_path()
 	camera.resetOverride()
+	
+# Called by the camera once the camera has finished lerping back to the player
+func snapCamera():
+	remoteTransform.remote_path = camera.get_path()
