@@ -84,8 +84,6 @@ position = Vector2(4.5, 27.5)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-
 [node name="HurtBox" parent="." instance=ExtResource("11_ba76o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
