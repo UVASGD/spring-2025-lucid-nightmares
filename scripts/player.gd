@@ -21,7 +21,8 @@ var checkpoint_phase: int = -1
 func _ready() -> void:
 	if camera != null:
 		camera.player = self
-		camera.position = position
+		if not camera.disableTracking:
+			camera.position = position
 	respawnPosition = global_position
 
 func _physics_process(delta: float) -> void:

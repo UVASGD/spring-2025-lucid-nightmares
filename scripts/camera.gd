@@ -13,6 +13,8 @@ var default_zoom: Vector2 = Vector2(0.85, 0.85)
 @export var shakeDecay = 0.8
 @export var max_offset = Vector2(100, 75)
 @export var max_roll = 0.1
+@export_group("Debug")
+@export var disableTracking: bool = false
 var shakeStrength = 0.0
 
 # Called when the node enters the scene tree for the first time.
@@ -22,10 +24,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if doOverride:
+	if doOverride and not disableTracking:
 		zoom = lerp(zoom, overrideZoom, lerpDelta * delta)
 		position = lerp(position, overridePosition, lerpDelta * delta)
-	else:
+	elif not disableTracking:
 		zoom = lerp(zoom, default_zoom, returnLerpDelta * delta)
 		position = lerp(position, player.position, returnLerpDelta * delta)
 	updateCollisionBox()
