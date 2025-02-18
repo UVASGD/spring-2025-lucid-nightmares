@@ -40,11 +40,9 @@ func _physics_process(delta: float) -> void:
 			if jumpLeewayTimer <= 0.0 : 
 				canJump = false
 				jumpLeewayTimer = JUMP_LEEWAY_TIME
-		if not canJump: #if so that jump leeway timer of 0 works properly
-			# Add the gravity.
-			velocity += get_gravity() * delta
-		
-
+		# Add the gravity.
+		velocity += get_gravity() * delta
+			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("PlayerLeft", "PlayerRight")
