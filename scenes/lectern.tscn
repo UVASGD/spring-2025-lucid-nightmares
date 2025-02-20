@@ -28,7 +28,7 @@ size = Vector2(31, 66)
 
 [node name="Lectern" type="AnimatedSprite2D"]
 position = Vector2(0.25, 1)
-scale = Vector2(1.01613, 0.969697)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_kadjp")
 animation = &"lecternwithbook"
 script = ExtResource("3_71gwy")

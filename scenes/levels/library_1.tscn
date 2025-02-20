@@ -78,7 +78,6 @@ tile_set = ExtResource("4_vlkbe")
 
 [node name="Lectern" parent="." instance=ExtResource("14_l6ds1")]
 position = Vector2(2695.5, 511.5)
-scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_macdi")]
 position = Vector2(20, -9.75)
