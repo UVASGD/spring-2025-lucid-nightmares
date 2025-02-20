@@ -13,6 +13,7 @@ config_version=5
 config/name="Lucid Nightmares"
 run/main_scene="res://scenes/levels/playground.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]
@@ -93,3 +94,4 @@ ResetToCheckpoint={
 [physics]
 
 2d/default_gravity=245.0
+2d/run_on_separate_thread=true
