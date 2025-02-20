@@ -16,25 +16,25 @@
 
 [sub_resource type="Curve2D" id="Curve2D_t5j8p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5051, 661, 0, 0, 0, 0, 5051, 200)
+"points": PackedVector2Array(0, 0, 0, 0, 1262, 165, 0, 0, 0, 0, 1262, 50)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_wlolk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6940, 1500, 0, 0, 0, 0, 6164, 798)
+"points": PackedVector2Array(0, 0, 0, 0, 1735, 375, 0, 0, 0, 0, 1541, 200)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jypxe"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 10229, 1929, 0, 0, 0, 0, 10229, 2138, 0, 0, 0, 0, 8951, 2138)
+"points": PackedVector2Array(0, 0, 0, 0, 2557, 482, 0, 0, 0, 0, 2557, 534, 0, 0, 0, 0, 2237, 534)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_mr2iv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 8581, 2134, 0, 0, 0, 0, 8581, 1703, 0, 0, 0, 0, 8262, 1568)
+"points": PackedVector2Array(0, 0, 0, 0, 2145, 536, 0, 0, 0, 0, 2145, 425, 0, 0, 0, 0, 2065, 392)
 }
 point_count = 3
 
@@ -52,11 +52,12 @@ size = Vector2(2592, 84)
 
 [sub_resource type="Curve2D" id="Curve2D_1x2pd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5400, 730, 0, 0, 0, 0, 5400, 546)
+"points": PackedVector2Array(0, 0, 0, 0, 1350, 182, 0, 0, 0, 0, 1350, 136)
 }
 point_count = 2
 
 [node name="Library1" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_slf5w")
 allowTelekinesis = false
 
@@ -82,41 +83,35 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_macdi")]
 position = Vector2(20, -9.75)
-scale = Vector2(0.25, 0.25)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("11_5y17g")]
 position = Vector2(2236, 217.75)
+zoom = Vector2(4, 4)
 
 [node name="PathMovingPlatform" parent="." instance=ExtResource("5_1ld67")]
-scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_t5j8p")
 speed = 300
 returnToOriginalLocation = true
 
 [node name="TelekineticMovingPlatform" parent="." instance=ExtResource("5_1ld67")]
-scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_wlolk")
 speed = 300
 returnToOriginalLocation = true
 
 [node name="TelekineticMovingPlatform2" parent="." instance=ExtResource("5_1ld67")]
-scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_jypxe")
 speed = 400
 returnToOriginalLocation = true
 
 [node name="Spring" parent="." instance=ExtResource("9_rxwmr")]
 position = Vector2(2551.75, 638.75)
-scale = Vector2(0.25, 0.25)
 VELOCITY = -250
 
 [node name="Spring2" parent="." instance=ExtResource("9_rxwmr")]
 position = Vector2(2336.25, 638)
-scale = Vector2(0.25, 0.25)
 
 [node name="TelekineticMovingPlatform3" parent="." instance=ExtResource("5_1ld67")]
-scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_mr2iv")
 speed = 400
 returnToOriginalLocation = true
@@ -134,17 +129,14 @@ shape = SubResource("RectangleShape2D_i4mid")
 
 [node name="TelekineticCloseableBook" parent="." instance=ExtResource("12_mivll")]
 position = Vector2(1448.5, -10)
-scale = Vector2(0.25, 0.25)
 
 [node name="TweenMovingPlatform2" parent="." instance=ExtResource("3_tl2mn")]
 position = Vector2(1779.5, 359.75)
-scale = Vector2(0.25, 0.25)
-offset = Vector2(0, -300)
+offset = Vector2(0, -75)
 
 [node name="TweenMovingPlatform3" parent="." instance=ExtResource("3_tl2mn")]
 position = Vector2(1962.5, 283.5)
-scale = Vector2(0.25, 0.25)
-offset = Vector2(-500, 0)
+offset = Vector2(-125, 0)
 
 [node name="CameraOverrideArea2" parent="." instance=ExtResource("10_fx16o")]
 position = Vector2(2695.25, 521)
@@ -160,7 +152,6 @@ shape = SubResource("RectangleShape2D_4a2pb")
 
 [node name="Spring3" parent="." instance=ExtResource("9_rxwmr")]
 position = Vector2(2825, 637)
-scale = Vector2(0.25, 0.25)
 VELOCITY = -250
 
 [node name="Deathzone" parent="." instance=ExtResource("14_6vgrt")]
@@ -175,11 +166,9 @@ position = Vector2(6798, 2494)
 shape = SubResource("RectangleShape2D_lrgfe")
 
 [node name="TelekineticMovingPlatform4" parent="." instance=ExtResource("5_1ld67")]
-scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_1x2pd")
 speed = 300
 
 [node name="TweenMovingPlatform" parent="." instance=ExtResource("9_2577r")]
-position = Vector2(486.75, 0)
-scale = Vector2(0.25, 0.25)
-offset = Vector2(450, 0)
+position = Vector2(495, 0)
+offset = Vector2(100, 0)
