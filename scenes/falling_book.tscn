@@ -51,8 +51,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3m0s"]
-radius = 37.0
-height = 222.0
+radius = 9.0
+height = 56.0
 
 [node name="FallingBook" type="RigidBody2D"]
 collision_layer = 16
@@ -60,6 +60,8 @@ collision_mask = 23
 script = ExtResource("1_of8i5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.17233e-07, -3.8147e-06)
+scale = Vector2(0.24, 0.248889)
 sprite_frames = SubResource("SpriteFrames_ybm7g")
 animation = &"brown"
 
