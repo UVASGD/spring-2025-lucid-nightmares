@@ -96,11 +96,13 @@ returnToOriginalLocation = true
 curve = SubResource("Curve2D_wlolk")
 speed = 100
 returnToOriginalLocation = true
+invertControls = true
 
 [node name="TelekineticMovingPlatform2" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_jypxe")
 speed = 100
 returnToOriginalLocation = true
+invertControls = true
 
 [node name="Spring" parent="." instance=ExtResource("9_rxwmr")]
 position = Vector2(2551.75, 638.75)
@@ -113,6 +115,7 @@ position = Vector2(2336.25, 638)
 curve = SubResource("Curve2D_mr2iv")
 speed = 100
 returnToOriginalLocation = true
+invertControls = true
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("10_fx16o")]
 position = Vector2(1595, -23.25)
