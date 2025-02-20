@@ -10,10 +10,10 @@ extends Path2D
 # instantiate this scene
 # define a Curve2D in the inspector of the scene node
 @onready var pathFollow: PathFollow2D = $PathFollow2D
-@export var speed: int = 100
+@export var speed: int = 25
 @export var loop: bool = false
 @export var returnToOriginalLocation: bool = false
-@export var returnToOriginalLocationSpeed: int = 50
+@export var returnToOriginalLocationSpeed: int = 12.5
 @export var invertControls: bool = false
 
 # Called when the node enters the scene tree for the first time.

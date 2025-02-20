@@ -59,7 +59,6 @@ point_count = 2
 [node name="Library1" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_slf5w")
-allowTelekinesis = false
 
 [node name="HiddenBorder" type="TileMapLayer" parent="."]
 visible = false
@@ -87,21 +86,20 @@ camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("11_5y17g")]
 position = Vector2(2236, 217.75)
-zoom = Vector2(4, 4)
 
 [node name="PathMovingPlatform" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_t5j8p")
-speed = 300
+speed = 100
 returnToOriginalLocation = true
 
 [node name="TelekineticMovingPlatform" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_wlolk")
-speed = 300
+speed = 100
 returnToOriginalLocation = true
 
 [node name="TelekineticMovingPlatform2" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_jypxe")
-speed = 400
+speed = 100
 returnToOriginalLocation = true
 
 [node name="Spring" parent="." instance=ExtResource("9_rxwmr")]
@@ -113,7 +111,7 @@ position = Vector2(2336.25, 638)
 
 [node name="TelekineticMovingPlatform3" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_mr2iv")
-speed = 400
+speed = 100
 returnToOriginalLocation = true
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("10_fx16o")]
@@ -167,7 +165,7 @@ shape = SubResource("RectangleShape2D_lrgfe")
 
 [node name="TelekineticMovingPlatform4" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_1x2pd")
-speed = 300
+speed = 100
 
 [node name="TweenMovingPlatform" parent="." instance=ExtResource("9_2577r")]
 position = Vector2(495, 0)

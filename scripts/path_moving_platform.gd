@@ -7,7 +7,7 @@ extends Path2D
 # instantiate this scene
 # define a Curve2D in the inspector of the scene node
 @onready var pathFollow: PathFollow2D = $PathFollow2D
-@export var speed = 100
+@export var speed = 25
 @export var loop = false
 
 var direction = 1
