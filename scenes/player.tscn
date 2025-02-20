@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://da78x58njviyb" path="res://assets/player/walk6.png" id="8_66u5p"]
 [ext_resource type="Texture2D" uid="uid://cin6oia37mhrp" path="res://assets/player/walk7.png" id="9_uk1gw"]
 [ext_resource type="Texture2D" uid="uid://cyly61w3u30yq" path="res://assets/player/walk8.png" id="10_ksv7l"]
-[ext_resource type="PackedScene" path="res://scenes/hurt_box.tscn" id="11_ba76o"]
+[ext_resource type="PackedScene" uid="uid://bxojtkayb1nhy" path="res://scenes/hurt_box.tscn" id="11_ba76o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4n1jq"]
 animations = [{
@@ -53,15 +53,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa6ih"]
-radius = 22.0
-height = 60.0
+radius = 6.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4lao"]
-size = Vector2(27, 5)
+size = Vector2(9.5, 1.75)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2y0"]
-radius = 29.0
-height = 70.0
+radius = 6.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -70,7 +70,8 @@ script = ExtResource("1_srlfy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(3, 3)
+position = Vector2(0, 0.500001)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_4n1jq")
 animation = &"idle"
 
@@ -80,7 +81,7 @@ shape = SubResource("CapsuleShape2D_oa6ih")
 [node name="StandingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
-position = Vector2(4.5, 27.5)
+position = Vector2(1, 7.125)
 shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 

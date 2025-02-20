@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_4fuwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
-size = Vector2(124, 59)
+size = Vector2(32, 15)
 
 [node name="TweenMovingPlatform" type="Node2D"]
 script = ExtResource("1_xwv7p")
@@ -14,7 +14,10 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 visible = false
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pn0ws")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.25, 0.234375)
 texture = ExtResource("2_4fuwh")

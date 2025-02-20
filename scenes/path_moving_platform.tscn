@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_jo2px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
-size = Vector2(128, 64)
+size = Vector2(32, 16)
 
 [node name="PathMovingPlatform" type="Path2D"]
 script = ExtResource("1_kxrev")
@@ -23,6 +23,7 @@ remote_path = NodePath("../../AnimatableBody2D")
 collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jo2px")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
