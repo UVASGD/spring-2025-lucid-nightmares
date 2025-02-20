@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://wm3rhvulq5ha"]
+[gd_scene load_steps=6 format=3 uid="uid://b484elec4hdto"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_7fqww"]
 [ext_resource type="Texture2D" uid="uid://c0l3gci5rlkej" path="res://assets/checkpoint/checkpointblue.png" id="1_7pbfh"]
@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_udd5r"]
-radius = 32.0156
+radius = 9.0
 
 [node name="Checkpoint" type="Area2D"]
 collision_mask = 5
@@ -32,7 +32,6 @@ script = ExtResource("1_7fqww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_52rvq")
 animation = &"inactive"
 
