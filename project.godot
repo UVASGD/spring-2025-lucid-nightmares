@@ -93,5 +93,5 @@ ResetToCheckpoint={
 
 [physics]
 
-2d/default_gravity=245.0
 2d/run_on_separate_thread=true
+2d/default_gravity=245.0

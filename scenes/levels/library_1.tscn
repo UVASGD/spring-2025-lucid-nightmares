@@ -59,6 +59,7 @@ point_count = 2
 [node name="Library1" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_slf5w")
+allowTelekinesis = false
 
 [node name="HiddenBorder" type="TileMapLayer" parent="."]
 visible = false
