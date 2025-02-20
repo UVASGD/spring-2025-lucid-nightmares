@@ -89,3 +89,7 @@ ResetToCheckpoint={
 2d_physics/layer_3="player"
 2d_physics/layer_4="restrict"
 2d_physics/layer_5="movableworld"
+
+[physics]
+
+2d/default_gravity=245.0

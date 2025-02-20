@@ -4,13 +4,13 @@ extends CharacterBody2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var teleController: TelekineticController = $TelekineticController
 
-var maxSpeed = 300
-var friction = 50
+var maxSpeed = 75
+var friction = 13
 
 var framesStoodOn = 0
 var playerStandingOn = false
 var burnedOut = false
-var INERTIA = 100.0
+var INERTIA = 25.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

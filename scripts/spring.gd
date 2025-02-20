@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var VELOCITY = -725.0
-@export var IMPULSE: Vector2 = Vector2(0, -2000.0)
+@export var VELOCITY = -200
+@export var IMPULSE: Vector2 = Vector2(0, -500.0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

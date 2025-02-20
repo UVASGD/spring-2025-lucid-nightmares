@@ -53,4 +53,4 @@ func resetOverride():
 	doOverride = false
 	
 func shake():
-	shakeStrength += 0.5
+	shakeStrength += 0.3

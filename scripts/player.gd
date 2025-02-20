@@ -3,11 +3,11 @@ class_name Player
 
 const floor_area_name = "StandingArea"
 
-const MAX_SPEED = 300.0
+const MAX_SPEED = 75.0
 const GROUND_FRICTION = MAX_SPEED * 0.3
 const AIR_FRICTION = MAX_SPEED * 0.05
-const AIR_CHANGE_SPEED = 10.0
-const JUMP_VELOCITY = -400.0
+const AIR_CHANGE_SPEED = 3.0
+const JUMP_VELOCITY = -100.0
 const JUMP_LEEWAY_TIME = 0.1
 
 @export var camera: CustomCamera = null
