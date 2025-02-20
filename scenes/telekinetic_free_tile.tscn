@@ -55,7 +55,7 @@ script = ExtResource("1_lnyvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.592157, 0.968627, 1)
-scale = Vector2(0.25, 0.25)
+texture_filter = 1
 texture = ExtResource("3_ehphe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
