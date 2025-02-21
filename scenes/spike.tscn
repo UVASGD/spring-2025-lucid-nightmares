@@ -9,7 +9,7 @@ size = Vector2(6, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb7mt"]
 size = Vector2(16, 16)
 
-[node name="Spike" type="RigidBody2D"]
+[node name="Spike" type="StaticBody2D"]
 texture_filter = 1
 collision_layer = 32
 
