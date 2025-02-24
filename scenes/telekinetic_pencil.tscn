@@ -36,6 +36,7 @@ debug_color = Color(0.900498, 0.273347, 0.391389, 0.42)
 marker = NodePath("../Marker")
 
 [node name="Marker" parent="." instance=ExtResource("4_uijwr")]
+visible = false
 offset_left = -51.0
 offset_top = -10.0
 offset_right = 353.0

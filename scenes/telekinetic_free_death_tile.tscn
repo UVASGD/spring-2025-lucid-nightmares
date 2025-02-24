@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5q21r36gmo66"]
+[gd_scene load_steps=8 format=3 uid="uid://dl8qa5dlw1gg6"]
 
 [ext_resource type="Script" path="res://scripts/free_death_tile.gd" id="1_rvs2y"]
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="2_hycc7"]
