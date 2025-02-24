@@ -1,26 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b07mpn2lwoxkm"]
+[gd_scene load_steps=4 format=3 uid="uid://dv48k715ph5v7"]
 
 [ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_rmw0k"]
+[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/interact_controller.tscn" id="2_vnd3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vkcr"]
-size = Vector2(64, 8)
+size = Vector2(16, 2)
 
-[node name="Node2D" type="Node2D"]
+[node name="PressurePlate" type="Node2D"]
 script = ExtResource("1_rmw0k")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 22
 
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
-offset_left = -32.0
-offset_top = -8.0
-offset_right = 32.0
-pivot_offset = Vector2(0, 8)
+offset_right = 16.0
+offset_bottom = 2.0
+pivot_offset = Vector2(8, 2)
 color = Color(1, 0.41769, 0.0164613, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -4)
+position = Vector2(8, 1)
 shape = SubResource("RectangleShape2D_1vkcr")
+
+[node name="InteractController" parent="." instance=ExtResource("2_vnd3h")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

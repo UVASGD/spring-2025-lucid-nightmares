@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpqduuqbad85j"]
+
+[ext_resource type="Script" path="res://scripts/gate.gd" id="1_p7nt8"]
+[ext_resource type="Texture2D" uid="uid://ceiibubgd3slg" path="res://assets/doorgate.png" id="2_xcm12"]
+[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/interact_controller.tscn" id="3_xa3o0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgxxk"]
+size = Vector2(16, 32)
+
+[node name="Gate" type="StaticBody2D"]
+script = ExtResource("1_p7nt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_xcm12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pgxxk")
+
+[node name="InteractController" parent="." instance=ExtResource("3_xa3o0")]
+
+[connection signal="on_interact" from="InteractController" to="." method="_on_interact"]
