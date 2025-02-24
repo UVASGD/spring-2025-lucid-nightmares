@@ -77,10 +77,6 @@ visible = false
 tile_map_data = PackedByteArray("AAAAAPX/AQAAAAAAAAAAAPT/AQAAAAAAAAAAAPP/AQAAAAAAAAAAAPL/AQAAAAAAAAAAAPH/AQAAAAAAAAAAAPD/AQAAAAAAAAAAAO//AQAAAAAAAAAAAO7/AQAAAAAAAAAAAO3/AQAAAAAAAAAAAOz/AQAAAAAAAAAAAOH/AQAAAAAAAAAAAOL/AQAAAAAAAAAAAOP/AQAAAAAAAAAAAOT/AQAAAAAAAAAAAOX/AQAAAAAAAAAAAOb/AQAAAAAAAAAAAOf/AQAAAAAAAAAAAOj/AQAAAAAAAAAAAOn/AQAAAAAAAAAAAOr/AQAAAAAAAAA=")
 tile_set = ExtResource("3_ck3lx")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nxsid")]
-position = Vector2(33, 8)
-camera = NodePath("../Camera2D")
-
 [node name="Camera2D" parent="." instance=ExtResource("4_fuam3")]
 position = Vector2(210, 152.5)
 
@@ -142,7 +138,7 @@ speed = 75
 invertControls = true
 
 [node name="TelekineticPencil" parent="Telekinetic Objects" instance=ExtResource("16_3chta")]
-position = Vector2(170, -573)
+position = Vector2(170, -560)
 rotation = -1.5708
 
 [node name="Other World Objects" type="Node2D" parent="."]
@@ -220,3 +216,7 @@ signals_to_open = 2
 [node name="PressurePlate2" parent="Interactables" node_paths=PackedStringArray("interact_targets") instance=ExtResource("17_nmwdb")]
 position = Vector2(656, -578)
 interact_targets = [NodePath("../Gate")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nxsid")]
+position = Vector2(33, 8)
+camera = NodePath("../Camera2D")
