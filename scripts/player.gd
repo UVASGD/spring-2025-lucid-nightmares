@@ -14,7 +14,7 @@ const JUMP_LEEWAY_TIME = 0.1
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 var canJump: bool = true #for coyote time and adds delay to jump
 var jumpLeewayTimer: float = 0.0
-
+var jumpCounter: int = 0
 var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
 
@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	# cooldown for jump, and holding down the key looks to weird otherwise
 	# and not being able to hold down the key feels strange
 	if is_on_floor() and not canJump:
+		jumpCounter = 0
 		canJump = true
 
 	if not is_on_floor():
@@ -44,6 +45,9 @@ func _physics_process(delta: float) -> void:
 		# Add the gravity.
 		velocity += get_gravity() * delta
 			
+	if jumpCounter < 2 and 	!Input.is_action_pressed("PlayerJump"):
+		canJump = true
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("PlayerLeft", "PlayerRight")
@@ -61,9 +65,10 @@ func _physics_process(delta: float) -> void:
 	# handle jump
 	if canJump and Input.is_action_pressed("PlayerJump"):
 		# jumps, even if slightly off platform
-		canJump = false
 		if velocity.y > JUMP_VELOCITY:
 			velocity.y = JUMP_VELOCITY
+			jumpCounter += 1
+			canJump = false
 	
 	move_and_slide()
 	
