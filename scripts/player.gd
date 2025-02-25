@@ -17,6 +17,7 @@ var onGround: bool = true #for coyote time
 var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
 var jumpCounter: int = 0
+var airborneTimer: int = 0
 var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
 
@@ -34,6 +35,9 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and not onGround:
 		jumpCounter = 0
 		onGround = true
+		
+	if airborneTimer > 0:
+		airborneTimer -= 1
 
 	if not is_on_floor():
 		if onGround:
@@ -51,13 +55,13 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("PlayerLeft", "PlayerRight")
-	if direction:
+	if direction and not airborneTimer:
 		if onGround:
 			velocity.x = direction * MAX_SPEED
 		elif abs(velocity.x) < MAX_SPEED or sign(velocity.x) != sign(direction):
 				velocity.x +=  direction * AIR_CHANGE_SPEED
-	else:
-		if canJump:
+	elif not airborneTimer:
+		if onGround:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 		else:
 			velocity.x = move_toward(velocity.x, 0, AIR_FRICTION)	
@@ -105,3 +109,9 @@ func _on_damage(amount: int):
 func respawn():
 	global_position = respawnPosition
 	velocity = Vector2.ZERO
+
+## Considers the player airborne with no jump-leeway frames and disables input for x frames.
+func airborne(x: int):
+	onGround = false
+	jumpLeewayTimer = 0
+	airborneTimer = x
