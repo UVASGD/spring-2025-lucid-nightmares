@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cejk1p8a3c128"
+path="res://.godot/imported/Connect Final.wav-d2bf189c76da17baecffc07d0fbbe28a.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/Connect Final.wav"
+dest_files=["res://.godot/imported/Connect Final.wav-d2bf189c76da17baecffc07d0fbbe28a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
