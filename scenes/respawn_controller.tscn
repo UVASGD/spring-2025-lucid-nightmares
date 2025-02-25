@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vk5k16qhgqys"]
+
+[ext_resource type="Script" path="res://scripts/respawn_controller.gd" id="1_15cvl"]
+
+[node name="RespawnController" type="Node2D"]
+script = ExtResource("1_15cvl")

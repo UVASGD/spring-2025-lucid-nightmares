@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 		get_tree().reload_current_scene()
 		return
 	
-	var controller = TelekineticSelector.getTelekineticNodeFromBody(body)
-	if controller and controller.respawnLocation != Vector2.ZERO:
-		body.position = controller.respawnLocation
-		if body is CharacterBody2D: body.velocity = Vector2.ZERO
+	var controller = RespawnController.getRespawnController(body)
+	if controller:
+		print("respawn")
+		controller.respawn()

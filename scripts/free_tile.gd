@@ -15,7 +15,6 @@ var INERTIA = 25.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	teleController.respawnLocation = global_position
 	teleController.addControl("Left Arrow", "Move tile left")
 	teleController.addControl("Right Arrow", "Move tile right")
 	teleController.addControl("Down Arrow", "Move tile down")
