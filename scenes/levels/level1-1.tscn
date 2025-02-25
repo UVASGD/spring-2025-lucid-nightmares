@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=14 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
@@ -10,11 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://dv48k715ph5v7" path="res://scenes/pressure_plate.tscn" id="8_67ef8"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_v3ih4"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_3w5j7"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="11_38jo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xidka"]
 size = Vector2(435.25, 167)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b16yq"]
+size = Vector2(1607, 20)
+
 [node name="Node2D" type="Node2D"]
+texture_filter = 1
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1341, -12)
@@ -42,7 +47,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAA
 tile_set = ExtResource("2_qguv0")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_bwoae")]
-position = Vector2(1380, -3)
+position = Vector2(215, -9)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_5oojw")]
@@ -53,12 +58,15 @@ position = Vector2(1229, 20)
 interact_targets = [NodePath("../Gate")]
 
 [node name="Spring" parent="." instance=ExtResource("9_v3ih4")]
-position = Vector2(1062, 22)
+position = Vector2(1063, 22)
+VELOCITY = 250
 
 [node name="Spring2" parent="." instance=ExtResource("9_v3ih4")]
 position = Vector2(1056, -104)
 rotation = -3.87114
-IMPULSE = Vector2(1000, 200)
+VELOCITY = 300
+DIRECTION = Vector2(1, 0.3)
+IMPULSE = Vector2(300, 400)
 
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("interact_targets") instance=ExtResource("8_67ef8")]
 position = Vector2(1260, 20)
@@ -75,3 +83,9 @@ zoom = Vector2(2, 2)
 visible = false
 position = Vector2(968.625, -61)
 shape = SubResource("RectangleShape2D_xidka")
+
+[node name="Deathzone" parent="." instance=ExtResource("11_38jo8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(794, 67)
+shape = SubResource("RectangleShape2D_b16yq")
