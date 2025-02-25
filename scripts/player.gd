@@ -9,10 +9,12 @@ const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 3.0
 const JUMP_VELOCITY = -100.0
 const JUMP_LEEWAY_TIME = 0.1
+const AIR_JUMPS = 1
 
 @export var camera: CustomCamera = null
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
-var canJump: bool = true #for coyote time and adds delay to jump
+var onGround: bool = true #for coyote time
+var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
 var jumpCounter: int = 0
 var respawnPosition: Vector2 = Vector2.ZERO
@@ -30,22 +32,21 @@ func _physics_process(delta: float) -> void:
 	# sets canJump, which determines if the player can jump, ignoring if they are on a platform.
 	# cooldown for jump, and holding down the key looks to weird otherwise
 	# and not being able to hold down the key feels strange
-	if is_on_floor() and not canJump:
+	if is_on_floor() and not onGround:
 		jumpCounter = 0
-		canJump = true
+		onGround = true
 
 	if not is_on_floor():
-		if canJump:
+		if onGround:
 			#velocity.y = 0 #prevents platform launches
 			# count down remaining "coyote time"
 			jumpLeewayTimer -= delta
 			if jumpLeewayTimer <= 0.0 : 
-				canJump = false
+				onGround = false
 				jumpLeewayTimer = JUMP_LEEWAY_TIME
 		# Add the gravity.
 		velocity += get_gravity() * delta
-			
-	if jumpCounter < 2 and 	!Input.is_action_pressed("PlayerJump"):
+	if jumpCounter < AIR_JUMPS and !Input.is_action_pressed("PlayerJump"):
 		canJump = true
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -67,7 +68,8 @@ func _physics_process(delta: float) -> void:
 		# jumps, even if slightly off platform
 		if velocity.y > JUMP_VELOCITY:
 			velocity.y = JUMP_VELOCITY
-			jumpCounter += 1
+			if not onGround:
+				jumpCounter += 1
 			canJump = false
 	
 	move_and_slide()
