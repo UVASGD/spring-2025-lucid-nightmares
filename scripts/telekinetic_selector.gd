@@ -6,6 +6,7 @@ class_name TelekineticSelector
 @onready var audioStream = $AudioStreamPlayer2D
 
 var disconnectSound = preload("res://assets/Sounds/Disconnect.wav")
+var connectSound = preload("res://assets/Sounds/Connect.wav")
 # Handles selecting telekinetic objects that are in the camera view.
 # To be recognized, a body that comes into frame 
 # must have a TelekineticController object as a direct child.
@@ -74,12 +75,19 @@ func deselectSelectedNode():
 	selected_node = null
 	controlLabel.text = "Tab/Q: Select objects\nR: Reset to last checkpoint"
 	audioStream.stream = disconnectSound
+	randomize()
+	audioStream.pitch_scale = randf_range(0.95, 1.05)
 	audioStream.play()
 	
 func selectNewNode(node: TelekineticController):
 	selected_node = node
 	selected_node.set_selected(true)
 	controlLabel.text = selected_node.parseControlMap()
+	# randomness - consolidate this later
+	audioStream.stream = connectSound
+	randomize()
+	audioStream.pitch_scale = randf_range(0.95, 1.05)
+	audioStream.play()
 
 func insertNewNode(node: TelekineticController):
 	# insert into the correct sorted location
