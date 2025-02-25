@@ -28,7 +28,6 @@ func _ready() -> void:
 	respawnPosition = global_position
 
 func _physics_process(delta: float) -> void:
-	
 	# sets canJump, which determines if the player can jump, ignoring if they are on a platform.
 	# cooldown for jump, and holding down the key looks to weird otherwise
 	# and not being able to hold down the key feels strange
@@ -53,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("PlayerLeft", "PlayerRight")
 	if direction:
-		if canJump:
+		if onGround:
 			velocity.x = direction * MAX_SPEED
 		elif abs(velocity.x) < MAX_SPEED or sign(velocity.x) != sign(direction):
 				velocity.x +=  direction * AIR_CHANGE_SPEED
@@ -71,7 +70,8 @@ func _physics_process(delta: float) -> void:
 			if not onGround:
 				jumpCounter += 1
 			canJump = false
-	
+			# consider the player mid-air when the player has jumped
+			onGround = false
 	move_and_slide()
 	
 	if direction:
