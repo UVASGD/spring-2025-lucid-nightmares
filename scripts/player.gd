@@ -30,7 +30,10 @@ func _ready() -> void:
 	respawnPosition = global_position
 
 func _physics_process(delta: float) -> void:
-	if overridePhysics: return
+	if not overridePhysics:	physics(delta)
+	animation()
+		
+func physics(delta: float):
 	# sets canJump, which determines if the player can jump, ignoring if they are on a platform.
 	# cooldown for jump, and holding down the key looks to weird otherwise
 	# and not being able to hold down the key feels strange
@@ -79,7 +82,9 @@ func _physics_process(delta: float) -> void:
 			# consider the player mid-air when the player has jumped
 			onGround = false
 	move_and_slide()
-	
+
+func animation():
+	var direction := Input.get_axis("PlayerLeft", "PlayerRight")
 	if direction:
 		animSprite.play("walk")
 		if direction < 0:
