@@ -17,6 +17,7 @@ var onGround: bool = true #for coyote time
 var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
 var jumpCounter: int = 0
+var overridePhysics: bool = false
 var airborneTimer: int = 0
 var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
@@ -29,6 +30,7 @@ func _ready() -> void:
 	respawnPosition = global_position
 
 func _physics_process(delta: float) -> void:
+	if overridePhysics: return
 	# sets canJump, which determines if the player can jump, ignoring if they are on a platform.
 	# cooldown for jump, and holding down the key looks to weird otherwise
 	# and not being able to hold down the key feels strange
