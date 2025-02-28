@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://chiiysjo7i0mg"]
+
+[ext_resource type="Script" path="res://scripts/falling_cloud.gd" id="1_dw0um"]
+[ext_resource type="Texture2D" uid="uid://bajdviv6xgl83" path="res://assets/fallingcloud.png" id="2_qm27t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f481o"]
+size = Vector2(46, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wphwt"]
+size = Vector2(48, 3)
+
+[node name="FallingCloud" type="AnimatableBody2D"]
+texture_filter = 1
+script = ExtResource("1_dw0um")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qm27t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f481o")
+
+[node name="FloorArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_wphwt")
+debug_color = Color(0.818612, 0.277146, 0.739585, 0.42)
+
+[connection signal="area_entered" from="FloorArea" to="." method="_on_floor_area_area_entered"]
+[connection signal="area_exited" from="FloorArea" to="." method="_on_floor_area_area_exited"]
