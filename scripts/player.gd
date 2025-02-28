@@ -13,6 +13,7 @@ const AIR_JUMPS = 1
 
 @export var camera: CustomCamera = null
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var respawnController: RespawnController = $RespawnController
 var onGround: bool = true #for coyote time
 var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
@@ -27,6 +28,7 @@ func _ready() -> void:
 		if not camera.disableTracking:
 			camera.position = position
 	respawnPosition = global_position
+	
 
 func _physics_process(delta: float) -> void:
 	# sets canJump, which determines if the player can jump, ignoring if they are on a platform.
@@ -107,8 +109,7 @@ func _on_damage(amount: int):
 		respawn()
 
 func respawn():
-	global_position = respawnPosition
-	velocity = Vector2.ZERO
+	respawnController.respawn()
 
 ## Considers the player airborne with no jump-leeway frames and disables input for x frames.
 func airborne(x: int):
