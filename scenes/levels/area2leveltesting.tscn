@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://kcdl14p7hf1u"]
+
+[ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_ubbvb"]
+[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="2_0xfj8"]
+[ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_de8bs"]
+[ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_u2bq4"]
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="HiddenLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_ubbvb")
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_0xfj8")
+collision_enabled = false
+
+[node name="ForegroundLayer" type="TileMapLayer" parent="."]
+position = Vector2(192, 6)
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAAFAP//AwAAAAAAAAAUAP//AwAAAAAAAAAZAAAAAwAAAAAAAAAZAP//AwAAAAAAAAAZAP7/AwAAAAAAAAAZAP3/AwAAAAAAAAAZAPz/AwAAAAAAAAAdAAMAAwAAAAAAAAAGAP//AwAAAAAAAAAJAP7/AwAAAAAAAAAKAP7/AwAAAAAAAAAMAPz/AwAAAAAAAAANAPz/AwAAAAAAAAAVAP//AwAAAAAAAAAWAAMAAwAAAAAAAAAXAAMAAwAAAAAAAAAeAAMAAwAAAAAAAAAhAAIAAwAAAAAAAAAiAAIAAwAAAAAAAAAlAAEAAwAAAAAAAAAoAAAAAwAAAAAAAAArAP//AwAAAAAAAAApAP3/AwAAAAAAAAAuAP7/AwAAAAAAAAAsAPz/AwAAAAAAAAAtAP//AwAAAAAAAAAuAP//AwAAAAAAAAAtAP7/AgAAAAAAAwA0AP7/AgAAAAAABQA3APv/AwAAAAAAAAA3APz/AwAAAAAAAAA3AP3/AwAAAAAAAAA3AP7/AwAAAAAAAAA3AP//AwAAAAAAAAA3AAAAAwAAAAAAAAA4AAMAAwAAAAAAAAA5AAMAAwAAAAAAAAA6AAMAAwAAAAAAAAA8AAEAAwAAAAAAAAA+AP//AwAAAAAAAABAAP3/AwAAAAAAAAA7APz/AwAAAAAAAAA5APn/AwAAAAAAAAA6APn/AwAAAAAAAABCAPn/AgAAAAAABQBGAPf/AgAAAAAABQBKAPf/AwAAAAAAAABLAPf/AwAAAAAAAABMAPr/AwAAAAAAAABNAPr/AwAAAAAAAAApAPz/AwAAAAAAAAApAPv/AwAAAAAAAAAsAPv/AwAAAAAAAAAsAPr/AwAAAAAAAAA=")
+tile_set = ExtResource("2_0xfj8")
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_de8bs")]
+position = Vector2(214, -2)
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource("5_u2bq4")]
+position = Vector2(2236, 217.75)
