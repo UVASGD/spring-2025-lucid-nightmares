@@ -19,7 +19,7 @@ func respawn():
 		parent.velocity = Vector2.ZERO
 		if parent is Player:
 			get_tree().reload_current_scene()
-			parent.global_position = respawnPoint
+			parent.global_position = PlayerGlobalVars.respawnPoint
 		
 static func getRespawnController(parent: Node2D) -> RespawnController:
 	var controller = null

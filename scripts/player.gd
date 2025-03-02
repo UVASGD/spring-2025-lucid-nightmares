@@ -19,15 +19,17 @@ var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
 var jumpCounter: int = 0
 var airborneTimer: int = 0
-var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
 
 func _ready() -> void:
+	if (PlayerGlobalVars.respawnPoint != Vector2.ZERO):
+		global_position = PlayerGlobalVars.respawnPoint
+	PlayerGlobalVars.respawnPoint = global_position
+	
 	if camera != null:
 		camera.player = self
 		if not camera.disableTracking:
 			camera.position = position
-	respawnPosition = global_position
 	
 
 func _physics_process(delta: float) -> void:
