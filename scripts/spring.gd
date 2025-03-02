@@ -17,7 +17,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		var char: CharacterBody2D = body
-		char.velocity = DIRECTION.normalized() * VELOCITY
+		var vector = DIRECTION.normalized() * VELOCITY
+		char.velocity.y = vector.y
+		char.velocity.x += vector.x
 		if char is Player:
 			char.airborne(2)
 	elif body is RigidBody2D:
