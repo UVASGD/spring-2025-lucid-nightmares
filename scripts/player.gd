@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		animSprite.play("idle")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ResetToCheckpoint"):
 		respawn()
 

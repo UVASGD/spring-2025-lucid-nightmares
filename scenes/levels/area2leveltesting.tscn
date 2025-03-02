@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://kcdl14p7hf1u"]
+[gd_scene load_steps=6 format=4 uid="uid://kcdl14p7hf1u"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_ubbvb"]
 [ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="2_0xfj8"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_de8bs"]
+[ext_resource type="Texture2D" uid="uid://be1u3owxc7csc" path="res://assets/bg/SM-Area 2 BG.png" id="5_l3uxt"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_u2bq4"]
 
 [node name="Node2D" type="Node2D"]
@@ -26,3 +27,6 @@ camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("5_u2bq4")]
 position = Vector2(2236, 217.75)
+zoom = Vector2(3.5, 3.5)
+background_texture = ExtResource("5_l3uxt")
+background_scale = Vector2(2.7, 2.7)
