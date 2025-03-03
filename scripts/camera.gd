@@ -2,7 +2,7 @@ extends Camera2D
 class_name CustomCamera
 
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
-@onready var textureRect: TextureRect = $Background/BackgroundTexture
+@onready var textureRect: TextureRect = $Background/Parallax2D/BackgroundTexture
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
