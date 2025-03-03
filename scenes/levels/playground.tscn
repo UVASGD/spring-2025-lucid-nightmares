@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxlcv4g7nhj3k" path="res://scenes/telekinetic_closeable_book.tscn" id="10_0e007"]
 [ext_resource type="PackedScene" uid="uid://bf1daeyvukrkg" path="res://scenes/falling_book.tscn" id="11_eqpfb"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="13_p7vyu"]
-[ext_resource type="PackedScene" uid="uid://chiiysjo7i0mg" path="res://scenes/falling_cloud.tscn" id="14_57u7l"]
+[ext_resource type="PackedScene" path="res://scenes/falling_cloud.tscn" id="14_57u7l"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="14_ngifa"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="15_38f2n"]
 [ext_resource type="PackedScene" uid="uid://d285fpskcqrkn" path="res://scenes/telekinetic_pencil.tscn" id="16_3chta"]
@@ -183,9 +183,8 @@ theme_override_font_sizes/font_size = 0
 text = "stand here to see the entire playground"
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("15_38f2n")]
-zoom = Vector2(1, 1)
 useCollisionShapeCenter = false
-center_position = Vector2(0, -850)
+center_position = Vector2(250, -350)
 
 [node name="ColorRect" type="ColorRect" parent="CameraOverrideArea"]
 offset_left = -213.25
