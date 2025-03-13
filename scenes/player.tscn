@@ -96,6 +96,12 @@ debug_color = Color(0.910591, 0.278651, 0.26905, 0.42)
 [node name="RespawnController" type="Node2D" parent="."]
 script = ExtResource("12_h8m74")
 
+[node name="FloorRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 9)
+collision_mask = 17
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="StandingArea" to="." method="_on_enter_camera_override_area"]
 [connection signal="area_exited" from="StandingArea" to="." method="_on_exit_camera_override_area"]
 [connection signal="damage" from="HurtBox" to="." method="_on_damage"]

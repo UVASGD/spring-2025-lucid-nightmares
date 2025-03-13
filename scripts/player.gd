@@ -14,6 +14,15 @@ const AIR_JUMPS = 1
 @export var camera: CustomCamera = null
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawnController: RespawnController = $RespawnController
+@onready var floorRayCast: RayCast2D = $FloorRayCast2D
+@onready var footstepPlayer: AudioStreamPlayer2D = $FootstepPlayer
+
+var wood_walk = preload("res://assets/Sounds/player/wood_walk.mp3")
+var carpet_walk = preload("res://assets/Sounds/player/carpet_walk.mp3")
+
+var walkSfxResetCooldown = 10
+var walkSfxResetCooldownMax = 10
+
 var onGround: bool = true #for coyote time
 var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
@@ -82,6 +91,7 @@ func _physics_process(delta: float) -> void:
 			onGround = false
 	move_and_slide()
 	
+	# animation
 	if direction:
 		animSprite.play("walk")
 		if direction < 0:
@@ -90,6 +100,32 @@ func _physics_process(delta: float) -> void:
 			animSprite.flip_h = false
 	else:
 		animSprite.play("idle")
+		
+	# sfx
+	walkSfx(direction)
+
+func walkSfx(direction: float):
+	if direction and floorRayCast.is_colliding():
+		if floorRayCast.get_collider() is TileMapLayer:
+			var tileMap: TileMapLayer = floorRayCast.get_collider()
+			var tileData: TileData = tileMap.get_cell_tile_data( 
+			tileMap.local_to_map(floorRayCast.get_collision_point()))
+			if not tileData: return
+			var surface = tileData.get_custom_data("surface")
+			var audio
+			
+			match surface:
+				"wood": audio = wood_walk
+				"carpet": audio = carpet_walk
+			
+			if audio:
+				walkSfxResetCooldown = walkSfxResetCooldownMax
+				if audio != footstepPlayer.stream or not footstepPlayer.playing:
+					footstepPlayer.stream = audio
+					footstepPlayer.play()
+	else:
+		if walkSfxResetCooldown: walkSfxResetCooldown -= 1
+		else: footstepPlayer.stop()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ResetToCheckpoint"):
