@@ -105,6 +105,7 @@ func _physics_process(delta: float) -> void:
 	walkSfx(direction)
 
 func walkSfx(direction: float):
+	var audio
 	if direction and floorRayCast.is_colliding():
 		if floorRayCast.get_collider() is TileMapLayer:
 			var tileMap: TileMapLayer = floorRayCast.get_collider()
@@ -112,17 +113,22 @@ func walkSfx(direction: float):
 			tileMap.local_to_map(floorRayCast.get_collision_point()))
 			if not tileData: return
 			var surface = tileData.get_custom_data("surface")
-			var audio
 			
 			match surface:
 				"wood": audio = wood_walk
 				"carpet": audio = carpet_walk
-			
-			if audio:
-				walkSfxResetCooldown = walkSfxResetCooldownMax
-				if audio != footstepPlayer.stream or not footstepPlayer.playing:
-					footstepPlayer.stream = audio
-					footstepPlayer.play()
+		elif floorRayCast.get_collider() is PhysicsBody2D:
+			var surfaceMaterial = SurfaceMaterial.getSurfaceMaterialNode(floorRayCast.get_collider())
+			if surfaceMaterial:
+				match surfaceMaterial.surface:
+					SurfaceMaterial.Surfaces.WOOD: audio = wood_walk
+					SurfaceMaterial.Surfaces.CARPET: audio = carpet_walk
+					
+	if audio:
+		walkSfxResetCooldown = walkSfxResetCooldownMax
+		if audio != footstepPlayer.stream or not footstepPlayer.playing:
+			footstepPlayer.stream = audio
+			footstepPlayer.play()
 	else:
 		if walkSfxResetCooldown: walkSfxResetCooldown -= 1
 		else: footstepPlayer.stop()

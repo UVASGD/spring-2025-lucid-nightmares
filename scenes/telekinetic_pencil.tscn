@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d285fpskcqrkn"]
+[gd_scene load_steps=9 format=3 uid="uid://d285fpskcqrkn"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_pencil.gd" id="1_0o22v"]
-[ext_resource type="PackedScene" path="res://scenes/damage_box.tscn" id="1_r5jxl"]
+[ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="1_r5jxl"]
 [ext_resource type="Texture2D" uid="uid://4osb7o74v74" path="res://assets/pencil.png" id="2_hdjw0"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_wo63p"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_uijwr"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="6_oiqxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwgm"]
 size = Vector2(80, 16)
@@ -42,3 +43,6 @@ offset_top = -10.0
 offset_right = 353.0
 offset_bottom = 70.0
 scale = Vector2(0.25, 0.25)
+
+[node name="SurfaceMaterial" parent="." instance=ExtResource("6_oiqxh")]
+surface = 0

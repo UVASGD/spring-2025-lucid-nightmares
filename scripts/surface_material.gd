@@ -4,10 +4,10 @@ enum Surfaces {CARPET, WOOD}
 
 @export var surface: Surfaces = Surfaces.CARPET
 
-static func getSurfaceMaterial(body) -> SurfaceMaterial:
+static func getSurfaceMaterialNode(parent) -> SurfaceMaterial:
 	var controller = null
 	for node in parent.get_children():
-		if node is RespawnController:
+		if node is SurfaceMaterial:
 			controller = node
 			break
 	return controller
