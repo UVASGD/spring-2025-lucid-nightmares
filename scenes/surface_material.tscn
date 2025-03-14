@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyscxiv4f52ca"]
+
+[ext_resource type="Script" path="res://scripts/surface_material.gd" id="1_fv583"]
+
+[node name="SurfaceMaterial" type="Node2D"]
+script = ExtResource("1_fv583")
+surface = null
