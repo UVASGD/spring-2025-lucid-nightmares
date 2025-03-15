@@ -7,6 +7,7 @@
 size = Vector2(1352, 758)
 
 [node name="Camera2D" type="Camera2D"]
+texture_filter = 1
 zoom = Vector2(4, 4)
 script = ExtResource("1_kjsyy")
 
@@ -32,6 +33,17 @@ shape = SubResource("RectangleShape2D_bvprn")
 debug_color = Color(0.235336, 0.617495, 0.453487, 0.42)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TelekineticArea"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(1.3, 1)
+scroll_offset = Vector2(-200, 0)
+
+[node name="BackgroundTexture" type="TextureRect" parent="Background/Parallax2D"]
+texture_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="TelekineticArea" to="TelekineticArea" method="_on_telekinetic_area_body_entered"]
 [connection signal="body_exited" from="TelekineticArea" to="TelekineticArea" method="_on_telekinetic_area_body_exited"]

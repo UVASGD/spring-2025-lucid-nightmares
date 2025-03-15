@@ -21,6 +21,8 @@ func activate():
 	if camera is CustomCamera:
 		camera.shake()
 	play("lectern")
-	var level: Level = get_tree().root.get_child(0)
+	var level: Level
+	for child in get_tree().root.get_children():
+		if child is Level: level = child
 	level.setAllowTelekinesis(true)
 	activated = true

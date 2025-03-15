@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://xhbyfkdwudvy"]
+[gd_scene load_steps=5 format=3 uid="uid://xhbyfkdwudvy"]
 
 [ext_resource type="Script" path="res://scripts/tween_moving_platform.gd" id="1_xwv7p"]
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_4fuwh"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="3_58a51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(32, 15)
@@ -20,3 +21,5 @@ texture = ExtResource("2_4fuwh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="SurfaceMaterial" parent="AnimatableBody2D" instance=ExtResource("3_58a51")]

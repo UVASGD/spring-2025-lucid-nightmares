@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if activated: return
 	if body is Player:
 		if body.checkpoint_phase <= phase:
-			body.respawnPosition = global_position
+			PlayerGlobalVars.respawnPoint = global_position
 			body.checkpoint_phase = phase
 			setActivated(true)
 			

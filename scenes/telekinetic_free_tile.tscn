@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5fwpb217arma"]
+[gd_scene load_steps=12 format=3 uid="uid://c5fwpb217arma"]
 
 [ext_resource type="Script" path="res://scripts/free_tile.gd" id="1_lnyvo"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_cd43f"]
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="3_ehphe"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="5_jx242"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="5_wo3rm"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="6_qt5l3"]
 
 [sub_resource type="Animation" id="Animation_pt8w3"]
 length = 0.001
@@ -88,6 +89,8 @@ scale = Vector2(0.25, 0.25)
 marker = NodePath("../Marker")
 
 [node name="RespawnController" parent="." instance=ExtResource("5_jx242")]
+
+[node name="SurfaceMaterial" parent="." instance=ExtResource("6_qt5l3")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

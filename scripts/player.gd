@@ -13,21 +13,34 @@ const AIR_JUMPS = 1
 
 @export var camera: CustomCamera = null
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var respawnController: RespawnController = $RespawnController
+@onready var floorRayCast: RayCast2D = $FloorRayCast2D
+@onready var footstepPlayer: AudioStreamPlayer2D = $FootstepPlayer
+
+var wood_walk = preload("res://assets/Sounds/player/wood_walk.mp3")
+var carpet_walk = preload("res://assets/Sounds/player/carpet_walk.mp3")
+
+var walkSfxResetCooldown = 10
+var walkSfxResetCooldownMax = 10
+
 var onGround: bool = true #for coyote time
 var canJump: bool = true # adds delay to jump
 var jumpLeewayTimer: float = 0.0
 var jumpCounter: int = 0
 var overridePhysics: bool = false
 var airborneTimer: int = 0
-var respawnPosition: Vector2 = Vector2.ZERO
 var checkpoint_phase: int = -1
 
 func _ready() -> void:
+	if (PlayerGlobalVars.respawnPoint != Vector2.ZERO):
+		global_position = PlayerGlobalVars.respawnPoint
+	PlayerGlobalVars.respawnPoint = global_position
+	
 	if camera != null:
 		camera.player = self
 		if not camera.disableTracking:
 			camera.position = position
-	respawnPosition = global_position
+	
 
 func _physics_process(delta: float) -> void:
 	if not overridePhysics:	physics(delta)
@@ -93,8 +106,40 @@ func animation():
 			animSprite.flip_h = false
 	else:
 		animSprite.play("idle")
+		
+	# sfx
+	walkSfx(direction)
 
-func _process(delta: float) -> void:
+func walkSfx(direction: float):
+	var audio
+	if direction and floorRayCast.is_colliding():
+		if floorRayCast.get_collider() is TileMapLayer:
+			var tileMap: TileMapLayer = floorRayCast.get_collider()
+			var tileData: TileData = tileMap.get_cell_tile_data( 
+			tileMap.local_to_map(floorRayCast.get_collision_point()))
+			if not tileData: return
+			var surface = tileData.get_custom_data("surface")
+			
+			match surface:
+				"wood": audio = wood_walk
+				"carpet": audio = carpet_walk
+		elif floorRayCast.get_collider() is PhysicsBody2D:
+			var surfaceMaterial = SurfaceMaterial.getSurfaceMaterialNode(floorRayCast.get_collider())
+			if surfaceMaterial:
+				match surfaceMaterial.surface:
+					SurfaceMaterial.Surfaces.WOOD: audio = wood_walk
+					SurfaceMaterial.Surfaces.CARPET: audio = carpet_walk
+					
+	if audio:
+		walkSfxResetCooldown = walkSfxResetCooldownMax
+		if audio != footstepPlayer.stream or not footstepPlayer.playing:
+			footstepPlayer.stream = audio
+			footstepPlayer.play()
+	else:
+		if walkSfxResetCooldown: walkSfxResetCooldown -= 1
+		else: footstepPlayer.stop()
+
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ResetToCheckpoint"):
 		respawn()
 
@@ -114,8 +159,7 @@ func _on_damage(amount: int):
 		respawn()
 
 func respawn():
-	global_position = respawnPosition
-	velocity = Vector2.ZERO
+	respawnController.respawn()
 
 ## Considers the player airborne with no jump-leeway frames and disables input for x frames.
 func airborne(x: int):

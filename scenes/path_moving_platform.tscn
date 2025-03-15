@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhj35qgxqpkna"]
+[gd_scene load_steps=5 format=3 uid="uid://dhj35qgxqpkna"]
 
 [ext_resource type="Script" path="res://scripts/path_moving_platform.gd" id="1_kxrev"]
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_jo2px"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="3_m5cg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(32, 16)
@@ -28,3 +29,5 @@ texture = ExtResource("2_jo2px")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="SurfaceMaterial" parent="AnimatableBody2D" instance=ExtResource("3_m5cg4")]

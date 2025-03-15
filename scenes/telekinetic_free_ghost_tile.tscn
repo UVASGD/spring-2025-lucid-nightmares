@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://e4kofdssxqyr"]
+
+[ext_resource type="Script" path="res://scripts/free_ghost_tile.gd" id="1_6gk86"]
+[ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="2_xtnbj"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_jo7u1"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_wolp0"]
+[ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="6_a587h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
+size = Vector2(16, 16)
+
+[node name="TelekineticFreeGhostTile" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 24
+script = ExtResource("1_6gk86")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.709804, 1, 1, 0.392157)
+texture_filter = 1
+texture = ExtResource("2_xtnbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="Marker" parent="." instance=ExtResource("3_jo7u1")]
+visible = false
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 77.0
+offset_bottom = 77.0
+scale = Vector2(0.25, 0.25)
+
+[node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("4_wolp0")]
+marker = NodePath("../Marker")
+
+[node name="RespawnController" parent="." instance=ExtResource("6_a587h")]
+
+[connection signal="on_set_enabled" from="TelekineticController" to="." method="_on_telekinetic_controller_on_set_enabled"]

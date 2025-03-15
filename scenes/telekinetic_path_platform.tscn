@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://buc8o5r408v7d"]
+[gd_scene load_steps=7 format=3 uid="uid://buc8o5r408v7d"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_th1uv"]
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_eug7y"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_76vt5"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_bnu63"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="5_jwip3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(32, 16)
@@ -44,5 +45,7 @@ scale = Vector2(0.25, 0.25)
 
 [node name="TelekineticController" parent="AnimatableBody2D" node_paths=PackedStringArray("marker") instance=ExtResource("4_bnu63")]
 marker = NodePath("../Marker")
+
+[node name="SurfaceMaterial" parent="AnimatableBody2D" instance=ExtResource("5_jwip3")]
 
 [connection signal="on_set_enabled" from="AnimatableBody2D/TelekineticController" to="." method="_on_telekinetic_controller_on_set_enabled"]

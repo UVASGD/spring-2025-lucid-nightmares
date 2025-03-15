@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf1daeyvukrkg"]
+[gd_scene load_steps=11 format=3 uid="uid://bf1daeyvukrkg"]
 
 [ext_resource type="Texture2D" uid="uid://dfbkqi2kpxf8n" path="res://assets/rigidbook/black.png" id="1_mu17s"]
 [ext_resource type="Script" path="res://scripts/falling_book.gd" id="1_of8i5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ue4ygvod3o05" path="res://assets/rigidbook/purple.png" id="4_n48k4"]
 [ext_resource type="Texture2D" uid="uid://b6pt0ia8y4yw" path="res://assets/rigidbook/red.png" id="5_ewfvq"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
 animations = [{
@@ -70,5 +71,8 @@ animation = &"brown"
 shape = SubResource("CapsuleShape2D_j3m0s")
 
 [node name="RespawnController" parent="." instance=ExtResource("7_qnj2x")]
+
+[node name="SurfaceMaterial" parent="." instance=ExtResource("8_vl4d1")]
+surface = 0
 
 [connection signal="respawn_signal" from="RespawnController" to="." method="_on_respawn"]

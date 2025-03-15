@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch26ip3imptnq"
+path="res://.godot/imported/wood moving.mp3-0b7f32370b440eb137e89e443147e0f3.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/wood moving.mp3"
+dest_files=["res://.godot/imported/wood moving.mp3-0b7f32370b440eb137e89e443147e0f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
