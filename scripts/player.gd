@@ -166,3 +166,12 @@ func airborne(x: int):
 	onGround = false
 	jumpLeewayTimer = 0
 	airborneTimer = x
+
+## Replenishes double jump at the END of this frame.
+func replenishDoubleJump():
+	if not is_on_floor():
+		jumpCounter = 0
+		# Prevent physics process from counting current frame as a jump (in the case of handles)
+		canJump = false
+		#set_deferred("jumpCounter", 0)
+		#set_deferred("canJump", false)
