@@ -8,20 +8,23 @@ size = Vector2(12, 9)
 
 [node name="Handle" type="Node2D"]
 texture_filter = 1
+
+[node name="HandleTransformed" type="Node2D" parent="."]
+position = Vector2(0, -8)
 script = ExtResource("1_ahbi8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="HandleTransformed"]
 position = Vector2(0, 8)
 texture = ExtResource("2_y87vh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="HandleTransformed"]
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleTransformed/Area2D"]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_anjjs")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Area2D"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="HandleTransformed/Area2D"]
 position = Vector2(0, 20)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HandleTransformed/Area2D" to="HandleTransformed" method="_on_area_2d_body_entered"]
