@@ -6,7 +6,7 @@ var player: Player = null
 var angularVelo = 0 # radians per second
 const manualConstantAngularVelo = deg_to_rad(60)
 const manualMultiplierAngularVelo = 5/3
-const yFlingMultiplier = 0.1
+const yFlingMultiplier = 0.15
 const xFlingMultiplier = 25
 
 ## Seconds until the handle can actually fling the player
