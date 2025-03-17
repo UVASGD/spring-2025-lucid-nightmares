@@ -11,11 +11,13 @@ var lerpDelta = 2
 var returnLerpDelta = 4
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
 
+@export var background_texture: Texture2D = null
+@export var background_scale: Vector2 = Vector2(1, 1)
+@export var trackingOffset: Vector2 = Vector2.ZERO 
+@export_group("Shake")
 @export var shakeDecay = 0.8
 @export var max_offset = Vector2(100, 75)
 @export var max_roll = 0.1
-@export var background_texture: Texture2D = null
-@export var background_scale: Vector2 = Vector2(1, 1) 
 @export_group("Debug")
 @export var disableTracking: bool = false
 var shakeStrength = 0.0
@@ -34,7 +36,7 @@ func _process(delta: float) -> void:
 		position = lerp(position, overridePosition, lerpDelta * delta)
 	elif not disableTracking:
 		zoom = lerp(zoom, default_zoom, returnLerpDelta * delta)
-		position = lerp(position, player.position, returnLerpDelta * delta)
+		position = lerp(position, player.position + trackingOffset, returnLerpDelta * delta)
 	updateCollisionBox()
 	if shakeStrength:
 		shakeStrength = max(shakeStrength - shakeDecay * delta, 0)
