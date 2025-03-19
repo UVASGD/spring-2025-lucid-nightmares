@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=4 uid="uid://dv3x1akur6mgh"]
+
+[ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_o1lrj"]
+[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="2_xyws8"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="3_m5c4q"]
+[ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="4_iied3"]
+[ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_471v1"]
+[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="6_rirfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ref1w"]
+size = Vector2(1607, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5luoh"]
+size = Vector2(188, 124)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HiddenLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAbAP//AQAAAAAAAAAbAP7/AQAAAAAAAAAaAP7/AQAAAAAAAAAZAP7/AQAAAAAAAAAYAP7/AQAAAAAAAAAXAP7/AQAAAAAAAAAWAP7/AQAAAAAAAAAWAP//AQAAAAAAAAAWAAAAAQAAAAAAAAAWAAEAAQAAAAAAAAAXAAEAAQAAAAAAAAAYAAEAAQAAAAAAAAAZAAEAAQAAAAAAAAAaAAEAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAA=")
+tile_set = ExtResource("1_o1lrj")
+
+[node name="BackgroundLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_xyws8")
+collision_enabled = false
+
+[node name="ForegroundLayer" type="TileMapLayer" parent="."]
+position = Vector2(192, 6)
+tile_map_data = PackedByteArray("AAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAD//wAAAwAAAAAAAAD+/wAAAwAAAAAAAAAEAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAMAP//AgAAAAAAAQAUAAAAAwAAAAAAAAAaAP3/AgAAAAAABgAmAP3/AgAAAAAABgAoAAoAAgAAAAAABgAyAAoAAgAAAAAABgA=")
+tile_set = ExtResource("2_xyws8")
+
+[node name="Deathzone" parent="ForegroundLayer" instance=ExtResource("3_m5c4q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundLayer/Deathzone"]
+position = Vector2(610, 290)
+shape = SubResource("RectangleShape2D_ref1w")
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_iied3")]
+position = Vector2(214, -2)
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource("5_471v1")]
+position = Vector2(322, -6)
+zoom = Vector2(3, 3)
+background_scale = Vector2(3, 3)
+
+[node name="CameraOverrideArea" parent="." instance=ExtResource("6_rirfj")]
+position = Vector2(322, -6)
+zoom = Vector2(2.5, 2.5)
+center_position = Vector2(391.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea"]
+position = Vector2(368, -20)
+shape = SubResource("RectangleShape2D_5luoh")
