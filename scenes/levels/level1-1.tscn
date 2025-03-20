@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
 [ext_resource type="PackedScene" uid="uid://dl8qa5dlw1gg6" path="res://scenes/telekinetic_free_death_tile.tscn" id="1_31132"]
 [ext_resource type="PackedScene" uid="uid://e4kofdssxqyr" path="res://scenes/telekinetic_free_ghost_tile.tscn" id="1_cs2yh"]
-[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="2_qguv0"]
+[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/master_tileset.tres" id="2_qguv0"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_bwoae"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_5oojw"]
 [ext_resource type="PackedScene" uid="uid://bf1daeyvukrkg" path="res://scenes/falling_book.tscn" id="4_b0hj2"]

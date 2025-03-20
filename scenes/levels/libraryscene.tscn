@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dv3x1akur6mgh"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_o1lrj"]
-[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="2_xyws8"]
+[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/master_tileset.tres" id="2_xyws8"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="3_m5c4q"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="4_iied3"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_471v1"]

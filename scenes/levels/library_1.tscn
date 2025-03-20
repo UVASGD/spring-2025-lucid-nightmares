@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="2_bkp5g"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="2_macdi"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="3_tl2mn"]
-[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/library/library_1.tres" id="4_vlkbe"]
+[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/master_tileset.tres" id="4_vlkbe"]
 [ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="5_1ld67"]
 [ext_resource type="PackedScene" uid="uid://b7aryggp13wcs" path="res://scenes/wood_tween_moving_platform.tscn" id="9_2577r"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_rxwmr"]
