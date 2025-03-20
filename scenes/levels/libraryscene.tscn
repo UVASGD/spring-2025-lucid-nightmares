@@ -12,11 +12,11 @@
 size = Vector2(1607, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5luoh"]
-size = Vector2(188, 124)
+size = Vector2(162, 124)
 
 [sub_resource type="Curve2D" id="Curve2D_34wv1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1262, 165, 0, 0, 0, 0, 1262, 37.0161, 0, 0, 0, 0, 1262, -52.9436)
+"points": PackedVector2Array(0, 0, 0, 0, 1262, 165, 0, 0, 0, 0, 1262, 37.0161, 0, 0, 0, 0, 1262, -26.0484)
 }
 point_count = 3
 
@@ -32,7 +32,7 @@ collision_enabled = false
 
 [node name="ForegroundLayer" type="TileMapLayer" parent="."]
 position = Vector2(192, 6)
-tile_map_data = PackedByteArray("AAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAD//wAAAwAAAAAAAAD+/wAAAwAAAAAAAAAEAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAMAP//AgAAAAAAAQAUAAAAAwAAAAAAAAAaAP3/AgAAAAAABgAmAP3/AgAAAAAABgAoAAoAAgAAAAAABgAyAAoAAgAAAAAABgAzAPv/AwAAAAAAAAAyAPv/AwAAAAAAAAAxAPv/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAD//wAAAwAAAAAAAAD+/wAAAwAAAAAAAAAEAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAMAP//AgAAAAAAAQAUAAAAAwAAAAAAAAAaAP3/AgAAAAAABgAmAP3/AgAAAAAABgAoAAoAAgAAAAAABgAyAAoAAgAAAAAABgArAPz/AwAAAAAAAAAsAPz/AwAAAAAAAAAtAPz/AwAAAAAAAAAuAPz/AwAAAAAAAAA=")
 tile_set = ExtResource("2_xyws8")
 
 [node name="Deathzone" parent="ForegroundLayer" instance=ExtResource("3_m5c4q")]
@@ -56,11 +56,11 @@ zoom = Vector2(2.5, 2.5)
 center_position = Vector2(391.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea"]
-position = Vector2(368, -20)
+position = Vector2(355, -20)
 shape = SubResource("RectangleShape2D_5luoh")
 
 [node name="PathMovingPlatform" parent="." instance=ExtResource("7_my0tc")]
-position = Vector2(-170, -12.913)
+position = Vector2(-194, -12.913)
 scale = Vector2(1, 1.07826)
 curve = SubResource("Curve2D_34wv1")
 speed = 100
