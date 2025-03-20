@@ -7,7 +7,7 @@
 size = Vector2(46, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wphwt"]
-size = Vector2(48, 3)
+size = Vector2(46, 3)
 
 [node name="FallingCloud" type="AnimatableBody2D"]
 texture_filter = 1

@@ -1,8 +1,8 @@
 extends AnimatableBody2D
 
 var playerStandingOn = false
-@export var fallPerSecond = 4
-@export var returnPerSecond = 4
+@export var fallPerSecond = 25
+@export var returnPerSecond = 8
 var originalY = 0
 
 # Called when the node enters the scene tree for the first time.
