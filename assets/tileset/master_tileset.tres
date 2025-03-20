@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://dbesvvhuhnn2o"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://dc2wfy13x13ry"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_uarti"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/telekinetic_free_tile.tscn" id="2_wqk6a"]
