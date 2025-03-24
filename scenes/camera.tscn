@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvprn"]
 size = Vector2(1352, 758)
 
-[node name="Camera2D" type="Camera2D"]
+[node name="Camera2D" type="Camera2D" groups=["RealityObject"]]
 texture_filter = 1
 zoom = Vector2(4, 4)
 script = ExtResource("1_kjsyy")

@@ -15,6 +15,8 @@ var default_zoom: Vector2 = Vector2(0.85, 0.85)
 const hotColor: Color = Color("9f443496")
 const coldColor: Color = Color("535ca896")
 
+enum RealityMode {NORMAL, HOT, COLD}
+
 @export var background_texture: Texture2D = null
 @export var background_scale: Vector2 = Vector2(1, 1)
 @export var trackingOffset: Vector2 = Vector2.ZERO 
@@ -71,6 +73,14 @@ func setBackground(texture: Texture2D, textureScale: Vector2):
 	if texture == null: return
 	textureRect.texture = texture
 	textureRect.scale = textureScale
+	
+func on_reality_change(reality: int):
+	if reality == RealityMode.COLD:
+		coldOverlay()
+	elif reality == RealityMode.NORMAL:
+		resetOverlay()
+	else:
+		hotOverlay()
 	
 func hotOverlay():
 	colorOverlay.color = hotColor

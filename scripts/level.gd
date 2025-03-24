@@ -1,7 +1,7 @@
 extends Node2D
 class_name Level
 
-enum RealityMode {COLD, NORMAL, HOT}
+enum RealityMode {NORMAL, HOT, COLD}
 
 @export var allowTelekinesis: bool = true
 @export var reality: RealityMode = RealityMode.NORMAL
@@ -32,21 +32,16 @@ func setAllowTelekinesis(allow: bool):
 func cycleRealityForward():
 	reality += 1
 	if reality > RealityMode.size() - 1: reality = 0
-	updateCameraOverlay()
+	callRealityChange()
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
-	updateCameraOverlay()
+	callRealityChange()
 	
-func updateCameraOverlay():
-	if not camera: return
-	if reality == RealityMode.COLD:
-		camera.coldOverlay()
-	elif reality == RealityMode.NORMAL:
-		camera.resetOverlay()
-	else:
-		camera.hotOverlay()
+# Considering moving to using a signal bus instead of groups. There's no way to enforce that this method exists
+func callRealityChange():
+	get_tree().call_group("RealityObject", "on_reality_change", reality)
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:

@@ -3,6 +3,8 @@ extends StaticBody2D
 @onready var teleController: TelekineticController = $TelekineticController
 @onready var level: Level = Level.getLevelObject(get_tree())
 
+enum RealityMode {NORMAL, HOT, COLD}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -16,3 +18,6 @@ func _process(delta: float) -> void:
 			level.cycleRealityForward()
 	elif not level:
 		print("Level not found")
+		
+func on_reality_change(reality: int):
+	pass
