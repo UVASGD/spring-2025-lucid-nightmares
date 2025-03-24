@@ -15,6 +15,7 @@ func _ready() -> void:
 	for node in get_children():
 		if node is CustomCamera:
 			move_child(node, get_child_count())
+			camera = node
 			break
 
 # A really scuffed way of properly initializing tilemap objects
@@ -30,11 +31,13 @@ func setAllowTelekinesis(allow: bool):
 	
 func cycleRealityForward():
 	reality += 1
-	if reality > RealityMode.size(): reality = 0
+	if reality > RealityMode.size() - 1: reality = 0
+	updateCameraOverlay()
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
+	updateCameraOverlay()
 	
 func updateCameraOverlay():
 	if not camera: return
