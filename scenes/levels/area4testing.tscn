@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cueudcjitp03k"]
+[gd_scene load_steps=8 format=4 uid="uid://cueudcjitp03k"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_4i5fv"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_qhv3c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_abchh"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_qesw2"]
 [ext_resource type="PackedScene" uid="uid://57jus7r146ex" path="res://scenes/window.tscn" id="7_x733d"]
+[ext_resource type="PackedScene" uid="uid://cq86xa2iwfkks" path="res://scenes/elementlayer.tscn" id="7_y33k1"]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -21,6 +22,9 @@ collision_enabled = false
 [node name="ForegroundLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAIAAwAAAAAAAGABAAIAAwAAAAAAAGACAAIAAwAAAAAAAGADAAIAAwAAAAAAAGAEAAIAAwAAAAAAAGAFAAIAAwAAAAAAAGAGAAIAAwAAAAAAAGAHAAIAAwAAAAAAAGAIAAIAAwAAAAAAAGAJAAIAAwAAAAAAAGAKAAIAAwAAAAAAAGALAAIAAwAAAAAAAGAMAAIAAwAAAAAAAGANAAIAAwAAAAAAAGAOAAIAAwAAAAAAAGAPAAIAAwAAAAAAAGAQAAIAAwAAAAAAAGD//wIAAwAAAAAAAGD+/wIAAwAAAAAAAGD9/wIAAwAAAAAAAGD8/wIAAwAAAAAAAGD7/wIAAwAAAAAAAGD6/wIAAwAAAAAAAGD5/wIAAwAAAAAAAGD4/wIAAwAAAAAAAGD3/wIAAwAAAAAAAGD2/wIAAwAAAAAAAGD1/wIAAwAAAAAAAGD0/wIAAwAAAAAAAGDz/wIAAwAAAAAAAGDy/wIAAwAAAAAAAGDx/wIAAwAAAAAAAGA=")
 tile_set = ExtResource("2_10vxb")
+
+[node name="ElementLayer" parent="." instance=ExtResource("7_y33k1")]
+tile_map_data = PackedByteArray("AAAHAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAEAAAABAAAAAAALAAAAAAADAAAAAAAMAAAAAAADAAAAAAAIAP//AAABAAAAAAAKAAAAAAADAAAAAAA=")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_abchh")]
 camera = NodePath("../Camera2D")

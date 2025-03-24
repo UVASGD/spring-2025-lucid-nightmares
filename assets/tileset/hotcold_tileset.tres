@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d3s4g2csyh7o3"]
+
+[ext_resource type="Texture2D" uid="uid://gkf3pbq1g2iy" path="res://assets/tileset/hotcold.png" id="1_qihv0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt8u4"]
+texture = ExtResource("1_qihv0")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nt8u4")
