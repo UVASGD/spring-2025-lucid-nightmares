@@ -1,8 +1,12 @@
 extends Node2D
 class_name Level
 
+enum RealityMode {COLD, NORMAL, HOT}
 
 @export var allowTelekinesis: bool = true
+@export var reality: RealityMode = RealityMode.NORMAL
+
+var camera: CustomCamera = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,3 +27,27 @@ func _process(delta: float) -> void:
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow
 	get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
+	
+func cycleRealityForward():
+	reality += 1
+	if reality > RealityMode.size(): reality = 0
+
+func cycleRealityBackward():
+	reality -= 1
+	if reality < 0: reality = RealityMode.size() - 1
+	
+func updateCameraOverlay():
+	if not camera: return
+	if reality == RealityMode.COLD:
+		camera.coldOverlay()
+	elif reality == RealityMode.NORMAL:
+		camera.resetOverlay()
+	else:
+		camera.hotOverlay()
+	
+
+static func getLevelObject(sceneTree: SceneTree) -> Level:
+	var level: Level
+	for child in sceneTree.root.get_children():
+		if child is Level: return child
+	return null

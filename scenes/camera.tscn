@@ -23,6 +23,11 @@ text = "test"
 horizontal_alignment = 2
 autowrap_mode = 3
 
+[node name="ColorOverlay" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.325703, 0.359276, 0.659425, 0.588235)
+
 [node name="TelekineticArea" type="Area2D" parent="."]
 collision_mask = 51
 script = ExtResource("2_eteo0")

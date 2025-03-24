@@ -3,6 +3,7 @@ class_name CustomCamera
 
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
 @onready var textureRect: TextureRect = $Background/Parallax2D/BackgroundTexture
+@onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
@@ -10,6 +11,9 @@ var doOverride: bool = false
 var lerpDelta = 2
 var returnLerpDelta = 4
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
+
+const hotColor: Color = Color("9f443496")
+const coldColor: Color = Color("535ca896")
 
 @export var background_texture: Texture2D = null
 @export var background_scale: Vector2 = Vector2(1, 1)
@@ -26,6 +30,7 @@ var shakeStrength = 0.0
 func _ready() -> void:
 	default_zoom = zoom
 	setBackground(background_texture, background_scale)
+	colorOverlay.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,3 +71,14 @@ func setBackground(texture: Texture2D, textureScale: Vector2):
 	if texture == null: return
 	textureRect.texture = texture
 	textureRect.scale = textureScale
+	
+func hotOverlay():
+	colorOverlay.color = hotColor
+	colorOverlay.visible = true
+	
+func coldOverlay():
+	colorOverlay.color = coldColor
+	colorOverlay.visible = true
+	
+func resetOverlay():
+	colorOverlay.visible = false
