@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgnsmyubfna3v"]
+
+[ext_resource type="Script" path="res://scripts/shadow.gd" id="1_8mhxm"]
+[ext_resource type="Texture2D" uid="uid://dbmf5gknl3out" path="res://assets/shadow.png" id="2_s61ct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljdam"]
+size = Vector2(90, 4)
+
+[node name="Node2D" type="Polygon2D"]
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(-23, 0, 23, 0, 45, 26, -45, 26)
+script = ExtResource("1_8mhxm")
+
+[node name="MovableShadow" type="CharacterBody2D" parent="."]
+position = Vector2(0, 26)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="MovableShadow"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_s61ct")
+region_enabled = true
+region_rect = Rect2(0, 0, 90, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovableShadow"]
+shape = SubResource("RectangleShape2D_ljdam")
