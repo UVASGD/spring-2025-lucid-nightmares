@@ -5,44 +5,45 @@
 [ext_resource type="Texture2D" uid="uid://4osb7o74v74" path="res://assets/pencil.png" id="2_hdjw0"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_wo63p"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_uijwr"]
-[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="6_oiqxh"]
+[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="6_oiqxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwgm"]
-size = Vector2(80, 16)
+size = Vector2(88, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bam6p"]
-size = Vector2(7.5, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omeen"]
+size = Vector2(6, 14)
 
-[node name="TelekineticPencil" type="CharacterBody2D"]
+[node name="TelekineticClockhand" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_0o22v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(40, 0)
 texture = ExtResource("2_hdjw0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 0)
+position = Vector2(36, 0)
 shape = SubResource("RectangleShape2D_iwwgm")
-
-[node name="DamageBox" parent="." instance=ExtResource("1_r5jxl")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(36.25, 0)
-shape = SubResource("RectangleShape2D_bam6p")
-debug_color = Color(0.900498, 0.273347, 0.391389, 0.42)
 
 [node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("3_wo63p")]
 marker = NodePath("../Marker")
 
 [node name="Marker" parent="." instance=ExtResource("4_uijwr")]
 visible = false
-offset_left = -51.0
+offset_left = -9.0
 offset_top = -10.0
-offset_right = 353.0
+offset_right = 395.0
 offset_bottom = 70.0
 scale = Vector2(0.25, 0.25)
 
 [node name="SurfaceMaterial" parent="." instance=ExtResource("6_oiqxh")]
 surface = 0
+
+[node name="DamageBox" parent="." instance=ExtResource("1_r5jxl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(83, 0)
+shape = SubResource("RectangleShape2D_omeen")
+debug_color = Color(0.893734, 0.254711, 0.501708, 0.42)

@@ -12,5 +12,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if teleController.is_selected:
-		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
+		var direction = -Input.get_axis("TelekineticLeft", "TelekineticRight")
 		rotate(direction * delta * SPEED)
