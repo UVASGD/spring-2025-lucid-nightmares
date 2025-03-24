@@ -12,12 +12,15 @@ var lightVector: Vector2 = Vector2.ZERO
 # array of polygon indices
 var staticPoints: Array[int] = []
 var nonStaticPoints: Array[int] = []
+var shadowWidth: int = 0
 
 const shadowThickness = 4
+const MAX_SPEED = 40.0
 
 @onready var moveShadow = $MovableShadow
 @onready var sprite = $MovableShadow/Sprite2D
 @onready var collisionShape = $MovableShadow/CollisionShape2D
+@onready var teleController: TelekineticController = $MovableShadow/TelekineticController
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,8 +53,12 @@ func _ready() -> void:
 	size = Vector2(abs(size.x), abs(size.y))
 	if size.x == 0:
 		size.x = shadowThickness
+		shadowWidth = size.y
+		print(shadowWidth)
 	else:
 		size.y = shadowThickness
+		shadowWidth = size.x
+		print(shadowWidth)
 	collisionShape.shape.size = size
 	
 	# Transform the sprite as well
@@ -61,3 +68,29 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _physics_process(delta: float) -> void:
+	if teleController.is_selected:
+		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
+		var right: Vector2 = lightVector.rotated(-PI/2)
+		moveShadow.velocity = right * direction * MAX_SPEED
+	else:
+		moveShadow.velocity = Vector2.ZERO
+	moveShadow.move_and_slide()
+	
+	# Update the polygon
+	var widthVector = Vector2(abs(lightVector.y), abs(lightVector.x)) * (shadowWidth / 2)
+
+	var movePoint1 = moveShadow.position + widthVector
+	var movePoint2 = moveShadow.position - widthVector
+	
+	var j = 0
+	for i in range(4):
+		if i not in staticPoints:
+			if j == 0: 
+				polygon[i] = movePoint1
+				j += 1
+			elif j == 1:
+				polygon[i] = movePoint2
+				break
+	

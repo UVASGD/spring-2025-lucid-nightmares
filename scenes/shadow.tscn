@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgnsmyubfna3v"]
+[gd_scene load_steps=6 format=3 uid="uid://bukphro3hib8x"]
 
 [ext_resource type="Script" path="res://scripts/shadow.gd" id="1_8mhxm"]
 [ext_resource type="Texture2D" uid="uid://dbmf5gknl3out" path="res://assets/shadow.png" id="2_s61ct"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_7w681"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_2u8au"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljdam"]
 size = Vector2(90, 4)
 
 [node name="Node2D" type="Polygon2D"]
-color = Color(1, 1, 1, 0.784314)
+z_index = -1
+color = Color(0.529067, 0.529067, 0.529067, 0.784314)
 polygon = PackedVector2Array(-23, 0, 23, 0, 45, 26, -45, 26)
 script = ExtResource("1_8mhxm")
 
 [node name="MovableShadow" type="CharacterBody2D" parent="."]
+z_index = 1
 position = Vector2(0, 26)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MovableShadow"]
 texture_filter = 1
@@ -25,3 +28,15 @@ region_rect = Rect2(0, 0, 90, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovableShadow"]
 shape = SubResource("RectangleShape2D_ljdam")
+
+[node name="TelekineticController" parent="MovableShadow" node_paths=PackedStringArray("marker") instance=ExtResource("3_7w681")]
+marker = NodePath("../Marker")
+
+[node name="Marker" parent="MovableShadow" instance=ExtResource("4_2u8au")]
+visible = false
+texture_filter = 1
+offset_left = -48.0
+offset_top = -6.0
+offset_right = 336.0
+offset_bottom = 42.0
+scale = Vector2(0.25, 0.25)
