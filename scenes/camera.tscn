@@ -51,6 +51,7 @@ scroll_offset = Vector2(-200, 0)
 texture_filter = 1
 
 [node name="Parallax2D2" type="Parallax2D" parent="Background"]
+texture_filter = 1
 scroll_scale = Vector2(1.35, 1)
 scroll_offset = Vector2(-200, 0)
 
