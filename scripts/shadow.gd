@@ -9,6 +9,7 @@ var lightVector: Vector2 = Vector2.ZERO
 @export var staticPoint1: int = -1
 ## Predefine the points that won't be moving - provide the index of the point on the polygon (e.g. 0 for the 1st point on the polygon)
 @export var staticPoint2: int = -1
+@export var debug: bool = false
 # array of polygon indices
 var staticPoints: Array[int] = []
 var nonStaticPoints: Array[int] = []
@@ -85,6 +86,8 @@ func _physics_process(delta: float) -> void:
 	var movePoint2 = moveShadow.position - widthVector
 	
 	var j = 0
+	if debug:
+		print("start")
 	for i in range(4):
 		if i not in staticPoints:
 			if j == 0: 
@@ -93,4 +96,6 @@ func _physics_process(delta: float) -> void:
 			elif j == 1:
 				polygon[i] = movePoint2
 				break
+		if debug:
+			print(str(polygon[i]))
 	
