@@ -3,10 +3,13 @@ extends Area2D
 @export var phase: int = 0
 var activated = false
 @onready var sprite = $AnimatedSprite2D
+@onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+var audio = load("res://assets/checkpoint/checkpoint.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.animation = "inactive"
+	audioPlayer.stream = audio
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,5 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func setActivated(boo: bool):
 	activated = boo
-	if boo: sprite.animation = 'active'
+	if boo: 
+		sprite.play("active")
+		audioPlayer.play()
 	else: sprite.animation = 'inactive'
