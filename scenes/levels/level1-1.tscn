@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=17 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_bwoae"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_5oojw"]
 [ext_resource type="PackedScene" uid="uid://bf1daeyvukrkg" path="res://scenes/falling_book.tscn" id="4_b0hj2"]
+[ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="8_1gx6h"]
 [ext_resource type="PackedScene" uid="uid://dv48k715ph5v7" path="res://scenes/pressure_plate.tscn" id="8_67ef8"]
+[ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="9_72t68"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_v3ih4"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_3w5j7"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="11_38jo8"]
@@ -53,6 +55,9 @@ camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_5oojw")]
 position = Vector2(2236, 217.75)
+background_texture = ExtResource("8_1gx6h")
+background_texture_2 = ExtResource("9_72t68")
+background_scale = Vector2(2.7, 2.7)
 
 [node name="PressurePlate" parent="." node_paths=PackedStringArray("interact_targets") instance=ExtResource("8_67ef8")]
 position = Vector2(1229, 20)

@@ -1,11 +1,13 @@
-[gd_scene load_steps=23 format=4 uid="uid://b2tbjysoih4xw"]
+[gd_scene load_steps=25 format=4 uid="uid://b2tbjysoih4xw"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_slf5w"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="2_bkp5g"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="2_macdi"]
 [ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="3_tl2mn"]
-[ext_resource type="TileSet" uid="uid://dc2wfy13x13ry" path="res://assets/tileset/master_tileset.tres" id="4_vlkbe"]
+[ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="4_vlkbe"]
 [ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="5_1ld67"]
+[ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="7_5erqc"]
+[ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="8_d18vf"]
 [ext_resource type="PackedScene" uid="uid://b7aryggp13wcs" path="res://scenes/wood_tween_moving_platform.tscn" id="9_2577r"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_rxwmr"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_fx16o"]
@@ -86,6 +88,9 @@ camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("11_5y17g")]
 position = Vector2(2236, 217.75)
+background_texture = ExtResource("7_5erqc")
+background_texture_2 = ExtResource("8_d18vf")
+background_scale = Vector2(2.7, 2.7)
 
 [node name="PathMovingPlatform" parent="." instance=ExtResource("5_1ld67")]
 curve = SubResource("Curve2D_t5j8p")
