@@ -3,6 +3,7 @@ class_name CustomCamera
 
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
 @onready var textureRect: TextureRect = $Background/Parallax2D/BackgroundTexture
+@onready var textureRect2: TextureRect = $Background/Parallax2D2/BackgroundTexture2
 @onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
@@ -18,6 +19,7 @@ const coldColor: Color = Color("535ca896")
 enum RealityMode {NORMAL, HOT, COLD}
 
 @export var background_texture: Texture2D = null
+@export var background_texture_2: Texture2D = null
 @export var background_scale: Vector2 = Vector2(1, 1)
 @export var trackingOffset: Vector2 = Vector2.ZERO 
 @export_group("Shake")
@@ -32,6 +34,7 @@ var shakeStrength = 0.0
 func _ready() -> void:
 	default_zoom = zoom
 	setBackground(background_texture, background_scale)
+	setBackground2(background_texture_2, background_scale)
 	colorOverlay.visible = false
 
 
@@ -73,6 +76,11 @@ func setBackground(texture: Texture2D, textureScale: Vector2):
 	if texture == null: return
 	textureRect.texture = texture
 	textureRect.scale = textureScale
+	
+func setBackground2(texture: Texture2D, textureScale: Vector2):
+	if texture == null: return
+	textureRect2.texture = texture
+	textureRect2.scale = textureScale
 	
 func on_reality_change(reality: int):
 	if reality == RealityMode.COLD:
