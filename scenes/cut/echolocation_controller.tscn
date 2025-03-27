@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c67j431var5y0"]
+
+[ext_resource type="Script" path="res://scripts/echolocation_controller.gd" id="1_qreko"]
+[ext_resource type="PackedScene" uid="uid://teg2mmqd7c8g" path="res://scenes/cut/echolocation_multimesh_template.tscn" id="2_elx5o"]
+
+[node name="EcholocationManager" type="Node2D"]
+script = ExtResource("1_qreko")
+multimeshTemplate = ExtResource("2_elx5o")

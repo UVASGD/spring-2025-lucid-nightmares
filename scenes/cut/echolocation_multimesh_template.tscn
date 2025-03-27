@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://teg2mmqd7c8g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlviu"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_q6qmf"]
+material = SubResource("StandardMaterial3D_xlviu")
+size = Vector2(0.02, 0.02)
+
+[sub_resource type="MultiMesh" id="MultiMesh_8is1p"]
+use_colors = true
+mesh = SubResource("QuadMesh_q6qmf")
+
+[sub_resource type="Curve" id="Curve_adt7v"]
+min_value = 1.0
+bake_resolution = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_53ddk"]
+width = 32
+curve = SubResource("Curve_adt7v")
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D"]
+light_mask = 2
+visibility_layer = 2
+multimesh = SubResource("MultiMesh_8is1p")
+texture = SubResource("CurveTexture_53ddk")
