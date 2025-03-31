@@ -40,9 +40,8 @@ shape = SubResource("RectangleShape2D_pn0ws")
 visible = false
 offset_left = -18.0
 offset_top = -10.0
-offset_right = 126.0
-offset_bottom = 70.0
-scale = Vector2(0.25, 0.25)
+offset_right = 18.0
+offset_bottom = 11.0
 
 [node name="TelekineticController" parent="AnimatableBody2D" node_paths=PackedStringArray("marker") instance=ExtResource("4_bnu63")]
 marker = NodePath("../Marker")

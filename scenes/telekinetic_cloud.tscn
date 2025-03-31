@@ -33,9 +33,8 @@ marker = NodePath("../Marker")
 visible = false
 offset_left = -18.0
 offset_top = -8.0
-offset_right = 126.0
-offset_bottom = 60.0
-scale = Vector2(0.25, 0.25)
+offset_right = 17.0
+offset_bottom = 9.0
 
 [node name="FloorArea" type="Area2D" parent="."]
 visible = false

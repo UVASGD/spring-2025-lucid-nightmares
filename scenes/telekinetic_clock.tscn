@@ -49,11 +49,10 @@ marker = NodePath("../Marker")
 
 [node name="Marker" parent="LongHand" instance=ExtResource("4_uijwr")]
 visible = false
-offset_left = -9.0
-offset_top = -10.0
-offset_right = 395.0
-offset_bottom = 70.0
-scale = Vector2(0.25, 0.25)
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 91.0
+offset_bottom = 11.0
 
 [node name="SurfaceMaterial" parent="LongHand" instance=ExtResource("6_oiqxh")]
 surface = 0
