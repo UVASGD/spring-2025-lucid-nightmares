@@ -20,6 +20,7 @@ position = Vector2(0, -0.5)
 texture = ExtResource("2_4fuwh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_pn0ws")
 

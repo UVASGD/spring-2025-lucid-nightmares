@@ -62,6 +62,7 @@ position = Vector2(24, 4)
 texture = ExtResource("2_3j4ws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(24, 4)
 shape = SubResource("RectangleShape2D_1vcg1")
 
@@ -85,6 +86,7 @@ offset_bottom = 10.0
 marker = NodePath("../Marker")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
 position = Vector2(-24, 4)
 shape = SubResource("RectangleShape2D_1vcg1")
 
