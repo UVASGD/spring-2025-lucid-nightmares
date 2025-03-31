@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var smallCloud = load("res://assets/cloud32x16.png")
 var bigCloud = load("res://assets/cloud64x16.png")
+var big: bool = false
 
 @onready var collisionPolygon = $CollisionPolygon2D
 @onready var sprite = $Sprite2D
@@ -22,14 +23,23 @@ func _process(delta: float) -> void:
 	pass
 	
 func changeToBig():
+	big = true
 	collisionPolygon.polygon = bigShape
 	sprite.texture = bigCloud
+	await get_tree().process_frame
+	collisionPolygon.one_way_collision = true
+	collisionPolygon.one_way_collision_margin = 3
 
 func changeToSmall():
+	big = false
 	collisionPolygon.polygon = smallShape
 	sprite.texture = smallCloud
+	await get_tree().process_frame
+	collisionPolygon.one_way_collision = true
+	collisionPolygon.one_way_collision_margin = 1
 
 func _on_grow_area_body_entered(body: Node2D) -> void:
+	if big: return
 	if body is TelekineticCloud:
 		growArea.monitoring = false
 		changeToBig()
