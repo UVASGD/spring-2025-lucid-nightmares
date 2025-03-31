@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1johdl5wh6xd" path="res://assets/marker/bottom-right.png" id="4_2yiqt"]
 
 [node name="Marker" type="ColorRect"]
+texture_filter = 1
 offset_right = 98.0
 offset_bottom = 88.0
 color = Color(1, 1, 1, 0)
@@ -15,9 +16,11 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -16.0
+offset_left = -4.0
+offset_right = 12.0
 offset_bottom = 16.0
 grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_1ajjs")
 
 [node name="BottomLeft" type="TextureRect" parent="."]
@@ -25,9 +28,11 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -16.0
+offset_top = -4.0
 offset_right = 16.0
+offset_bottom = 12.0
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_pp266")
 
 [node name="BottomRight" type="TextureRect" parent="."]
@@ -37,14 +42,18 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 12.0
+offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_2yiqt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_j8vxc")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="2_hycc7"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_7m68b"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_8mfex"]
-[ext_resource type="PackedScene" path="res://scenes/damage_box.tscn" id="5_it5ci"]
+[ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="5_it5ci"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="6_6cdwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
@@ -14,8 +14,8 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="TelekineticFreeDeathTile" type="CharacterBody2D"]
-collision_layer = 32
-collision_mask = 43
+collision_layer = 64
+collision_mask = 59
 script = ExtResource("1_rvs2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,9 +31,8 @@ shape = SubResource("RectangleShape2D_pn0ws")
 visible = false
 offset_left = -11.0
 offset_top = -11.0
-offset_right = 77.0
-offset_bottom = 77.0
-scale = Vector2(0.25, 0.25)
+offset_right = 11.0
+offset_bottom = 12.0
 
 [node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("4_8mfex")]
 marker = NodePath("../Marker")

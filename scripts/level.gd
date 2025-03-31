@@ -27,7 +27,8 @@ func _process(delta: float) -> void:
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow
-	get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
+	if not allow:
+		get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
 	
 func cycleRealityForward():
 	reality += 1

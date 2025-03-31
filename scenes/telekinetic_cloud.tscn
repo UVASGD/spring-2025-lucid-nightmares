@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1pd47r6kg8s1"]
+
+[ext_resource type="Texture2D" uid="uid://brro7nlmfxvl8" path="res://assets/cloud32x16.png" id="1_68idv"]
+[ext_resource type="Script" path="res://scripts/telekinetic_cloud.gd" id="1_et84a"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_ywel2"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_kafs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7try"]
+size = Vector2(28, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eipcy"]
+size = Vector2(28, 2)
+
+[node name="TelekineticCloud" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 34
+collision_mask = 57
+script = ExtResource("1_et84a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.592157, 0.968627, 1)
+texture = ExtResource("1_68idv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_k7try")
+one_way_collision = true
+
+[node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("3_ywel2")]
+marker = NodePath("../Marker")
+
+[node name="Marker" parent="." instance=ExtResource("4_kafs6")]
+visible = false
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 17.0
+offset_bottom = 9.0
+
+[node name="FloorArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_eipcy")
+debug_color = Color(0.814829, 0.297007, 0.708062, 0.42)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="FloorArea" to="." method="_on_floor_area_area_entered"]
+[connection signal="area_exited" from="FloorArea" to="." method="_on_floor_area_area_exited"]
+[connection signal="timeout" from="DespawnTimer" to="." method="despawn"]
+[connection signal="timeout" from="RespawnTimer" to="." method="respawn"]

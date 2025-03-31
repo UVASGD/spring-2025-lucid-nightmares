@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/tween_moving_platform.gd" id="1_61qer"]
 [ext_resource type="Texture2D" uid="uid://5kufot6rnkvm" path="res://assets/woodplatform.png" id="2_mup6o"]
 [ext_resource type="AudioStream" uid="uid://ch26ip3imptnq" path="res://assets/Sounds/wood moving.mp3" id="2_wv1ov"]
-[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="4_mrcsd"]
+[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="4_mrcsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(56, 14)
@@ -13,16 +13,19 @@ script = ExtResource("1_61qer")
 moveSound = ExtResource("2_wv1ov")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_mask = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_pn0ws")
+collision_layer = 32
+collision_mask = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
 position = Vector2(-1.19209e-07, -1.5)
 scale = Vector2(0.491228, 0.492537)
 texture = ExtResource("2_mup6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_pn0ws")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatableBody2D"]
 

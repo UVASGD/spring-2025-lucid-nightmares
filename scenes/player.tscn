@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwsep6ctbelnx"]
+[gd_scene load_steps=20 format=3 uid="uid://cwsep6ctbelnx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_srlfy"]
 [ext_resource type="Texture2D" uid="uid://bsx8mgluau0cn" path="res://assets/player/idle.png" id="2_bst6x"]
@@ -64,9 +64,45 @@ size = Vector2(9.5, 1.75)
 radius = 6.0
 height = 16.0
 
+[sub_resource type="Animation" id="Animation_nlt86"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gbok6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0o7rc"]
+_data = {
+"RESET": SubResource("Animation_gbok6"),
+"fadeout": SubResource("Animation_nlt86")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 23
+collision_mask = 49
 script = ExtResource("1_srlfy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +116,7 @@ animation = &"idle"
 shape = SubResource("CapsuleShape2D_oa6ih")
 
 [node name="StandingArea" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
 position = Vector2(1, 7.125)
@@ -87,6 +124,7 @@ shape = SubResource("RectangleShape2D_p4lao")
 debug_color = Color(0.886789, 0.266542, 0.502231, 0.42)
 
 [node name="HurtBox" parent="." instance=ExtResource("11_ba76o")]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 visible = false
@@ -101,6 +139,11 @@ target_position = Vector2(0, 9)
 collision_mask = 17
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0o7rc")
+}
 
 [connection signal="area_entered" from="StandingArea" to="." method="_on_enter_camera_override_area"]
 [connection signal="area_exited" from="StandingArea" to="." method="_on_exit_camera_override_area"]

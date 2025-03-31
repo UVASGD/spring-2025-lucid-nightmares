@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3w3oiw1cfgdn"]
+
+[ext_resource type="Script" path="res://scripts/growable_cloud.gd" id="1_futv8"]
+[ext_resource type="Texture2D" uid="uid://brro7nlmfxvl8" path="res://assets/cloud32x16.png" id="2_wf4n2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyx6a"]
+radius = 7.0
+height = 34.0
+
+[node name="GrowingCloud" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_futv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wf4n2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-14, 5.5, 14, 5.5, 14, -5.5, -14, -5.5)
+one_way_collision = true
+
+[node name="GrowArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrowArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eyx6a")
+debug_color = Color(0.834015, 0.307909, 0.613896, 0.42)
+
+[connection signal="body_entered" from="GrowArea" to="." method="_on_grow_area_body_entered"]

@@ -18,6 +18,7 @@ script = ExtResource("1_7xvvm")
 texture = ExtResource("2_mw7we")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_n76uv")
 
 [node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("3_iiv7g")]
@@ -25,7 +26,7 @@ marker = NodePath("../Marker")
 
 [node name="Marker" parent="." instance=ExtResource("4_etb4w")]
 visible = false
-offset_left = -22.0
-offset_top = -29.0
-offset_right = 21.0
-offset_bottom = 30.0
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = 27.0

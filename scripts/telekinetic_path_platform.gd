@@ -15,6 +15,7 @@ extends Path2D
 @export var returnToOriginalLocation: bool = false
 @export var returnToOriginalLocationSpeed: int = 12.5
 @export var invertControls: bool = false
+@export var disableOnStart: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,8 @@ func _ready() -> void:
 	if curve:
 		var points: PackedVector2Array = curve.get_baked_points()
 		line.points = points
+	if disableOnStart:
+		teleController.set_enabled(false)
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

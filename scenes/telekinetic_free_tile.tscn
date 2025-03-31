@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="3_ehphe"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="5_jx242"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="5_wo3rm"]
-[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="6_qt5l3"]
+[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="6_qt5l3"]
 
 [sub_resource type="Animation" id="Animation_pt8w3"]
 length = 0.001
@@ -51,8 +51,8 @@ size = Vector2(16, 16)
 size = Vector2(16, 6)
 
 [node name="TelekineticFreeTile" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 27
+collision_layer = 34
+collision_mask = 57
 script = ExtResource("1_lnyvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -67,12 +67,15 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_pn0ws")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_om7pb")
 debug_color = Color(0.881508, 0.27925, 0.488499, 0.42)
@@ -81,9 +84,8 @@ debug_color = Color(0.881508, 0.27925, 0.488499, 0.42)
 visible = false
 offset_left = -11.0
 offset_top = -11.0
-offset_right = 77.0
-offset_bottom = 77.0
-scale = Vector2(0.25, 0.25)
+offset_right = 11.0
+offset_bottom = 11.0
 
 [node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("5_wo3rm")]
 marker = NodePath("../Marker")
