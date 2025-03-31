@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=18 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_v3ih4"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_3w5j7"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="11_38jo8"]
+[ext_resource type="PackedScene" uid="uid://b484elec4hdto" path="res://scenes/checkpoint.tscn" id="15_e3bil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xidka"]
 size = Vector2(435.25, 167)
@@ -102,3 +103,7 @@ rotation = -4.69668
 
 [node name="TelekineticFreeGhostTile" parent="." instance=ExtResource("1_cs2yh")]
 position = Vector2(1420, -60)
+
+[node name="Checkpoint" parent="." instance=ExtResource("15_e3bil")]
+position = Vector2(1390, -2)
+phase = 1
