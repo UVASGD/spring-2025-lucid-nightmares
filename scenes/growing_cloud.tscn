@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3w3oiw1cfgdn"]
+
+[ext_resource type="Script" path="res://scripts/growable_cloud.gd" id="1_futv8"]
+[ext_resource type="Texture2D" uid="uid://brro7nlmfxvl8" path="res://assets/cloud32x16.png" id="2_wf4n2"]
+
+[node name="GrowingCloud" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_futv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wf4n2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-14, 5.5, 14, 5.5, 14, -5.5, -14, -5.5)
+one_way_collision = true
