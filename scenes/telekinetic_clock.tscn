@@ -30,10 +30,12 @@ position = Vector2(40, 0)
 texture = ExtResource("2_ts7cb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LongHand"]
+visible = false
 position = Vector2(41.5, 0)
 shape = SubResource("RectangleShape2D_iwwgm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LongHand"]
+visible = false
 polygon = PackedVector2Array(75, 8, 75, -8, 88, 0)
 
 [node name="TelekineticController" parent="LongHand" node_paths=PackedStringArray("marker") instance=ExtResource("3_wo63p")]
@@ -51,4 +53,5 @@ scale = Vector2(0.25, 0.25)
 surface = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LongHand"]
+visible = false
 shape = SubResource("CircleShape2D_gxg1h")
