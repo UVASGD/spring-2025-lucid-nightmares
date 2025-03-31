@@ -44,4 +44,5 @@ func fadeCamera():
 func loadNextLevel():
 	if nextLevel:
 		get_tree().change_scene_to_packed(nextLevel)
+		PlayerGlobalVars.respawnPoint = Vector2.ZERO
 	
