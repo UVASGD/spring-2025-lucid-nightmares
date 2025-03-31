@@ -8,6 +8,8 @@ var player: Player
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
+@export var nextLevel: PackedScene = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -38,3 +40,8 @@ func fadePlayer():
 func fadeCamera():
 	if player != null:
 		player.camera.fadeToBlack()
+		
+func loadNextLevel():
+	if nextLevel:
+		get_tree().change_scene_to_packed(nextLevel)
+	
