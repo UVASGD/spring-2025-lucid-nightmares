@@ -66,7 +66,7 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 23
+collision_mask = 87
 script = ExtResource("1_srlfy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +80,7 @@ animation = &"idle"
 shape = SubResource("CapsuleShape2D_oa6ih")
 
 [node name="StandingArea" type="Area2D" parent="."]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandingArea"]
 position = Vector2(1, 7.125)

@@ -5,6 +5,7 @@ var bigCloud = load("res://assets/cloud64x16.png")
 
 @onready var collisionPolygon = $CollisionPolygon2D
 @onready var sprite = $Sprite2D
+@onready var growArea = $GrowArea
 
 var smallShape = [Vector2(-14, 5.5), Vector2(14, 5.5), Vector2(14, -5.5), Vector2(-14, -5.5)]
 var bigShape = [Vector2(-23, 8), Vector2(-30, 5), Vector2(-30, 2), Vector2(-19, -5), Vector2(18, -5), Vector2(30, 0), 
@@ -27,3 +28,9 @@ func changeToBig():
 func changeToSmall():
 	collisionPolygon.polygon = smallShape
 	sprite.texture = smallCloud
+
+func _on_grow_area_body_entered(body: Node2D) -> void:
+	if body is TelekineticCloud:
+		growArea.monitoring = false
+		changeToBig()
+		body.queue_free()

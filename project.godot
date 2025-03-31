@@ -101,6 +101,7 @@ PlayerDown={
 2d_physics/layer_4="restrict"
 2d_physics/layer_5="movableworld"
 2d_physics/layer_6="damageworld"
+2d_physics/layer_7="telecloud"
 
 [physics]
 

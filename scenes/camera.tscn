@@ -30,7 +30,7 @@ offset_bottom = 648.0
 color = Color(0.325703, 0.359276, 0.659425, 0.588235)
 
 [node name="TelekineticArea" type="Area2D" parent="."]
-collision_mask = 51
+collision_mask = 119
 script = ExtResource("2_eteo0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TelekineticArea"]
