@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bxsl34nbkakxj"]
+[gd_scene load_steps=31 format=4 uid="uid://bxsl34nbkakxj"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_31qgn"]
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="2_c242h"]
@@ -56,6 +56,12 @@ point_count = 4
 [sub_resource type="Curve2D" id="Curve2D_gu7i7"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2048, -992, 0, 0, 0, 0, 1976, -992)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_sgmtg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 240, -520, 0, 0, 0, 0, 240, -600)
 }
 point_count = 2
 
@@ -159,6 +165,10 @@ position = Vector2(-455, -523)
 
 [node name="TelekineticCloud3" parent="Telekinetic Objects" instance=ExtResource("12_grp3n")]
 position = Vector2(-268, -606)
+
+[node name="TelekineticMovingPlatform4" parent="Telekinetic Objects" instance=ExtResource("5_gqm8y")]
+curve = SubResource("Curve2D_sgmtg")
+disableOnStart = true
 
 [node name="Other World Objects" type="Node2D" parent="."]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d285fpskcqrkn"]
 
-[ext_resource type="Script" path="res://scripts/telekinetic_pencil.gd" id="1_0o22v"]
+[ext_resource type="Script" path="res://scripts/telekinetic_clock.gd" id="1_0o22v"]
 [ext_resource type="Texture2D" uid="uid://jvdc4nntppyr" path="res://assets/Short Clock Hand.PNG" id="1_pmhjn"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="2_ts7cb"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_wo63p"]
@@ -17,9 +17,12 @@ radius = 8.0
 texture_filter = 1
 
 [node name="ShortHand" type="Sprite2D" parent="."]
-modulate = Color(0.615686, 0.615686, 0.615686, 0.392157)
+self_modulate = Color(0.615686, 0.615686, 0.615686, 0.392157)
 texture = ExtResource("1_pmhjn")
 offset = Vector2(18, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="ShortHand"]
+target_position = Vector2(200, 0)
 
 [node name="LongHand" type="CharacterBody2D" parent="."]
 script = ExtResource("1_0o22v")
