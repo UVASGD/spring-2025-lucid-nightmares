@@ -55,11 +55,9 @@ func _ready() -> void:
 	if size.x == 0:
 		size.x = shadowThickness
 		shadowWidth = size.y
-		print(shadowWidth)
 	else:
 		size.y = shadowThickness
 		shadowWidth = size.x
-		print(shadowWidth)
 	collisionShape.shape.size = size
 	
 	# Transform the sprite as well
