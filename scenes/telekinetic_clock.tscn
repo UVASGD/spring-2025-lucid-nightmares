@@ -25,6 +25,9 @@ offset = Vector2(18, 0)
 target_position = Vector2(200, 0)
 
 [node name="LongHand" type="CharacterBody2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 34
+collision_mask = 0
 script = ExtResource("1_0o22v")
 
 [node name="Sprite2D" type="Sprite2D" parent="LongHand"]

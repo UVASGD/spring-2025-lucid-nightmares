@@ -67,6 +67,7 @@ shape = SubResource("RectangleShape2D_1vcg1")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 process_physics_priority = 1
+collision_layer = 32
 constant_angular_velocity = 0.174533
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
