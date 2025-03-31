@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://chiiysjo7i0mg" path="res://scenes/falling_cloud.tscn" id="14_57u7l"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="14_ngifa"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="15_38f2n"]
-[ext_resource type="PackedScene" uid="uid://d285fpskcqrkn" path="res://scenes/telekinetic_pencil.tscn" id="16_3chta"]
+[ext_resource type="PackedScene" uid="uid://d285fpskcqrkn" path="res://scenes/telekinetic_clock.tscn" id="16_3chta"]
 [ext_resource type="PackedScene" uid="uid://b484elec4hdto" path="res://scenes/checkpoint.tscn" id="16_d551b"]
 [ext_resource type="PackedScene" uid="uid://b3w3oiw1cfgdn" path="res://scenes/growing_cloud.tscn" id="16_j4eam"]
 [ext_resource type="PackedScene" uid="uid://dv48k715ph5v7" path="res://scenes/pressure_plate.tscn" id="17_nmwdb"]
@@ -141,7 +141,7 @@ curve = SubResource("Curve2D_gu7i7")
 speed = 75
 invertControls = true
 
-[node name="TelekineticPencil" parent="Telekinetic Objects" instance=ExtResource("16_3chta")]
+[node name="TelekineticClock" parent="Telekinetic Objects" instance=ExtResource("16_3chta")]
 position = Vector2(170, -560)
 rotation = -1.5708
 
@@ -251,5 +251,4 @@ position = Vector2(656, -578)
 interact_targets = [NodePath("../Gate")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nxsid")]
-position = Vector2(-146, -521)
 camera = NodePath("../Camera2D")
