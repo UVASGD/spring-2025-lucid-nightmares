@@ -16,6 +16,7 @@ const AIR_JUMPS = 1
 @onready var respawnController: RespawnController = $RespawnController
 @onready var floorRayCast: RayCast2D = $FloorRayCast2D
 @onready var footstepPlayer: AudioStreamPlayer2D = $FootstepPlayer
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 var wood_walk = preload("res://assets/Sounds/player/wood_walk.mp3")
 var carpet_walk = preload("res://assets/Sounds/player/carpet_walk.mp3")
@@ -175,3 +176,6 @@ func replenishDoubleJump():
 		canJump = false
 		#set_deferred("jumpCounter", 0)
 		#set_deferred("canJump", false)
+		
+func fadeOut():
+	animPlayer.play("fadeout")

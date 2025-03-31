@@ -5,6 +5,7 @@ class_name CustomCamera
 @onready var textureRect: TextureRect = $Background/Parallax2D/BackgroundTexture
 @onready var textureRect2: TextureRect = $Background/Parallax2D2/BackgroundTexture2
 @onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
@@ -100,3 +101,8 @@ func coldOverlay():
 	
 func resetOverlay():
 	colorOverlay.visible = false
+	
+func fadeToBlack():
+	colorOverlay.color = Color("00000000")
+	colorOverlay.visible = true
+	animPlayer.play("fadeToBlack")

@@ -1,0 +1,40 @@
+extends Node2D
+class_name EndElevator
+
+var player: Player
+
+@onready var area: Area2D = $Area2D
+@onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("PlayerJump") and player:
+		remoteTransform.remote_path = player.get_path()
+		player.overridePhysics = true
+		player.velocity = Vector2.ZERO
+		animPlayer.play("end")
+	
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		player = body
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == player:
+		player = null
+		
+func fadePlayer():
+	if player != null:
+		player.fadeOut()
+		
+func fadeCamera():
+	if player != null:
+		player.camera.fadeToBlack()
