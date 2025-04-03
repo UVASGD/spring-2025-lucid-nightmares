@@ -4,6 +4,8 @@ extends Area2D
 @export var DIRECTION = Vector2(0, -1)
 @export var IMPULSE: Vector2 = Vector2(0, -500.0)
 
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	VELOCITY = abs(VELOCITY)
@@ -16,6 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		sprite.play("spring")
 		var char: CharacterBody2D = body
 		var vector = DIRECTION.normalized() * VELOCITY
 		char.velocity.y = vector.y
@@ -23,5 +26,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if char is Player:
 			char.airborne(2)
 	elif body is RigidBody2D:
+		sprite.play("spring")
 		var rigid: RigidBody2D = body
 		rigid.apply_impulse(IMPULSE)
