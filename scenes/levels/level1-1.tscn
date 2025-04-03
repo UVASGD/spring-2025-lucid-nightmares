@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=20 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_31gwc"]
 [ext_resource type="PackedScene" uid="uid://dl8qa5dlw1gg6" path="res://scenes/telekinetic_free_death_tile.tscn" id="1_31132"]
 [ext_resource type="PackedScene" uid="uid://e4kofdssxqyr" path="res://scenes/telekinetic_free_ghost_tile.tscn" id="1_cs2yh"]
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="2_qguv0"]
@@ -25,6 +26,10 @@ size = Vector2(1607, 20)
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_31gwc")
+allowTelekinesis = null
+reality = null
+disableDoubleJump = true
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1342, -10)

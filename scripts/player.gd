@@ -9,7 +9,7 @@ const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 3.0
 const JUMP_VELOCITY = -100.0
 const JUMP_LEEWAY_TIME = 0.1
-const AIR_JUMPS = 1
+var AIR_JUMPS = 1
 
 @export var camera: CustomCamera = null
 @onready var animSprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -54,6 +54,7 @@ func physics(delta: float):
 	if is_on_floor() and not onGround:
 		jumpCounter = 0
 		onGround = true
+		canJump = true
 		
 	if airborneTimer > 0:
 		airborneTimer -= 1

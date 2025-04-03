@@ -5,8 +5,10 @@ enum RealityMode {NORMAL, HOT, COLD}
 
 @export var allowTelekinesis: bool = true
 @export var reality: RealityMode = RealityMode.NORMAL
+@export var disableDoubleJump = false
 
 var camera: CustomCamera = null
+var player: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +18,13 @@ func _ready() -> void:
 		if node is CustomCamera:
 			move_child(node, get_child_count())
 			camera = node
+		elif node is Player:
+			player = node
+		if player and camera:
 			break
+	
+	if disableDoubleJump:
+		player.AIR_JUMPS = 0
 
 # A really scuffed way of properly initializing tilemap objects
 var delayedCall = false
