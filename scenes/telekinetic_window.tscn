@@ -10,23 +10,28 @@ size = Vector2(32, 48)
 
 [node name="Window" type="StaticBody2D" groups=["RealityObject"]]
 texture_filter = 1
+position = Vector2(-9, -9)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7xvvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 25)
 texture = ExtResource("2_mw7we")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+position = Vector2(17, 25)
 shape = SubResource("RectangleShape2D_n76uv")
 
 [node name="TelekineticController" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("3_iiv7g")]
+visible = false
+position = Vector2(16, 24)
 marker = NodePath("../Marker")
 
 [node name="Marker" parent="." instance=ExtResource("4_etb4w")]
 visible = false
-offset_left = -19.0
-offset_top = -27.0
-offset_right = 18.0
-offset_bottom = 27.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 36.0
+offset_bottom = 52.0

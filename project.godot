@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lucid Nightmares"
-run/main_scene="res://scenes/levels/playground.tscn"
+run/main_scene="res://scenes/levels/drafts/final.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -107,3 +107,7 @@ PlayerDown={
 
 2d/run_on_separate_thread=true
 2d/default_gravity=245.0
+
+[rendering]
+
+textures/default_filters/use_nearest_mipmap_filter=true

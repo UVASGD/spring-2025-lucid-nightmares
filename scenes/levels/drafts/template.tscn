@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_0kygq"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_k2jkh"]
-[ext_resource type="TileSet" uid="uid://cqedt2y0a5yq0" path="res://assets/tileset/master_tileset.tres" id="3_yokoa"]
+[ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="3_yokoa"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_7x7nu"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="5_otxgi"]
 [ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="6_l5b7y"]
@@ -44,20 +44,20 @@ tile_set = ExtResource("3_yokoa")
 collision_enabled = false
 
 [node name="Camera2D" parent="." instance=ExtResource("4_7x7nu")]
-position = Vector2(2236, 217.75)
+position = Vector2(17, -116)
 background_texture = ExtResource("6_l5b7y")
 background_texture_2 = ExtResource("7_mmavo")
 background_scale = Vector2(2.7, 2.7)
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("8_7fd2h")]
-position = Vector2(1595, -23.25)
+position = Vector2(-429, -144)
 scale = Vector2(0.25, 0.25)
 zoom = Vector2(2.7, 2.7)
 useCollisionShapeCenter = false
 center_position = Vector2(1550, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea"]
-position = Vector2(-208.25, -112)
+position = Vector2(-536, -231)
 shape = SubResource("RectangleShape2D_i4mid")
 
 [node name="Deathzone" parent="." instance=ExtResource("9_kwqme")]

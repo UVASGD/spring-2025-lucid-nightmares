@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dbesvvhuhnn2o"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://dbesvvhuhnn2o"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_uarti"]
 [ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/telekinetic_free_tile.tscn" id="2_wqk6a"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chiiysjo7i0mg" path="res://scenes/falling_cloud.tscn" id="6_hykot"]
 [ext_resource type="PackedScene" uid="uid://drf3lwf0ywy6f" path="res://scenes/handle.tscn" id="7_6lpax"]
 [ext_resource type="PackedScene" uid="uid://e4kofdssxqyr" path="res://scenes/telekinetic_free_ghost_tile.tscn" id="8_w56u0"]
+[ext_resource type="PackedScene" uid="uid://57jus7r146ex" path="res://scenes/telekinetic_window.tscn" id="9_axc54"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lna6j"]
 texture = ExtResource("1_uarti")
@@ -215,6 +216,7 @@ scenes/4/scene = ExtResource("5_66fbo")
 scenes/5/scene = ExtResource("6_hykot")
 scenes/6/scene = ExtResource("7_6lpax")
 scenes/7/scene = ExtResource("8_w56u0")
+scenes/9/scene = ExtResource("9_axc54")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wikfq"]
 texture = ExtResource("4_6p4oa")
