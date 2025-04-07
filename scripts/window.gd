@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var level: Level = Level.getLevelObject(get_tree())
 
 # window_planets.tscn
-@onready var windowPlanets: Node2D = load("uid://brotysyfle1aw").instantiate()
+@onready var windowPlanets: Node2D = load("res://scenes/window_planets.tscn").instantiate()
 
 
 enum RealityMode {NORMAL, HOT, COLD}

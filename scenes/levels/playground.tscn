@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="18_rtdyq"]
 [ext_resource type="PackedScene" uid="uid://c1m0obtdemrgq" path="res://scenes/shadow.tscn" id="20_m83r7"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="23_1cjds"]
-[ext_resource type="PackedScene" uid="uid://cp1ww2q1allf1" path="res://scenes/levels/level2-1.tscn" id="23_6v4h7"]
+[ext_resource type="PackedScene" uid="uid://kcdl14p7hf1u" path="res://scenes/levels/level2-1.tscn" id="23_6v4h7"]
 
 [sub_resource type="Curve2D" id="Curve2D_oknp3"]
 _data = {
