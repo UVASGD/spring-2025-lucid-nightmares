@@ -149,7 +149,7 @@ func _process(_delta: float) -> void:
 func _on_enter_camera_override_area(area: Area2D) -> void:
 	if area is not CameraOverrideArea: return
 	var cameraArea: CameraOverrideArea = area
-	camera.cameraOverride(cameraArea.getZoom(), cameraArea.getCenter())
+	camera.cameraOverride(true, not cameraArea.followPlayer, cameraArea.getZoom(), cameraArea.getCenter())
 	
 # Does not account for the player being inside multiple override areas
 func _on_exit_camera_override_area(area: Area2D) -> void:

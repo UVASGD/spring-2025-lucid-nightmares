@@ -9,7 +9,8 @@ class_name CustomCamera
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
-var doOverride: bool = false
+var doOverrideZoom: bool = false
+var doOverridePosition: bool = false
 var lerpDelta = 2
 var returnLerpDelta = 4
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
@@ -42,12 +43,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player == null: return
-	if doOverride and not disableTracking:
-		zoom = lerp(zoom, overrideZoom, lerpDelta * delta)
+	if doOverridePosition and not disableTracking:
 		position = lerp(position, overridePosition, lerpDelta * delta)
-	elif not disableTracking:
-		zoom = lerp(zoom, default_zoom, returnLerpDelta * delta)
+	else:
 		position = lerp(position, player.position + trackingOffset, returnLerpDelta * delta)
+	if doOverrideZoom:
+		zoom = lerp(zoom, overrideZoom, lerpDelta * delta)
+	else:
+		zoom = lerp(zoom, default_zoom, returnLerpDelta * delta)
 	updateCollisionBox()
 	if shakeStrength:
 		shakeStrength = max(shakeStrength - shakeDecay * delta, 0)
@@ -62,13 +65,15 @@ func updateCollisionBox():
 	var newSize = viewport_size * 1/zoom
 	shape.size = newSize
 
-func cameraOverride(newZoom: Vector2, newPosition: Vector2):
-	doOverride = true
+func cameraOverride(doZoom: bool, doPosition: bool, newZoom: Vector2, newPosition: Vector2):
+	if doPosition: doOverridePosition = true
+	if doZoom: doOverrideZoom = true
 	overridePosition = newPosition
 	overrideZoom = newZoom
 
 func resetOverride():
-	doOverride = false
+	doOverridePosition = false
+	doOverrideZoom = false
 	
 func shake():
 	shakeStrength += 0.3

@@ -4,6 +4,7 @@ class_name CameraOverrideArea
 @export var zoom: Vector2 = Vector2(0.85, 0.85)
 @export var useCollisionShapeCenter: bool = true
 @export var center_position: Vector2 = Vector2.ZERO
+@export var followPlayer: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
