@@ -4,6 +4,7 @@ class_name Player
 const floor_area_name = "StandingArea"
 
 const MAX_SPEED = 75.0
+const TERMINAL_DOWNWARD_SPEED = 300.0
 const GROUND_FRICTION = MAX_SPEED * 0.3
 const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 3.0
@@ -96,6 +97,9 @@ func physics(delta: float):
 			canJump = false
 			# consider the player mid-air when the player has jumped
 			onGround = false
+			
+	if velocity.y > TERMINAL_DOWNWARD_SPEED:
+		velocity.y = TERMINAL_DOWNWARD_SPEED
 	move_and_slide()
 
 func animation():
