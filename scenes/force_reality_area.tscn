@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b15f0muxxq446"]
+
+[ext_resource type="Script" path="res://scripts/force_reality_area.gd" id="1_i0blg"]
+
+[node name="ForceRealityArea" type="Area2D"]
+script = ExtResource("1_i0blg")
