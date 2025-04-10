@@ -112,6 +112,7 @@ scroll_offset = Vector2(-200, 0)
 [node name="BackgroundTexture2" type="TextureRect" parent="Background/Parallax2D2"]
 
 [node name="SpaceBackground" type="ParallaxBackground" parent="."]
+visible = false
 scroll_ignore_camera_zoom = true
 
 [node name="Background" type="ParallaxLayer" parent="SpaceBackground"]
