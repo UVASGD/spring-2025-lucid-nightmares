@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf0l6trf1ldnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifqm8"]
+size = Vector2(288, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kogo0"]
+size = Vector2(16, 64)
+
+[node name="Train" type="Node2D"]
+
+[node name="TrainController" type="Node2D" parent="."]
+
+[node name="Backbone" type="Line2D" parent="TrainController"]
+position = Vector2(-304, 0)
+points = PackedVector2Array(152, 0, 456, 0)
+width = 6.0
+default_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+rotation = 4.66953e-05
+points = PackedVector2Array(-144, 0.00672413, 144, -0.00672413)
+width = 16.0
+
+[node name="Outline" type="Line2D" parent="Line2D"]
+position = Vector2(-0.005977, -128)
+rotation = -4.66953e-05
+points = PackedVector2Array(136, 72, 136, 0, -136, 0, -136, 72)
+width = 16.0
+
+[node name="Floor" type="StaticBody2D" parent="Line2D"]
+collision_layer = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Line2D/Floor"]
+shape = SubResource("RectangleShape2D_ifqm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Line2D/Floor"]
+
+[node name="Ceiling" type="StaticBody2D" parent="Line2D"]
+position = Vector2(0, -128)
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Ceiling"]
+position = Vector2(-0.00598153, 0)
+shape = SubResource("RectangleShape2D_ifqm8")
+
+[node name="Wall_Right" type="StaticBody2D" parent="Line2D"]
+position = Vector2(248, -120)
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Wall_Right"]
+position = Vector2(-112.004, 31.9936)
+shape = SubResource("RectangleShape2D_kogo0")
+
+[node name="Wall_Left" type="StaticBody2D" parent="Line2D"]
+position = Vector2(-248, -120)
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Wall_Left"]
+position = Vector2(111.996, 32.0064)
+shape = SubResource("RectangleShape2D_kogo0")

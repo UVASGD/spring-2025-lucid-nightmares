@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://dso8k56im7m0b"]
+
+[ext_resource type="Script" path="res://scenes/cut/joiner.gd" id="1_6w8gt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w63c2"]
+
+[sub_resource type="Curve" id="Curve_8mw7v"]
+min_value = 0.99
+
+[sub_resource type="CurveTexture" id="CurveTexture_5im4u"]
+width = 32
+curve = SubResource("Curve_8mw7v")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djfeb"]
+radius = 2.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyqs8"]
+size = Vector2(64, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4sk"]
+size = Vector2(61.5, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x76sk"]
+size = Vector2(293, 20)
+
+[node name="Area3Testing" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Joiner2" type="StaticBody2D" parent="."]
+position = Vector2(-84, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Joiner2"]
+material = SubResource("CanvasItemMaterial_w63c2")
+position = Vector2(5.96046e-08, 1.90735e-06)
+scale = Vector2(0.625, 5)
+texture = SubResource("CurveTexture_5im4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Joiner2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_djfeb")
+
+[node name="CarA" type="RigidBody2D" parent="."]
+rotation = -3.14159
+mass = 20.0
+gravity_scale = 2.0
+
+[node name="JointA2" type="PinJoint2D" parent="CarA"]
+position = Vector2(74, -0.000187603)
+node_a = NodePath("../../Joiner2")
+node_b = NodePath("..")
+angular_limit_enabled = true
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599
+
+[node name="Sprite2D" type="Sprite2D" parent="CarA"]
+material = SubResource("CanvasItemMaterial_w63c2")
+position = Vector2(42.0313, 0.0623931)
+scale = Vector2(2.00196, 21.875)
+texture = SubResource("CurveTexture_5im4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarA"]
+position = Vector2(42, 0)
+shape = SubResource("RectangleShape2D_cyqs8")
+
+[node name="JointA" type="PinJoint2D" parent="CarA"]
+position = Vector2(10, -2.53518e-05)
+rotation = 3.14159
+node_a = NodePath("..")
+node_b = NodePath("../../Joiner")
+angular_limit_enabled = true
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599
+
+[node name="Joiner" type="StaticBody2D" parent="."]
+script = ExtResource("1_6w8gt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Joiner"]
+material = SubResource("CanvasItemMaterial_w63c2")
+position = Vector2(5.96046e-08, 1.90735e-06)
+scale = Vector2(0.625, 5)
+texture = SubResource("CurveTexture_5im4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Joiner"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_djfeb")
+
+[node name="CarB" type="RigidBody2D" parent="."]
+rotation = 3.14159
+mass = 20.0
+gravity_scale = 2.0
+angular_damp = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CarB"]
+material = SubResource("CanvasItemMaterial_w63c2")
+position = Vector2(-42, 0.999894)
+scale = Vector2(2, 28)
+texture = SubResource("CurveTexture_5im4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarB"]
+position = Vector2(-40.75, 7.27596e-12)
+shape = SubResource("RectangleShape2D_fu4sk")
+
+[node name="JointB" type="PinJoint2D" parent="CarB"]
+position = Vector2(-10, -4.44253e-05)
+rotation = -3.14159
+node_a = NodePath("../../Joiner")
+node_b = NodePath("..")
+angular_limit_enabled = true
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599
+
+[node name="Floor" type="RigidBody2D" parent="."]
+position = Vector2(0, 50)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_x76sk")

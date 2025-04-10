@@ -24,7 +24,7 @@ size = Vector2(435.25, 167)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b16yq"]
 size = Vector2(1840.5, 20)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_31gwc")
 disableDoubleJump = true

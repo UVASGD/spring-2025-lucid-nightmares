@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/tween_moving_platform.gd" id="1_xwv7p"]
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_4fuwh"]
-[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="3_58a51"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="3_58a51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(32, 15)

@@ -61,3 +61,12 @@ offset_right = 17.0
 offset_bottom = 17.0
 texture = ExtResource("4_cvvyq")
 expand_mode = 1
+
+[node name="JointA" type="PinJoint2D" parent="."]
+position = Vector2(10, -2.53518e-05)
+rotation = 3.14159
+node_a = NodePath("..")
+node_b = NodePath("../../Joiner")
+angular_limit_enabled = true
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599

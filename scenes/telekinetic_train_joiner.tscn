@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3stpdowtjvvn"]
+
+[ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_47dr1"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_snjlu"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_vlhvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
+size = Vector2(32, 16)
+
+[node name="TelekineticMovingPlatform" type="Path2D"]
+script = ExtResource("1_47dr1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 32
+collision_mask = 5
+
+[node name="Line2D" type="Line2D" parent="AnimatableBody2D"]
+points = PackedVector2Array(-5, 0, 5, 0)
+width = 4.0
+default_color = Color(0.501961, 0.298039, 0.486275, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_pn0ws")
+
+[node name="Marker" parent="AnimatableBody2D" instance=ExtResource("3_snjlu")]
+visible = false
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 18.0
+offset_bottom = 11.0
+
+[node name="TelekineticController" parent="AnimatableBody2D" node_paths=PackedStringArray("marker") instance=ExtResource("4_vlhvx")]
+marker = NodePath("../Marker")
+
+[connection signal="on_set_enabled" from="AnimatableBody2D/TelekineticController" to="." method="_on_telekinetic_controller_on_set_enabled"]
