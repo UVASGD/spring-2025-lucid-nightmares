@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://df4tkasqaahs3"]
+[gd_scene load_steps=4 format=4 uid="uid://df4tkasqaahs3"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_mgsof"]
-[ext_resource type="TileSet" uid="uid://c147hf5oe7kao" path="res://assets/tileset/master_tileset.tres" id="2_5bbvv"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xhuur"]
+[ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="2_5bbvv"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_xhuur")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 visible = false

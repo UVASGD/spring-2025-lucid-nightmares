@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://dv3x1akur6mgh"]
+[gd_scene load_steps=14 format=4 uid="uid://dv3x1akur6mgh"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_3rqvo"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_o1lrj"]
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="2_xyws8"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="3_m5c4q"]
@@ -25,6 +26,7 @@ point_count = 3
 size = Vector2(832, 382)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3rqvo")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 visible = false
