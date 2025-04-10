@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://chn82e6ce6ssa"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Columns" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Row A" type="VBoxContainer" parent="Columns"]
+layout_mode = 2
+
+[node name="Artists" type="RichTextLabel" parent="Columns/Row A"]
+layout_mode = 2
+
+[node name="Row B" type="VBoxContainer" parent="Columns"]
+layout_mode = 2
+
+[node name="Level Design" type="RichTextLabel" parent="Columns/Row B"]
+layout_mode = 2
+
+[node name="Row C" type="VBoxContainer" parent="Columns"]
+layout_mode = 2
+
+[node name="Programming" type="RichTextLabel" parent="Columns/Row C"]
+layout_mode = 2
+
+[node name="Row D" type="VBoxContainer" parent="Columns"]
+layout_mode = 2
+
+[node name="Music" type="RichTextLabel" parent="Columns/Row D"]
+layout_mode = 2
