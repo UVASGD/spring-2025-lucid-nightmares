@@ -180,3 +180,6 @@ func replenishDoubleJump():
 		
 func fadeOut():
 	animPlayer.play("fadeout")
+
+func fadeIn():
+	animPlayer.play("fadeIn")

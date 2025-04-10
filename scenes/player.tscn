@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwsep6ctbelnx"]
+[gd_scene load_steps=21 format=3 uid="uid://cwsep6ctbelnx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_srlfy"]
 [ext_resource type="Texture2D" uid="uid://bsx8mgluau0cn" path="res://assets/player/idle.png" id="2_bst6x"]
@@ -79,6 +79,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_w7wsp"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_nlt86"]
 resource_name = "fadeout"
 tracks/0/type = "value"
@@ -97,6 +112,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0o7rc"]
 _data = {
 "RESET": SubResource("Animation_gbok6"),
+"fadeIn": SubResource("Animation_w7wsp"),
 "fadeout": SubResource("Animation_nlt86")
 }
 

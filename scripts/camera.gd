@@ -111,3 +111,8 @@ func fadeToBlack():
 	colorOverlay.color = Color("00000000")
 	colorOverlay.visible = true
 	animPlayer.play("fadeToBlack")
+	
+func fadeInFromBlack():
+	colorOverlay.color = Color("000000")
+	colorOverlay.visible = true
+	animPlayer.play("fadeInFromBlack")
