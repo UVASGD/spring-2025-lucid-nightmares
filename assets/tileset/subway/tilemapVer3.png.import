@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjxqfswwgsqua"
-path="res://.godot/imported/tilemap(inprogress).png-f017c15f2031eb41df2117865f7c0bb1.ctex"
+uid="uid://bxm747f4o5dfy"
+path="res://.godot/imported/tilemapVer3.png-c29cfaf5641cc9876ae782f31eda6979.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset/subway/tilemap(inprogress).png"
-dest_files=["res://.godot/imported/tilemap(inprogress).png-f017c15f2031eb41df2117865f7c0bb1.ctex"]
+source_file="res://assets/tileset/subway/tilemapVer3.png"
+dest_files=["res://.godot/imported/tilemapVer3.png-c29cfaf5641cc9876ae782f31eda6979.ctex"]
 
 [params]
 
