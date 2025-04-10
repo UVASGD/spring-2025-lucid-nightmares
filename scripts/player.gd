@@ -147,14 +147,20 @@ func _process(_delta: float) -> void:
 
 # This is currently connected to the standing area node and should be connected to another Area2D in the future
 func _on_enter_camera_override_area(area: Area2D) -> void:
-	if area is not CameraOverrideArea: return
-	var cameraArea: CameraOverrideArea = area
-	camera.cameraOverride(true, not cameraArea.followPlayer, cameraArea.getZoom(), cameraArea.getCenter())
+	if area is CameraOverrideArea:
+		var cameraArea: CameraOverrideArea = area
+		camera.cameraOverride(true, not cameraArea.followPlayer, cameraArea.getZoom(), cameraArea.getCenter())
+	elif area is ForceRealityArea:
+		if Level.getLevelObject(get_tree()).reality == 0:
+			Level.getLevelObject(get_tree()).cycleRealityForward()
+		Level.getLevelObject(get_tree()).forceReality = true
 	
 # Does not account for the player being inside multiple override areas
 func _on_exit_camera_override_area(area: Area2D) -> void:
-	if area is not CameraOverrideArea: return
-	camera.resetOverride()
+	if area is CameraOverrideArea:
+		camera.resetOverride()
+	elif area is ForceRealityArea:
+		Level.getLevelObject(get_tree()).forceReality = false
 
 func _on_damage(amount: int):
 	if amount > 0:

@@ -8,6 +8,9 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var disableDoubleJump = false
 @export var startingElevator: StartElevator = null
 
+## Forces the player to choose hot or cold - cannot use neutral
+var forceReality = false
+
 var camera: CustomCamera = null
 var player: Player = null
 
@@ -47,11 +50,13 @@ func setAllowTelekinesis(allow: bool):
 func cycleRealityForward():
 	reality += 1
 	if reality > RealityMode.size() - 1: reality = 0
+	if reality == 0 and forceReality: reality = 1
 	callRealityChange()
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
+	if reality == 0 and forceReality: reality = 2
 	callRealityChange()
 	
 # Considering moving to using a signal bus instead of groups. There's no way to enforce that this method exists
