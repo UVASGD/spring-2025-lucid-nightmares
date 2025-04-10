@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 func playAnimation():
 	if player != null:
+		player.overridePhysics = true
 		player.visible = false
 		remoteTransform.remote_path = player.get_path()
 		animPlayer.play("open")
@@ -25,12 +26,9 @@ func fadePlayer():
 		player.visible = true
 		player.fadeIn()
 		
-func fadeCamera():
-	if player != null:
-		player.camera.fadeInFromBlack()
-		
 func releasePlayer():
 	remoteTransform.remote_path = ""
+	player.overridePhysics = false
 		
 func loadNextLevel():
 	if nextLevel:

@@ -37,7 +37,8 @@ func _ready() -> void:
 	default_zoom = zoom
 	setBackground(background_texture, background_scale)
 	setBackground2(background_texture_2, background_scale)
-	colorOverlay.visible = false
+	fadeInFromBlack()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

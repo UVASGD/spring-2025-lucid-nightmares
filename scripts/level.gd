@@ -6,6 +6,7 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var allowTelekinesis: bool = true
 @export var reality: RealityMode = RealityMode.NORMAL
 @export var disableDoubleJump = false
+@export var startingElevator: StartElevator = null
 
 var camera: CustomCamera = null
 var player: Player = null
@@ -25,6 +26,11 @@ func _ready() -> void:
 	
 	if disableDoubleJump:
 		player.AIR_JUMPS = 0
+		
+	if startingElevator and PlayerGlobalVars.firstLoad:
+		startingElevator.player = player
+		startingElevator.playAnimation()
+		PlayerGlobalVars.firstLoad = false
 
 # A really scuffed way of properly initializing tilemap objects
 var delayedCall = false

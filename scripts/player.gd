@@ -182,4 +182,5 @@ func fadeOut():
 	animPlayer.play("fadeout")
 
 func fadeIn():
+	animSprite.modulate = Color("00000000")
 	animPlayer.play("fadeIn")
