@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://brotysyfle1aw"]
+[gd_scene load_steps=6 format=3 uid="uid://dt40a5namococ"]
 
 [ext_resource type="Script" path="res://scripts/window_planets.gd" id="1_cy37f"]
 [ext_resource type="Texture2D" uid="uid://6rs5ou1eb0kn" path="res://assets/final-area/Planets/Lava_40masked.png" id="1_yjkey"]
@@ -9,6 +9,7 @@
 [node name="WindowClip" type="Node2D"]
 z_index = 100
 texture_filter = 1
+scale = Vector2(4, 4)
 script = ExtResource("1_cy37f")
 
 [node name="Lava40Masked" type="TextureRect" parent="."]

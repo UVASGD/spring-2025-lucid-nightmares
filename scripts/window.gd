@@ -15,7 +15,7 @@ const ANIM_CYCLE = 120
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if level:
-		var container = level.get_node("ParallaxBackground/PlanetContainer")
+		var container = level.camera.get_node("SpaceBackground/PlanetContainer")
 		if container:
 			container.add_child(windowPlanets)
 			windowPlanets.set_anchors(self, level, container)
@@ -33,11 +33,3 @@ func _process(delta: float) -> void:
 		
 	elif not level:
 		print("Level not found")
-
-
-			
-	
-
-
-func on_reality_change(reality: int):
-	pass

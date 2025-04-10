@@ -56,6 +56,7 @@ camera = NodePath("../Camera2D")
 position = Vector2(322, -6)
 zoom = Vector2(3, 3)
 background_scale = Vector2(3, 3)
+useSpaceBackground = true
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("6_rirfj")]
 position = Vector2(322, -6)

@@ -23,6 +23,8 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var background_texture: Texture2D = null
 @export var background_texture_2: Texture2D = null
 @export var background_scale: Vector2 = Vector2(1, 1)
+## If enabled, ignore previous background options and just use the hardcoded space one.
+@export var useSpaceBackground: bool = false
 @export var trackingOffset: Vector2 = Vector2.ZERO 
 @export_group("Shake")
 @export var shakeDecay = 0.8
@@ -35,6 +37,10 @@ var shakeStrength = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	default_zoom = zoom
+	if useSpaceBackground:
+		$SpaceBackground.visible = true
+	else:
+		$SpaceBackground.visible = false
 	setBackground(background_texture, background_scale)
 	setBackground2(background_texture_2, background_scale)
 	fadeInFromBlack()

@@ -21,7 +21,7 @@ func _ready():
 	set_state(RealityMode.NORMAL)
 	
 	if windowTexture:
-		verticalOffset = windowTexture.get_height()/2
+		verticalOffset = windowTexture.get_height()/2 
 	
 	pass # Replace with function body.
 
@@ -47,10 +47,10 @@ func set_anchors(window_in, level_in, container_in):
 	window = window_in
 	level = level_in
 	if level:
-		camera = level.find_child("Camera2D")
+		camera = level.camera
 	if container_in and camera:
 		container = container_in
-		container.set_motion_offset(get_viewport_rect().size/8 - Vector2(0, 33)) #-window.global_position) # - LavaMasked.get_rect().size/2)
+		container.set_motion_offset(get_viewport_rect().size/2 - Vector2(0, 33)) #-window.global_position) # - LavaMasked.get_rect().size/2)
 		
 			
 func set_state(reality):
