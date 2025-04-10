@@ -12,7 +12,7 @@ var overridePosition: Vector2 = Vector2.ZERO
 var doOverrideZoom: bool = false
 var doOverridePosition: bool = false
 var lerpDelta = 2
-var returnLerpDelta = 4
+var returnLerpDelta = 10
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
 
 const hotColor: Color = Color("9f443456")
