@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d285fpskcqrkn"]
+[gd_scene load_steps=10 format=3 uid="uid://d285fpskcqrkn"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_clock.gd" id="1_0o22v"]
+[ext_resource type="Script" path="res://scripts/telekinetic_clock_options.gd" id="1_kjvxe"]
 [ext_resource type="Texture2D" uid="uid://jvdc4nntppyr" path="res://assets/Short Clock Hand.PNG" id="1_pmhjn"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="2_ts7cb"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_wo63p"]
@@ -15,6 +16,7 @@ radius = 8.0
 
 [node name="TelekineticClock" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_kjvxe")
 
 [node name="ShortHand" type="Sprite2D" parent="."]
 self_modulate = Color(0.615686, 0.615686, 0.615686, 0.392157)
@@ -60,3 +62,5 @@ surface = 0
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LongHand"]
 visible = false
 shape = SubResource("CircleShape2D_gxg1h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LongHand"]

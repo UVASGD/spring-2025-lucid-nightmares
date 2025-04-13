@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j7ki4qxe2g8t"
+path="res://.godot/imported/pendelum clock ticking.mp3-8231b6c40fd518abb09ff4907b4c4374.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/pendelum clock ticking.mp3"
+dest_files=["res://.godot/imported/pendelum clock ticking.mp3-8231b6c40fd518abb09ff4907b4c4374.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
