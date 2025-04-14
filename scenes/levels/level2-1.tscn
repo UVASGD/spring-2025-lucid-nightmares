@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://kcdl14p7hf1u"]
+[gd_scene load_steps=17 format=4 uid="uid://kcdl14p7hf1u"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_3h8sw"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_y62xn"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="7_7ky1h"]
 [ext_resource type="PackedScene" uid="uid://b484elec4hdto" path="res://scenes/checkpoint.tscn" id="8_h6od1"]
 [ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/start_elevator.tscn" id="9_nhmi5"]
-[ext_resource type="Texture2D" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
+[ext_resource type="Texture2D" uid="uid://b4kicfkrs4v2e" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
 size = Vector2(3350.5, 248)
@@ -33,13 +33,12 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="LabelSettings" id="LabelSettings_jp3si"]
+font_color = Color(0.309804, 0.290196, 0.631373, 1)
+
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_y62xn")
-allowTelekinesis = null
-reality = null
-disableDoubleJump = null
-startingCheckpoint = null
 startingElevator = NodePath("StartElevator")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
@@ -47,7 +46,7 @@ tile_set = ExtResource("1_3h8sw")
 
 [node name="StartElevator" parent="." instance=ExtResource("9_nhmi5")]
 modulate = Color(0.615686, 0.615686, 0.615686, 1)
-position = Vector2(26, -32)
+position = Vector2(25, -33)
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.615686, 0.615686, 0.615686, 1)
@@ -105,3 +104,14 @@ position = Vector2(2000, -136)
 curve = SubResource("Curve2D_bb2ib")
 speed = 80
 platformTexture = ExtResource("11_hnxht")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 120.0
+offset_top = -69.0
+offset_right = 258.0
+offset_bottom = -46.0
+scale = Vector2(0.25, 0.25)
+text = "Try jumping twice"
+label_settings = SubResource("LabelSettings_jp3si")
+horizontal_alignment = 1

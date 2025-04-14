@@ -258,13 +258,10 @@ shape = SubResource("RectangleShape2D_nswll")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("16_d551b")]
-z_index = -2
 position = Vector2(-87, 8)
-phase = 1
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("16_d551b")]
 position = Vector2(601, -344)
-phase = 2
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("16_d551b")]
 position = Vector2(472, -520)
