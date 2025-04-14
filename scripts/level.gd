@@ -16,7 +16,9 @@ var player: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	setAllowTelekinesis(allowTelekinesis)
+	if PlayerGlobalVars.interactLectern: allowTelekinesis = true
+	if not allowTelekinesis:
+		get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
 	# Locate camera node and make sure it is in front
 	for node in get_children():
 		if node is CustomCamera:
@@ -44,8 +46,7 @@ func _process(delta: float) -> void:
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow
-	if not allow:
-		get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
+	get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
 	
 func cycleRealityForward():
 	reality += 1

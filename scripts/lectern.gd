@@ -25,4 +25,5 @@ func activate():
 	for child in get_tree().root.get_children():
 		if child is Level: level = child
 	level.setAllowTelekinesis(true)
+	PlayerGlobalVars.interactLectern = true
 	activated = true
