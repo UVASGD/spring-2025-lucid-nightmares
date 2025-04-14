@@ -9,7 +9,7 @@ var player: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerGlobalVars.respawnPoint = global_position
+	PlayerGlobalVars.respawnPoint = remoteTransform.global_position
 	
 func playAnimation():
 	if player != null:

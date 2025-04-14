@@ -67,7 +67,7 @@ texture = ExtResource("2_s1a27")
 hframes = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-position = Vector2(0, 24)
+position = Vector2(0, 22)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

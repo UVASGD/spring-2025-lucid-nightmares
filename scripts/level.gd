@@ -8,7 +8,7 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var disableDoubleJump = false
 @export var startingCheckpoint = 0
 @export var startingElevator: StartElevator = null
-
+@export var libraryLevel2: bool = false ## changes formula for sorting checkpoints
 ## Forces the player to choose hot or cold - cannot use neutral
 var forceReality = false
 
@@ -35,17 +35,18 @@ func _ready() -> void:
 	if disableDoubleJump:
 		player.AIR_JUMPS = 0
 		
-	if startingElevator and PlayerGlobalVars.firstLoad:
-		startingElevator.player = player
-		startingElevator.playAnimation()
-		PlayerGlobalVars.firstLoad = false
-	
 	var checkpoint = startingCheckpoint
-	checkpoint -= int(startingElevator != null)
+	checkpoint -= int(bool(startingElevator != null))
 	if checkpoint >= 0:
-		checkpoint = min(checkpoint, checkpoints.size())
+		checkpoint = min(checkpoint, checkpoints.size()-1)
+		camera.global_position += checkpoints[checkpoint].global_position - player.global_position
 		player.global_position = checkpoints[checkpoint].global_position
 		PlayerGlobalVars.respawnPoint = checkpoints[checkpoint].global_position
+		player.checkpoint_phase = checkpoint
+	elif startingElevator and PlayerGlobalVars.firstLoad:
+		startingElevator.player = player
+		startingElevator.playAnimation()
+	PlayerGlobalVars.firstLoad = false
 	
 
 # A really scuffed way of properly initializing tilemap objects
@@ -85,6 +86,10 @@ static func getLevelObject(sceneTree: SceneTree) -> Level:
 func registerCheckpoint(checkpoint: Checkpoint):
 	checkpoints.append(checkpoint)
 	var sortCheckpoints = func (a, b): 
+		if libraryLevel2:
+			return a.global_position.y > b.global_position.y
 		return a.global_position.x + abs(a.global_position.y) * 1.1 < b.global_position.x + abs(b.global_position.y) * 1.1
 	checkpoints.sort_custom(sortCheckpoints)
+	for i in range(checkpoints.size()):
+		checkpoints[i].phase = i + int(bool(startingElevator != null))
 	pass

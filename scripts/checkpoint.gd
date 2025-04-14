@@ -1,7 +1,8 @@
 extends Area2D
 class_name Checkpoint
 
-@export var phase: int = 0
+var phase: int = 0
+@export var silent: bool = false
 var activated = false
 @onready var sprite = $AnimatedSprite2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -24,15 +25,18 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if activated: return
 	if body is Player:
+		# print(str(body.checkpoint_phase) +", "+ str(phase))
 		if body.checkpoint_phase <= phase:
 			PlayerGlobalVars.respawnPoint = global_position
 			body.checkpoint_phase = phase
+			# print("=> " + str(body.checkpoint_phase))
 			setActivated(true)
-			
+		
 
 func setActivated(boo: bool):
 	activated = boo
 	if boo: 
 		sprite.play("active")
-		audioPlayer.play()
+		if not silent:
+			audioPlayer.play()
 	else: sprite.animation = 'inactive'
