@@ -75,9 +75,9 @@ func applyLimits(delta: Vector2) -> Vector2:
 		newPosition.x = trackingLimits[0].x
 	elif trackingLimits[1].x != -1 and newPosition.x > trackingLimits[1].x:
 		newPosition.x = trackingLimits[1].x
-	if (trackingLimits[0].y != -1 and newPosition.y < trackingLimits[0].y):
+	if (trackingLimits[0].y != -1 and newPosition.y > trackingLimits[0].y):
 		newPosition.y = trackingLimits[0].y
-	elif (trackingLimits[1].y != -1 and newPosition.y > trackingLimits[1].y):
+	elif (trackingLimits[1].y != -1 and newPosition.y < trackingLimits[1].y):
 		newPosition.y = trackingLimits[1].y
 	return newPosition
 	
