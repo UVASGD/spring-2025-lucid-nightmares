@@ -2,10 +2,11 @@ extends Camera2D
 class_name CustomCamera
 
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
-@onready var textureRect: TextureRect = $Background/Parallax2D/BackgroundTexture
-@onready var textureRect2: TextureRect = $Background/Parallax2D2/BackgroundTexture2
+@onready var textureRects: Array[TextureRect] = \
+	[$Background/Parallax2D/BackgroundTexture,  $Background/Parallax2D2/BackgroundTexture2]
 @onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
+@onready var spaceContainer: Node2D = $Background/PlanetContainer
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO
@@ -20,12 +21,15 @@ const coldColor: Color = Color("535ca856")
 
 enum RealityMode {NORMAL, HOT, COLD}
 
+@export_group("Background")
 @export var background_texture: Texture2D = null
 @export var background_texture_2: Texture2D = null
 @export var background_scale: Vector2 = Vector2(1, 1)
-## If enabled, ignore previous background options and just use the hardcoded space one.
-@export var useSpaceBackground: bool = false
+@export var background_offset: Array[Vector2] = [Vector2(-200, 0), Vector2(-200, 0)]
+@export var spaceMode: bool = false
+@export_group("Tracking")
 @export var trackingOffset: Vector2 = Vector2.ZERO 
+@export var trackingLimits: Array[Vector2] = [Vector2(-1, -1), Vector2(-1, -1)]
 @export_group("Shake")
 @export var shakeDecay = 0.8
 @export var max_offset = Vector2(100, 75)
@@ -37,12 +41,8 @@ var shakeStrength = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	default_zoom = zoom
-	if useSpaceBackground:
-		$SpaceBackground.visible = true
-	else:
-		$SpaceBackground.visible = false
-	setBackground(background_texture, background_scale)
-	setBackground2(background_texture_2, background_scale)
+	setBackground(0)
+	setBackground(1)
 	fadeInFromBlack()
 	
 
@@ -50,10 +50,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player == null: return
+	
+	var newPosition = Vector2(0, 0)
 	if doOverridePosition and not disableTracking:
-		position = lerp(position, overridePosition, lerpDelta * delta)
+		newPosition = lerp(position, overridePosition, lerpDelta * delta)
 	else:
-		position = lerp(position, player.position + trackingOffset, returnLerpDelta * delta)
+		newPosition = lerp(position, player.position + trackingOffset, returnLerpDelta * delta)
+	position = applyLimits(newPosition - position)
 	if doOverrideZoom:
 		zoom = lerp(zoom, overrideZoom, lerpDelta * delta)
 	else:
@@ -66,6 +69,18 @@ func _process(delta: float) -> void:
 		offset.x = max_offset.x * amount * randf_range(-1, 1)
 		offset.y = max_offset.y * amount * randf_range(-1, 1)
 
+func applyLimits(delta: Vector2) -> Vector2:
+	var newPosition = position + delta
+	if trackingLimits[0].x != -1 and newPosition.x < trackingLimits[0].x:
+		newPosition.x = trackingLimits[0].x
+	elif trackingLimits[1].x != -1 and newPosition.x > trackingLimits[1].x:
+		newPosition.x = trackingLimits[1].x
+	if (trackingLimits[0].y != -1 and newPosition.y < trackingLimits[0].y):
+		newPosition.y = trackingLimits[0].y
+	elif (trackingLimits[1].y != -1 and newPosition.y > trackingLimits[1].y):
+		newPosition.y = trackingLimits[1].y
+	return newPosition
+	
 func updateCollisionBox():
 	var viewport_size = get_viewport().get_visible_rect().size
 	var shape: RectangleShape2D = collision_shape.shape
@@ -85,16 +100,28 @@ func resetOverride():
 func shake():
 	shakeStrength += 0.3
 	
-func setBackground(texture: Texture2D, textureScale: Vector2):
-	if texture == null: return
-	textureRect.texture = texture
-	textureRect.scale = textureScale
-	
-func setBackground2(texture: Texture2D, textureScale: Vector2):
-	if texture == null: return
-	textureRect2.texture = texture
-	textureRect2.scale = textureScale
-	
+func setBackground(index: int):
+	if index == 0:
+		if background_texture == null: return
+		textureRects[index].texture = background_texture
+	else:
+		if background_texture_2 == null: return
+		textureRects[index].texture = background_texture_2
+	textureRects[index].scale =	 background_scale
+	var parallaxParent: Parallax2D = textureRects[index].get_parent()
+	if parallaxParent:
+		parallaxParent.scroll_offset = background_offset[index]
+	else:
+		print("Warning: background has no parallax parent object")
+		
+	# space mode custom configuration
+		
+	if spaceMode and parallaxParent:
+		parallaxParent.scroll_scale = Vector2(0, 0)
+		parallaxParent.follow_viewport = false
+		if index == 1:
+			textureRects[1].position = Vector2(-10, -2)
+
 func on_reality_change(reality: int):
 	if reality == RealityMode.COLD:
 		coldOverlay()
