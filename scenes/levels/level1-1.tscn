@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=25 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="8_1gx6h"]
 [ext_resource type="PackedScene" uid="uid://dv48k715ph5v7" path="res://scenes/pressure_plate.tscn" id="8_67ef8"]
 [ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="9_72t68"]
+[ext_resource type="PackedScene" uid="uid://mlmecrokkaof" path="res://scenes/levels/level1-2.tscn" id="9_drdnm"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_v3ih4"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_3w5j7"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="11_38jo8"]
@@ -36,7 +37,7 @@ texture_filter = 1
 script = ExtResource("1_31gwc")
 allowTelekinesis = false
 disableDoubleJump = true
-startingCheckpoint = null
+startingCheckpoint = -1
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1544, -16)
@@ -69,6 +70,7 @@ position = Vector2(58, 0)
 
 [node name="EndElevator" parent="." instance=ExtResource("16_2p166")]
 position = Vector2(1955, -64)
+nextLevel = ExtResource("9_drdnm")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_bwoae")]
 camera = NodePath("../Camera2D")
