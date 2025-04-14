@@ -1,19 +1,19 @@
 [gd_scene load_steps=11 format=3 uid="uid://bf1daeyvukrkg"]
 
-[ext_resource type="Texture2D" uid="uid://dfbkqi2kpxf8n" path="res://assets/rigidbook/black.png" id="1_mu17s"]
 [ext_resource type="Script" path="res://scripts/falling_book.gd" id="1_of8i5"]
-[ext_resource type="Texture2D" uid="uid://b0atx3abwgj3j" path="res://assets/rigidbook/brown.png" id="2_4smn1"]
-[ext_resource type="Texture2D" uid="uid://cj00p01omfrgr" path="res://assets/rigidbook/green.png" id="3_18e4l"]
-[ext_resource type="Texture2D" uid="uid://ue4ygvod3o05" path="res://assets/rigidbook/purple.png" id="4_n48k4"]
-[ext_resource type="Texture2D" uid="uid://b6pt0ia8y4yw" path="res://assets/rigidbook/red.png" id="5_ewfvq"]
+[ext_resource type="Texture2D" uid="uid://bne62qpt5ah80" path="res://assets/books/Big_Book_Black.png" id="2_01h62"]
+[ext_resource type="Texture2D" uid="uid://cwjhb055i7ltx" path="res://assets/books/Big_Book_Brown.png" id="3_f8sb1"]
+[ext_resource type="Texture2D" uid="uid://csxigowyd8xvs" path="res://assets/books/Big_Book_Green.png" id="4_8i1g0"]
+[ext_resource type="Texture2D" uid="uid://mbeq2klamlea" path="res://assets/books/Big_Book_Purple.png" id="5_i8ote"]
+[ext_resource type="Texture2D" uid="uid://dna7cwcfwh0gh" path="res://assets/books/Big_Book_Red.png" id="6_6s43t"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
-[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mu17s")
+"texture": ExtResource("2_01h62")
 }],
 "loop": true,
 "name": &"black",
@@ -21,7 +21,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4smn1")
+"texture": ExtResource("3_f8sb1")
 }],
 "loop": true,
 "name": &"brown",
@@ -29,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_18e4l")
+"texture": ExtResource("4_8i1g0")
 }],
 "loop": true,
 "name": &"green",
@@ -37,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_n48k4")
+"texture": ExtResource("5_i8ote")
 }],
 "loop": true,
 "name": &"purple",
@@ -45,7 +45,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ewfvq")
+"texture": ExtResource("6_6s43t")
 }],
 "loop": true,
 "name": &"red",
@@ -65,7 +65,7 @@ script = ExtResource("1_of8i5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.17233e-07, -3.8147e-06)
 sprite_frames = SubResource("SpriteFrames_ybm7g")
-animation = &"brown"
+animation = &"red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_j3m0s")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bvv0kvxphwhqp"]
+[gd_scene load_steps=26 format=4 uid="uid://bvv0kvxphwhqp"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2powy"]
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/gate.tscn" id="1_4lajo"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="8_1gx6h"]
 [ext_resource type="PackedScene" uid="uid://dv48k715ph5v7" path="res://scenes/pressure_plate.tscn" id="8_67ef8"]
 [ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="9_72t68"]
-[ext_resource type="PackedScene" uid="uid://mlmecrokkaof" path="res://scenes/levels/level1-2.tscn" id="9_drdnm"]
+[ext_resource type="PackedScene" uid="uid://mlmecrokkaof" path="res://scenes/levels/level1-2.tscn" id="9_uim2g"]
 [ext_resource type="PackedScene" uid="uid://m7jaqa3msxgu" path="res://scenes/spring.tscn" id="9_v3ih4"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="10_3w5j7"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="11_38jo8"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="16_2p166"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="18_0glnf"]
 [ext_resource type="Script" path="res://scripts/teleTutorialLabel.gd" id="19_3uktq"]
+[ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/start_elevator.tscn" id="20_w6qr0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xidka"]
 size = Vector2(435.25, 167)
@@ -32,12 +33,12 @@ size = Vector2(2108, 20)
 [sub_resource type="LabelSettings" id="LabelSettings_gvexb"]
 font_color = Color(0.733121, 0.486704, 0.412033, 1)
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_31gwc")
 allowTelekinesis = false
 disableDoubleJump = true
-startingCheckpoint = -1
+startingElevator = NodePath("StartElevator")
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1544, -16)
@@ -56,8 +57,8 @@ tile_map_data = PackedByteArray("AAA5APf/AQAAAAAAAAA5APj/AQAAAAAAAAA5APn/AQAAAAA
 tile_set = ExtResource("1_2powy")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
-modulate = Color(0.615686, 0.615686, 0.615686, 1)
-tile_map_data = PackedByteArray("AAASAPX/AAAAAAEAAAASAPb/AAABAAEAAAASAPf/AAABAAEAAAASAPj/AAABAAEAAAASAPn/AAABAAEAAAASAPr/AAABAAEAAAASAPv/AAABAAEAAAASAPz/AAABAAEAAAASAP3/AAABAAEAAAASAP7/AAABAAEAAAASAP//AAABAAEAAAASAAAAAAABAAEAAAASAAEAAAABAAEAAAASAAIAAAABAAEAAAASAAMAAAABAAEAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAEAAAASAAcAAAABAAEAAAASAAgAAAABAAEAAAASAAkAAAABAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAASAAwAAAABAAEAAAASAA0AAAABAAEAAAASAA4AAAABAAEAAAASAA8AAAABAAEAAAA=")
+modulate = Color(0.733005, 0.733006, 0.733005, 1)
+tile_map_data = PackedByteArray("AAASAPX/AAAAAAEAAAASAPb/AAABAAEAAAASAPf/AAABAAEAAAASAPj/AAABAAEAAAASAPn/AAABAAEAAAASAPr/AAABAAEAAAASAPv/AAABAAEAAAASAPz/AAABAAEAAAASAP3/AAABAAEAAAASAP7/AAABAAEAAAASAP//AAABAAEAAAASAAAAAAABAAEAAAASAAEAAAABAAEAAAASAAIAAAABAAEAAAASAAMAAAABAAEAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAEAAAASAAcAAAABAAEAAAASAAgAAAABAAEAAAASAAkAAAABAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAASAAwAAAABAAEAAAASAA0AAAABAAEAAAASAA4AAAABAAEAAAASAA8AAAABAAEAAAA5APj/AAABAAEAAAA5APn/AAABAAEAAAA5APr/AAABAAEAAAA5APv/AAABAAEAAAA5APz/AAABAAEAAAA5AP3/AAABAAEAAAA5AP7/AAABAAEAAAA5AP//AAABAAEAAAA=")
 tile_set = ExtResource("2_qguv0")
 collision_enabled = false
 
@@ -70,9 +71,10 @@ position = Vector2(58, 0)
 
 [node name="EndElevator" parent="." instance=ExtResource("16_2p166")]
 position = Vector2(1955, -64)
-nextLevel = ExtResource("9_drdnm")
+nextLevel = ExtResource("9_uim2g")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_bwoae")]
+position = Vector2(35, 0)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_5oojw")]
@@ -127,9 +129,8 @@ rotation = -4.69668
 [node name="TelekineticFreeGhostTile" parent="." instance=ExtResource("1_cs2yh")]
 position = Vector2(1608, -48)
 
-[node name="Checkpoint" parent="." instance=ExtResource("15_e3bil")]
+[node name="Checkpoint3" parent="." instance=ExtResource("15_e3bil")]
 position = Vector2(1583, -8)
-phase = 2
 
 [node name="Gate2" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(328, 0)
@@ -153,7 +154,6 @@ script = ExtResource("19_3uktq")
 
 [node name="Checkpoint2" parent="." instance=ExtResource("15_e3bil")]
 position = Vector2(406, -8)
-phase = 1
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 372.0
@@ -185,3 +185,7 @@ text = "^
 jump here"
 label_settings = SubResource("LabelSettings_gvexb")
 horizontal_alignment = 1
+
+[node name="StartElevator" parent="." instance=ExtResource("20_w6qr0")]
+visible = false
+position = Vector2(0, -14)
