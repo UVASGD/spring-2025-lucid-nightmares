@@ -11,6 +11,10 @@
 [node name="Level" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_4i5fv")
+allowTelekinesis = null
+reality = null
+disableDoubleJump = null
+startingCheckpoint = null
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_qhv3c")

@@ -1,17 +1,15 @@
 extends Node2D
 class_name StartElevator
 
-var player: Player
+var player: Player = null
 
 @onready var remoteTransform: RemoteTransform2D = $RemoteTransform2D
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
-@export var nextLevel: PackedScene = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	PlayerGlobalVars.respawnPoint = global_position
 	
 func playAnimation():
 	if player != null:
@@ -29,9 +27,4 @@ func fadePlayer():
 func releasePlayer():
 	remoteTransform.remote_path = ""
 	player.overridePhysics = false
-		
-func loadNextLevel():
-	if nextLevel:
-		get_tree().change_scene_to_packed(nextLevel)
-		PlayerGlobalVars.respawnPoint = Vector2.ZERO
 	

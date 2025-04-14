@@ -26,7 +26,10 @@ size = Vector2(735, 399)
 
 [node name="Level1-2" type="Node2D"]
 script = ExtResource("1_1mlgs")
+allowTelekinesis = null
+reality = null
 disableDoubleJump = true
+startingCheckpoint = null
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_2252x")

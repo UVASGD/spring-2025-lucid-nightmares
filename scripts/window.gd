@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name TelekineticWindow
 
 @onready var teleController: TelekineticController = $TelekineticController
 @onready var level: Level = Level.getLevelObject(get_tree())

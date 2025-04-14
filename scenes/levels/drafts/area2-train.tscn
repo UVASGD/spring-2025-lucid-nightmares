@@ -26,6 +26,9 @@ size = Vector2(16558.3, 1565.5)
 texture_filter = 1
 script = ExtResource("1_siyn2")
 allowTelekinesis = false
+reality = null
+disableDoubleJump = null
+startingCheckpoint = null
 
 [node name="HiddenBorder" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_u8gmh")

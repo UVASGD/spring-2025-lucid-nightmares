@@ -1,15 +1,19 @@
 extends Area2D
+class_name Checkpoint
 
 @export var phase: int = 0
 var activated = false
 @onready var sprite = $AnimatedSprite2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var level: Level = Level.getLevelObject(get_tree())
 var audio = load("res://assets/checkpoint/checkpoint.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.animation = "inactive"
 	audioPlayer.stream = audio
+	if level:
+		level.registerCheckpoint(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
