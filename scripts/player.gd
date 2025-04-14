@@ -10,6 +10,7 @@ const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 3.0
 const JUMP_VELOCITY = -100.0
 const JUMP_LEEWAY_TIME = 0.1
+const JUMP_MIN_VEL_BOOST = -20
 var AIR_JUMPS = 1
 
 @export var camera: CustomCamera = null
@@ -92,11 +93,13 @@ func physics(delta: float):
 		# jumps, even if slightly off platform
 		if velocity.y > JUMP_VELOCITY:
 			velocity.y = JUMP_VELOCITY
-			if not onGround:
-				jumpCounter += 1
-			canJump = false
-			# consider the player mid-air when the player has jumped
-			onGround = false
+		else:
+			velocity.y += JUMP_MIN_VEL_BOOST
+		if not onGround:
+			jumpCounter += 1
+		canJump = false
+		# consider the player mid-air when the player has jumped
+		onGround = false
 			
 	if velocity.y > TERMINAL_DOWNWARD_SPEED:
 		velocity.y = TERMINAL_DOWNWARD_SPEED
