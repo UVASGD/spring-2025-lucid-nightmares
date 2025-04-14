@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var remoteTransform: RemoteTransform2D = $Area2D/RemoteTransform2D
+@onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+var audio = preload("res://assets/Sounds/Wind woosh.wav")
 var inUse = false
 var player: Player = null
 var angularVelo = 0 # radians per second
@@ -16,7 +18,7 @@ const iasaSeconds: float = 2.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	audioPlayer.stream = audio
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +47,7 @@ func _process(delta: float) -> void:
 			if abs(angularVelo) < 0.01: angularVelo = 0
 			rotate(angularVelo * delta)
 		else:
+			audioPlayer.play()
 			if sign(angularVelo) != sign(direction) and abs(angularVelo) < deg_to_rad(120):
 				angularVelo = deg_to_rad(120) * -direction
 				rotate(angularVelo * delta)
