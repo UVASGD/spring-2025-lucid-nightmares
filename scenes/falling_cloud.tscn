@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://chiiysjo7i0mg"]
+[gd_scene load_steps=6 format=3 uid="uid://chiiysjo7i0mg"]
 
 [ext_resource type="Script" path="res://scripts/falling_cloud.gd" id="1_dw0um"]
-[ext_resource type="Texture2D" uid="uid://bajdviv6xgl83" path="res://assets/fallingcloud.png" id="2_qm27t"]
+[ext_resource type="Texture2D" uid="uid://b6ckxroode80k" path="res://assets/tileset/subway/tilemapVer7.png" id="2_fl4dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li1qq"]
+atlas = ExtResource("2_fl4dk")
+region = Rect2(0, 0, 64, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f481o"]
-size = Vector2(46, 14)
+size = Vector2(47, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wphwt"]
 size = Vector2(46, 3)
@@ -15,10 +19,11 @@ collision_layer = 32
 script = ExtResource("1_dw0um")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qm27t")
+position = Vector2(2, 0)
+texture = SubResource("AtlasTexture_li1qq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_f481o")
 
 [node name="FloorArea" type="Area2D" parent="."]

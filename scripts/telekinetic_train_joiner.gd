@@ -1,7 +1,7 @@
 extends Path2D
 
 @onready var animBody = $AnimatableBody2D
-@onready var line = $Line2D
+@onready var line = $AnimatableBody2D/Line2D
 @onready var marker = $AnimatableBody2D/Marker
 @onready var sprite = $AnimatableBody2D/Sprite2D
 @onready var teleController: TelekineticController = $AnimatableBody2D/TelekineticController

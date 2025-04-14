@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_eug7y"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="3_76vt5"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="4_bnu63"]
-[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="5_jwip3"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="5_jwip3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0ws"]
 size = Vector2(32, 16)
@@ -13,6 +13,7 @@ size = Vector2(32, 16)
 script = ExtResource("1_th1uv")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = -5
 width = 1.0
 default_color = Color(0.67416, 0.66412, 0.662779, 1)
 
