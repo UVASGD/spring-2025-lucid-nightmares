@@ -46,11 +46,12 @@ func _process(delta):
 func set_anchors(window_in, level_in, container_in):
 	window = window_in
 	level = level_in
+	var container: Parallax2D = null
 	if level:
 		camera = level.camera
 	if container_in and camera:
 		container = container_in
-		container.set_motion_offset(get_viewport_rect().size/2 - Vector2(0, 33)) #-window.global_position) # - LavaMasked.get_rect().size/2)
+		container.scroll_offset =  get_viewport_rect().size/2 - Vector2(0, (LavaMasked.get_rect().size.y/2 + 13) * scale.y) #-window.global_position) # )
 		
 			
 func set_state(reality):

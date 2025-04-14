@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt40a5namococ"]
+[gd_scene load_steps=6 format=3 uid="uid://brotysyfle1aw"]
 
 [ext_resource type="Script" path="res://scripts/window_planets.gd" id="1_cy37f"]
 [ext_resource type="Texture2D" uid="uid://6rs5ou1eb0kn" path="res://assets/final-area/Planets/Lava_40masked.png" id="1_yjkey"]
@@ -9,7 +9,6 @@
 [node name="WindowClip" type="Node2D"]
 z_index = 100
 texture_filter = 1
-scale = Vector2(4, 4)
 script = ExtResource("1_cy37f")
 
 [node name="Lava40Masked" type="TextureRect" parent="."]
@@ -61,12 +60,3 @@ offset_right = 17.0
 offset_bottom = 17.0
 texture = ExtResource("4_cvvyq")
 expand_mode = 1
-
-[node name="JointA" type="PinJoint2D" parent="."]
-position = Vector2(10, -2.53518e-05)
-rotation = 3.14159
-node_a = NodePath("..")
-node_b = NodePath("../../Joiner")
-angular_limit_enabled = true
-angular_limit_lower = -0.523599
-angular_limit_upper = 0.523599

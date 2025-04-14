@@ -25,34 +25,6 @@ tile_set = ExtResource("2_aqd6i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Background"]
-z_index = -100
-offset_left = -10.0
-offset_top = -2.0
-offset_right = 298.0
-offset_bottom = 171.0
-texture = ExtResource("6_lmius")
-expand_mode = 1
-
-[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.005, 0.005)
-motion_offset = Vector2(100, 100)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Stars"]
-offset_right = 300.0
-offset_bottom = 175.0
-texture = ExtResource("4_hp1a6")
-expand_mode = 1
-
-[node name="PlanetContainer" type="ParallaxLayer" parent="ParallaxBackground"]
-top_level = true
-motion_scale = Vector2(0.01, 0.01)
-
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.617455, 0.617455, 0.617455, 1)
 position = Vector2(0, 1)
@@ -76,6 +48,11 @@ collision_enabled = false
 
 [node name="Camera2D" parent="." instance=ExtResource("5_ahlmi")]
 position = Vector2(147, 85)
+background_texture = ExtResource("6_lmius")
+background_texture_2 = ExtResource("4_hp1a6")
+background_scale = Vector2(2, 2)
+background_offset = Array[Vector2]([Vector2(0, 0), Vector2(100, 100)])
+spaceMode = true
 shakeDecay = 0.4
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("8_uaxqd")]

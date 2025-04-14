@@ -5,7 +5,8 @@ extends StaticBody2D
 
 # window_planets.tscn
 @onready var windowPlanets: Node2D = load("res://scenes/window_planets.tscn").instantiate()
-
+static var planetsMade = false
+const PLANET_SCALE = Vector2(3, 3)
 
 enum RealityMode {NORMAL, HOT, COLD}
 
@@ -14,14 +15,20 @@ const ANIM_CYCLE = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if level:
-		var container = level.camera.get_node("SpaceBackground/PlanetContainer")
-		if container:
-			container.add_child(windowPlanets)
-			windowPlanets.set_anchors(self, level, container)
+	if level and not planetsMade:
+		planetsMade = true
+		if level.camera:
+			var camera: CustomCamera = level.camera
+			var container = camera.spaceContainer
+			if container:
+				windowPlanets.scale = PLANET_SCALE
+				container.add_child(windowPlanets)
+				windowPlanets.set_anchors(self, level, container)
+			else:
+				print("Window: Failed to find container")
+				windowPlanets = null
 		else:
-			print("failed to find container")
-			windowPlanets = null
+			print("Window: Failed to find camera")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
