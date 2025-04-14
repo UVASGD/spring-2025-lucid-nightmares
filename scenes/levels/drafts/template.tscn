@@ -16,7 +16,7 @@ size = Vector2(1531.5, 898)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddnf1"]
 size = Vector2(16558.3, 1565.5)
 
-[node name="Library1" type="Node2D"]
+[node name="Library2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_k2jkh")
 allowTelekinesis = false

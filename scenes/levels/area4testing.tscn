@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_abchh"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_qesw2"]
 [ext_resource type="PackedScene" uid="uid://57jus7r146ex" path="res://scenes/telekinetic_window.tscn" id="7_x733d"]
-[ext_resource type="PackedScene" uid="uid://cq86xa2iwfkks" path="res://scenes/elementlayer.tscn" id="7_y33k1"]
+[ext_resource type="PackedScene" path="res://scenes/elementlayer.tscn" id="7_y33k1"]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1

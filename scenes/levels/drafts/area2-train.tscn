@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="8_paktb"]
 [ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="9_xrhv1"]
 [ext_resource type="PackedScene" uid="uid://cf0l6trf1ldnm" path="res://scenes/levels/drafts/train.tscn" id="10_dx1l2"]
-[ext_resource type="PackedScene" uid="uid://b3stpdowtjvvn" path="res://scenes/telekinetic_train_joiner.tscn" id="11_cvoa8"]
+[ext_resource type="PackedScene" uid="uid://b3stpdowtjvvn" path="res://scenes/levels/drafts/telekinetic_train_joiner.tscn" id="11_cvoa8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_edwd5"]
 a = Vector2(184, -47)
