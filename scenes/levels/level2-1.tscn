@@ -17,7 +17,7 @@ size = Vector2(3350.5, 248)
 
 [sub_resource type="Curve2D" id="Curve2D_2s8ha"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, -36)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, -50)
 }
 point_count = 2
 
@@ -60,7 +60,7 @@ position = Vector2(1247, 542)
 shape = SubResource("RectangleShape2D_hgubd")
 
 [node name="Checkpoint" parent="DamageBox2" instance=ExtResource("8_h6od1")]
-position = Vector2(1576, -120)
+position = Vector2(1512, -152)
 
 [node name="DamageBox" parent="." instance=ExtResource("7_7ky1h")]
 
