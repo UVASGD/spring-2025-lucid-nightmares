@@ -22,12 +22,11 @@ func _process(delta: float) -> void:
 	if direction == 0: 
 		audioPlayer.stop()
 		return
-	if not audioPlayer.playing:
-		audioPlayer.play()
 	if teleController.is_selected:
 		rotate(direction * delta * SPEED)
 		shortHand.rotate(direction * delta * SPEED * shortRatio)
-		
+		if not audioPlayer.playing:
+			audioPlayer.play()
 	if rayCast.is_colliding():
 		var teleController: TelekineticController = TelekineticSelector.getTelekineticNodeFromBody(rayCast.get_collider())
 		if teleController:
