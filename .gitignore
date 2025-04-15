@@ -63,3 +63,4 @@ crashlytics-build.properties
 /android/
 /addons/
 /addons/godot-git-plugin/
+export_presets.cfg

@@ -21,7 +21,7 @@ var checkpoints: Array[Checkpoint] = []
 func _ready() -> void:
 	if PlayerGlobalVars.interactLectern: allowTelekinesis = true
 	if not allowTelekinesis:
-		get_tree().call_group("TelekineticControllers", "set_enabled", allowTelekinesis)
+		get_tree().call_group("TelekineticControllers", "set_enabled", false)
 	# Locate camera node and make sure it is in front
 	for node in get_children():
 		if node is CustomCamera:
@@ -34,27 +34,21 @@ func _ready() -> void:
 	
 	if disableDoubleJump:
 		player.AIR_JUMPS = 0
-		
-	var checkpoint = startingCheckpoint
-	checkpoint -= int(bool(startingElevator != null))
-	if checkpoint >= 0:
-		checkpoint = min(checkpoint, checkpoints.size()-1)
-		camera.global_position += checkpoints[checkpoint].global_position - player.global_position
-		player.global_position = checkpoints[checkpoint].global_position
-		PlayerGlobalVars.respawnPoint = checkpoints[checkpoint].global_position
-		player.checkpoint_phase = checkpoint
-	elif startingElevator and PlayerGlobalVars.firstLoad:
-		startingElevator.player = player
-		startingElevator.playAnimation()
-	PlayerGlobalVars.firstLoad = false
 	
-
-# A really scuffed way of properly initializing tilemap objects
-var delayedCall = false
-func _process(delta: float) -> void:
-	if not delayedCall:
-		setAllowTelekinesis(allowTelekinesis)
-		delayedCall = true
+	if PlayerGlobalVars.firstLoad:
+		var checkpoint = startingCheckpoint
+		checkpoint -= int(bool(startingElevator != null))
+		if checkpoint >= 0:
+			checkpoint = min(checkpoint, checkpoints.size()-1)
+			camera.global_position += checkpoints[checkpoint].global_position - player.global_position
+			player.global_position = checkpoints[checkpoint].global_position
+			PlayerGlobalVars.respawnPoint = checkpoints[checkpoint].global_position
+			player.checkpoint_phase = checkpoint
+		elif startingElevator:
+			startingElevator.player = player
+			PlayerGlobalVars.respawnPoint = startingElevator.remoteTransform.global_position
+			startingElevator.playAnimation()
+		PlayerGlobalVars.firstLoad = false
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow

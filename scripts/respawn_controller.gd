@@ -1,6 +1,7 @@
 extends Node2D
 class_name RespawnController
 
+@onready var level: Level = Level.getLevelObject(get_tree())
 var respawnPoint: Vector2 = Vector2.ZERO
 signal respawn_signal
 
@@ -18,7 +19,9 @@ func respawn():
 	if parent is CharacterBody2D:
 		parent.velocity = Vector2.ZERO
 		if parent is Player:
+			var telekinesisEnabled = level.allowTelekinesis
 			get_tree().reload_current_scene()
+			level.allowTelekinesis = telekinesisEnabled
 			parent.global_position = PlayerGlobalVars.respawnPoint
 		
 static func getRespawnController(parent: Node2D) -> RespawnController:

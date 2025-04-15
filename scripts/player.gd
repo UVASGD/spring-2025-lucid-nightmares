@@ -37,7 +37,7 @@ var checkpoint_phase: int = -1
 func _ready() -> void:
 	if (PlayerGlobalVars.respawnPoint != Vector2.ZERO):
 		global_position = PlayerGlobalVars.respawnPoint
-	PlayerGlobalVars.respawnPoint = global_position
+	# PlayerGlobalVars.respawnPoint = global_position
 	
 	if camera != null:
 		camera.player = self
