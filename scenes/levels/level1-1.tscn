@@ -33,12 +33,11 @@ size = Vector2(2108, 20)
 [sub_resource type="LabelSettings" id="LabelSettings_gvexb"]
 font_color = Color(0.733121, 0.486704, 0.412033, 1)
 
-[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("startingElevator")]
+[node name="Node2D2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_31gwc")
 allowTelekinesis = false
 disableDoubleJump = true
-startingElevator = NodePath("")
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1544, -16)

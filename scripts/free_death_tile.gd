@@ -18,7 +18,6 @@ func _ready() -> void:
 	if not isEnabled:
 		teleController.set_enabled(false)
 		_on_telekinetic_controller_on_set_enabled(false)
-		print(teleController.is_enabled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
