@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var disableShortHand: bool = false
+@export var enableShortHand: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if disableShortHand:
-		$ShortHand.visible = false
-		$ShortHand/RayCast2D.enabled = false
+	if enableShortHand:
+		$ShortHand.visible = true
+		$ShortHand/RayCast2D.enabled = true

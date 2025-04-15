@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@export var isEnabled: bool = true
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var teleController: TelekineticController = $TelekineticController
 
@@ -15,6 +15,10 @@ func _ready() -> void:
 	teleController.addControl("Right Arrow", "Move tile right")
 	teleController.addControl("Down Arrow", "Move tile down")
 	teleController.addControl("Up Arrow", "Move tile up")
+	if not isEnabled:
+		teleController.set_enabled(false)
+		_on_telekinetic_controller_on_set_enabled(false)
+		print(teleController.is_enabled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -42,4 +46,4 @@ func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
 	if is_enabled:
 		sprite.modulate = Color("ff0000")
 	else:
-		sprite.modulate = Color("ffffff")
+		sprite.modulate = Color("ff4444")

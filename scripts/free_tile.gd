@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var isEnabled: bool = true
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var teleController: TelekineticController = $TelekineticController
@@ -19,6 +20,7 @@ func _ready() -> void:
 	teleController.addControl("Right Arrow", "Move tile right")
 	teleController.addControl("Down Arrow", "Move tile down")
 	teleController.addControl("Up Arrow", "Move tile up")
+	teleController.set_enabled(isEnabled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

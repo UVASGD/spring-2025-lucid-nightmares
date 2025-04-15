@@ -1,7 +1,6 @@
 extends Area2D
 class_name TelekineticSelector
 
-@onready var area: Area2D = $TelekineticArea
 @onready var controlLabel: Label = $"../CanvasLayer/TelekineticControlLabel"
 @onready var audioStream = $AudioStreamPlayer2D
 
@@ -77,7 +76,8 @@ func deselectSelectedNode():
 	audioStream.stream = disconnectSound
 	randomize()
 	audioStream.pitch_scale = randf_range(0.95, 1.05)
-	audioStream.play()
+	if is_inside_tree():
+		audioStream.play()
 	
 func selectNewNode(node: TelekineticController):
 	selected_node = node

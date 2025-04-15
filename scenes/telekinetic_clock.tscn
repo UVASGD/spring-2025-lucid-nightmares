@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="2_ts7cb"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_wo63p"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_uijwr"]
-[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="6_oiqxh"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="6_oiqxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwgm"]
 size = Vector2(67, 4)
@@ -19,6 +19,7 @@ texture_filter = 1
 script = ExtResource("1_kjvxe")
 
 [node name="ShortHand" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(0.615686, 0.615686, 0.615686, 0.392157)
 texture = ExtResource("1_pmhjn")
 offset = Vector2(18, 0)
