@@ -20,6 +20,8 @@ var AIR_JUMPS = 1
 @onready var footstepPlayer: AudioStreamPlayer2D = $FootstepPlayer
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
+var doubleJumpScene = preload("res://scenes/doubleJumpParticle.tscn")
+
 var wood_walk = preload("res://assets/Sounds/player/wood_walk.mp3")
 var carpet_walk = preload("res://assets/Sounds/player/carpet_walk.mp3")
 
@@ -97,6 +99,9 @@ func physics(delta: float):
 			velocity.y += JUMP_MIN_VEL_BOOST
 		if not onGround:
 			jumpCounter += 1
+			var djParticle: Sprite2D = doubleJumpScene.instantiate()
+			Level.getLevelObject(get_tree()).add_child(djParticle)
+			djParticle.position = position + Vector2(0, 8)
 		canJump = false
 		# consider the player mid-air when the player has jumped
 		onGround = false
