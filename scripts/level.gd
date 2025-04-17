@@ -40,10 +40,11 @@ func _ready() -> void:
 		checkpoint -= int(bool(startingElevator != null))
 		if checkpoint >= 0:
 			checkpoint = min(checkpoint, checkpoints.size()-1)
-			camera.global_position += checkpoints[checkpoint].global_position - player.global_position
-			player.global_position = checkpoints[checkpoint].global_position
-			PlayerGlobalVars.respawnPoint = checkpoints[checkpoint].global_position
-			player.checkpoint_phase = checkpoint
+			if checkpoint >= 0:
+				camera.global_position += checkpoints[checkpoint].global_position - player.global_position
+				player.global_position = checkpoints[checkpoint].global_position
+				PlayerGlobalVars.respawnPoint = checkpoints[checkpoint].global_position
+				player.checkpoint_phase = checkpoint
 		elif startingElevator:
 			startingElevator.player = player
 			PlayerGlobalVars.respawnPoint = startingElevator.remoteTransform.global_position

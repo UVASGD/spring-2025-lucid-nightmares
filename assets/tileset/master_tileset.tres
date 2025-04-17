@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://dbesvvhuhnn2o"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://dbesvvhuhnn2o"]
 
 [ext_resource type="Texture2D" uid="uid://dtadbv2wyf40a" path="res://assets/tileset/library/library.png" id="1_uarti"]
 [ext_resource type="Texture2D" uid="uid://b6ckxroode80k" path="res://assets/tileset/subway/tilemapVer7.png" id="2_ufyri"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://e4kofdssxqyr" path="res://scenes/telekinetic_free_ghost_tile.tscn" id="8_w56u0"]
 [ext_resource type="PackedScene" uid="uid://57jus7r146ex" path="res://scenes/telekinetic_window.tscn" id="9_axc54"]
 [ext_resource type="Texture2D" uid="uid://bmvpm8aybki64" path="res://assets/tileset/subway/tileoptionsProgress2_test.png" id="12_cagj1"]
+[ext_resource type="Texture2D" uid="uid://c8yybxwc2rweu" path="res://assets/tileset/marble.png" id="13_5fs8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lna6j"]
 texture = ExtResource("1_uarti")
@@ -326,6 +327,33 @@ texture = ExtResource("12_cagj1")
 2:2/0 = 0
 3:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7ncq"]
+texture = ExtResource("13_5fs8p")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [resource]
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "surface"
@@ -335,3 +363,4 @@ sources/2 = SubResource("TileSetScenesCollectionSource_lyoc6")
 sources/3 = SubResource("TileSetAtlasSource_wikfq")
 sources/1 = SubResource("TileSetAtlasSource_ti8aq")
 sources/4 = SubResource("TileSetAtlasSource_s6aoi")
+sources/5 = SubResource("TileSetAtlasSource_k7ncq")
