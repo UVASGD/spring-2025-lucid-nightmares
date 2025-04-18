@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/force_reality_area.gd" id="1_i0blg"]
 
 [node name="ForceRealityArea" type="Area2D"]
+collision_mask = 5
 script = ExtResource("1_i0blg")
