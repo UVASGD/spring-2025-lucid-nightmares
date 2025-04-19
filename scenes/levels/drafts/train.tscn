@@ -4,33 +4,28 @@
 size = Vector2(288, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kogo0"]
-size = Vector2(16, 64)
+size = Vector2(8.21004, 68)
 
 [node name="Train" type="Node2D"]
 
-[node name="TrainController" type="Node2D" parent="."]
-
-[node name="Backbone" type="Line2D" parent="TrainController"]
-position = Vector2(-304, 0)
-points = PackedVector2Array(152, 0, 456, 0)
-width = 6.0
-default_color = Color(0.18359, 0.18359, 0.18359, 1)
-
 [node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-5.25788, -0.000245518)
 rotation = 4.66953e-05
-points = PackedVector2Array(-144, 0.00672413, 144, -0.00672413)
+scale = Vector2(1.50041, 1)
+points = PackedVector2Array(-144, 0, 144, 0)
 width = 16.0
 
 [node name="Outline" type="Line2D" parent="Line2D"]
 position = Vector2(-0.005977, -128)
 rotation = -4.66953e-05
-points = PackedVector2Array(136, 72, 136, 0, -136, 0, -136, 72)
-width = 16.0
+points = PackedVector2Array(140.135, 71.997, 140.136, -0.00302124, -139.788, 0.00351715, -139.789, 72.0035)
+width = 8.0
 
 [node name="Floor" type="StaticBody2D" parent="Line2D"]
 collision_layer = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Line2D/Floor"]
+position = Vector2(4.76837e-07, 0.000256724)
 shape = SubResource("RectangleShape2D_ifqm8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Line2D/Floor"]
@@ -40,7 +35,7 @@ position = Vector2(0, -128)
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Ceiling"]
-position = Vector2(-0.00598153, 0)
+position = Vector2(-0.00598145, 0.000213623)
 shape = SubResource("RectangleShape2D_ifqm8")
 
 [node name="Wall_Right" type="StaticBody2D" parent="Line2D"]
@@ -48,7 +43,7 @@ position = Vector2(248, -120)
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Wall_Right"]
-position = Vector2(-112.004, 31.9936)
+position = Vector2(-107.869, 29.9904)
 shape = SubResource("RectangleShape2D_kogo0")
 
 [node name="Wall_Left" type="StaticBody2D" parent="Line2D"]
@@ -56,5 +51,5 @@ position = Vector2(-248, -120)
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Wall_Left"]
-position = Vector2(111.996, 32.0064)
+position = Vector2(108.101, 30.0082)
 shape = SubResource("RectangleShape2D_kogo0")
