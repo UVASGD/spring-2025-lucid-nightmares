@@ -51,7 +51,7 @@ func _ready() -> void:
 			startingElevator.playAnimation()
 		PlayerGlobalVars.firstLoad = false
 		
-		callRealityChange()
+	callRealityChange()
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow
