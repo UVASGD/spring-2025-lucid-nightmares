@@ -50,6 +50,8 @@ func _ready() -> void:
 			PlayerGlobalVars.respawnPoint = startingElevator.remoteTransform.global_position
 			startingElevator.playAnimation()
 		PlayerGlobalVars.firstLoad = false
+		
+		callRealityChange()
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow

@@ -25,6 +25,7 @@ func _on_body_entered(body: Node2D) -> void:
 		char.velocity.x += vector.x
 		if char is Player:
 			char.airborne(2)
+			char.replenishDoubleJump()
 	elif body is RigidBody2D:
 		sprite.play("spring")
 		var rigid: RigidBody2D = body
