@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf1daeyvukrkg"]
+[gd_scene load_steps=12 format=3 uid="uid://bf1daeyvukrkg"]
 
 [ext_resource type="Script" path="res://scripts/falling_book.gd" id="1_of8i5"]
 [ext_resource type="Texture2D" uid="uid://bne62qpt5ah80" path="res://assets/books/Big_Book_Black.png" id="2_01h62"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dna7cwcfwh0gh" path="res://assets/books/Big_Book_Red.png" id="6_6s43t"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
 [ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xj83l"]
+friction = 0.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
 animations = [{
@@ -60,6 +63,8 @@ height = 56.0
 texture_filter = 1
 collision_layer = 16
 collision_mask = 117
+mass = 0.75
+physics_material_override = SubResource("PhysicsMaterial_xj83l")
 script = ExtResource("1_of8i5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
