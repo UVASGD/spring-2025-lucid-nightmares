@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dv3x1akur6mgh"]
+[gd_scene load_steps=47 format=4 uid="uid://dv3x1akur6mgh"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_3rqvo"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_o1lrj"]
@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://b7aryggp13wcs" path="res://scenes/wood_tween_moving_platform.tscn" id="23_6he3k"]
 [ext_resource type="PackedScene" uid="uid://d285fpskcqrkn" path="res://scenes/telekinetic_clock.tscn" id="24_v466i"]
 [ext_resource type="PackedScene" uid="uid://drf3lwf0ywy6f" path="res://scenes/handle.tscn" id="25_cn8uf"]
-[ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="26_uu8tv"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="27_aiyey"]
 [ext_resource type="PackedScene" uid="uid://buaiqsgeak5te" path="res://scenes/fake_elevator.tscn" id="28_qe5ts"]
 
@@ -195,6 +194,7 @@ useCollisionShapeCenter = false
 center_position = Vector2(1056, -240)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea2"]
+visible = false
 position = Vector2(-4820, -555)
 shape = SubResource("RectangleShape2D_fp4ne")
 
@@ -207,6 +207,7 @@ center_position = Vector2(1056, -240)
 followPlayer = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraOverrideArea3"]
+visible = false
 position = Vector2(-752, 8841.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_xvuta")
@@ -356,15 +357,13 @@ speed = 100
 [node name="Handle" parent="." instance=ExtResource("25_cn8uf")]
 position = Vector2(-982, -398)
 
-[node name="Lectern" parent="." instance=ExtResource("26_uu8tv")]
-position = Vector2(-139, -730.5)
-
 [node name="CameraOverrideArea7" parent="." instance=ExtResource("6_rirfj")]
 position = Vector2(212, -543)
 zoom = Vector2(4, 4)
 followPlayer = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea7"]
+visible = false
 position = Vector2(-3.5, 141)
 shape = SubResource("RectangleShape2D_g0xrh")
 

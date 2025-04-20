@@ -15,6 +15,7 @@ texture_filter = 1
 texture = ExtResource("2_xcm12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_pgxxk")
 
 [node name="InteractController" parent="." instance=ExtResource("3_xa3o0")]

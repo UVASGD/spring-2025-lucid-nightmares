@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://mbeq2klamlea" path="res://assets/books/Big_Book_Purple.png" id="5_i8ote"]
 [ext_resource type="Texture2D" uid="uid://dna7cwcfwh0gh" path="res://assets/books/Big_Book_Red.png" id="6_6s43t"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
-[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
+[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
 animations = [{
@@ -68,6 +68,7 @@ sprite_frames = SubResource("SpriteFrames_ybm7g")
 animation = &"red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_j3m0s")
 
 [node name="RespawnController" parent="." instance=ExtResource("7_qnj2x")]

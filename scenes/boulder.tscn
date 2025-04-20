@@ -14,4 +14,5 @@ texture_filter = 1
 texture = ExtResource("1_m5qpd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_xb21m")

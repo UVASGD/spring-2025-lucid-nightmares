@@ -18,6 +18,7 @@ collision_mask = 0
 texture = ExtResource("1_t7j63")
 
 [node name="DamageBox" parent="." instance=ExtResource("2_gjyhu")]
+visible = false
 monitoring = false
 
 [node name="geometry dash ahh hitbox" type="CollisionShape2D" parent="DamageBox"]
@@ -26,4 +27,5 @@ shape = SubResource("RectangleShape2D_tdg60")
 debug_color = Color(0.960271, 0.17456, 0.255979, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_eb7mt")

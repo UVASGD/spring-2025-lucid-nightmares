@@ -19,6 +19,7 @@ pivot_offset = Vector2(8, 2)
 color = Color(1, 0.41769, 0.0164613, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(8, 1)
 shape = SubResource("RectangleShape2D_1vkcr")
 
