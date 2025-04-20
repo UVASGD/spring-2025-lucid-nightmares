@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dv3x1akur6mgh"]
+[gd_scene load_steps=48 format=4 uid="uid://dv3x1akur6mgh"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_3rqvo"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_o1lrj"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://drf3lwf0ywy6f" path="res://scenes/handle.tscn" id="25_cn8uf"]
 [ext_resource type="PackedScene" uid="uid://ko5ephyjr58k" path="res://scenes/lectern.tscn" id="26_uu8tv"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="27_aiyey"]
+[ext_resource type="PackedScene" uid="uid://buaiqsgeak5te" path="res://scenes/fake_elevator.tscn" id="28_qe5ts"]
 
 [sub_resource type="Curve2D" id="Curve2D_8oaus"]
 _data = {
@@ -47,10 +48,10 @@ point_count = 3
 size = Vector2(832, 382)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvuta"]
-size = Vector2(262, 4671.5)
+size = Vector2(262, 4822.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ff1me"]
-size = Vector2(284, 4569)
+size = Vector2(284, 4719)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kudq"]
 size = Vector2(258, 196)
@@ -194,7 +195,6 @@ useCollisionShapeCenter = false
 center_position = Vector2(1056, -240)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea2"]
-visible = false
 position = Vector2(-4820, -555)
 shape = SubResource("RectangleShape2D_fp4ne")
 
@@ -207,8 +207,7 @@ center_position = Vector2(1056, -240)
 followPlayer = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraOverrideArea3"]
-visible = false
-position = Vector2(-752, 9143)
+position = Vector2(-752, 8841.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_xvuta")
 
@@ -218,7 +217,7 @@ script = ExtResource("12_wp6he")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForceRealityArea"]
 visible = false
-position = Vector2(132, 2429.5)
+position = Vector2(132, 2354.5)
 shape = SubResource("RectangleShape2D_ff1me")
 debug_color = Color(0.816212, 0.311532, 0.667626, 0.42)
 
@@ -411,6 +410,9 @@ rotation = 1.79594
 
 [node name="EndElevator" parent="." instance=ExtResource("27_aiyey")]
 position = Vector2(2355, 4711)
+
+[node name="FakeElevator" parent="." instance=ExtResource("28_qe5ts")]
+position = Vector2(1600, -234)
 
 [connection signal="body_entered" from="ForceRealityArea" to="ForceRealityArea" method="_on_body_entered"]
 [connection signal="body_entered" from="StopCeilingArea" to="StopCeilingArea" method="_on_body_entered"]
