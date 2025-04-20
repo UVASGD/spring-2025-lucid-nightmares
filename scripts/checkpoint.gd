@@ -1,8 +1,12 @@
 extends Area2D
 class_name Checkpoint
 
+enum RealityMode {NORMAL, HOT, COLD}
+
 var phase: int = 0
 @export var silent: bool = false
+## The reality to put the level in when respawning at this checkpoint.
+@export var realityOnRespawn: RealityMode = RealityMode.NORMAL
 var activated = false
 @onready var sprite = $AnimatedSprite2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -28,6 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 		# print(str(body.checkpoint_phase) +", "+ str(phase))
 		if body.checkpoint_phase <= phase:
 			PlayerGlobalVars.respawnPoint = global_position
+			PlayerGlobalVars.reality = realityOnRespawn
 			body.checkpoint_phase = phase
 			# print("=> " + str(body.checkpoint_phase))
 			setActivated(true)

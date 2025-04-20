@@ -38,6 +38,8 @@ func _ready() -> void:
 	if PlayerGlobalVars.firstLoad:
 		var checkpoint = startingCheckpoint
 		checkpoint -= int(bool(startingElevator != null))
+		
+		PlayerGlobalVars.reality = reality
 		if checkpoint >= 0:
 			checkpoint = min(checkpoint, checkpoints.size()-1)
 			if checkpoint >= 0:
@@ -50,7 +52,9 @@ func _ready() -> void:
 			PlayerGlobalVars.respawnPoint = startingElevator.remoteTransform.global_position
 			startingElevator.playAnimation()
 		PlayerGlobalVars.firstLoad = false
-		
+	
+	if not PlayerGlobalVars.firstLoad:
+		reality = PlayerGlobalVars.reality
 	callRealityChange()
 
 func setAllowTelekinesis(allow: bool):
