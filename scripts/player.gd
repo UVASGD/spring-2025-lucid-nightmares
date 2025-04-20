@@ -4,7 +4,7 @@ class_name Player
 const floor_area_name = "StandingArea"
 
 const MAX_SPEED = 75.0
-const TERMINAL_DOWNWARD_SPEED = 300.0
+const TERMINAL_DOWNWARD_SPEED = 175.0
 const GROUND_FRICTION = MAX_SPEED * 0.3
 const AIR_FRICTION = MAX_SPEED * 0.05
 const AIR_CHANGE_SPEED = 3.0
@@ -63,16 +63,21 @@ func physics(delta: float):
 	if airborneTimer > 0:
 		airborneTimer -= 1
 
+	var fallMultiplier = 1
+	if Input.is_action_pressed("PlayerDown"): fallMultiplier = 1.2
+		
 	if not is_on_floor():
 		if onGround:
 			#velocity.y = 0 #prevents platform launches
 			# count down remaining "coyote time"
 			jumpLeewayTimer -= delta
-			if jumpLeewayTimer <= 0.0 : 
+			if jumpLeewayTimer <= 0.0: 
 				onGround = false
 				jumpLeewayTimer = JUMP_LEEWAY_TIME
 		# Add the gravity.
-		velocity += get_gravity() * delta
+		# Multiply gravity by 1.2 if player is pressing S.
+		
+		velocity += get_gravity() * delta * fallMultiplier
 	if jumpCounter < AIR_JUMPS and !Input.is_action_pressed("PlayerJump"):
 		canJump = true
 	
@@ -106,8 +111,8 @@ func physics(delta: float):
 		# consider the player mid-air when the player has jumped
 		onGround = false
 			
-	if velocity.y > TERMINAL_DOWNWARD_SPEED:
-		velocity.y = TERMINAL_DOWNWARD_SPEED
+	if velocity.y > TERMINAL_DOWNWARD_SPEED * fallMultiplier:
+		velocity.y = TERMINAL_DOWNWARD_SPEED * fallMultiplier
 	move_and_slide()
 
 func animation():

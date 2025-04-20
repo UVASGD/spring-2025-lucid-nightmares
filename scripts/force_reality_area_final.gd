@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var ceiling: DeathCeiling = death_ceiling.instantiate()
-		ceiling.position = position + Vector2(0, -240)
+		ceiling.position = position + Vector2(0, -170)
+		ceiling.player = body
 		Level.getLevelObject(get_tree()).add_child(ceiling)

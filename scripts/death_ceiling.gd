@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name DeathCeiling
 
 var stopMotion = false
+var player: Player = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,8 +17,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if stopMotion: return
 	velocity += get_gravity() * delta
-	if velocity.y > Player.TERMINAL_DOWNWARD_SPEED + 2:
-		velocity.y = Player.TERMINAL_DOWNWARD_SPEED + 2
+	
+	if not player or abs(player.global_position.y - global_position.y) < 180:
+		if velocity.y > Player.TERMINAL_DOWNWARD_SPEED + 2:
+			velocity.y = Player.TERMINAL_DOWNWARD_SPEED + 2
 	move_and_slide()
 	
 func stop():
