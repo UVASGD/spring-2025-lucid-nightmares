@@ -19,7 +19,6 @@ func _on_respawn():
 	
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if doRespawn:
-		print("tried to respawn")
 		state.transform.origin = respawnController.respawnPoint
 		state.angular_velocity = 0
 		state.linear_velocity = Vector2.ZERO

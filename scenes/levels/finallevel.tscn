@@ -350,6 +350,7 @@ position = Vector2(-139, -730.5)
 [node name="CameraOverrideArea7" parent="." instance=ExtResource("6_rirfj")]
 position = Vector2(212, -543)
 zoom = Vector2(4, 4)
+followPlayer = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraOverrideArea7"]
 position = Vector2(-3.5, 141)

@@ -4,6 +4,7 @@ class_name CustomCamera
 @onready var collision_shape: CollisionShape2D = $TelekineticArea/CollisionShape2D
 @onready var textureRects: Array[TextureRect] = \
 	[$Background/Parallax2D/BackgroundTexture,  $Background/Parallax2D2/BackgroundTexture2]
+@onready var fadeOverlay: ColorRect = $CanvasLayer/FadeOverlay
 @onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var spaceContainer: Node2D = $Background/PlanetContainer
@@ -142,11 +143,11 @@ func resetOverlay():
 	colorOverlay.visible = false
 	
 func fadeToBlack():
-	colorOverlay.color = Color("00000000")
-	colorOverlay.visible = true
+	fadeOverlay.color = Color("00000000")
+	fadeOverlay.visible = true
 	animPlayer.play("fadeToBlack")
 	
 func fadeInFromBlack():
-	colorOverlay.color = Color("000000")
-	colorOverlay.visible = true
+	fadeOverlay.color = Color("000000")
+	fadeOverlay.visible = true
 	animPlayer.play("fadeInFromBlack")

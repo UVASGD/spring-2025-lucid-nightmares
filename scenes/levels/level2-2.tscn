@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cppf46rf1fqnw"]
+[gd_scene load_steps=26 format=4 uid="uid://cppf46rf1fqnw"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_00s1v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_714s2"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://chiiysjo7i0mg" path="res://scenes/falling_cloud.tscn" id="12_yggky"]
 [ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/start_elevator.tscn" id="13_cjgpi"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="14_54hdh"]
+[ext_resource type="PackedScene" uid="uid://dv3x1akur6mgh" path="res://scenes/levels/finallevel.tscn" id="15_jpo3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
 size = Vector2(3350.5, 248)
@@ -279,3 +280,4 @@ speed = 50
 
 [node name="EndElevator" parent="." instance=ExtResource("14_54hdh")]
 position = Vector2(2072, -720)
+nextLevel = ExtResource("15_jpo3m")

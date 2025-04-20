@@ -189,6 +189,7 @@ func airborne(x: int):
 
 ## Replenishes double jump at the END of this frame.
 func replenishDoubleJump():
+	if Level.getLevelObject(get_tree()).disableDoubleJump: return
 	if not is_on_floor():
 		jumpCounter = 0
 		# Prevent physics process from counting current frame as a jump (in the case of handles)
