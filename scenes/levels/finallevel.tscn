@@ -106,7 +106,6 @@ size = Vector2(800, 53)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_3rqvo")
-startingCheckpoint = 5
 startingElevator = NodePath("StartElevator")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
