@@ -73,6 +73,10 @@ func physics(delta: float):
 			jumpLeewayTimer -= delta
 			if jumpLeewayTimer <= 0.0: 
 				onGround = false
+				
+				# hotfix
+				if AIR_JUMPS == 0:
+					canJump = false
 				jumpLeewayTimer = JUMP_LEEWAY_TIME
 		# Add the gravity.
 		# Multiply gravity by 1.2 if player is pressing S.

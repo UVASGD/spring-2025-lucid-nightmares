@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cppf46rf1fqnw" path="res://scenes/levels/level2-2.tscn" id="13_hqlkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
-size = Vector2(3350.5, 248)
+size = Vector2(3350.5, 260)
 
 [sub_resource type="Curve2D" id="Curve2D_2s8ha"]
 _data = {
@@ -55,19 +55,10 @@ modulate = Color(0.615686, 0.615686, 0.615686, 1)
 tile_set = ExtResource("2_annjb")
 collision_enabled = false
 
-[node name="DamageBox2" parent="." instance=ExtResource("7_7ky1h")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox2"]
-position = Vector2(1247, 542)
-shape = SubResource("RectangleShape2D_hgubd")
-
-[node name="Checkpoint" parent="DamageBox2" instance=ExtResource("8_h6od1")]
-position = Vector2(1512, -152)
-
 [node name="DamageBox" parent="." instance=ExtResource("7_7ky1h")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(1247, 542)
+position = Vector2(1244, 226)
 shape = SubResource("RectangleShape2D_hgubd")
 
 [node name="Checkpoint" parent="DamageBox" instance=ExtResource("8_h6od1")]
