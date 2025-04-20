@@ -6,6 +6,7 @@ class_name TelekineticWindow
 
 # window_planets.tscn
 @onready var windowPlanets: Node2D = load("res://scenes/window_planets.tscn").instantiate()
+# this persists on reloads
 static var planetsMade = false
 const PLANET_SCALE = Vector2(3, 3)
 

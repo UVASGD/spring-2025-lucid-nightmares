@@ -20,6 +20,7 @@ func respawn():
 		parent.velocity = Vector2.ZERO
 		if parent is Player:
 			var telekinesisEnabled = level.allowTelekinesis
+			TelekineticWindow.planetsMade = false
 			get_tree().reload_current_scene()
 			level.allowTelekinesis = telekinesisEnabled
 			parent.global_position = PlayerGlobalVars.respawnPoint
