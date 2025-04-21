@@ -13,7 +13,7 @@ size = Vector2(32, 16)
 script = ExtResource("1_th1uv")
 
 [node name="Line2D" type="Line2D" parent="."]
-z_index = -5
+z_index = -1
 width = 1.0
 default_color = Color(0.67416, 0.66412, 0.662779, 1)
 

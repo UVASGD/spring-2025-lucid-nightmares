@@ -1,4 +1,5 @@
 extends TileMapLayer
+class_name ElementalLayer
 
 enum RealityMode {NORMAL, HOT, COLD}
 

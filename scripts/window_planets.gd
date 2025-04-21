@@ -6,12 +6,14 @@ extends Node2D
 @onready var LavaTile: TextureRect = $Ice16
 @onready var windowTexture: CompressedTexture2D = load("uid://cqyoqi5udgc31")
 
-var verticalOffset: int = 0
+var textureHeight: int = 0
+var windowHeight: int = 0
+const VERT_OFFSET = 5
 var realityMode: RealityMode = RealityMode.NORMAL
 
 var level: Level
 var window: StaticBody2D
-var container = ParallaxLayer
+var container = Parallax2D
 var camera: Camera2D
 
 enum RealityMode {NORMAL, HOT, COLD}
@@ -21,15 +23,28 @@ func _ready():
 	set_state(RealityMode.NORMAL)
 	
 	if windowTexture:
-		verticalOffset = windowTexture.get_height()/2 
-	
+		textureHeight = IceMasked.get_rect().size.y/2 
+		windowHeight = windowTexture.get_height()/2
+		print(textureHeight, windowHeight)
+		
 	pass # Replace with function body.
 
+
+# var direction = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if window and level:
 		set_state(level.reality)
+		
+		
+	# for testing scale
+	#if scale.x > 3:
+		#direction = -1
+	#elif scale.x < 1:
+		#direction = 1
+		#
+	#scale += direction * Vector2(0.1, 0.1)
 	#if level and window:
 		#var xMult = 1 #0.97 if realityMode == RealityMode.NORMAL else 0.9
 		#var offset = (camera.global_position - window.global_position) * Vector2(xMult, 1.0)
@@ -46,12 +61,12 @@ func _process(delta):
 func set_anchors(window_in, level_in, container_in):
 	window = window_in
 	level = level_in
-	var container: Parallax2D = null
+	container = null
 	if level:
 		camera = level.camera
 	if container_in and camera:
 		container = container_in
-		container.scroll_offset =  get_viewport_rect().size/2 - Vector2(0, (LavaMasked.get_rect().size.y/2 + 13) * scale.y) #-window.global_position) # )
+		container.scroll_offset =  get_viewport_rect().size/2 - Vector2(0,(textureHeight - VERT_OFFSET) * scale.y) #-window.global_position) # )
 		
 			
 func set_state(reality):

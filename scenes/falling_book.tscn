@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://csxigowyd8xvs" path="res://assets/books/Big_Book_Green.png" id="4_8i1g0"]
 [ext_resource type="Texture2D" uid="uid://mbeq2klamlea" path="res://assets/books/Big_Book_Purple.png" id="5_i8ote"]
 [ext_resource type="Texture2D" uid="uid://dna7cwcfwh0gh" path="res://assets/books/Big_Book_Red.png" id="6_6s43t"]
+[ext_resource type="Shape2D" uid="uid://bgancw0e4hkmc" path="res://scenes/falling_book_SIZE.tres" id="7_lx5up"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
-[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xj83l"]
 friction = 0.5
@@ -55,10 +56,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3m0s"]
-radius = 9.0
-height = 56.0
-
 [node name="FallingBook" type="RigidBody2D"]
 texture_filter = 1
 collision_layer = 16
@@ -73,8 +70,7 @@ sprite_frames = SubResource("SpriteFrames_ybm7g")
 animation = &"red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CapsuleShape2D_j3m0s")
+shape = ExtResource("7_lx5up")
 
 [node name="RespawnController" parent="." instance=ExtResource("7_qnj2x")]
 

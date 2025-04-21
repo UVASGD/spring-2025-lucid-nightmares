@@ -8,7 +8,7 @@ class_name TelekineticWindow
 @onready var windowPlanets: Node2D = load("res://scenes/window_planets.tscn").instantiate()
 # this persists on reloads
 static var planetsMade = false
-const PLANET_SCALE = Vector2(3, 3)
+const PLANET_SCALE = Vector2(4, 4)
 
 enum RealityMode {NORMAL, HOT, COLD}
 

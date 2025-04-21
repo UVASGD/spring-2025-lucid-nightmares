@@ -89,7 +89,7 @@ func registerCheckpoint(checkpoint: Checkpoint):
 	var sortCheckpoints = func (a, b): 
 		if libraryLevel2:
 			return a.global_position.y > b.global_position.y
-		return a.global_position.x + abs(a.global_position.y) * 1.1 < b.global_position.x + abs(b.global_position.y) * 1.1
+		return a.global_position.x + abs(a.global_position.y) * 1 < b.global_position.x + abs(b.global_position.y) * 1.1
 	checkpoints.sort_custom(sortCheckpoints)
 	for i in range(checkpoints.size()):
 		checkpoints[i].phase = i + int(bool(startingElevator != null))

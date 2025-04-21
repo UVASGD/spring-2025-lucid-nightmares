@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="7_7ky1h"]
 [ext_resource type="PackedScene" uid="uid://b484elec4hdto" path="res://scenes/checkpoint.tscn" id="8_h6od1"]
 [ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/start_elevator.tscn" id="9_nhmi5"]
-[ext_resource type="Texture2D" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
+[ext_resource type="Texture2D" uid="uid://b4kicfkrs4v2e" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/end_elevator.tscn" id="12_fo7h8"]
 [ext_resource type="PackedScene" uid="uid://cppf46rf1fqnw" path="res://scenes/levels/level2-2.tscn" id="13_hqlkg"]
 
@@ -108,6 +108,9 @@ scale = Vector2(0.25, 0.25)
 text = "Try jumping twice"
 label_settings = SubResource("LabelSettings_jp3si")
 horizontal_alignment = 1
+
+[node name="Checkpoint" parent="." instance=ExtResource("8_h6od1")]
+position = Vector2(1512, -152)
 
 [node name="EndElevator" parent="." instance=ExtResource("12_fo7h8")]
 position = Vector2(2032, -224)
