@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dv3x1akur6mgh"]
+[gd_scene load_steps=51 format=4 uid="uid://dv3x1akur6mgh"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_uir5e"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="2_aj45a"]
@@ -95,9 +95,6 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xd3e"]
 size = Vector2(436.75, 248)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp4ne"]
-size = Vector2(832, 382)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvuta"]
 size = Vector2(262, 4822.25)
 
@@ -113,6 +110,7 @@ size = Vector2(258, 196)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_uir5e")
+startingCheckpoint = 5
 startingElevator = NodePath("Room01/StartElevator")
 
 [node name="Room01" type="Node2D" parent="."]
@@ -580,19 +578,7 @@ tile_set = ExtResource("3_ymjia")
 tile_set = ExtResource("3_21fq5")
 script = ExtResource("23_5p21w")
 
-[node name="CameraOverrideArea2" parent="Room12 - Elevator" instance=ExtResource("10_2x5e5")]
-position = Vector2(789, -1637.25)
-scale = Vector2(0.25, 0.25)
-zoom = Vector2(2.7, 2.7)
-center_position = Vector2(1056, -240)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room12 - Elevator/CameraOverrideArea2"]
-visible = false
-position = Vector2(-4820, -555)
-shape = SubResource("RectangleShape2D_fp4ne")
-
 [node name="CameraOverrideArea3" parent="Room12 - Elevator" instance=ExtResource("10_2x5e5")]
-visible = false
 position = Vector2(789, -1637.25)
 scale = Vector2(0.25, 0.25)
 zoom = Vector2(2, 2)
