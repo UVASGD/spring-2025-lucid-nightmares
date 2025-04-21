@@ -11,7 +11,7 @@ var activated = false
 @onready var sprite = $AnimatedSprite2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var level: Level = Level.getLevelObject(get_tree())
-var audio = load("res://assets/checkpoint/checkpoint.wav")
+var audio = load("uid://codpn8nn4ngbv") #checkpoint audio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var firstLevel = preload("res://scenes/levels/level1-1.tscn")
-var credits = preload("res://scenes/credits.tscn")
+var firstLevel = preload("uid://bvv0kvxphwhqp")
+var credits = preload("uid://chn82e6ce6ssa") # credit scene
 
 
 # Called when the node enters the scene tree for the first time.

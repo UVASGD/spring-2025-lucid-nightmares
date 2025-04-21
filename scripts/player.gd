@@ -20,10 +20,10 @@ var AIR_JUMPS = 1
 @onready var footstepPlayer: AudioStreamPlayer2D = $FootstepPlayer
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
-var doubleJumpScene = preload("res://scenes/doubleJumpParticle.tscn")
+var doubleJumpScene = preload("uid://b8y32hv63qbmb")
 
-var wood_walk = preload("res://assets/Sounds/player/wood_walk.mp3")
-var carpet_walk = preload("res://assets/Sounds/player/carpet_walk.mp3")
+var wood_walk = preload("uid://derrtv023tchn") #wood_walk.mp3
+var carpet_walk = preload("uid://sqxqdup8ujxw") #carpet_walk.mp3
 
 var walkSfxResetCooldown = 10
 var walkSfxResetCooldownMax = 10

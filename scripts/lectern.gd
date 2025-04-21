@@ -4,8 +4,8 @@ extends AnimatedSprite2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var activated: bool = false
 
-var pagesSound = load("res://assets/Sounds/lectern book pages turning.mp3")
-var disconnectSound = load("res://assets/Sounds/Disconnect.wav")
+var pagesSound = load("uid://nb450gw2y5a3")
+var disconnectSound = load("uid://bikgu6hamdbln")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

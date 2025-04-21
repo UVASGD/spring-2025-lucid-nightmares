@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var remoteTransform: RemoteTransform2D = $Area2D/RemoteTransform2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
-var audio = preload("res://assets/Sounds/Wind woosh.wav")
+var audio = preload("uid://dkgw1xxbtmmo1") #wind woosh
 var inUse = false
 var player: Player = null
 var angularVelo = 0 # radians per second

@@ -4,8 +4,8 @@ class_name TelekineticSelector
 @onready var controlLabel: Label = $"../CanvasLayer/TelekineticControlLabel"
 @onready var audioStream = $AudioStreamPlayer2D
 
-var disconnectSound = preload("res://assets/Sounds/Disconnect.wav")
-var connectSound = preload("res://assets/Sounds/Connect.wav")
+var disconnectSound = preload("uid://bikgu6hamdbln")
+var connectSound = preload("uid://cejk1p8a3c128")
 # Handles selecting telekinetic objects that are in the camera view.
 # To be recognized, a body that comes into frame 
 # must have a TelekineticController object as a direct child.

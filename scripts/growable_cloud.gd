@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-var smallCloud = load("res://assets/cloud32x16.png")
-var bigCloud = load("res://assets/cloud64x16.png")
+var smallCloud = load("uid://brro7nlmfxvl8") #cloud 32x16
+var bigCloud = load("uid://bm2hplhrx6t73") #cloud 64x16
 var big: bool = false
 
 @onready var collisionPolygon = $CollisionPolygon2D

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var rayCast: RayCast2D = $"../ShortHand/RayCast2D"
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var audio = preload("res://assets/Sounds/pendelum clock ticking.mp3")
+var audio = preload("uid://j7ki4qxe2g8t")
 
 const SPEED = 1.5
 const shortRatio = 0.3

@@ -1,6 +1,6 @@
 extends ForceRealityArea
 
-var death_ceiling = preload("res://scenes/death_ceiling.tscn")
+var death_ceiling = preload("uid://dbmmm8f6764nx") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
