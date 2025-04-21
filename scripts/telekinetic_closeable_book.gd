@@ -6,14 +6,21 @@ extends Node2D
 @onready var spriteLeft: Sprite2D = $AnimatableBody2D/Sprite2D
 @onready var spriteRight: Sprite2D = $StaticBody2D/Sprite2D
 
+var action = "TelekineticRight"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	teleController.addControl("Right Arrow", "Close book")
+	if scale.x < 0:
+		teleController.addControl("Left Arrow", "Close book")
+		action = "TelekineticLeft"
+	else:
+		teleController.addControl("Right Arrow", "Close book")
+		action = "TelekineticRight"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if teleController.is_selected and Input.is_action_just_pressed("TelekineticRight"):
+	if teleController.is_selected and Input.is_action_just_pressed(action):
 		animPlayer.play("fling")
 		
 
