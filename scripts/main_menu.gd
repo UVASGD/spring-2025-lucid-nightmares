@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
+	PlayerGlobalVars.interactLectern = false
 	PlayerGlobalVars.respawnPoint = Vector2.ZERO
 	PlayerGlobalVars.firstLoad = true
 	get_tree().change_scene_to_packed(firstLevel)

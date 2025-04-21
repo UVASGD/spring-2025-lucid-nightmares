@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dna7cwcfwh0gh" path="res://assets/books/Big_Book_Red.png" id="6_6s43t"]
 [ext_resource type="Shape2D" uid="uid://bgancw0e4hkmc" path="res://scenes/falling_book_SIZE.tres" id="7_lx5up"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/respawn_controller.tscn" id="7_qnj2x"]
-[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
+[ext_resource type="PackedScene" path="res://scenes/surface_material.tscn" id="8_vl4d1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xj83l"]
-friction = 0.5
+friction = 0.75
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybm7g"]
 animations = [{
