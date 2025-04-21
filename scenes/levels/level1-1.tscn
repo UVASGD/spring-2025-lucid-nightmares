@@ -102,11 +102,11 @@ DIRECTION = Vector2(1, 0.3)
 IMPULSE = Vector2(300, 400)
 
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("interact_targets") instance=ExtResource("8_67ef8")]
-position = Vector2(1617, 15)
+position = Vector2(1622, 15)
 interact_targets = [NodePath("../Gate")]
 
 [node name="PressurePlate3" parent="." node_paths=PackedStringArray("interact_targets") instance=ExtResource("8_67ef8")]
-position = Vector2(1650, 15)
+position = Vector2(1657, 15)
 interact_targets = [NodePath("../Gate")]
 
 [node name="CameraOverrideArea" parent="." instance=ExtResource("10_3w5j7")]

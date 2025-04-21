@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://chn82e6ce6ssa"]
+[gd_scene load_steps=2 format=3 uid="uid://chn82e6ce6ssa"]
+
+[ext_resource type="Texture2D" uid="uid://55munex1vhdn" path="res://assets/bg/Area_1_Background.png" id="1_3g7g7"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -12,34 +14,42 @@ grow_vertical = 2
 layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1154.0
+offset_bottom = 645.0
+texture = ExtResource("1_3g7g7")
 
 [node name="Columns" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -2.0
+offset_bottom = -4.0
+alignment = 1
 
-[node name="Row A" type="VBoxContainer" parent="Columns"]
+[node name="Level Design" type="RichTextLabel" parent="Columns"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+bbcode_enabled = true
+text = "[center]Level Design[/center]"
 
-[node name="Artists" type="RichTextLabel" parent="Columns/Row A"]
+[node name="Music" type="RichTextLabel" parent="Columns"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+bbcode_enabled = true
+text = "[center]Music[/center]
+"
 
-[node name="Row B" type="VBoxContainer" parent="Columns"]
+[node name="Programming" type="RichTextLabel" parent="Columns"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+bbcode_enabled = true
+text = "[center]Programming[/center]"
 
-[node name="Level Design" type="RichTextLabel" parent="Columns/Row B"]
+[node name="Artists" type="RichTextLabel" parent="Columns"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-
-[node name="Row C" type="VBoxContainer" parent="Columns"]
-layout_mode = 2
-
-[node name="Programming" type="RichTextLabel" parent="Columns/Row C"]
-layout_mode = 2
-
-[node name="Row D" type="VBoxContainer" parent="Columns"]
-layout_mode = 2
-
-[node name="Music" type="RichTextLabel" parent="Columns/Row D"]
-layout_mode = 2
+bbcode_enabled = true
+text = "[center]Art[/center]
+"
