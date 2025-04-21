@@ -109,7 +109,7 @@ size = Vector2(258, 196)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_uir5e")
-startingCheckpoint = 4
+startingCheckpoint = 5
 startingElevator = NodePath("Room01/StartElevator")
 
 [node name="Room01" type="Node2D" parent="."]
@@ -603,12 +603,11 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_xvuta")
 
 [node name="ForceRealityArea" parent="Room12 - Elevator" instance=ExtResource("12_5enn2")]
-position = Vector2(472, -1832)
+position = Vector2(336, -1837)
 script = ExtResource("13_t1t1y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room12 - Elevator/ForceRealityArea"]
-visible = false
-position = Vector2(132, 2354.5)
+position = Vector2(130, 2360)
 shape = SubResource("RectangleShape2D_ff1me")
 debug_color = Color(0.816212, 0.311532, 0.667626, 0.42)
 
@@ -617,8 +616,7 @@ position = Vector2(629, 574)
 rotation = 1.79594
 
 [node name="Checkpoint5" parent="Room12 - Elevator" instance=ExtResource("24_q8dlh")]
-visible = false
-position = Vector2(504, -1848)
+position = Vector2(314, -1848)
 
 [node name="Room13" type="Node2D" parent="."]
 position = Vector2(1736, 4920)
