@@ -2,13 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_g4hed"]
 [ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="2_48cph"]
-[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/telekinetic_free_tile.tscn" id="3_6bo61"]
+[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/objects/telekinetic_free_tile.tscn" id="3_6bo61"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_j6kld"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="5_eejkv"]
-[ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/tween_moving_platform.tscn" id="6_j87vj"]
-[ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/telekinetic_path_platform.tscn" id="7_6kqp7"]
-[ext_resource type="PackedScene" uid="uid://dhj35qgxqpkna" path="res://scenes/path_moving_platform.tscn" id="8_aalhh"]
-[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="9_082a7"]
+[ext_resource type="PackedScene" uid="uid://xhbyfkdwudvy" path="res://scenes/objects/tween_moving_platform.tscn" id="6_j87vj"]
+[ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/objects/telekinetic_path_platform.tscn" id="7_6kqp7"]
+[ext_resource type="PackedScene" uid="uid://dhj35qgxqpkna" path="res://scenes/objects/path_moving_platform.tscn" id="8_aalhh"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/objects/deathzone.tscn" id="9_082a7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87rnx"]
 resource_name = "testing"

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_wqenb"]
 [ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="6_l1h00"]
 [ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="7_ou1jg"]
-[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="8_paktb"]
-[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="9_xrhv1"]
+[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="8_paktb"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/objects/deathzone.tscn" id="9_xrhv1"]
 [ext_resource type="PackedScene" uid="uid://cf0l6trf1ldnm" path="res://scenes/levels/drafts/train.tscn" id="10_dx1l2"]
 [ext_resource type="PackedScene" uid="uid://b3stpdowtjvvn" path="res://scenes/levels/drafts/telekinetic_train_joiner.tscn" id="11_cvoa8"]
 

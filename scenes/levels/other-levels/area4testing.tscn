@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_abchh"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_qesw2"]
 [ext_resource type="Texture2D" uid="uid://da75xgomhp7f0" path="res://assets/final-area/SpaceBg/Backgrounds/Purple3.png" id="7_qcm8u"]
-[ext_resource type="PackedScene" uid="uid://kfjo3yvpiew8" path="res://scenes/elementlayer.tscn" id="7_y33k1"]
+[ext_resource type="PackedScene" uid="uid://kfjo3yvpiew8" path="res://scenes/systems/elementlayer.tscn" id="7_y33k1"]
 [ext_resource type="Texture2D" uid="uid://dqosfsjxaaeve" path="res://assets/final-area/SpaceBg/Backgrounds/YellowStars.png" id="8_gj6cg"]
 
 [node name="Level" type="Node2D"]

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="4_rasey"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="5_ahlmi"]
 [ext_resource type="Texture2D" uid="uid://da75xgomhp7f0" path="res://assets/final-area/SpaceBg/Backgrounds/Purple3.png" id="6_lmius"]
-[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="8_uaxqd"]
-[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="9_u7d68"]
+[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="8_uaxqd"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/objects/deathzone.tscn" id="9_u7d68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mid"]
 size = Vector2(1531.5, 898)

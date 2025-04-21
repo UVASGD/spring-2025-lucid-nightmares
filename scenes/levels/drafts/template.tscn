@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="5_otxgi"]
 [ext_resource type="Texture2D" uid="uid://bb8xjkx23gjxv" path="res://assets/bg/Area_1_Background_No_Railing.png" id="6_l5b7y"]
 [ext_resource type="Texture2D" uid="uid://bdb0b35m0m2gy" path="res://assets/bg/Area_1_Bannister.png" id="7_mmavo"]
-[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/camera_override_area.tscn" id="8_7fd2h"]
-[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/deathzone.tscn" id="9_kwqme"]
+[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="8_7fd2h"]
+[ext_resource type="PackedScene" uid="uid://b64xx7bsicuwl" path="res://scenes/objects/deathzone.tscn" id="9_kwqme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4mid"]
 size = Vector2(1531.5, 898)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/gate.gd" id="1_p7nt8"]
 [ext_resource type="Texture2D" uid="uid://ceiibubgd3slg" path="res://assets/doorgate.png" id="2_xcm12"]
-[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/interact_controller.tscn" id="3_xa3o0"]
+[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/systems/interact_controller.tscn" id="3_xa3o0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgxxk"]
 size = Vector2(16, 32)

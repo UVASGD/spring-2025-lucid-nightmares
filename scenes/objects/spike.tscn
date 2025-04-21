@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqkh68q5rgc01"]
 
 [ext_resource type="Texture2D" uid="uid://cdna8bbkmgqfb" path="res://assets/spike.png" id="1_t7j63"]
-[ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/damage_box.tscn" id="2_gjyhu"]
+[ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/objects/damage_box.tscn" id="2_gjyhu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdg60"]
 size = Vector2(6, 8)

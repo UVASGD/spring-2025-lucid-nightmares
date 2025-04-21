@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxlcv4g7nhj3k"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_closeable_book.gd" id="1_c52s2"]
-[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="1_pl4ui"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="1_pl4ui"]
 [ext_resource type="Texture2D" uid="uid://u0gepseeu0yd" path="res://assets/bookside2.png" id="2_3j4ws"]
-[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="2_p0q6k"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="2_p0q6k"]
 [ext_resource type="Texture2D" uid="uid://bcc3jxmygoadc" path="res://assets/bookside1.png" id="3_vdqkl"]
 
 [sub_resource type="Animation" id="Animation_rblm2"]

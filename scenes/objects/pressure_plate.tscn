@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dv48k715ph5v7"]
 
 [ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_rmw0k"]
-[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/interact_controller.tscn" id="2_vnd3h"]
+[ext_resource type="PackedScene" uid="uid://w6g47wn7jgwu" path="res://scenes/systems/interact_controller.tscn" id="2_vnd3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vkcr"]
 size = Vector2(16, 2)

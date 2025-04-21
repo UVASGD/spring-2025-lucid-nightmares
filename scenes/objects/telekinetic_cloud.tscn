@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://brro7nlmfxvl8" path="res://assets/cloud32x16.png" id="1_68idv"]
 [ext_resource type="Script" path="res://scripts/telekinetic_cloud.gd" id="1_et84a"]
-[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/telekinetic_controller.tscn" id="3_ywel2"]
-[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/marker.tscn" id="4_kafs6"]
+[ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="3_ywel2"]
+[ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="4_kafs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7try"]
 size = Vector2(28, 11)
