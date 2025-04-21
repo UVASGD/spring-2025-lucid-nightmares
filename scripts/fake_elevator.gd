@@ -6,6 +6,7 @@ class_name FakeElevator
 @onready var area: Area2D = $Elevator/Area2D
 @onready var remoteTransform: RemoteTransform2D = $Elevator/RemoteTransform2D
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
+@onready var mysterious: Sprite2D = $MysteriousIndividual
 
 var player: Player = null
 
@@ -13,6 +14,7 @@ var player: Player = null
 func _ready() -> void:
 	if PlayerGlobalVars.fakeElevatorTriggered:
 		disappear()
+	mysterious.visible = false
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

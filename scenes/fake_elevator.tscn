@@ -1,15 +1,55 @@
-[gd_scene load_steps=8 format=4 uid="uid://buaiqsgeak5te"]
+[gd_scene load_steps=9 format=4 uid="uid://buaiqsgeak5te"]
 
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="1_b4ue4"]
 [ext_resource type="Script" path="res://scripts/fake_elevator.gd" id="1_dc5s6"]
 [ext_resource type="Texture2D" uid="uid://c377eyrdcgc70" path="res://assets/elevator.png" id="2_xirhy"]
+[ext_resource type="Texture2D" uid="uid://bhb3bx35fuvq5" path="res://assets/mysteriousindividual.png" id="4_3t1db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqaln"]
 size = Vector2(52, 60)
 
+[sub_resource type="Animation" id="Animation_hpttk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elevator:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MysteriousIndividual:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MysteriousIndividual:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_j24qo"]
 resource_name = "end"
-length = 4.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,7 +69,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.5, 3.5),
+"times": PackedFloat32Array(2.5, 5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -46,27 +86,36 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3.5),
+"times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"disappear"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_hpttk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Elevator:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MysteriousIndividual:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MysteriousIndividual:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5, 2.8, 3.1, 3.4, 3.7, 4, 4.3, 4.6, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5fwp"]
@@ -105,6 +154,15 @@ position = Vector2(0, 24)
 libraries = {
 "": SubResource("AnimationLibrary_k5fwp")
 }
+
+[node name="MysteriousIndividual" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(169, -11)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_3t1db")
+flip_h = true
+hframes = 4
 
 [connection signal="body_entered" from="Elevator/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Elevator/Area2D" to="." method="_on_area_2d_body_exited"]
