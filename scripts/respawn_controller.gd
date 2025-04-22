@@ -21,6 +21,9 @@ func respawn():
 		if parent is Player:
 			var telekinesisEnabled = level.allowTelekinesis
 			TelekineticWindow.planetsMade = false
+			var tweens = get_tree().get_processed_tweens()
+			for tween in tweens:
+				tween.kill()
 			get_tree().reload_current_scene()
 			level.allowTelekinesis = telekinesisEnabled
 			parent.global_position = PlayerGlobalVars.respawnPoint

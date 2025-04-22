@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 			var body: RigidBody2D = collision.get_collider()
 			body.apply_central_impulse(-collision.get_normal() * INERTIA)
 
+var i = 0
+
 func incrementBurnout():
 	if burnedOut: return
 	if playerStandingOn and not is_on_floor():

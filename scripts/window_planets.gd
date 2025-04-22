@@ -23,9 +23,8 @@ func _ready():
 	set_state(RealityMode.NORMAL)
 	
 	if windowTexture:
-		textureHeight = IceMasked.get_rect().size.y/2 
-		windowHeight = windowTexture.get_height()/2
-		print(textureHeight, windowHeight)
+		textureHeight = int(IceMasked.get_rect().size.y * 0.5)
+		windowHeight = int(windowTexture.get_height() * 0.5)
 		
 	pass # Replace with function body.
 
@@ -33,7 +32,7 @@ func _ready():
 # var direction = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if window and level:
 		set_state(level.reality)
 		
