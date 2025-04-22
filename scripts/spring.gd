@@ -11,21 +11,16 @@ func _ready() -> void:
 	VELOCITY = abs(VELOCITY)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		sprite.play("spring")
-		var char: CharacterBody2D = body
+		var character: CharacterBody2D = body
 		var vector = DIRECTION.normalized() * VELOCITY
-		char.velocity.y = vector.y
-		char.velocity.x += vector.x
-		if char is Player:
-			char.airborne(2)
-			char.replenishDoubleJump()
+		character.velocity.y = vector.y
+		character.velocity.x += vector.x
+		if character is Player:
+			character.airborne(2)
+			character.replenishDoubleJump()
 	elif body is RigidBody2D:
 		sprite.play("spring")
 		var rigid: RigidBody2D = body

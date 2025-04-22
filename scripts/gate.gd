@@ -13,11 +13,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_interact(who: Node2D, message: int) -> void:
+func _on_interact(_who: Node2D, message: int) -> void:
 	if message == 1:
 		signals += 1
 	elif message == 0:

@@ -10,11 +10,6 @@ var deactivateVector: Vector2i = Vector2i.ZERO
 func _ready() -> void:
 	deactivateAll()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func activate(reality: RealityMode):
 	for coords in get_used_cells():
 		var cellData: Vector2i = get_cell_atlas_coords(coords)

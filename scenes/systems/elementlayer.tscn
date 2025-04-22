@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kfjo3yvpiew8"]
 
-[ext_resource type="TileSet" uid="uid://d3s4g2csyh7o3" path="res://assets/tileset/hotcold_tileset.tres" id="1_bn0p3"]
+[ext_resource type="TileSet" uid="uid://cu8ekh3hlsv4y" path="res://assets/tileset/hotcold_tileset.tres" id="1_bn0p3"]
 [ext_resource type="Script" path="res://scripts/element_layer.gd" id="2_k5k0b"]
 
 [node name="ElementLayer" type="TileMapLayer" groups=["RealityObject"]]

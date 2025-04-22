@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not activated and Input.is_action_just_pressed("PlayerJump"):
 		var bodies = area.get_overlapping_bodies()
 		for body in bodies:

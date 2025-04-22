@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				animationPlayer.stop()
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision: KinematicCollision2D = get_slide_collision(i)
+	for c in get_slide_collision_count():
+		var collision: KinematicCollision2D = get_slide_collision(c)
 		if collision.get_collider() is RigidBody2D:
 			var body: RigidBody2D = collision.get_collider()
 			body.apply_central_impulse(-collision.get_normal() * INERTIA)

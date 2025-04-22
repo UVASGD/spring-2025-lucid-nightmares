@@ -19,12 +19,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if teleController.is_selected and Input.is_action_just_pressed(action):
 		animPlayer.play("fling")
 		
 
-func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
+func _on_telekinetic_controller_on_set_enabled(_is_enabled: bool) -> void:
 	pass
 	#if is_enabled:
 		#spriteLeft.modulate = TelekineticController.spriteModulationColor

@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 		if not audioPlayer.playing:
 			audioPlayer.play()
 	if rayCast.is_colliding():
-		var teleController: TelekineticController = TelekineticSelector.getTelekineticNodeFromBody(rayCast.get_collider())
-		if teleController:
-			teleController.set_enabled(true)
+		var teleControllerHit: TelekineticController = TelekineticSelector.getTelekineticNodeFromBody(rayCast.get_collider())
+		if teleControllerHit:
+			teleControllerHit.set_enabled(true)
 			
 	
 			

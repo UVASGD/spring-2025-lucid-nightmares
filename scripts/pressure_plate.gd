@@ -12,7 +12,7 @@ func _ready():
 	collisions=0
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	collisions=collisions+1
 	if weighted or collisions == 1:
 		interactController.interact_all_targets(interact_targets, 1)
@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		$Area2D/ColorRect.scale=Vector2(1,.5)
 
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	collisions=collisions-1
 	if weighted or collisions == 0:
 		interactController.interact_all_targets(interact_targets, 0)

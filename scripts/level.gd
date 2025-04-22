@@ -4,7 +4,7 @@ class_name Level
 enum RealityMode {NORMAL, HOT, COLD}
 
 @export var allowTelekinesis: bool = true
-@export var reality: RealityMode = RealityMode.NORMAL
+@export var reality: int = int(RealityMode.NORMAL)
 @export var disableDoubleJump = false
 @export var startingCheckpoint = 0
 @export var startingElevator: StartElevator = null
@@ -79,7 +79,6 @@ func callRealityChange():
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
-	var level: Level
 	for child in sceneTree.root.get_children():
 		if child is Level: return child
 	return null

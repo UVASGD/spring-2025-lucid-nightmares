@@ -7,7 +7,7 @@ var inUse = false
 var player: Player = null
 var angularVelo = 0 # radians per second
 const manualConstantAngularVelo = deg_to_rad(60)
-const manualMultiplierAngularVelo = 5/3
+const manualMultiplierAngularVelo = 5.0/3.0
 const yFlingMultiplier = 0.15
 const xFlingMultiplier = 25
 
