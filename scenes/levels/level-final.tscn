@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dv3x1akur6mgh"]
+[gd_scene load_steps=52 format=4 uid="uid://dv3x1akur6mgh"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_uir5e"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="2_aj45a"]
@@ -40,6 +40,8 @@ point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omdav"]
 size = Vector2(463, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0syup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us6qi"]
 size = Vector2(391, 241)
@@ -166,6 +168,18 @@ position = Vector2(-340, 26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room02/Deathzone2"]
 position = Vector2(221.5, 0)
 shape = SubResource("RectangleShape2D_omdav")
+
+[node name="Label" type="Label" parent="Room02"]
+texture_filter = 1
+offset_left = 23.0
+offset_top = -135.0
+offset_right = 63.0
+offset_bottom = -112.0
+rotation = 0.270526
+scale = Vector2(0.25, 0.25)
+text = "<---
+"
+label_settings = SubResource("LabelSettings_0syup")
 
 [node name="Room03" type="Node2D" parent="."]
 position = Vector2(-4904, -728)
