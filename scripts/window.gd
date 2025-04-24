@@ -30,6 +30,7 @@ func _ready() -> void:
 				windowPlanets = null
 		else:
 			print("Window: Failed to find camera")
+	teleController.addControl("Arrow Keys", "Move block around")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,3 +42,42 @@ func _process(_delta: float) -> void:
 		
 	elif not level:
 		print("Level not found")
+		
+static func customControlMap(tree: SceneTree) -> String:
+	var controlMap: Dictionary = {}
+	var level = Level.getLevelObject(tree)
+	
+	if level.forceReality:
+		if level.reality == RealityMode.HOT:
+			controlMap["Left"] = "[color=AQUA]COLD[/color]"
+			controlMap["Right"] = "[color=AQUA]COLD[/color]"
+		else:
+			controlMap["Left"] = "[color=RED]HOT[/color]"
+			controlMap["Right"] = "[color=RED]HOT[/color]"
+	else:
+		var left = level.reality - 1
+		var right = level.reality + 1
+		
+		if left < 0: left = 2
+		if right > 2: right = 0
+		
+		if left == RealityMode.NORMAL:
+			controlMap["Left"] = "NORMAL"
+		elif left == RealityMode.HOT:
+			controlMap["Left"] = "[color=RED]HOT[/color]"
+		else:
+			controlMap["Left"] = "[color=AQUA]COLD[/color]"
+		
+		if right == RealityMode.NORMAL:
+			controlMap["Right"] = "NORMAL"
+		elif right == RealityMode.HOT:
+			controlMap["Right"] = "[color=RED]HOT[/color]"
+		else:
+			controlMap["Right"] = "[color=AQUA]COLD[/color]"
+		
+	var string = ""
+	for key in controlMap:
+		string += "[b]" + key + "[/b]" + ": " + controlMap[key] + " "
+	return "[right]" + string + "[/right]"
+	
+	

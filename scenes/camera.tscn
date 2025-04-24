@@ -73,13 +73,13 @@ offset_right = 579.0
 offset_bottom = 34.0
 autowrap_mode = 3
 
-[node name="TelekineticControlLabel" type="Label" parent="CanvasLayer"]
-offset_left = 943.0
+[node name="TelekineticControlLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 841.0
 offset_top = 8.0
 offset_right = 1142.0
-offset_bottom = 31.0
-horizontal_alignment = 2
-autowrap_mode = 3
+offset_bottom = 76.0
+bbcode_enabled = true
+scroll_active = false
 
 [node name="ColorOverlay" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -93,7 +93,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0)
 
-[node name="TelekineticArea" type="Area2D" parent="."]
+[node name="TelekineticArea" type="Area2D" parent="." groups=["RealityObject"]]
 collision_mask = 119
 script = ExtResource("2_eteo0")
 

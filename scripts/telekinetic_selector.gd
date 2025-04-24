@@ -1,7 +1,7 @@
 extends Area2D
 class_name TelekineticSelector
 
-@onready var controlLabel: Label = $"../CanvasLayer/TelekineticControlLabel"
+@onready var controlLabel: RichTextLabel = $"../CanvasLayer/TelekineticControlLabel"
 @onready var audioStream = $AudioStreamPlayer2D
 
 var disconnectSound = preload("uid://bikgu6hamdbln")
@@ -72,7 +72,7 @@ func cycleQueue(direction: DIRECTION):
 func deselectSelectedNode():
 	selected_node.set_selected(false)
 	selected_node = null
-	controlLabel.text = "Tab/Q: Select objects\nR: Reset to last checkpoint"
+	controlLabel.text = "[right][b]Tab/Q[/b]: Select objects\n[b]R[/b]: Reset to last checkpoint[/right]"
 	audioStream.stream = disconnectSound
 	randomize()
 	audioStream.pitch_scale = randf_range(0.95, 1.05)
@@ -82,7 +82,10 @@ func deselectSelectedNode():
 func selectNewNode(node: TelekineticController):
 	selected_node = node
 	selected_node.set_selected(true)
-	controlLabel.text = selected_node.parseControlMap()
+	# Telekinetic Windows are the only exception to the control displays since they update more frequently
+	if node.get_parent() is TelekineticWindow:
+		controlLabel.text = TelekineticWindow.customControlMap(get_tree())
+	else: controlLabel.text = selected_node.parseControlMap()
 	# randomness - consolidate this later
 	audioStream.stream = connectSound
 	randomize()
@@ -109,6 +112,10 @@ func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticContr
 	if body1.global_position.x < body2.global_position.x:
 		return true
 	return false
+	
+func on_reality_change(reality: int):
+	if selected_node and selected_node.get_parent() is TelekineticWindow:
+		controlLabel.text = TelekineticWindow.customControlMap(get_tree())
 	
 static func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
 	var teleNode = null

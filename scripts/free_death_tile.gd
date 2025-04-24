@@ -11,10 +11,7 @@ var INERTIA = 25.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	teleController.addControl("Left Arrow", "Move tile left")
-	teleController.addControl("Right Arrow", "Move tile right")
-	teleController.addControl("Down Arrow", "Move tile down")
-	teleController.addControl("Up Arrow", "Move tile up")
+	teleController.addControl("Arrow Keys", "Move block around")
 	if not isEnabled:
 		teleController.set_enabled(false)
 		_on_telekinetic_controller_on_set_enabled(false)
