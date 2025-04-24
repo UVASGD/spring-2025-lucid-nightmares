@@ -1,6 +1,6 @@
 extends Node2D
 class_name SurfaceMaterial
-enum Surfaces {CARPET, WOOD}
+enum Surfaces {CARPET, WOOD, CLOUD}
 
 @export var surface: Surfaces = Surfaces.CARPET
 

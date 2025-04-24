@@ -22,8 +22,9 @@ var AIR_JUMPS = 1
 
 var doubleJumpScene = preload("uid://b8y32hv63qbmb")
 
-var wood_walk = preload("uid://derrtv023tchn") #wood_walk.mp3
-var carpet_walk = preload("uid://sqxqdup8ujxw") #carpet_walk.mp3
+var wood_walk = preload("uid://bty0kt1fm3gls") #walking on wood SHORTENED.mp3
+var carpet_walk = preload("uid://b2yuf5lq4btl2") #walking on carpet SHORTENED.mp3
+var cloud_walk = preload("uid://lnxlsr045gi2") #Cloud step_shortened.mp3
 
 var walkSfxResetCooldown = 10
 var walkSfxResetCooldownMax = 10
@@ -135,23 +136,27 @@ func animation():
 
 func walkSfx(direction: float):
 	var audio
-	if direction and floorRayCast.is_colliding():
+	if direction and floorRayCast.is_colliding() and (animSprite.frame == 1 or animSprite.frame == 5):
 		if floorRayCast.get_collider() is TileMapLayer:
 			var tileMap: TileMapLayer = floorRayCast.get_collider()
+			var collisionPoint = floorRayCast.get_collision_point()
+			var localTileLocation = tileMap.to_local(collisionPoint)
 			var tileData: TileData = tileMap.get_cell_tile_data( 
-			tileMap.local_to_map(floorRayCast.get_collision_point()))
+			tileMap.local_to_map(localTileLocation))
 			if not tileData: return
 			var surface = tileData.get_custom_data("surface")
 			
 			match surface:
 				"wood": audio = wood_walk
 				"carpet": audio = carpet_walk
+				"cloud": audio = cloud_walk
 		elif floorRayCast.get_collider() is PhysicsBody2D:
 			var surfaceMaterial = SurfaceMaterial.getSurfaceMaterialNode(floorRayCast.get_collider())
 			if surfaceMaterial:
 				match surfaceMaterial.surface:
 					SurfaceMaterial.Surfaces.WOOD: audio = wood_walk
 					SurfaceMaterial.Surfaces.CARPET: audio = carpet_walk
+					SurfaceMaterial.Surfaces.CLOUD: audio = cloud_walk
 					
 	if audio:
 		walkSfxResetCooldown = walkSfxResetCooldownMax

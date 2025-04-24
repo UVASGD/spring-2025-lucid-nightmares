@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://chiiysjo7i0mg"]
+[gd_scene load_steps=7 format=3 uid="uid://chiiysjo7i0mg"]
 
 [ext_resource type="Script" path="res://scripts/falling_cloud.gd" id="1_dw0um"]
 [ext_resource type="Texture2D" uid="uid://b6ckxroode80k" path="res://assets/tileset/subway/tilemapVer7.png" id="2_fl4dk"]
+[ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/systems/resources/surface_material.tscn" id="3_ki1gf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li1qq"]
 atlas = ExtResource("2_fl4dk")
@@ -37,6 +38,9 @@ visible = false
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_wphwt")
 debug_color = Color(0.818612, 0.277146, 0.739585, 0.42)
+
+[node name="SurfaceMaterial" parent="." instance=ExtResource("3_ki1gf")]
+surface = 2
 
 [connection signal="area_entered" from="FloorArea" to="." method="_on_floor_area_area_entered"]
 [connection signal="area_exited" from="FloorArea" to="." method="_on_floor_area_area_exited"]

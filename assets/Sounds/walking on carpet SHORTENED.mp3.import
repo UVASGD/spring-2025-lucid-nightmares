@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2yuf5lq4btl2"
+path="res://.godot/imported/walking on carpet SHORTENED.mp3-822185013adb6ead7ccb5efb56f92f93.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/walking on carpet SHORTENED.mp3"
+dest_files=["res://.godot/imported/walking on carpet SHORTENED.mp3-822185013adb6ead7ccb5efb56f92f93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
