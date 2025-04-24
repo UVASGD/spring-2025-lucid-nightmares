@@ -8,6 +8,7 @@ class_name CustomCamera
 @onready var colorOverlay: ColorRect = $CanvasLayer/ColorOverlay
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var spaceContainer: Node2D = $Background/PlanetContainer
+@onready var quitLabel: Label = $CanvasLayer/QuitLabel
 var player: Player = null
 var overrideZoom: Vector2 = Vector2(0.85, 0.85)
 var overridePosition: Vector2 = Vector2.ZERO

@@ -16,6 +16,9 @@ var camera: CustomCamera = null
 var player: Player = null
 var checkpoints: Array[Checkpoint] = []
 
+var escPresses = 0
+var title: PackedScene = load("uid://c0tvrj084xnrs")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,6 +59,21 @@ func _ready() -> void:
 	if not PlayerGlobalVars.firstLoad:
 		reality = PlayerGlobalVars.reality
 	callRealityChange()
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Quit"):
+		escPresses += 1
+		if escPresses >= 2:
+			camera.fadeToBlack()
+			await get_tree().create_timer(1).timeout
+			get_tree().change_scene_to_packed(title)
+		else:
+			camera.quitLabel.text = "Press Esc again to quit to title screen"
+			get_tree().create_timer(3).timeout.connect(resetQuit)
+		
+func resetQuit():
+	escPresses -= 1
+	camera.quitLabel.text = ""
 
 func setAllowTelekinesis(allow: bool):
 	allowTelekinesis = allow
