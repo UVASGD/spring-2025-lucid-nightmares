@@ -210,8 +210,9 @@ texture = ExtResource("1_uarti")
 2:7/0/custom_data_0 = "wood"
 2:2/0 = 0
 2:2/0/custom_data_0 = "wood"
-4:6/0 = 0
-4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4.17609, -8, -4.12041)
+1:8/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ti8aq"]
 texture = ExtResource("2_ufyri")
