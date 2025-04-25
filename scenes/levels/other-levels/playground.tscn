@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqduuqbad85j" path="res://scenes/objects/gate.tscn" id="18_rtdyq"]
 [ext_resource type="PackedScene" uid="uid://c1m0obtdemrgq" path="res://scenes/objects/shadow.tscn" id="20_m83r7"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/objects/end_elevator.tscn" id="23_1cjds"]
-[ext_resource type="PackedScene" uid="uid://kcdl14p7hf1u" path="res://scenes/levels/level2-1.tscn" id="23_6v4h7"]
+[ext_resource type="PackedScene" uid="uid://b2tbjysoih4xw" path="res://scenes/levels/other-levels/library_1.tscn" id="24_1emra"]
 [ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/objects/start_elevator.tscn" id="26_aqc1s"]
 
 [sub_resource type="Curve2D" id="Curve2D_oknp3"]
@@ -78,10 +78,10 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nswll"]
 size = Vector2(308, 160)
 
-[node name="Playground" type="Node2D"]
+[node name="Playground" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_31qgn")
-startingCheckpoint = 2
+startingElevator = NodePath("StartElevator")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 modulate = Color(0.615686, 0.615686, 0.615686, 1)
@@ -289,10 +289,27 @@ interact_targets = [NodePath("../Gate")]
 
 [node name="EndElevator" parent="." instance=ExtResource("23_1cjds")]
 position = Vector2(-359, -16)
-nextLevel = ExtResource("23_6v4h7")
+nextLevel = ExtResource("24_1emra")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nxsid")]
 camera = NodePath("../Camera2D")
 
 [node name="StartElevator" parent="." instance=ExtResource("26_aqc1s")]
-position = Vector2(-286, -16)
+position = Vector2(-32, -16)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 21.0
+offset_top = -37.0
+offset_right = 297.0
+offset_bottom = 12.0
+scale = Vector2(0.25, 0.25)
+text = "Welcome to the testing playground!
+Return to the title screen with ESC."
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -376.0
+offset_top = -52.0
+offset_right = -100.0
+offset_bottom = -3.0
+scale = Vector2(0.25, 0.25)
+text = "Enter unused level"

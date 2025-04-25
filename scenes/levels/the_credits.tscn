@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://chn82e6ce6ssa"]
+[gd_scene load_steps=5 format=3 uid="uid://chn82e6ce6ssa"]
 
 [ext_resource type="Texture2D" uid="uid://55munex1vhdn" path="res://assets/bg/Area_1_Background.png" id="1_3g7g7"]
+[ext_resource type="Script" path="res://scripts/the_credits.gd" id="1_p2cv1"]
+[ext_resource type="Texture2D" uid="uid://xqxnvc2b6l7w" path="res://assets/menu/back.png" id="3_3uvyu"]
+[ext_resource type="Texture2D" uid="uid://b8d37c6mbsom5" path="res://assets/menu/backhover.png" id="4_earrv"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p2cv1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -53,3 +57,15 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[center]Art[/center]
 "
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 595.0
+offset_right = 107.0
+offset_bottom = 635.0
+texture_normal = ExtResource("3_3uvyu")
+texture_pressed = ExtResource("4_earrv")
+texture_hover = ExtResource("4_earrv")
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
