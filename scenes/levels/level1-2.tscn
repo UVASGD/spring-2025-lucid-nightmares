@@ -33,7 +33,7 @@ disableDoubleJump = true
 startingElevator = NodePath("StartElevator")
 libraryLevel2 = true
 song = ExtResource("2_h663g")
-maxVolume = -7
+maxVolume = -2
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 visible = false

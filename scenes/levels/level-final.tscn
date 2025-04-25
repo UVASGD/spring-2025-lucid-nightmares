@@ -116,7 +116,6 @@ size = Vector2(258, 196)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_uir5e")
-startingCheckpoint = 4
 startingElevator = NodePath("Room01/StartElevator")
 
 [node name="Room01" type="Node2D" parent="."]

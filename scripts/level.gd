@@ -98,10 +98,10 @@ func initAudioPlayer():
 			var tween = create_tween()
 			tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
 			tween.finished.connect(func():
-				audioPlayer.volume_db = maxVolume
+				audioPlayer.volume_db = maxVolume - 5
 			)
 	else:
-		audioPlayer.volume_db = maxVolume
+		audioPlayer.volume_db = maxVolume - 5
 
 func resetQuit():
 	escPresses -= 1

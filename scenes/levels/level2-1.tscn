@@ -43,7 +43,6 @@ font_color = Color(0.309804, 0.290196, 0.631373, 1)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_y62xn")
-startingCheckpoint = 6
 startingElevator = NodePath("StartElevator")
 song = ExtResource("2_lfecw")
 

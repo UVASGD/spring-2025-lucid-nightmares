@@ -85,12 +85,11 @@ _data = {
 }
 point_count = 2
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 texture_filter = 1
 position = Vector2(-246, -1)
 script = ExtResource("1_714s2")
 song = ExtResource("2_2wk5k")
-maxVolume = -3
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_00s1v")
@@ -309,7 +308,7 @@ rotation = -1.491
 texture = ExtResource("15_j87rg")
 
 [node name="CameraOverrideArea" parent="Traincar4" instance=ExtResource("16_x8pg3")]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 followPlayer = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Traincar4/CameraOverrideArea"]
