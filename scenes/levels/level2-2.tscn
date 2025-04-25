@@ -138,6 +138,7 @@ shape = SubResource("RectangleShape2D_0js3h")
 
 [node name="Traincar1" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(224, -1)
+poster_order = Array[int]([0, 0, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar1"]
 position = Vector2(3, 8)
@@ -174,6 +175,7 @@ texture = ExtResource("12_gomgg")
 
 [node name="Traincar2" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(720, 0)
+poster_order = Array[int]([1, 1, 2])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar2"]
 position = Vector2(3, 8)
@@ -223,6 +225,7 @@ position = Vector2(139, -86.5)
 [node name="Traincar3" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(1182, 115)
 rotation = 0.523599
+poster_order = Array[int]([0, 1, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar3"]
 position = Vector2(3, 8)
@@ -272,6 +275,7 @@ texture = ExtResource("12_gomgg")
 [node name="Traincar4" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(1517, 447)
 rotation = 1.0472
+poster_order = Array[int]([1, 0, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar4"]
 position = Vector2(3, 8)
@@ -318,6 +322,7 @@ shape = SubResource("RectangleShape2D_p8orw")
 [node name="Traincar5" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(1674, 895)
 rotation = 1.48353
+poster_order = Array[int]([1, 1, 2])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar5"]
 position = Vector2(3, 8)
@@ -370,6 +375,7 @@ texture = ExtResource("15_j87rg")
 [node name="Traincar6" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2215, 982)
 rotation = -1.5708
+poster_order = Array[int]([2, 2, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar6"]
 position = Vector2(3, 8)
@@ -384,6 +390,7 @@ speed = 50
 [node name="Traincar7" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2338, 527)
 rotation = -1.0472
+poster_order = Array[int]([1, 0, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar7"]
 position = Vector2(3, 8)
@@ -400,6 +407,7 @@ invertControls = true
 [node name="Traincar8" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2475, -5)
 rotation = -1.5708
+poster_order = Array[int]([1, 1, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar8"]
 position = Vector2(3, 8)

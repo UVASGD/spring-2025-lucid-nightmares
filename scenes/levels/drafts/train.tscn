@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf0l6trf1ldnm"]
+[gd_scene load_steps=10 format=3 uid="uid://cf0l6trf1ldnm"]
 
 [ext_resource type="Texture2D" uid="uid://balacy8utbubk" path="res://assets/train/Subway_Interior_v3.png" id="1_djvi7"]
+[ext_resource type="Script" path="res://scripts/train_posters.gd" id="1_s6fkw"]
+[ext_resource type="Texture2D" uid="uid://b8jwse80wti3l" path="res://assets/train/Library_Posterv2.png" id="3_2ly7x"]
+[ext_resource type="Texture2D" uid="uid://bgmymsgwvmjip" path="res://assets/train/Library_Posterv3.png" id="3_eynxy"]
+[ext_resource type="Texture2D" uid="uid://2qfjx4hbvouo" path="res://assets/train/Platform_Posterv3.png" id="4_mcrri"]
+[ext_resource type="Texture2D" uid="uid://rdas36kjncpu" path="res://assets/train/Stranger_Posterv3.png" id="5_g0o0c"]
+[ext_resource type="Texture2D" uid="uid://b0l7o0se0simp" path="res://assets/train/Stranger_Posterv2.png" id="5_qj7np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifqm8"]
 size = Vector2(288, 3.99984)
@@ -9,6 +15,8 @@ size = Vector2(288, 3.99984)
 size = Vector2(4, 67)
 
 [node name="Train" type="Node2D"]
+texture_filter = 3
+script = ExtResource("1_s6fkw")
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(-5.2519, -128)
@@ -52,6 +60,71 @@ shape = SubResource("RectangleShape2D_ifqm8")
 
 [node name="SubwayInteriorV3" type="Sprite2D" parent="."]
 z_index = -6
-texture_filter = 1
 position = Vector2(-5, -59)
 texture = ExtResource("1_djvi7")
+
+[node name="LibraryPoster" type="TextureRect" parent="."]
+visible = false
+z_index = -5
+offset_right = 140.0
+offset_bottom = 18.0
+texture = ExtResource("3_eynxy")
+stretch_mode = 2
+
+[node name="CloudsPoster" type="TextureRect" parent="."]
+visible = false
+z_index = -5
+offset_right = 140.0
+offset_bottom = 18.0
+texture = ExtResource("4_mcrri")
+stretch_mode = 2
+
+[node name="StrangerPoster" type="TextureRect" parent="."]
+visible = false
+z_index = -5
+offset_right = 140.0
+offset_bottom = 18.0
+texture = ExtResource("5_g0o0c")
+stretch_mode = 2
+
+[node name="a" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("3_2ly7x")
+
+[node name="b" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("4_mcrri")
+
+[node name="c" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("5_qj7np")
+
+[node name="Left" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -205.0
+offset_top = -120.0
+offset_right = -137.0
+offset_bottom = -102.0
+
+[node name="Middle" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -120.0
+offset_right = 18.0
+offset_bottom = -102.0
+
+[node name="Right" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 119.0
+offset_top = -120.0
+offset_right = 202.0
+offset_bottom = -102.0
