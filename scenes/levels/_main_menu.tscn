@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0tvrj084xnrs"]
+[gd_scene load_steps=11 format=3 uid="uid://c0tvrj084xnrs"]
 
 [ext_resource type="Texture2D" uid="uid://b6lp5yrs6lnxg" path="res://assets/menu/play.png" id="1_2a5y1"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_34ims"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cib8iddam2uhb" path="res://assets/menu/creditshover.png" id="4_km8mu"]
 [ext_resource type="Texture2D" uid="uid://dtdwngff6fcyv" path="res://assets/menu/quit.png" id="5_2quog"]
 [ext_resource type="Texture2D" uid="uid://mwtub86xc2np" path="res://assets/menu/quithover.png" id="6_5nabc"]
+[ext_resource type="AudioStream" uid="uid://lbpb35ms4owr" path="res://assets/Sounds/music/ln_idk.mp3" id="10_35a43"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_34ims")
@@ -57,6 +58,17 @@ layout_mode = 2
 texture_normal = ExtResource("5_2quog")
 texture_pressed = ExtResource("6_5nabc")
 texture_hover = ExtResource("6_5nabc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_35a43")
+autoplay = true
+
+[node name="FadeRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1164.0
+offset_bottom = 664.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
