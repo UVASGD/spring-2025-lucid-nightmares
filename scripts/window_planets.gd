@@ -4,7 +4,7 @@ extends Node2D
 @onready var IceTile: TextureRect = $Lava16
 @onready var LavaMasked: TextureRect = $Lava40Masked
 @onready var LavaTile: TextureRect = $Ice16
-@onready var windowTexture: CompressedTexture2D = load("uid://cqyoqi5udgc31")
+var windowTexture: CompressedTexture2D = preload("uid://cqyoqi5udgc31")
 
 var textureHeight: int = 0
 var windowHeight: int = 0

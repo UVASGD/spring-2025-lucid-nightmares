@@ -37,6 +37,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
 	if is_enabled:
-		sprite.modulate = Color("b5ffff64")
+		sprite.modulate = Color("b5ffffc8")
 	else:
 		sprite.modulate = Color("ffffff")

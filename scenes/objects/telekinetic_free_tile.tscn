@@ -1,26 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5fwpb217arma"]
+[gd_scene load_steps=14 format=3 uid="uid://c5fwpb217arma"]
 
 [ext_resource type="Script" path="res://scripts/free_tile.gd" id="1_lnyvo"]
+[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="2_io4cj"]
+[ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="3_736g3"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="3_cd43f"]
-[ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="3_ehphe"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/systems/respawn_controller.tscn" id="5_jx242"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="5_wo3rm"]
 [ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/systems/resources/surface_material.tscn" id="6_qt5l3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccb74"]
+atlas = ExtResource("3_736g3")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="Animation" id="Animation_pt8w3"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_7oswh"]
 resource_name = "shake"
@@ -56,9 +49,10 @@ collision_mask = 121
 script = ExtResource("1_lnyvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.592157, 0.968627, 1)
+modulate = Color(0.51, 0.1683, 0.481525, 1)
 texture_filter = 1
-texture = ExtResource("3_ehphe")
+material = ExtResource("2_io4cj")
+texture = SubResource("AtlasTexture_ccb74")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -93,6 +87,7 @@ marker = NodePath("../Marker")
 [node name="RespawnController" parent="." instance=ExtResource("5_jx242")]
 
 [node name="SurfaceMaterial" parent="." instance=ExtResource("6_qt5l3")]
+surface = 0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

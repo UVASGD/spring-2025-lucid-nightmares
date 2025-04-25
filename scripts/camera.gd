@@ -18,8 +18,8 @@ var lerpDelta = 2
 var returnLerpDelta = 10
 var default_zoom: Vector2 = Vector2(0.85, 0.85)
 
-const hotColor: Color = Color("9f443456")
-const coldColor: Color = Color("535ca856")
+const hotColor: Color = Color("9f443444")
+const coldColor: Color = Color("535ca844")
 
 enum RealityMode {NORMAL, HOT, COLD}
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d285fpskcqrkn"]
+[gd_scene load_steps=11 format=3 uid="uid://d285fpskcqrkn"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_clock.gd" id="1_0o22v"]
 [ext_resource type="Script" path="res://scripts/telekinetic_clock_options.gd" id="1_kjvxe"]
 [ext_resource type="Texture2D" uid="uid://jvdc4nntppyr" path="res://assets/Short Clock Hand.PNG" id="1_pmhjn"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="2_ts7cb"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="3_wo63p"]
+[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="4_t58y4"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="4_uijwr"]
 [ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/systems/resources/surface_material.tscn" id="6_oiqxh"]
 
@@ -35,6 +36,7 @@ script = ExtResource("1_0o22v")
 
 [node name="Sprite2D" type="Sprite2D" parent="LongHand"]
 texture_filter = 1
+material = ExtResource("4_t58y4")
 position = Vector2(40, 0)
 texture = ExtResource("2_ts7cb")
 

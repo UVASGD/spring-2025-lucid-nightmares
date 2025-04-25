@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://57jus7r146ex"]
+[gd_scene load_steps=7 format=3 uid="uid://57jus7r146ex"]
 
 [ext_resource type="Script" path="res://scripts/window.gd" id="1_7xvvm"]
+[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="2_45m3x"]
 [ext_resource type="Texture2D" uid="uid://cqyoqi5udgc31" path="res://assets/window.png" id="2_mw7we"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="3_iiv7g"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="4_etb4w"]
@@ -16,6 +17,7 @@ collision_mask = 0
 script = ExtResource("1_7xvvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_45m3x")
 position = Vector2(17, 25)
 texture = ExtResource("2_mw7we")
 

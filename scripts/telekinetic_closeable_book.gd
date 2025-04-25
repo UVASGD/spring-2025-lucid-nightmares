@@ -5,6 +5,7 @@ extends Node2D
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var spriteLeft: Sprite2D = $AnimatableBody2D/Sprite2D
 @onready var spriteRight: Sprite2D = $StaticBody2D/Sprite2D
+var teleMaterial: ShaderMaterial = preload("uid://f6ldm7pcdces")
 
 var action = "TelekineticRight"
 
@@ -24,11 +25,12 @@ func _process(_delta: float) -> void:
 		animPlayer.play("fling")
 		
 
-func _on_telekinetic_controller_on_set_enabled(_is_enabled: bool) -> void:
-	pass
-	#if is_enabled:
+func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
+	if is_enabled:
+		spriteLeft.material = teleMaterial
 		#spriteLeft.modulate = TelekineticController.spriteModulationColor
 		#spriteRight.modulate = TelekineticController.spriteModulationColor
-	#else:
+	else:
+		spriteLeft.material = null
 		#spriteLeft.modulate = Color("ffffff")
 		#spriteRight.modulate = Color("ffffff")

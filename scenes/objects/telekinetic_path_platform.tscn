@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://buc8o5r408v7d"]
+[gd_scene load_steps=8 format=3 uid="uid://buc8o5r408v7d"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_path_platform.gd" id="1_th1uv"]
+[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="2_bya31"]
 [ext_resource type="Texture2D" uid="uid://cujud4bq55vn2" path="res://assets/platform.png" id="2_eug7y"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="3_76vt5"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="4_bnu63"]
@@ -28,8 +29,9 @@ collision_layer = 32
 collision_mask = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-modulate = Color(1, 0.592157, 0.968627, 1)
+modulate = Color(0.509804, 0.168627, 0.482353, 1)
 texture_filter = 1
+material = ExtResource("2_bya31")
 position = Vector2(1.90735e-06, 9.53674e-07)
 texture = ExtResource("2_eug7y")
 
@@ -48,5 +50,6 @@ offset_bottom = 11.0
 marker = NodePath("../Marker")
 
 [node name="SurfaceMaterial" parent="AnimatableBody2D" instance=ExtResource("5_jwip3")]
+surface = 0
 
 [connection signal="on_set_enabled" from="AnimatableBody2D/TelekineticController" to="." method="_on_telekinetic_controller_on_set_enabled"]
