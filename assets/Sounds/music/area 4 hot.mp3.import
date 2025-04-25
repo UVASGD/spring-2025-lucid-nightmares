@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5y0md8ofcfql"
+path="res://.godot/imported/area 4 hot.mp3-5009e35194f838529851c7a12608c683.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/music/area 4 hot.mp3"
+dest_files=["res://.godot/imported/area 4 hot.mp3-5009e35194f838529851c7a12608c683.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

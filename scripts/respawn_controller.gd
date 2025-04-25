@@ -24,6 +24,7 @@ func respawn():
 			var tweens = get_tree().get_processed_tweens()
 			for tween in tweens:
 				tween.kill()
+			level.saveSongProgress()
 			get_tree().reload_current_scene()
 			level.allowTelekinesis = telekinesisEnabled
 			parent.global_position = PlayerGlobalVars.respawnPoint
