@@ -68,4 +68,6 @@ visible = false
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_5bdnh")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
