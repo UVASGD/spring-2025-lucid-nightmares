@@ -48,5 +48,6 @@ func loadNextLevel():
 	if nextLevel:
 		PlayerGlobalVars.respawnPoint = Vector2.ZERO
 		PlayerGlobalVars.firstLoad = true
+		PlayerGlobalVars.musicProgress = 0
 		get_tree().change_scene_to_packed(nextLevel)
 	
