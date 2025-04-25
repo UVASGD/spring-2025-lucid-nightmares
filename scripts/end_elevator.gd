@@ -46,7 +46,7 @@ func fadeCamera():
 		player.camera.fadeToBlack()
 		
 func fadeMusic():
-	Level.getLevelObject(get_tree()).fadeMusic(1.0)
+	Level.getLevelObject(get_tree()).fadeMusic(4.0)
 		
 func loadNextLevel():
 	if nextLevel:
