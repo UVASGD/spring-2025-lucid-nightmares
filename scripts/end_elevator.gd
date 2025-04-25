@@ -41,6 +41,9 @@ func fadeCamera():
 	if player != null:
 		player.camera.fadeToBlack()
 		
+func fadeMusic():
+	Level.getLevelObject(get_tree()).fadeMusic()
+		
 func loadNextLevel():
 	if nextLevel:
 		PlayerGlobalVars.respawnPoint = Vector2.ZERO

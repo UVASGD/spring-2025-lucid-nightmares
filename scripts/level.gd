@@ -76,6 +76,7 @@ func _process(delta: float) -> void:
 		escPresses += 1
 		if escPresses >= 2:
 			camera.fadeToBlack()
+			fadeMusic()
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(title)
 		else:
@@ -165,3 +166,11 @@ func registerCheckpoint(checkpoint: Checkpoint):
 func saveSongProgress():
 	if not audioPlayer: return
 	PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
+	
+func fadeMusic():
+	if not audioPlayer: return
+	var tween = create_tween()
+	tween.tween_property(audioPlayer, "volume_db", -80, 1.0)
+	tween.finished.connect(func():
+		audioPlayer.volume_db = -80
+	)
