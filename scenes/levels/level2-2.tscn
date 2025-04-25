@@ -395,6 +395,7 @@ position = Vector2(139, -24)
 rotation = 1.5708
 curve = SubResource("Curve2D_ivpbc")
 speed = 75
+invertControls = true
 
 [node name="Traincar8" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2475, -5)
