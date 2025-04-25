@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cppf46rf1fqnw"]
+[gd_scene load_steps=34 format=4 uid="uid://cppf46rf1fqnw"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_00s1v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_714s2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b3evsr4grddyf" path="res://assets/train/handles/handle_basic2.png" id="14_e5ean"]
 [ext_resource type="Texture2D" uid="uid://bv08pcp3w7smn" path="res://assets/train/handles/handle_basic3.png" id="15_j87rg"]
 [ext_resource type="PackedScene" uid="uid://dv3x1akur6mgh" path="res://scenes/levels/level-final.tscn" id="15_jpo3m"]
+[ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="16_x8pg3"]
 [ext_resource type="Texture2D" uid="uid://c3ipvhqm7uuq4" path="res://assets/train/Subway_Interior.png" id="17_37pgf"]
 [ext_resource type="Script" path="res://scripts/damage_box.gd" id="20_h7msg"]
 
@@ -38,6 +39,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -80)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8orw"]
+size = Vector2(189.528, 175.251)
 
 [sub_resource type="Curve2D" id="Curve2D_esaoc"]
 _data = {
@@ -81,11 +85,10 @@ _data = {
 }
 point_count = 2
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
+[node name="Node2D" type="Node2D"]
 texture_filter = 1
 position = Vector2(-246, -1)
 script = ExtResource("1_714s2")
-startingElevator = NodePath("")
 song = ExtResource("2_2wk5k")
 maxVolume = -3
 
@@ -304,6 +307,14 @@ texture = ExtResource("14_e5ean")
 position = Vector2(170.968, -94.0001)
 rotation = -1.491
 texture = ExtResource("15_j87rg")
+
+[node name="CameraOverrideArea" parent="Traincar4" instance=ExtResource("16_x8pg3")]
+zoom = Vector2(2, 2)
+followPlayer = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traincar4/CameraOverrideArea"]
+position = Vector2(244.297, -67.6473)
+shape = SubResource("RectangleShape2D_p8orw")
 
 [node name="Traincar5" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(1674, 895)
