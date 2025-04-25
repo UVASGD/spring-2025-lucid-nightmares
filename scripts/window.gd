@@ -45,18 +45,18 @@ func _process(_delta: float) -> void:
 		
 static func customControlMap(tree: SceneTree) -> String:
 	var controlMap: Dictionary = {}
-	var level = Level.getLevelObject(tree)
+	var levelStatic = Level.getLevelObject(tree)
 	
-	if level.forceReality:
-		if level.reality == RealityMode.HOT:
+	if levelStatic.forceReality:
+		if levelStatic.reality == RealityMode.HOT:
 			controlMap["Left"] = "[color=AQUA]COLD[/color]"
 			controlMap["Right"] = "[color=AQUA]COLD[/color]"
 		else:
 			controlMap["Left"] = "[color=RED]HOT[/color]"
 			controlMap["Right"] = "[color=RED]HOT[/color]"
 	else:
-		var left = level.reality - 1
-		var right = level.reality + 1
+		var left = levelStatic.reality - 1
+		var right = levelStatic.reality + 1
 		
 		if left < 0: left = 2
 		if right > 2: right = 0

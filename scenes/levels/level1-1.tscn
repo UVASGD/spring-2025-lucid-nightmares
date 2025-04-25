@@ -44,7 +44,7 @@ script = ExtResource("1_31gwc")
 allowTelekinesis = false
 disableDoubleJump = true
 song = ExtResource("2_ae8mp")
-maxVolume = -10
+maxVolume = -7
 
 [node name="Gate" parent="." instance=ExtResource("1_4lajo")]
 position = Vector2(1704, -15)

@@ -72,7 +72,7 @@ func _ready() -> void:
 	callRealityChange()
 	PlayerGlobalVars.firstLoad = false
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Quit"):
 		escPresses += 1
 		if escPresses >= 2:

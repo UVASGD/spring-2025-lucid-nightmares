@@ -113,7 +113,7 @@ func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticContr
 		return true
 	return false
 	
-func on_reality_change(reality: int):
+func on_reality_change(_reality: int):
 	if selected_node and selected_node.get_parent() is TelekineticWindow:
 		controlLabel.text = TelekineticWindow.customControlMap(get_tree())
 	
