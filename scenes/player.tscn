@@ -153,7 +153,7 @@ script = ExtResource("12_h8m74")
 
 [node name="FloorRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 9)
-collision_mask = 17
+collision_mask = 113
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
 

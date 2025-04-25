@@ -150,7 +150,7 @@ func walkSfx(direction: float):
 				"wood": audio = wood_walk
 				"carpet": audio = carpet_walk
 				"cloud": audio = cloud_walk
-		elif floorRayCast.get_collider() is PhysicsBody2D:
+		elif floorRayCast.get_collider() is PhysicsBody2D or floorRayCast.get_collider() is AnimatableBody2D:
 			var surfaceMaterial = SurfaceMaterial.getSurfaceMaterialNode(floorRayCast.get_collider())
 			if surfaceMaterial:
 				match surfaceMaterial.surface:
