@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var teleController: TelekineticController = $TelekineticController
-var teleMaterial: ShaderMaterial = preload("uid://f6ldm7pcdces")
+var teleMaterial: ShaderMaterial = load("uid://f6ldm7pcdces")
 
 var maxSpeed = 75
 const FRICTION = 13
