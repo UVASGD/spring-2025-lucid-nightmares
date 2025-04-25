@@ -3,6 +3,7 @@ class_name TelekineticSelector
 
 @onready var controlLabel: RichTextLabel = $"../CanvasLayer/TelekineticControlLabel"
 @onready var audioStream = $AudioStreamPlayer2D
+@onready var panel: Panel = $"../CanvasLayer/TelekineticControlPanel"
 
 var disconnectSound = preload("uid://bikgu6hamdbln")
 var connectSound = preload("uid://cejk1p8a3c128")
@@ -13,9 +14,12 @@ var connectSound = preload("uid://cejk1p8a3c128")
 var queue: Array = []
 var selected_node: TelekineticController = null
 
+const starterText = "[right][b]Tab/Q[/b]: Select objects\n[b]R[/b]: Reset to last checkpoint[/right]"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	controlLabel.text = starterText
+	updatePanel()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,7 +76,8 @@ func cycleQueue(direction: DIRECTION):
 func deselectSelectedNode():
 	selected_node.set_selected(false)
 	selected_node = null
-	controlLabel.text = "[right][b]Tab/Q[/b]: Select objects\n[b]R[/b]: Reset to last checkpoint[/right]"
+	controlLabel.text = starterText
+	updatePanel()
 	audioStream.stream = disconnectSound
 	randomize()
 	audioStream.pitch_scale = randf_range(0.95, 1.05)
@@ -86,6 +91,7 @@ func selectNewNode(node: TelekineticController):
 	if node.get_parent() is TelekineticWindow:
 		controlLabel.text = TelekineticWindow.customControlMap(get_tree())
 	else: controlLabel.text = selected_node.parseControlMap()
+	updatePanel()
 	# randomness - consolidate this later
 	audioStream.stream = connectSound
 	randomize()
@@ -116,6 +122,7 @@ func sortByXGlobalPosition(node1: TelekineticController, node2: TelekineticContr
 func on_reality_change(_reality: int):
 	if selected_node and selected_node.get_parent() is TelekineticWindow:
 		controlLabel.text = TelekineticWindow.customControlMap(get_tree())
+		updatePanel()
 	
 static func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
 	var teleNode = null
@@ -124,3 +131,15 @@ static func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
 			teleNode = node
 			break 
 	return teleNode
+
+func updatePanel():
+	if controlLabel.text.is_empty():
+		panel.visible = false
+		return
+	else:
+		panel.visible = true
+	# 8 px padding
+	var panelSize = Vector2(controlLabel.get_content_width() + 16, controlLabel.get_content_height() + 16)
+	print(panelSize)
+	panel.position.x = get_viewport().get_visible_rect().size.x - panelSize.x
+	panel.size = panelSize

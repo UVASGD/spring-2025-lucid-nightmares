@@ -1,7 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdjtqribdal8v"]
+[gd_scene load_steps=9 format=3 uid="uid://bdjtqribdal8v"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kjsyy"]
 [ext_resource type="Script" path="res://scripts/telekinetic_selector.gd" id="2_eteo0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xk7l"]
+bg_color = Color(0.6, 0.6, 0.6, 0.784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.784314)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvprn"]
 size = Vector2(1352, 758)
@@ -73,11 +85,26 @@ offset_right = 579.0
 offset_bottom = 34.0
 autowrap_mode = 3
 
+[node name="TelekineticControlPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 36.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xk7l")
+
 [node name="TelekineticControlLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 841.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -309.0
 offset_top = 8.0
-offset_right = 1142.0
+offset_right = -8.0
 offset_bottom = 76.0
+grow_horizontal = 0
 bbcode_enabled = true
 scroll_active = false
 
