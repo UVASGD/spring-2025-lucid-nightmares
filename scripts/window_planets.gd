@@ -8,7 +8,7 @@ var windowTexture: CompressedTexture2D = preload("uid://cqyoqi5udgc31")
 
 var textureHeight: int = 0
 var windowHeight: int = 0
-const VERT_OFFSET = 5
+const VERT_OFFSET = -3
 var realityMode: RealityMode = RealityMode.NORMAL
 
 var level: Level

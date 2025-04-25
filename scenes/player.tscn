@@ -58,7 +58,7 @@ radius = 6.0
 height = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4lao"]
-size = Vector2(9.5, 1.75)
+size = Vector2(7, 1.75)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ks2y0"]
 radius = 6.0
@@ -127,7 +127,7 @@ texture_filter = 1
 position = Vector2(0, 0.500001)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_4n1jq")
-animation = &"walk"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_oa6ih")
