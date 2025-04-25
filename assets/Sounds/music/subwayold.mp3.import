@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/subwayold.mp3-bbeedd7d8e77a63352a2456eccb2aa0
 [params]
 
 loop=true
-loop_offset=0
-bpm=0
+loop_offset=48.0
+bpm=0.0
 beat_count=0
 bar_beats=4

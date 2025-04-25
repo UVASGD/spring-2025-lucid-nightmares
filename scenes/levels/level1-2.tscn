@@ -33,7 +33,7 @@ disableDoubleJump = true
 startingElevator = NodePath("StartElevator")
 libraryLevel2 = true
 song = ExtResource("2_h663g")
-maxVolume = -5
+maxVolume = -7
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
 visible = false
@@ -89,7 +89,7 @@ interact_targets = [NodePath("../Gate")]
 position = Vector2(811, -105)
 
 [node name="TelekineticFreeTile" parent="." instance=ExtResource("12_6qg43")]
-position = Vector2(637, -124)
+position = Vector2(638, -124)
 
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("interact_targets") instance=ExtResource("10_gtsqi")]
 position = Vector2(1041, -92)
