@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwoghes0bx5rl"
+path="res://.godot/imported/area 4 cold.mp3-cb0767b639dfc655aa772499870b577e.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/music/area 4 cold.mp3"
+dest_files=["res://.godot/imported/area 4 cold.mp3-cb0767b639dfc655aa772499870b577e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

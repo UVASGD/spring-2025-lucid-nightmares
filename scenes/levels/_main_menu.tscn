@@ -1,15 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0tvrj084xnrs"]
+[gd_scene load_steps=10 format=3 uid="uid://c0tvrj084xnrs"]
 
 [ext_resource type="Texture2D" uid="uid://b6lp5yrs6lnxg" path="res://assets/menu/play.png" id="1_2a5y1"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_34ims"]
 [ext_resource type="Texture2D" uid="uid://bx4188yil1ot2" path="res://assets/menu/playhover.png" id="2_gaff6"]
+[ext_resource type="Texture2D" uid="uid://bybi5shp316s4" path="res://assets/menu/Title_screen.png" id="2_u6djy"]
 [ext_resource type="Texture2D" uid="uid://m0wkydh6tg8s" path="res://assets/menu/credits.png" id="3_7pdoo"]
+[ext_resource type="Texture2D" uid="uid://122dgaqf4o25" path="res://assets/menu/titleblue.png" id="3_c2wy0"]
 [ext_resource type="Texture2D" uid="uid://cib8iddam2uhb" path="res://assets/menu/creditshover.png" id="4_km8mu"]
 [ext_resource type="Texture2D" uid="uid://dtdwngff6fcyv" path="res://assets/menu/quit.png" id="5_2quog"]
 [ext_resource type="Texture2D" uid="uid://mwtub86xc2np" path="res://assets/menu/quithover.png" id="6_5nabc"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_34ims")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_u6djy")
+
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 285.0
+offset_top = 56.0
+offset_right = 871.0
+offset_bottom = 363.0
+texture = ExtResource("3_c2wy0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -18,9 +34,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -47.0
-offset_top = -20.0
+offset_top = 26.0
 offset_right = 47.0
-offset_bottom = 20.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
 

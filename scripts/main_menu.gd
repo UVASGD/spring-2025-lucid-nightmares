@@ -13,6 +13,7 @@ func _on_play_button_pressed() -> void:
 	PlayerGlobalVars.interactLectern = false
 	PlayerGlobalVars.respawnPoint = Vector2.ZERO
 	PlayerGlobalVars.firstLoad = true
+	PlayerGlobalVars.musicProgress = 0
 	get_tree().change_scene_to_packed(firstLevel)
 
 

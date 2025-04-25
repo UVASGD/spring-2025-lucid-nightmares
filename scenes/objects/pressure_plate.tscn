@@ -25,5 +25,8 @@ shape = SubResource("RectangleShape2D_1vkcr")
 
 [node name="InteractController" parent="." instance=ExtResource("2_vnd3h")]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

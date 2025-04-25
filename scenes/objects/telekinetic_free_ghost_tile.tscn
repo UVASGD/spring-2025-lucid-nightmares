@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://e4kofdssxqyr"]
+[gd_scene load_steps=8 format=3 uid="uid://e4kofdssxqyr"]
 
 [ext_resource type="Script" path="res://scripts/free_ghost_tile.gd" id="1_6gk86"]
+[ext_resource type="Material" uid="uid://cq8o2ros437rh" path="res://assets/tileset/telekinetic_material.tres" id="2_dp56c"]
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="2_xtnbj"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="3_jo7u1"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="4_wolp0"]
@@ -15,8 +16,10 @@ collision_mask = 24
 script = ExtResource("1_6gk86")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.709804, 1, 1, 0.392157)
+modulate = Color(0.709804, 1, 1, 0.784314)
+z_index = 1
 texture_filter = 1
+material = ExtResource("2_dp56c")
 texture = ExtResource("2_xtnbj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

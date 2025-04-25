@@ -5,10 +5,10 @@ class_name TelekineticWindow
 @onready var level: Level = Level.getLevelObject(get_tree())
 
 # window_planets.tscn
-@onready var windowPlanets: Node2D = load("uid://brotysyfle1aw").instantiate()
+var windowPlanets: Node2D = preload("uid://brotysyfle1aw").instantiate()
 # this persists on reloads
 static var planetsMade = false
-const PLANET_SCALE = Vector2(4, 4)
+const PLANET_SCALE = Vector2(3, 3)
 enum RealityMode {NORMAL, HOT, COLD}
 
 var timer: int = 0

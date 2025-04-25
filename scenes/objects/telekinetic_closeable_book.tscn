@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxlcv4g7nhj3k"]
+[gd_scene load_steps=11 format=3 uid="uid://bxlcv4g7nhj3k"]
 
 [ext_resource type="Script" path="res://scripts/telekinetic_closeable_book.gd" id="1_c52s2"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="1_pl4ui"]
 [ext_resource type="Texture2D" uid="uid://u0gepseeu0yd" path="res://assets/bookside2.png" id="2_3j4ws"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="2_p0q6k"]
 [ext_resource type="Texture2D" uid="uid://bcc3jxmygoadc" path="res://assets/bookside1.png" id="3_vdqkl"]
+[ext_resource type="Material" uid="uid://cq8o2ros437rh" path="res://assets/tileset/telekinetic_material.tres" id="3_x1rfa"]
 
 [sub_resource type="Animation" id="Animation_rblm2"]
 length = 0.001
@@ -58,6 +59,7 @@ libraries = {
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = ExtResource("3_x1rfa")
 position = Vector2(24, 4)
 texture = ExtResource("2_3j4ws")
 
@@ -72,6 +74,7 @@ collision_layer = 32
 constant_angular_velocity = 0.174533
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+material = ExtResource("3_x1rfa")
 position = Vector2(-24, 4)
 texture = ExtResource("3_vdqkl")
 

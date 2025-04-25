@@ -29,6 +29,7 @@ func _ready() -> void:
 	if disableOnStart:
 		teleController.set_enabled(false)
 	if platformTexture:
+		sprite.modulate = Color("ffffff")
 		sprite.texture = platformTexture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

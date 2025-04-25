@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cq8o2ros437rh"]
+
+[ext_resource type="Shader" path="res://assets/tileset/telekinetic_free_tile.gdshader" id="1_rj63n"]
+[ext_resource type="Texture2D" uid="uid://r4k4wy0m177k" path="res://assets/tileset/telekinetic_tile_staticbw.png" id="2_iee1j"]
+
+[resource]
+shader = ExtResource("1_rj63n")
+shader_parameter/intensity = 0.7
+shader_parameter/image = ExtResource("2_iee1j")

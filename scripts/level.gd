@@ -9,6 +9,13 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var startingCheckpoint = 0
 @export var startingElevator: StartElevator = null
 @export var libraryLevel2: bool = false ## changes formula for sorting checkpoints
+@export var song: AudioStreamMP3 = null
+## Max volume in decibels
+@export var maxVolume = 0
+const spaceHot: AudioStreamMP3 = preload("uid://cwoghes0bx5rl")
+const spaceCold: AudioStreamMP3 = preload("uid://b5y0md8ofcfql")
+const spaceNormal: AudioStreamMP3 = preload("uid://bc28hpetnpkgp")
+
 ## Forces the player to choose hot or cold - cannot use neutral
 var forceReality = false
 
@@ -19,6 +26,8 @@ var checkpoints: Array[Checkpoint] = []
 var escPresses = 0
 var title: PackedScene = load("uid://c0tvrj084xnrs")
 
+var audioPlayer: AudioStreamPlayer = null
+@export var spaceMusic: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,23 +63,47 @@ func _ready() -> void:
 			startingElevator.player = player
 			PlayerGlobalVars.respawnPoint = startingElevator.remoteTransform.global_position
 			startingElevator.playAnimation()
-		PlayerGlobalVars.firstLoad = false
 	
 	if not PlayerGlobalVars.firstLoad:
 		reality = PlayerGlobalVars.reality
+		
+	initAudioPlayer()
 	callRealityChange()
+	PlayerGlobalVars.firstLoad = false
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Quit"):
 		escPresses += 1
 		if escPresses >= 2:
 			camera.fadeToBlack()
+			fadeMusic()
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(title)
 		else:
 			camera.quitLabel.text = "Press Esc again to quit to title screen"
 			get_tree().create_timer(3).timeout.connect(resetQuit)
 		
+func initAudioPlayer():
+	audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
+	if song and not spaceMusic:
+		audioPlayer.stream = song
+		audioPlayer.volume_db -= 3
+		audioPlayer.play()
+		audioPlayer.seek(PlayerGlobalVars.musicProgress)
+	elif spaceMusic:
+		musicChange(true)
+		
+	if not PlayerGlobalVars.firstLoad:
+			audioPlayer.volume_db = -80
+			var tween = create_tween()
+			tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
+			tween.finished.connect(func():
+				audioPlayer.volume_db = maxVolume
+			)
+	else:
+		audioPlayer.volume_db = maxVolume
+
 func resetQuit():
 	escPresses -= 1
 	camera.quitLabel.text = ""
@@ -84,16 +117,35 @@ func cycleRealityForward():
 	if reality > RealityMode.size() - 1: reality = 0
 	if reality == 0 and forceReality: reality = 1
 	callRealityChange()
+	musicChange(false)
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
 	if reality == 0 and forceReality: reality = 2
 	callRealityChange()
+	musicChange(false)
 	
 # Considering moving to using a signal bus instead of groups. There's no way to enforce that this method exists
 func callRealityChange():
 	get_tree().call_group("RealityObject", "on_reality_change", reality)
+
+## level reset: whether the level reset and we shouldn't update musicProgress
+func musicChange(levelReset: bool):
+	if not audioPlayer: return
+	if not spaceMusic: return
+	if not levelReset:
+		PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
+	audioPlayer.stop()
+	if reality == RealityMode.NORMAL:
+		audioPlayer.stream = spaceNormal
+	elif reality == RealityMode.HOT:
+		audioPlayer.stream = spaceHot
+	else:
+		audioPlayer.stream = spaceCold
+	
+	audioPlayer.play()
+	audioPlayer.seek(PlayerGlobalVars.musicProgress)
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
@@ -111,3 +163,15 @@ func registerCheckpoint(checkpoint: Checkpoint):
 	for i in range(checkpoints.size()):
 		checkpoints[i].phase = i + int(bool(startingElevator != null))
 	pass
+	
+func saveSongProgress():
+	if not audioPlayer: return
+	PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
+	
+func fadeMusic():
+	if not audioPlayer: return
+	var tween = create_tween()
+	tween.tween_property(audioPlayer, "volume_db", -80, 1.0)
+	tween.finished.connect(func():
+		audioPlayer.volume_db = -80
+	)

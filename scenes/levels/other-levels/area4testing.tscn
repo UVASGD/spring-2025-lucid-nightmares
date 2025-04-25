@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cueudcjitp03k"]
+[gd_scene load_steps=13 format=4 uid="uid://cueudcjitp03k"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_4i5fv"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_qhv3c"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://da75xgomhp7f0" path="res://assets/final-area/SpaceBg/Backgrounds/Purple3.png" id="7_qcm8u"]
 [ext_resource type="PackedScene" uid="uid://kfjo3yvpiew8" path="res://scenes/systems/elementlayer.tscn" id="7_y33k1"]
 [ext_resource type="Texture2D" uid="uid://dqosfsjxaaeve" path="res://assets/final-area/SpaceBg/Backgrounds/YellowStars.png" id="8_gj6cg"]
+[ext_resource type="PackedScene" uid="uid://c5fwpb217arma" path="res://scenes/objects/telekinetic_free_tile.tscn" id="9_hhgvn"]
+[ext_resource type="PackedScene" uid="uid://buc8o5r408v7d" path="res://scenes/objects/telekinetic_path_platform.tscn" id="10_84cwt"]
+[ext_resource type="PackedScene" uid="uid://e4kofdssxqyr" path="res://scenes/objects/telekinetic_free_ghost_tile.tscn" id="11_23ne6"]
+[ext_resource type="PackedScene" uid="uid://dl8qa5dlw1gg6" path="res://scenes/objects/telekinetic_free_death_tile.tscn" id="12_c2qka"]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -37,3 +41,15 @@ background_texture = ExtResource("7_qcm8u")
 background_texture_2 = ExtResource("8_gj6cg")
 background_scale = Vector2(3, 3)
 spaceMode = true
+
+[node name="TelekineticFreeGhostTile" parent="." instance=ExtResource("11_23ne6")]
+position = Vector2(-16, -8)
+
+[node name="TelekineticFreeTile" parent="." instance=ExtResource("9_hhgvn")]
+position = Vector2(-56, 0)
+
+[node name="TelekineticMovingPlatform" parent="." instance=ExtResource("10_84cwt")]
+position = Vector2(-176, 24)
+
+[node name="TelekineticFreeDeathTile" parent="." instance=ExtResource("12_c2qka")]
+position = Vector2(-112, -8)

@@ -10,7 +10,7 @@ var controlMap: Dictionary = {}
 # Vector2 is a primitive type. If you don't want the parent body to respawn, set this to Vector2.ZERO
 var respawnLocation = Vector2.ZERO
 
-static var spriteModulationColor = Color("ff97f7")
+static var spriteModulationColor = Color("822b7b")
 
 func _ready() -> void:
 	add_to_group("TelekineticControllers")
