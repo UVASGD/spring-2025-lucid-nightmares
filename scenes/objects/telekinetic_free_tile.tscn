@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c5fwpb217arma"]
 
 [ext_resource type="Script" path="res://scripts/free_tile.gd" id="1_lnyvo"]
-[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="2_io4cj"]
+[ext_resource type="Material" uid="uid://cq8o2ros437rh" path="res://assets/tileset/telekinetic_material.tres" id="2_io4cj"]
 [ext_resource type="Texture2D" uid="uid://kgq35r0efgmm" path="res://assets/tileset/library/libraryextra.png" id="3_736g3"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="3_cd43f"]
 [ext_resource type="PackedScene" uid="uid://vk5k16qhgqys" path="res://scenes/systems/respawn_controller.tscn" id="5_jx242"]

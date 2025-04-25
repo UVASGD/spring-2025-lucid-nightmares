@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/free_death_tile.gd" id="1_rvs2y"]
 [ext_resource type="Texture2D" uid="uid://bvefog67vld74" path="res://assets/tile.png" id="2_hycc7"]
-[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="2_s7puu"]
+[ext_resource type="Material" uid="uid://cq8o2ros437rh" path="res://assets/tileset/telekinetic_material.tres" id="2_s7puu"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="3_7m68b"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="4_8mfex"]
 [ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/objects/damage_box.tscn" id="5_it5ci"]

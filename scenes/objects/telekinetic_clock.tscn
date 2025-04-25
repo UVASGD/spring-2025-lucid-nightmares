@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jvdc4nntppyr" path="res://assets/Short Clock Hand.PNG" id="1_pmhjn"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="2_ts7cb"]
 [ext_resource type="PackedScene" uid="uid://cxh7i4lobt6gx" path="res://scenes/systems/telekinetic_controller.tscn" id="3_wo63p"]
-[ext_resource type="Material" uid="uid://f6ldm7pcdces" path="res://assets/tileset/telekinetic_material.tres" id="4_t58y4"]
+[ext_resource type="Material" uid="uid://cq8o2ros437rh" path="res://assets/tileset/telekinetic_material.tres" id="4_t58y4"]
 [ext_resource type="PackedScene" uid="uid://df73nfep6qcjo" path="res://scenes/systems/resources/marker.tscn" id="4_uijwr"]
 [ext_resource type="PackedScene" uid="uid://cyscxiv4f52ca" path="res://scenes/systems/resources/surface_material.tscn" id="6_oiqxh"]
 
