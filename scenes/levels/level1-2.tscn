@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1mlgs"]
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_2252x"]
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="2_7q3sd"]
-[ext_resource type="AudioStream" uid="uid://cbrp1j4k0mdo4" path="res://assets/Sounds/music/Library 1.mp3" id="2_h663g"]
+[ext_resource type="AudioStream" uid="uid://cbrp1j4k0mdo4" path="res://assets/Sounds/music/Library 2.mp3" id="2_h663g"]
 [ext_resource type="PackedScene" uid="uid://cwsep6ctbelnx" path="res://scenes/player.tscn" id="3_3oynf"]
 [ext_resource type="PackedScene" uid="uid://bdjtqribdal8v" path="res://scenes/camera.tscn" id="4_8v6hi"]
 [ext_resource type="Texture2D" uid="uid://c41p11vgxrxqi" path="res://assets/bg/Area_1_Background_No_Railing_v3.png" id="6_tfiiv"]

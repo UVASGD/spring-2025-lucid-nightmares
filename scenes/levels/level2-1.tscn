@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://kcdl14p7hf1u"]
+[gd_scene load_steps=21 format=4 uid="uid://kcdl14p7hf1u"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_3h8sw"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_y62xn"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://c4v6wlegux8w6" path="res://scenes/objects/damage_box.tscn" id="7_7ky1h"]
 [ext_resource type="PackedScene" uid="uid://b484elec4hdto" path="res://scenes/objects/checkpoint.tscn" id="8_h6od1"]
 [ext_resource type="PackedScene" uid="uid://bucot3icjqqvd" path="res://scenes/objects/start_elevator.tscn" id="9_nhmi5"]
-[ext_resource type="Texture2D" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
-[ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/objects/end_elevator.tscn" id="12_fo7h8"]
+[ext_resource type="Texture2D" uid="uid://b4kicfkrs4v2e" path="res://assets/tileset/subway/area2_platform.tres" id="11_hnxht"]
 [ext_resource type="PackedScene" uid="uid://cppf46rf1fqnw" path="res://scenes/levels/level2-2.tscn" id="13_hqlkg"]
+[ext_resource type="Texture2D" uid="uid://yixsl88ml420" path="res://assets/train/Subway_Exterior_v3.png" id="13_ylj1b"]
+[ext_resource type="PackedScene" uid="uid://c8nxv7w5bj805" path="res://scenes/objects/end_elevator_train.tscn" id="16_2wl6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
 size = Vector2(3350.5, 260)
@@ -42,6 +43,7 @@ font_color = Color(0.309804, 0.290196, 0.631373, 1)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("startingElevator")]
 texture_filter = 1
 script = ExtResource("1_y62xn")
+startingCheckpoint = 6
 startingElevator = NodePath("StartElevator")
 song = ExtResource("2_lfecw")
 
@@ -114,6 +116,15 @@ horizontal_alignment = 1
 [node name="Checkpoint" parent="." instance=ExtResource("8_h6od1")]
 position = Vector2(1512, -152)
 
-[node name="EndElevator" parent="." instance=ExtResource("12_fo7h8")]
-position = Vector2(2032, -224)
+[node name="Checkpoint2" parent="." instance=ExtResource("8_h6od1")]
+position = Vector2(1734, -200)
+
+[node name="SubwayExteriorV3" type="Sprite2D" parent="."]
+z_index = -6
+position = Vector2(1965, -259)
+texture = ExtResource("13_ylj1b")
+
+[node name="EndElevator" parent="." instance=ExtResource("16_2wl6h")]
+z_index = -1
+position = Vector2(2038.5, -216.5)
 nextLevel = ExtResource("13_hqlkg")
