@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drf3lwf0ywy6f"]
 
 [ext_resource type="Script" path="res://scripts/handle.gd" id="1_ahbi8"]
-[ext_resource type="Texture2D" uid="uid://du0h10ap455hx" path="res://assets/handle.png" id="2_y87vh"]
+[ext_resource type="Texture2D" uid="uid://blel0s6h3htyh" path="res://assets/train/handles/handlev2.png" id="2_aeqq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anjjs"]
 size = Vector2(12, 9)
@@ -13,17 +13,16 @@ texture_filter = 1
 position = Vector2(0, -8)
 script = ExtResource("1_ahbi8")
 
-[node name="Sprite2D" type="Sprite2D" parent="HandleTransformed"]
-position = Vector2(0, 8)
-texture = ExtResource("2_y87vh")
+[node name="Sprite2D2" type="Sprite2D" parent="HandleTransformed"]
+position = Vector2(0, 6.5)
+texture = ExtResource("2_aeqq7")
 
 [node name="Area2D" type="Area2D" parent="HandleTransformed"]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandleTransformed/Area2D"]
-visible = false
-position = Vector2(0, 11)
+position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_anjjs")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="HandleTransformed/Area2D"]
