@@ -12,8 +12,8 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var song: AudioStreamMP3 = null
 ## Max volume in decibels
 @export var maxVolume = 0
-const spaceHot: AudioStreamMP3 = preload("uid://cwoghes0bx5rl")
-const spaceCold: AudioStreamMP3 = preload("uid://b5y0md8ofcfql")
+const spaceHot: AudioStreamMP3 = preload("uid://b5y0md8ofcfql")
+const spaceCold: AudioStreamMP3 = preload("uid://cwoghes0bx5rl")
 const spaceNormal: AudioStreamMP3 = preload("uid://bc28hpetnpkgp")
 const finalFall: AudioStreamMP3 = preload("uid://wrcgch5ecpn3")
 
@@ -151,10 +151,10 @@ func spaceMusicChange(levelReset: bool):
 	else:
 		audioPlayer.stream = spaceCold
 	audioPlayer.play()
-	print(audioPlayer.playing)
 	audioPlayer.seek(PlayerGlobalVars.musicProgress)
 	
 func playFinalFallMusic():
+	PlayerGlobalVars.musicProgress = 0
 	PlayerGlobalVars.doFinalFallMusic = true
 	initAudioPlayer(false)
 	
