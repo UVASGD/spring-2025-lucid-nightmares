@@ -88,7 +88,6 @@ func initAudioPlayer():
 	add_child(audioPlayer)
 	if song and not spaceMusic:
 		audioPlayer.stream = song
-		audioPlayer.volume_db -= 3
 		audioPlayer.play()
 		audioPlayer.seek(PlayerGlobalVars.musicProgress)
 	elif spaceMusic:

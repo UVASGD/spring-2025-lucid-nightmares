@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var teleController: TelekineticController = $TelekineticController
-var teleMaterial: ShaderMaterial = load("uid://f6ldm7pcdces")
+var teleMaterial: ShaderMaterial = preload("res://assets/tileset/telekinetic_material.tres")
 
 var maxSpeed = 75
 const FRICTION = 13
@@ -71,7 +71,7 @@ func recover():
 	teleController.set_enabled(true)
 	burnedOut = false
 	velocity = Vector2.ZERO
-	sprite.modulate = TelekineticController.spriteModulationColor
+	sprite.material = teleMaterial
 	animationPlayer.stop()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

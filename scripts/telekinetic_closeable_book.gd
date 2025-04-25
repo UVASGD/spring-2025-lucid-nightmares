@@ -5,7 +5,7 @@ extends Node2D
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 @onready var spriteLeft: Sprite2D = $AnimatableBody2D/Sprite2D
 @onready var spriteRight: Sprite2D = $StaticBody2D/Sprite2D
-var teleMaterial: ShaderMaterial = load("uid://f6ldm7pcdces")
+var teleMaterial: ShaderMaterial = preload("res://assets/tileset/telekinetic_material.tres")
 
 var action = "TelekineticRight"
 
