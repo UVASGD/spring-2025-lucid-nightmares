@@ -15,6 +15,7 @@ enum RealityMode {NORMAL, HOT, COLD}
 const spaceHot: AudioStreamMP3 = preload("uid://cwoghes0bx5rl")
 const spaceCold: AudioStreamMP3 = preload("uid://b5y0md8ofcfql")
 const spaceNormal: AudioStreamMP3 = preload("uid://bc28hpetnpkgp")
+const finalFall: AudioStreamMP3 = preload("uid://wrcgch5ecpn3")
 
 ## Forces the player to choose hot or cold - cannot use neutral
 var forceReality = false
@@ -67,7 +68,7 @@ func _ready() -> void:
 	if not PlayerGlobalVars.firstLoad:
 		reality = PlayerGlobalVars.reality
 		
-	initAudioPlayer()
+	initAudioPlayer(not PlayerGlobalVars.firstLoad)
 	callRealityChange()
 	PlayerGlobalVars.firstLoad = false
 	
@@ -76,24 +77,31 @@ func _process(delta: float) -> void:
 		escPresses += 1
 		if escPresses >= 2:
 			camera.fadeToBlack()
-			fadeMusic()
+			fadeMusic(1.0)
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_packed(title)
 		else:
 			camera.quitLabel.text = "Press Esc again to quit to title screen"
 			get_tree().create_timer(3).timeout.connect(resetQuit)
 		
-func initAudioPlayer():
+func initAudioPlayer(fade: bool):
+	if audioPlayer: 
+		audioPlayer.queue_free()
+		# necessary, otherwise new player will not play
+		await get_tree().process_frame
 	audioPlayer = AudioStreamPlayer.new()
 	add_child(audioPlayer)
-	if song and not spaceMusic:
+	if PlayerGlobalVars.doFinalFallMusic:
+		audioPlayer.stream = finalFall
+		audioPlayer.play()
+		audioPlayer.seek(PlayerGlobalVars.musicProgress)
+	elif song and not spaceMusic:
 		audioPlayer.stream = song
 		audioPlayer.play()
 		audioPlayer.seek(PlayerGlobalVars.musicProgress)
 	elif spaceMusic:
-		musicChange(true)
-		
-	if not PlayerGlobalVars.firstLoad:
+		spaceMusicChange(true)
+	if fade:
 			audioPlayer.volume_db = -80
 			var tween = create_tween()
 			tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
@@ -116,23 +124,23 @@ func cycleRealityForward():
 	if reality > RealityMode.size() - 1: reality = 0
 	if reality == 0 and forceReality: reality = 1
 	callRealityChange()
-	musicChange(false)
+	spaceMusicChange(false)
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
 	if reality == 0 and forceReality: reality = 2
 	callRealityChange()
-	musicChange(false)
+	spaceMusicChange(false)
 	
 # Considering moving to using a signal bus instead of groups. There's no way to enforce that this method exists
 func callRealityChange():
 	get_tree().call_group("RealityObject", "on_reality_change", reality)
 
 ## level reset: whether the level reset and we shouldn't update musicProgress
-func musicChange(levelReset: bool):
+func spaceMusicChange(levelReset: bool):
 	if not audioPlayer: return
-	if not spaceMusic: return
+	if not spaceMusic or PlayerGlobalVars.doFinalFallMusic: return
 	if not levelReset:
 		PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
 	audioPlayer.stop()
@@ -142,9 +150,21 @@ func musicChange(levelReset: bool):
 		audioPlayer.stream = spaceHot
 	else:
 		audioPlayer.stream = spaceCold
-	
 	audioPlayer.play()
+	print(audioPlayer.playing)
 	audioPlayer.seek(PlayerGlobalVars.musicProgress)
+	
+func playFinalFallMusic():
+	PlayerGlobalVars.doFinalFallMusic = true
+	initAudioPlayer(false)
+	
+func fadeFinalFallMusic():
+	if not PlayerGlobalVars.doFinalFallMusic: return
+	PlayerGlobalVars.doFinalFallMusic = false
+	fadeMusic(5.0)
+	await get_tree().create_timer(5).timeout
+	PlayerGlobalVars.musicProgress = 0
+	initAudioPlayer(true)
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
@@ -167,10 +187,11 @@ func saveSongProgress():
 	if not audioPlayer: return
 	PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
 	
-func fadeMusic():
+func fadeMusic(duration):
 	if not audioPlayer: return
 	var tween = create_tween()
-	tween.tween_property(audioPlayer, "volume_db", -80, 1.0)
+	tween.tween_property(audioPlayer, "volume_db", -80, duration)
 	tween.finished.connect(func():
 		audioPlayer.volume_db = -80
+		audioPlayer.stop()
 	)

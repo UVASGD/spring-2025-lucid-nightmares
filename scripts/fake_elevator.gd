@@ -47,3 +47,14 @@ func disappear():
 func shakeCamera():
 	if player != null:
 		player.camera.shake()
+		
+func fallMusic():
+	var level = Level.getLevelObject(get_tree())
+	if level:
+		level.playFinalFallMusic()
+		
+func fadeMusic():
+	var level = Level.getLevelObject(get_tree())
+	if level:
+		level.fadeMusic(3.0)
+	

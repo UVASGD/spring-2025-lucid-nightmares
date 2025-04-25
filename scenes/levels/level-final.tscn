@@ -117,6 +117,7 @@ size = Vector2(258, 196)
 texture_filter = 1
 script = ExtResource("1_uir5e")
 startingElevator = NodePath("Room01/StartElevator")
+spaceMusic = true
 
 [node name="Room01" type="Node2D" parent="."]
 position = Vector2(-2456, -359)

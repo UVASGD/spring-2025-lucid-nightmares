@@ -13,3 +13,4 @@ func _on_body_entered(body: Node2D) -> void:
 		for node in level.get_children():
 			if node is DeathCeiling:
 				node.stop()
+		level.fadeFinalFallMusic()

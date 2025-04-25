@@ -6,3 +6,4 @@ var firstLoad: bool = true
 var interactLectern = false
 var fakeElevatorTriggered = false
 var musicProgress = 0
+var doFinalFallMusic = false
