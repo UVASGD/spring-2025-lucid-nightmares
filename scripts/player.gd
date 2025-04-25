@@ -24,7 +24,7 @@ var doubleJumpScene = preload("uid://b8y32hv63qbmb")
 
 var wood_walk = preload("uid://bty0kt1fm3gls") #walking on wood SHORTENED.mp3
 var carpet_walk = preload("uid://b2yuf5lq4btl2") #walking on carpet SHORTENED.mp3
-var cloud_walk = preload("uid://lnxlsr045gi2") #Cloud step_shortened.mp3
+var cloud_walk = preload("uid://dlxwl31743cd3") #Cloud step 3.mp3
 
 var walkSfxResetCooldown = 10
 var walkSfxResetCooldownMax = 10
