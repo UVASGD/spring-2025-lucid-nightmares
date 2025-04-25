@@ -10,6 +10,8 @@ enum RealityMode {NORMAL, HOT, COLD}
 @export var startingElevator: StartElevator = null
 @export var libraryLevel2: bool = false ## changes formula for sorting checkpoints
 @export var song: AudioStreamMP3 = null
+## Max volume in decibels
+@export var maxVolume = 0
 const spaceHot: AudioStreamMP3 = preload("uid://cwoghes0bx5rl")
 const spaceCold: AudioStreamMP3 = preload("uid://b5y0md8ofcfql")
 const spaceNormal: AudioStreamMP3 = preload("uid://bc28hpetnpkgp")
@@ -93,10 +95,12 @@ func initAudioPlayer():
 	if not PlayerGlobalVars.firstLoad:
 			audioPlayer.volume_db = -80
 			var tween = create_tween()
-			tween.tween_property(audioPlayer, "volume_db", 0, 1.0)
+			tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
 			tween.finished.connect(func():
-				audioPlayer.volume_db = 0
+				audioPlayer.volume_db = maxVolume
 			)
+	else:
+		audioPlayer.volume_db = maxVolume
 
 func resetQuit():
 	escPresses -= 1
