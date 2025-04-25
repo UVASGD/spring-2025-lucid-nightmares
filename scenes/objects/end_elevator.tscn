@@ -102,5 +102,14 @@ libraries = {
 "": SubResource("AnimationLibrary_y02tk")
 }
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -13.0
+offset_top = -37.0
+offset_right = 94.0
+offset_bottom = -14.0
+scale = Vector2(0.25, 0.25)
+text = "Jump to enter"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

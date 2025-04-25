@@ -81,6 +81,7 @@ position = Vector2(260, 1.5)
 [node name="EndElevator" parent="." instance=ExtResource("16_2p166")]
 position = Vector2(2115, -63)
 nextLevel = ExtResource("9_uim2g")
+showTip = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_bwoae")]
 position = Vector2(0, 9)

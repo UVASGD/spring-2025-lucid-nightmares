@@ -9,6 +9,7 @@ var player: Player
 @onready var sprite: Sprite2D = $Sprite2D
 
 @export var nextLevel: PackedScene = null
+@export var showTip: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,11 +28,14 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player = body
+		if showTip:
+			$Label.visible = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player:
 		player = null
+		$Label.visible = false
 		
 func fadePlayer():
 	if player != null:
