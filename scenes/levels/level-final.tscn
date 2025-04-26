@@ -75,7 +75,7 @@ size = Vector2(800, 53)
 
 [sub_resource type="Curve2D" id="Curve2D_44qkm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, -80)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, -80)
 }
 point_count = 2
 

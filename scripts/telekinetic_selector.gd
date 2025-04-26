@@ -140,6 +140,5 @@ func updatePanel():
 		panel.visible = true
 	# 8 px padding
 	var panelSize = Vector2(controlLabel.get_content_width() + 16, controlLabel.get_content_height() + 16)
-	print(panelSize)
 	panel.position.x = get_viewport().get_visible_rect().size.x - panelSize.x
 	panel.size = panelSize
