@@ -31,8 +31,8 @@
 [ext_resource type="Script" path="res://scripts/fake_floor.gd" id="25_ks0vx"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="25_vm73s"]
 [ext_resource type="PackedScene" uid="uid://buaiqsgeak5te" path="res://scenes/objects/fake_elevator.tscn" id="27_2lc5d"]
-[ext_resource type="PackedScene" uid="uid://f47kx8sddfs4" path="res://scenes/objects/end_bed.tscn" id="28_7att0"]
-[ext_resource type="Script" path="res://scenes/levels/cheeky_tele.gd" id="29_676op"]
+[ext_resource type="PackedScene" path="res://scenes/objects/end_bed.tscn" id="28_7att0"]
+[ext_resource type="Script" path="res://scripts/cheeky_tele.gd" id="29_676op"]
 [ext_resource type="PackedScene" uid="uid://chn82e6ce6ssa" path="res://scenes/levels/the_credits.tscn" id="29_hnvnk"]
 
 [sub_resource type="Curve2D" id="Curve2D_5337h"]

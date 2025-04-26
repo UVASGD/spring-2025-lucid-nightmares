@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cppf46rf1fqnw"]
+[gd_scene load_steps=40 format=4 uid="uid://cppf46rf1fqnw"]
 
 [ext_resource type="TileSet" uid="uid://cpx6x6cdsa2yu" path="res://assets/tileset/hiddenborder/hiddenborder.tres" id="1_00s1v"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_714s2"]
@@ -16,10 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://chiiysjo7i0mg" path="res://scenes/objects/falling_cloud.tscn" id="12_yggky"]
 [ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/objects/end_elevator.tscn" id="14_54hdh"]
 [ext_resource type="Texture2D" uid="uid://b3evsr4grddyf" path="res://assets/train/handles/handle_basic2.png" id="14_e5ean"]
+[ext_resource type="Texture2D" uid="uid://u685sntla5pk" path="res://assets/train/moving_handle.tres" id="14_fq2mt"]
+[ext_resource type="Texture2D" uid="uid://bc5eql4mcp0kr" path="res://assets/train/suitcase/pipe.png" id="14_q2n1h"]
 [ext_resource type="Texture2D" uid="uid://bv08pcp3w7smn" path="res://assets/train/handles/handle_basic3.png" id="15_j87rg"]
 [ext_resource type="PackedScene" uid="uid://dv3x1akur6mgh" path="res://scenes/levels/level-final.tscn" id="15_jpo3m"]
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="16_x8pg3"]
 [ext_resource type="Texture2D" uid="uid://c3ipvhqm7uuq4" path="res://assets/train/Subway_Interior.png" id="17_37pgf"]
+[ext_resource type="Texture2D" uid="uid://ccfl406dqjhnt" path="res://assets/train/suitcase/SuitcasetallXtreme.png" id="18_2bwxj"]
+[ext_resource type="Texture2D" uid="uid://b4kicfkrs4v2e" path="res://assets/tileset/subway/area2_platform.tres" id="18_tefqm"]
 [ext_resource type="Script" path="res://scripts/damage_box.gd" id="20_h7msg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
@@ -48,6 +52,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -40)
 }
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rss4"]
+atlas = ExtResource("14_q2n1h")
+region = Rect2(0, 32, 32, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_ivpbc"]
 _data = {
@@ -79,6 +87,9 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocgcs"]
+atlas = ExtResource("18_tefqm")
+
 [sub_resource type="Curve2D" id="Curve2D_pcbfy"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
@@ -89,6 +100,7 @@ point_count = 2
 texture_filter = 1
 position = Vector2(-246, -1)
 script = ExtResource("1_714s2")
+startingCheckpoint = 5
 song = ExtResource("2_2wk5k")
 
 [node name="HiddenLayer" type="TileMapLayer" parent="."]
@@ -99,7 +111,7 @@ tile_set = ExtResource("2_rtrf5")
 collision_enabled = false
 
 [node name="ForegroundLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAByACwAAwAAAAAAAABzACwAAwAAAAAAAABzACsAAwAAAAAAAABzACoAAwAAAAAAAABzACkAAwAAAAAAAABzACgAAwAAAAAAAABzACcAAwAAAAAAAABzACYAAwAAAAAAAAB0AC8AAwAAAAAAAAB1AC8AAwAAAAAAAAB4AC8AAwAAAAAAAAB4AC4AAwAAAAAAAAB4AC0AAwAAAAAAAAB4ACwAAwAAAAAAAAB4ACsAAwAAAAAAAAB4ACoAAwAAAAAAAAB4ACkAAwAAAAAAAACZABMAAwAAAAAAAACaABMAAwAAAAAAAACXABEAAwAAAAAAAACWABEAAwAAAAAAAACZAA8AAwAAAAAAAACaAA8AAwAAAAAAAACAANX/AwAAAAAAAACBANX/AwAAAAAAAACCANX/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAByACwABAAEAAAAAABzACwABAADAAAAAABzACsABAADAAAAAABzACoABAADAAAAAABzACkABAADAAAAAABzACgABAADAAAAAABzACcABAADAAAAAABzACYABAADAAAAAAB0AC8ABAAEAAAAAAB1AC8ABAAFAAAAAAB4ACkABAADAAAAAACZABMAAQAGAAQAAACaABMAAQAHAAQAAACXABEAAQADAAYAAACWABEAAQABAAYAAACZAA8AAQABAAUAAACaAA8AAQADAAQAAACAANX/BAAEAAAAAACBANX/BAAFAAAAAACCANX/BAAFAAAAAAB4AC8ABAADAAAAAAB4AC4ABAADAAAAAAB4AC0ABAADAAAAAAB4ACwABAADAAAAAAB4ACsABAADAAAAAAB4ACoABAADAAAAAAB0ADAABAAEAAEAAAB1ADAABAAFAAEAAACVABEAAQAAAAUAAACYABEAAQAEAAYAAACWABAAAQACAAMAAACXABAAAQACAAMAAACWABIAAQABAAcAAACXABIAAQADAAcAAACYABIAAQAFAAMAAACYABMAAQAFAAQAAACZABIAAQAGAAMAAACaABIAAQAHAAMAAACYAA8AAQAFAAQAAACbAA8AAQAEAAQAAACaAA4AAQADAAMAAACaABAAAQADAAcAAACZABAAAQABAAcAAACAANb/BAAEAAEAAACBANb/BAAFAAEAAACDANX/BAAEAAAAAAB/ANX/BAAEAAAAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="StartCheckpoint" parent="." instance=ExtResource("8_03iww")]
@@ -142,7 +154,7 @@ poster_order = Array[int]([0, 0, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar1"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAAJAPv/AwAAAAAAAAAJAPz/AwAAAAAAAAAJAP3/AwAAAAAAAAAJAP7/AwAAAAAAAAD3//7/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAJAPv/AwAAAAAAAAAJAPz/AwAAAAAAAAAJAP3/AwAAAAAAAAAJAP7/BgAAAAEAAAD3//7/BgABAAIAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="Handle" parent="Traincar1" instance=ExtResource("9_uixfd")]
@@ -179,13 +191,14 @@ poster_order = Array[int]([1, 1, 2])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar2"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD2//3/AwAAAAAAAAD3//3/AwAAAAAAAAD5//v/AwAAAAAAAAD6//v/AwAAAAAAAAAKAPv/AwAAAAAAAAAKAPz/AwAAAAAAAAAKAP3/AwAAAAAAAAAKAP7/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD5//v/CAABAAEAAEAKAPv/AwAAAAAAAAAKAPz/AwAAAAAAAAAKAP3/AwAAAAAAAAAKAP7/BgAAAAEAAAD2//3/BgABAAIAAAD6//v/CAABAAEAAFA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar2" instance=ExtResource("10_upwtw")]
 position = Vector2(-61, -64)
 curve = SubResource("Curve2D_3qi8t")
 speed = 50
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="Handles_Basic2" type="Node2D" parent="Traincar2"]
 z_index = -2
@@ -229,7 +242,7 @@ poster_order = Array[int]([0, 1, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar3"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD1//v/AwAAAAAAAAD2//v/AwAAAAAAAAAEAP7/AwAAAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAD+//7/AwAAAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAALAPv/AwAAAAAAAAAKAPv/AwAAAAAAAAAJAPv/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1//v/CAABAAEAAED2//v/CAABAAEAAFAEAP7/BgAEAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAD+//7/BgAEAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAALAPv/CAABAAEAAFAKAPv/CAACAAAAAAAJAPv/CAABAAEAAEA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="Handles_Basic3" type="Node2D" parent="Traincar3"]
@@ -279,7 +292,7 @@ poster_order = Array[int]([1, 0, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar4"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD1//7/AwAAAAAAAAD1//3/AwAAAAAAAAD4//z/AwAAAAAAAAD4//v/AwAAAAAAAAD4//r/AwAAAAAAAAD+//7/AwAAAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAD9//r/AwAAAAAAAAD8//r/AwAAAAAAAAD7//r/AwAAAAAAAAD6//z/AwAAAAAAAAD5//z/AwAAAAAAAAADAPz/AwAAAAAAAAADAPv/AwAAAAAAAAADAPr/AwAAAAAAAAAGAP7/AwAAAAAAAAAGAP3/AwAAAAAAAAAGAPn/AwAAAAAAAAAGAPj/AwAAAAAAAAAGAPr/AwAAAAAAAAAHAPr/AwAAAAAAAAAIAPr/AwAAAAAAAAAJAPr/AwAAAAAAAAAKAPr/AwAAAAAAAAALAPr/AwAAAAAAAAD4//n/AwAAAAAAAAD4//j/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1//7/BgABAAIAAAD1//3/BgABAAIAAAD4//z/CAAAAAEAAGD4//v/CAACAAAAAGD4//r/CAACAAAAAGD+//7/CAACAAAAAFD+//3/CAACAAAAAFD+//z/CAACAAAAAFD+//v/CAACAAAAAFD+//r/CAAAAAEAAFD9//r/CAACAAAAAAD8//r/CAACAAAAAAD7//r/CAABAAEAAED6//z/CAABAAEAAHD5//z/CAACAAAAADADAPz/CAABAAEAACADAPv/CAACAAAAAGADAPr/CAABAAEAAAAGAP7/BgABAAMAAAAGAP3/CAABAAEAAAAGAPn/CAACAAAAAGAGAPj/CAABAAEAAAAGAPr/CAABAAEAACAHAPr/CAACAAAAADAIAPr/CAACAAAAADAJAPr/CAACAAAAADAKAPr/CAACAAAAADALAPr/CAABAAEAAHD4//n/CAACAAAAAGD4//j/CAABAAEAAAD2//7/BgABAAEAAGA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar4" instance=ExtResource("10_upwtw")]
@@ -287,6 +300,7 @@ position = Vector2(107, -56)
 rotation = 1.5708
 curve = SubResource("Curve2D_nygke")
 speed = 50
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="Node2D" type="Node2D" parent="Traincar4"]
 z_index = -2
@@ -318,6 +332,12 @@ followPlayer = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Traincar4/CameraOverrideArea"]
 position = Vector2(244.297, -67.6473)
 shape = SubResource("RectangleShape2D_p8orw")
+
+[node name="SuitcasetallXtreme" type="Sprite2D" parent="Traincar4"]
+z_index = 5
+position = Vector2(489, 28)
+rotation = -1.13446
+texture = ExtResource("18_2bwxj")
 
 [node name="Traincar5" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(1674, 895)
@@ -386,6 +406,7 @@ position = Vector2(203, -24)
 rotation = 1.5708
 curve = SubResource("Curve2D_esaoc")
 speed = 50
+platformTexture = SubResource("AtlasTexture_1rss4")
 
 [node name="Traincar7" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2338, 527)
@@ -394,7 +415,7 @@ poster_order = Array[int]([1, 0, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar7"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD1//3/AwAAAAAAAAD1//7/AwAAAAAAAAD4//n/AwAAAAAAAAD7//3/AwAAAAAAAAD7//7/AwAAAAAAAAD+//n/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAAEAPn/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1//3/AwAAAAAAAAD1//7/BgABAAMAAAD7//3/AwAAAAAAAAD7//7/BgABAAMAAAABAP3/AwAAAAAAAAABAP7/BgABAAMAAAAEAPn/CAAAAAEAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar7" instance=ExtResource("10_upwtw")]
@@ -403,6 +424,7 @@ rotation = 1.5708
 curve = SubResource("Curve2D_ivpbc")
 speed = 75
 invertControls = true
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="Traincar8" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2475, -5)
@@ -411,7 +433,7 @@ poster_order = Array[int]([1, 1, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar8"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AADz//7/AwAAAAAAAAD1//r/AwAAAAAAAAD1//n/AwAAAAAAAAALAPv/AwAAAAAAAAAHAPv/AwAAAAAAAAAGAPv/AwAAAAAAAAAFAPv/AwAAAAAAAAAEAPv/AwAAAAAAAAACAPv/AwAAAAAAAAABAPv/AwAAAAAAAAABAPj/AwAAAAAAAAABAPn/AwAAAAAAAAABAPr/AwAAAAAAAAABAP7/AwAAAAAAAAACAP7/AwAAAAAAAAADAP7/AwAAAAAAAAAEAP7/AwAAAAAAAAAFAP7/AwAAAAAAAAAJAP7/AwAAAAAAAAALAPz/AwAAAAAAAAD5//n/AwAAAAAAAAABAP3/AwAAAAAAAAACAP3/AwAAAAAAAAADAP3/AwAAAAAAAAAEAP3/AwAAAAAAAAAFAP3/AwAAAAAAAAAHAPj/AwAAAAAAAAAHAPn/AwAAAAAAAAAHAPr/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADz//7/BgABAAIAAAD1//r/CAABAAEAADD1//n/CAABAAEAABALAPv/CAABAAAAAFAHAPv/CAAAAAEAADAGAPv/CAACAAAAADAFAPv/CAACAAAAADAEAPv/CAACAAAAADACAPv/CAACAAAAADABAPv/CAAAAAEAAGABAPj/CAACAAAAAGABAPn/CAACAAAAAGABAPr/CAACAAAAAGABAP7/CAACAAAAAGAFAP7/CAACAAAAAFAJAP7/BgABAAIAAAALAPz/CAABAAEAADABAP3/CAAAAAEAAAACAP3/CAACAAAAAAADAP3/CAACAAAAAAAEAP3/CAACAAAAAAAHAPj/CAACAAAAAFAHAPn/CAACAAAAAFAHAPr/CAACAAAAAFAFAP3/CAAAAAEAAFA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar8" instance=ExtResource("10_upwtw")]
@@ -419,12 +441,14 @@ position = Vector2(59.0003, -71.9998)
 rotation = 1.5708
 curve = SubResource("Curve2D_1a63t")
 speed = 50
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="TelekineticMovingPlatform2" parent="Traincar8" instance=ExtResource("10_upwtw")]
 position = Vector2(-101, -40.0004)
 rotation = 1.5708
 curve = SubResource("Curve2D_lenri")
 speed = 100
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="Traincar9" parent="." instance=ExtResource("8_utagw")]
 position = Vector2(2343, -529)
@@ -432,7 +456,7 @@ rotation = -2.0944
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar9"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD0//j/AwAAAAAAAAD0//n/AwAAAAAAAAD1//v/AwAAAAAAAAD1//z/AwAAAAAAAAD2//7/AwAAAAAAAAD4//z/AwAAAAAAAAD4//v/AwAAAAAAAAABAPj/AwAAAAAAAAABAPn/AwAAAAAAAAABAPr/AwAAAAAAAAABAPz/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAAEAPj/AwAAAAAAAAAFAPv/AwAAAAAAAAAFAPz/AwAAAAAAAAAIAPr/AwAAAAAAAAAJAP3/AwAAAAAAAAAJAP7/AwAAAAAAAAD7//j/AwAAAAAAAAD7//n/AwAAAAAAAAD7//r/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD0//j/CAADAAAAAGD0//n/CAABAAAAAGD1//v/CAADAAAAAGD1//z/CAABAAAAAGD2//7/BgACAAIAAAABAPj/CAABAAEAABABAPn/CAACAAAAAFABAPr/CAABAAEAADABAPz/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/BgADAAEAAAAEAPj/CAADAAEAAAAFAPv/CAABAAEAABAFAPz/CAABAAEAADAIAPr/CAADAAEAAAAJAP3/AwAAAAAAAAAJAP7/BgABAAMAAAD7//j/CAABAAEAAAD7//n/CAACAAAAAGD7//r/CAABAAAAAGD4//v/CAABAAAAAFD4//z/CAADAAAAAFA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar9" instance=ExtResource("10_upwtw")]
@@ -440,6 +464,7 @@ position = Vector2(-69, -56)
 rotation = 1.5708
 curve = SubResource("Curve2D_5lr72")
 speed = 50
+platformTexture = ExtResource("14_fq2mt")
 
 [node name="Train3Handle" parent="." instance=ExtResource("9_uixfd")]
 position = Vector2(1258, 45)
@@ -448,29 +473,32 @@ position = Vector2(1258, 45)
 position = Vector2(1520, 363.7)
 
 [node name="Train7Handle" parent="." instance=ExtResource("9_uixfd")]
-position = Vector2(2203, 591)
+position = Vector2(2198, 588)
 
 [node name="TelekineticMovingPlatform" parent="." instance=ExtResource("10_upwtw")]
 position = Vector2(1904, 760)
 curve = SubResource("Curve2D_ad8b1")
 speed = 50
+platformTexture = SubResource("AtlasTexture_ocgcs")
 
 [node name="FallingCloud" parent="." instance=ExtResource("12_yggky")]
 position = Vector2(2038, 680)
 
 [node name="Train7Handle2" parent="." instance=ExtResource("9_uixfd")]
-position = Vector2(2251, 508)
+position = Vector2(2245, 507)
 
 [node name="Train7Handle3" parent="." instance=ExtResource("9_uixfd")]
-position = Vector2(2299, 425)
+position = Vector2(2291, 429)
 
 [node name="Train8Handle" parent="." instance=ExtResource("9_uixfd")]
 position = Vector2(2388, 105)
+rotation = -1.32733
 
 [node name="TelekineticMovingPlatform2" parent="." instance=ExtResource("10_upwtw")]
 position = Vector2(2452, -232)
 curve = SubResource("Curve2D_pcbfy")
 speed = 50
+platformTexture = ExtResource("18_tefqm")
 
 [node name="EndElevator" parent="." instance=ExtResource("14_54hdh")]
 position = Vector2(2072, -720)
