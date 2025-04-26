@@ -62,6 +62,5 @@ func loadNextLevel():
 	if nextLevel:
 		PlayerGlobalVars.respawnPoint = Vector2.ZERO
 		PlayerGlobalVars.firstLoad = true
-		PlayerGlobalVars.musicProgress = 0
 		GameContainer.get_game_container(get_tree()).loadScene(nextLevel)
 	

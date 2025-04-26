@@ -18,7 +18,6 @@ func _on_play_button_pressed() -> void:
 	PlayerGlobalVars.interactLectern = false
 	PlayerGlobalVars.respawnPoint = Vector2.ZERO
 	PlayerGlobalVars.firstLoad = true
-	PlayerGlobalVars.musicProgress = 0
 	
 	var tween = create_tween()
 	tween.tween_property(audioPlayer, "volume_db", -80, 1.0)
