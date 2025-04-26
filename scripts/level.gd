@@ -143,15 +143,29 @@ func spaceMusicChange(levelReset: bool):
 	if not spaceMusic or PlayerGlobalVars.doFinalFallMusic: return
 	if not levelReset:
 		PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
-	audioPlayer.stop()
+	var oldAudioPlayer: AudioStreamPlayer = audioPlayer
+	audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
+	
 	if reality == RealityMode.NORMAL:
 		audioPlayer.stream = spaceNormal
 	elif reality == RealityMode.HOT:
 		audioPlayer.stream = spaceHot
 	else:
 		audioPlayer.stream = spaceCold
+	## necessary, otherwise new player will not play
+	#await get_tree().process_frame
 	audioPlayer.play()
+	audioPlayer.volume_db = -20.0
 	audioPlayer.seek(PlayerGlobalVars.musicProgress)
+	
+	var tween = create_tween()
+	tween.tween_property(oldAudioPlayer, "volume_db", -20, 0.5)
+	var tween2 = create_tween()
+	tween2.tween_property(audioPlayer, "volume_db", maxVolume, 0.5)
+	tween2.finished.connect(func():
+		oldAudioPlayer.queue_free()
+	)
 	
 func playFinalFallMusic():
 	PlayerGlobalVars.musicProgress = 0
