@@ -25,7 +25,7 @@ func respawn():
 			for tween in tweens:
 				tween.kill()
 			level.saveSongProgress()
-			get_tree().call_deferred("reload_current_scene")
+			GameContainer.get_game_container(get_tree()).reloadScene()
 			level.allowTelekinesis = telekinesisEnabled
 			parent.global_position = PlayerGlobalVars.respawnPoint
 		

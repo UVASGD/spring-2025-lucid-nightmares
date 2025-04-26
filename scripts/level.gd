@@ -182,7 +182,8 @@ func fadeFinalFallMusic():
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
-	for child in sceneTree.root.get_children():
+	for child in GameContainer.get_game_container(sceneTree).get_children():
+		if child.is_queued_for_deletion(): continue
 		if child is Level: return child
 	return null
 	

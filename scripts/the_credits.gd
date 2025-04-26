@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 const konami = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "B", "A"]
 var konamiProgress = 0
@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 				PlayerGlobalVars.respawnPoint = Vector2.ZERO
 				PlayerGlobalVars.firstLoad = true
 				PlayerGlobalVars.musicProgress = 0
-				get_tree().change_scene_to_packed(playground)
+				GameContainer.get_game_container(get_tree()).loadScene(playground)
 				konamiProgress = 0
 		else:
 			# If input doesn't match, but was the start of the sequence, reset to 1, otherwise 0
@@ -38,4 +38,4 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_texture_button_button_down() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	GameContainer.get_game_container(get_tree()).loadScene(main_menu)
