@@ -27,8 +27,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xidka"]
 size = Vector2(424, 167)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b16yq"]
-size = Vector2(2108, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rkkg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_52gs6"]
 
@@ -131,7 +130,7 @@ position = Vector2(160, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 position = Vector2(972, 73)
-shape = SubResource("RectangleShape2D_b16yq")
+shape = SubResource("WorldBoundaryShape2D_rkkg6")
 
 [node name="FallingBook2" parent="." instance=ExtResource("4_b0hj2")]
 position = Vector2(1865, -9)

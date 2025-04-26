@@ -4,11 +4,18 @@ const konami = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "B
 var konamiProgress = 0
 var playground = load("uid://bxsl34nbkakxj")
 var main_menu = load("uid://c0tvrj084xnrs")
+@onready var credits = $MarginContainer
+@export var scrollTime = 35
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var start_y = 650
+	var end_y = -credits.size.y
+	credits.position.y = start_y
+
+	var tween = create_tween()
+	tween.tween_property(credits, "position:y", end_y, scrollTime).set_trans(Tween.TRANS_LINEAR)
 
 
 func _input(event: InputEvent) -> void:
