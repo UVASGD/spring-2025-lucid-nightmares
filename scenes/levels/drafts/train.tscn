@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cf0l6trf1ldnm"]
 
-[ext_resource type="Texture2D" uid="uid://balacy8utbubk" path="res://assets/train/Subway_Interior_v3.png" id="1_djvi7"]
 [ext_resource type="Script" path="res://scripts/train_posters.gd" id="1_s6fkw"]
+[ext_resource type="Texture2D" uid="uid://33vv1pn1coh4" path="res://assets/train/Subway_Interior_v4.png" id="2_r8hgw"]
 [ext_resource type="Texture2D" uid="uid://b8jwse80wti3l" path="res://assets/train/Library_Posterv2.png" id="3_2ly7x"]
 [ext_resource type="Texture2D" uid="uid://bgmymsgwvmjip" path="res://assets/train/Library_Posterv3.png" id="3_eynxy"]
 [ext_resource type="Texture2D" uid="uid://2qfjx4hbvouo" path="res://assets/train/Platform_Posterv3.png" id="4_mcrri"]
@@ -61,7 +61,7 @@ shape = SubResource("RectangleShape2D_ifqm8")
 [node name="SubwayInteriorV3" type="Sprite2D" parent="."]
 z_index = -6
 position = Vector2(-5, -60)
-texture = ExtResource("1_djvi7")
+texture = ExtResource("2_r8hgw")
 
 [node name="LibraryPoster" type="TextureRect" parent="."]
 visible = false
