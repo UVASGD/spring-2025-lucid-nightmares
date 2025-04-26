@@ -182,6 +182,7 @@ interact_targets = [NodePath("../Gate3")]
 [node name="EndElevator" parent="." instance=ExtResource("18_ugl1x")]
 position = Vector2(-537, -362)
 nextLevel = ExtResource("19_a3p6i")
+floorNumber = 2
 
 [node name="StartElevator" parent="." instance=ExtResource("19_rfpan")]
 position = Vector2(192, -24)

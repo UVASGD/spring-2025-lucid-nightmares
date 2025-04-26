@@ -769,6 +769,7 @@ shape = SubResource("RectangleShape2D_6kudq")
 [node name="EndElevator" parent="Room13" instance=ExtResource("26_7raio")]
 position = Vector2(448, -208)
 nextLevel = ExtResource("29_hnvnk")
+floorNumber = 3
 
 [node name="Tele" type="Node2D" parent="."]
 position = Vector2(1736, 4920)
