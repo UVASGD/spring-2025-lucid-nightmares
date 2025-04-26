@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dbesvvhuhnn2o" path="res://assets/tileset/master_tileset.tres" id="1_b4ue4"]
 [ext_resource type="Script" path="res://scripts/fake_elevator.gd" id="1_dc5s6"]
-[ext_resource type="Texture2D" uid="uid://c377eyrdcgc70" path="res://assets/elevator.png" id="2_xirhy"]
+[ext_resource type="Texture2D" uid="uid://ndw0v6n3v0wc" path="res://assets/elevator/elevator l3.png" id="3_21lxv"]
 [ext_resource type="Texture2D" uid="uid://bhb3bx35fuvq5" path="res://assets/mysteriousindividual.png" id="4_3t1db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqaln"]
@@ -153,7 +153,7 @@ tile_set = ExtResource("1_b4ue4")
 [node name="Elevator" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(128, -32)
-texture = ExtResource("2_xirhy")
+texture = ExtResource("3_21lxv")
 hframes = 3
 
 [node name="Area2D" type="Area2D" parent="Elevator"]

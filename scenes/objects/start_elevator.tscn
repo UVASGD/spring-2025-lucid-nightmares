@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bucot3icjqqvd"]
 
 [ext_resource type="Script" path="res://scripts/start_elevator.gd" id="2_47s4x"]
-[ext_resource type="Texture2D" uid="uid://c377eyrdcgc70" path="res://assets/elevator.png" id="2_s1a27"]
+[ext_resource type="Texture2D" uid="uid://hcmoha8s6ufe" path="res://assets/elevator/elevator l1.png" id="2_ei7ie"]
 
 [sub_resource type="Animation" id="Animation_ld8v4"]
 length = 0.001
@@ -63,7 +63,7 @@ texture_filter = 1
 script = ExtResource("2_47s4x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_s1a27")
+texture = ExtResource("2_ei7ie")
 hframes = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

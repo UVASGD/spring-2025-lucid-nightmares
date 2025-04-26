@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bngf7uphafxd7"]
 
 [ext_resource type="Script" path="res://scripts/end_elevator.gd" id="1_m7w8u"]
-[ext_resource type="Texture2D" uid="uid://c377eyrdcgc70" path="res://assets/elevator.png" id="2_bfx4g"]
+[ext_resource type="Texture2D" uid="uid://hcmoha8s6ufe" path="res://assets/elevator/elevator l1.png" id="2_a5myq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pujf5"]
 size = Vector2(52, 60)
@@ -83,7 +83,7 @@ texture_filter = 1
 script = ExtResource("1_m7w8u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bfx4g")
+texture = ExtResource("2_a5myq")
 hframes = 3
 
 [node name="Area2D" type="Area2D" parent="."]

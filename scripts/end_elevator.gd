@@ -10,10 +10,20 @@ var player: Player
 
 @export var nextLevel: PackedScene = null
 @export var showTip: bool = false
+@export var floorNumber: int = 1
+
+const l1 = preload("uid://hcmoha8s6ufe")
+const l2 = preload("uid://2g0q4nkcbbjx")
+const l3 = preload("uid://ndw0v6n3v0wc")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if floorNumber == 1:
+		$Sprite2D.texture = l1
+	elif floorNumber == 2:
+		$Sprite2D.texture = l2
+	else:
+		$Sprite2D.texture = l3
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
