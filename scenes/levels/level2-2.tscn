@@ -503,7 +503,6 @@ platformTexture = ExtResource("18_tefqm")
 [node name="EndElevator" parent="." instance=ExtResource("14_54hdh")]
 position = Vector2(2072, -720)
 nextLevel = ExtResource("15_jpo3m")
-floorNumber = 3
 
 [node name="SubwayInterior" type="Sprite2D" parent="."]
 visible = false
