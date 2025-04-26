@@ -30,8 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://drf3lwf0ywy6f" path="res://scenes/objects/handle.tscn" id="25_7x2fe"]
 [ext_resource type="Script" path="res://scripts/fake_floor.gd" id="25_ks0vx"]
 [ext_resource type="Texture2D" uid="uid://cpma5g22j7052" path="res://assets/Long Clock Hand.PNG" id="25_vm73s"]
-[ext_resource type="PackedScene" uid="uid://bngf7uphafxd7" path="res://scenes/objects/end_elevator.tscn" id="26_7raio"]
 [ext_resource type="PackedScene" uid="uid://buaiqsgeak5te" path="res://scenes/objects/fake_elevator.tscn" id="27_2lc5d"]
+[ext_resource type="PackedScene" uid="uid://f47kx8sddfs4" path="res://scenes/objects/end_bed.tscn" id="28_7att0"]
 [ext_resource type="Script" path="res://scenes/levels/cheeky_tele.gd" id="29_676op"]
 [ext_resource type="PackedScene" uid="uid://chn82e6ce6ssa" path="res://scenes/levels/the_credits.tscn" id="29_hnvnk"]
 
@@ -766,10 +766,9 @@ script = ExtResource("14_w38uu")
 position = Vector2(-169, 0)
 shape = SubResource("RectangleShape2D_6kudq")
 
-[node name="EndElevator" parent="Room13" instance=ExtResource("26_7raio")]
-position = Vector2(448, -208)
+[node name="EndBed" parent="Room13" instance=ExtResource("28_7att0")]
+position = Vector2(505, -187)
 nextLevel = ExtResource("29_hnvnk")
-floorNumber = 3
 
 [node name="Tele" type="Node2D" parent="."]
 position = Vector2(1736, 4920)
