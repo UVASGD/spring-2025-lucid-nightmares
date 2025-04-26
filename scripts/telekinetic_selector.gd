@@ -125,6 +125,7 @@ func on_reality_change(_reality: int):
 		updatePanel()
 	
 static func getTelekineticNodeFromBody(body: Node2D) -> TelekineticController:
+	if not body: return null
 	var teleNode = null
 	for node in body.get_children():
 		if node is TelekineticController:
