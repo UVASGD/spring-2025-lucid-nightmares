@@ -37,8 +37,7 @@ func activate():
 		camera.shake()
 	play("lectern")
 	var level: Level
-	for child in get_tree().root.get_children():
-		if child is Level: level = child
+	level = Level.getLevelObject(get_tree())
 	level.setAllowTelekinesis(true)
 	PlayerGlobalVars.interactLectern = true
 	activated = true

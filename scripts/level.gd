@@ -67,8 +67,11 @@ func _ready() -> void:
 	
 	if not PlayerGlobalVars.firstLoad:
 		reality = PlayerGlobalVars.reality
-		
-	initAudioPlayer(not PlayerGlobalVars.firstLoad)
+	
+	if PlayerGlobalVars.firstLoad:
+		initAudioPlayer(false)
+	else:
+		GameContainer.get_game_container(get_tree()).fadeInMusic()
 	callRealityChange()
 	PlayerGlobalVars.firstLoad = false
 	
@@ -79,37 +82,13 @@ func _process(_delta: float) -> void:
 			camera.fadeToBlack()
 			fadeMusic(1.0)
 			await get_tree().create_timer(1).timeout
-			get_tree().change_scene_to_packed(title)
+			GameContainer.get_game_container(get_tree()).loadScene(title)
 		else:
 			camera.quitLabel.text = "Press Esc again to quit to title screen"
 			get_tree().create_timer(3).timeout.connect(resetQuit)
 		
 func initAudioPlayer(fade: bool):
-	if audioPlayer: 
-		audioPlayer.queue_free()
-		# necessary, otherwise new player will not play
-		await get_tree().process_frame
-	audioPlayer = AudioStreamPlayer.new()
-	add_child(audioPlayer)
-	if PlayerGlobalVars.doFinalFallMusic:
-		audioPlayer.stream = finalFall
-		audioPlayer.play()
-		audioPlayer.seek(PlayerGlobalVars.musicProgress)
-	elif song and not spaceMusic:
-		audioPlayer.stream = song
-		audioPlayer.play()
-		audioPlayer.seek(PlayerGlobalVars.musicProgress)
-	elif spaceMusic:
-		spaceMusicChange(true)
-	if fade:
-			audioPlayer.volume_db = -80
-			var tween = create_tween()
-			tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
-			tween.finished.connect(func():
-				audioPlayer.volume_db = maxVolume - 5
-			)
-	else:
-		audioPlayer.volume_db = maxVolume - 5
+	GameContainer.get_game_container(get_tree()).initAudioPlayer(song, fade, maxVolume, spaceMusic)
 
 func resetQuit():
 	escPresses -= 1
@@ -124,51 +103,24 @@ func cycleRealityForward():
 	if reality > RealityMode.size() - 1: reality = 0
 	if reality == 0 and forceReality: reality = 1
 	callRealityChange()
-	spaceMusicChange(false)
+	spaceMusicChange()
 
 func cycleRealityBackward():
 	reality -= 1
 	if reality < 0: reality = RealityMode.size() - 1
 	if reality == 0 and forceReality: reality = 2
 	callRealityChange()
-	spaceMusicChange(false)
+	spaceMusicChange()
 	
 # Considering moving to using a signal bus instead of groups. There's no way to enforce that this method exists
 func callRealityChange():
 	get_tree().call_group("RealityObject", "on_reality_change", reality)
 
 ## level reset: whether the level reset and we shouldn't update musicProgress
-func spaceMusicChange(levelReset: bool):
-	if not audioPlayer: return
-	if not spaceMusic or PlayerGlobalVars.doFinalFallMusic: return
-	if not levelReset:
-		PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
-	var oldAudioPlayer: AudioStreamPlayer = audioPlayer
-	audioPlayer = AudioStreamPlayer.new()
-	add_child(audioPlayer)
-	
-	if reality == RealityMode.NORMAL:
-		audioPlayer.stream = spaceNormal
-	elif reality == RealityMode.HOT:
-		audioPlayer.stream = spaceHot
-	else:
-		audioPlayer.stream = spaceCold
-	## necessary, otherwise new player will not play
-	#await get_tree().process_frame
-	audioPlayer.play()
-	audioPlayer.volume_db = -20.0
-	audioPlayer.seek(PlayerGlobalVars.musicProgress)
-	
-	var tween = create_tween()
-	tween.tween_property(oldAudioPlayer, "volume_db", -20, 0.5)
-	var tween2 = create_tween()
-	tween2.tween_property(audioPlayer, "volume_db", maxVolume, 0.5)
-	tween2.finished.connect(func():
-		oldAudioPlayer.queue_free()
-	)
+func spaceMusicChange():
+	GameContainer.get_game_container(get_tree()).spaceMusicCrossfade()
 	
 func playFinalFallMusic():
-	PlayerGlobalVars.musicProgress = 0
 	PlayerGlobalVars.doFinalFallMusic = true
 	initAudioPlayer(false)
 	
@@ -177,12 +129,12 @@ func fadeFinalFallMusic():
 	PlayerGlobalVars.doFinalFallMusic = false
 	fadeMusic(5.0)
 	await get_tree().create_timer(5).timeout
-	PlayerGlobalVars.musicProgress = 0
 	initAudioPlayer(true)
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
-	for child in sceneTree.root.get_children():
+	for child in GameContainer.get_game_container(sceneTree).get_children():
+		if child.is_queued_for_deletion(): continue
 		if child is Level: return child
 	return null
 	
@@ -197,15 +149,5 @@ func registerCheckpoint(checkpoint: Checkpoint):
 		checkpoints[i].phase = i + int(bool(startingElevator != null))
 	pass
 	
-func saveSongProgress():
-	if not audioPlayer: return
-	PlayerGlobalVars.musicProgress = audioPlayer.get_playback_position()
-	
 func fadeMusic(duration):
-	if not audioPlayer: return
-	var tween = create_tween()
-	tween.tween_property(audioPlayer, "volume_db", -80, duration)
-	tween.finished.connect(func():
-		audioPlayer.volume_db = -80
-		audioPlayer.stop()
-	)
+	GameContainer.get_game_container(get_tree()).fadeMusic(duration)

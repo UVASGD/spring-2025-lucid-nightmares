@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 const konami = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "B", "A"]
 var konamiProgress = 0
@@ -10,12 +10,16 @@ var main_menu = load("uid://c0tvrj084xnrs")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CanvasLayer2/FadeRect.visible = true
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer2/FadeRect, "modulate:a", 0.0, 3.0)
+	
 	var start_y = 400
 	var end_y = -credits.size.y - 200
 	credits.position.y = start_y
 
-	var tween = create_tween()
-	tween.tween_property(credits, "position:y", end_y, scrollTime).set_trans(Tween.TRANS_LINEAR)
+	var tween2 = create_tween()
+	tween2.tween_property(credits, "position:y", end_y, scrollTime).set_trans(Tween.TRANS_LINEAR)
 
 
 func _input(event: InputEvent) -> void:
@@ -26,8 +30,7 @@ func _input(event: InputEvent) -> void:
 			if konamiProgress == konami.size():
 				PlayerGlobalVars.respawnPoint = Vector2.ZERO
 				PlayerGlobalVars.firstLoad = true
-				PlayerGlobalVars.musicProgress = 0
-				get_tree().change_scene_to_packed(playground)
+				GameContainer.get_game_container(get_tree()).loadScene(playground)
 				konamiProgress = 0
 		else:
 			# If input doesn't match, but was the start of the sequence, reset to 1, otherwise 0
@@ -38,4 +41,4 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_texture_button_button_down() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	GameContainer.get_game_container(get_tree()).loadScene(main_menu)

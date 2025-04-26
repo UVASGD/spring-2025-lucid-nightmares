@@ -9,14 +9,18 @@
 [sub_resource type="LabelSettings" id="LabelSettings_1lotd"]
 font_size = 32
 
-[node name="Credits" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Credits" type="Node2D"]
 script = ExtResource("1_p2cv1")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -24,16 +28,16 @@ layer = -1
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_right = 172.0
-offset_bottom = 364.0
+offset_left = 270.0
+offset_right = 881.0
+offset_bottom = 1802.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -183,6 +187,11 @@ text = "Some library level assets adapted from https://arcadeisland.itch.io/libr
 "
 horizontal_alignment = 1
 
+[node name="Dax" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special thanks to Dax Mikow for inspring the title"
+horizontal_alignment = 1
+
 [node name="Thank you" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
@@ -193,7 +202,6 @@ label_settings = SubResource("LabelSettings_1lotd")
 horizontal_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 13.0
 offset_top = 595.0
 offset_right = 107.0
