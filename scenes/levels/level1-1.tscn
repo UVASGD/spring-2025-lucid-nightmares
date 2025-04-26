@@ -169,7 +169,7 @@ script = ExtResource("19_3uktq")
 metadata/_edit_use_anchors_ = true
 
 [node name="Checkpoint2" parent="." instance=ExtResource("15_e3bil")]
-position = Vector2(621, -5)
+position = Vector2(621, -7)
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 587.0
