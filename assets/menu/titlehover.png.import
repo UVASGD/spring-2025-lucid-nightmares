@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8d37c6mbsom5"
-path="res://.godot/imported/backhover.png-5cf84a5f9dd8c01fd7781938c039b68c.ctex"
+uid="uid://dicq6xskcbce5"
+path="res://.godot/imported/titlehover.png-f281057c529c2f73a915aeb14d21d22d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/backhover.png"
-dest_files=["res://.godot/imported/backhover.png-5cf84a5f9dd8c01fd7781938c039b68c.ctex"]
+source_file="res://assets/menu/titlehover.png"
+dest_files=["res://.godot/imported/titlehover.png-f281057c529c2f73a915aeb14d21d22d.ctex"]
 
 [params]
 

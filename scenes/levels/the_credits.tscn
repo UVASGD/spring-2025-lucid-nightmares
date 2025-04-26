@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://chn82e6ce6ssa"]
 
 [ext_resource type="Script" path="res://scripts/the_credits.gd" id="1_p2cv1"]
-[ext_resource type="Texture2D" uid="uid://xqxnvc2b6l7w" path="res://assets/menu/back.png" id="3_3uvyu"]
-[ext_resource type="Texture2D" uid="uid://b8d37c6mbsom5" path="res://assets/menu/backhover.png" id="4_earrv"]
+[ext_resource type="Texture2D" uid="uid://mfpnwoembgb2" path="res://assets/menu/title.png" id="2_oot2p"]
+[ext_resource type="Texture2D" uid="uid://dicq6xskcbce5" path="res://assets/menu/titlehover.png" id="3_2gviv"]
 [ext_resource type="AudioStream" uid="uid://dsp3dco0skibj" path="res://assets/Sounds/music/Credits.mp3" id="5_nsfbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1lotd"]
@@ -149,9 +149,9 @@ offset_left = 13.0
 offset_top = 595.0
 offset_right = 107.0
 offset_bottom = 635.0
-texture_normal = ExtResource("3_3uvyu")
-texture_pressed = ExtResource("4_earrv")
-texture_hover = ExtResource("4_earrv")
+texture_normal = ExtResource("2_oot2p")
+texture_pressed = ExtResource("3_2gviv")
+texture_hover = ExtResource("3_2gviv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nsfbh")
