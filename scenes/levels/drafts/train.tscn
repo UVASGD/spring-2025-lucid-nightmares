@@ -60,7 +60,7 @@ shape = SubResource("RectangleShape2D_ifqm8")
 
 [node name="SubwayInteriorV3" type="Sprite2D" parent="."]
 z_index = -6
-position = Vector2(-5, -59)
+position = Vector2(-5, -60)
 texture = ExtResource("1_djvi7")
 
 [node name="LibraryPoster" type="TextureRect" parent="."]
