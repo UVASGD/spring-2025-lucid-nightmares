@@ -127,12 +127,16 @@ func playFinalFallMusic():
 func fadeFinalFallMusic():
 	if not PlayerGlobalVars.doFinalFallMusic: return
 	PlayerGlobalVars.doFinalFallMusic = false
-	fadeMusic(5.0)
-	await get_tree().create_timer(5).timeout
+	var fade: float = 2.0
+	fadeMusic(fade)
+	await get_tree().create_timer(fade).timeout
 	initAudioPlayer(true)
 	
 
 static func getLevelObject(sceneTree: SceneTree) -> Level:
+	if not GameContainer:
+		print("Critical error: do not start from Run Current Scene.")
+		return
 	for child in GameContainer.get_game_container(sceneTree).get_children():
 		if child.is_queued_for_deletion(): continue
 		if child is Level: return child

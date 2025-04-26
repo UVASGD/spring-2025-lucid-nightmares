@@ -23,11 +23,6 @@ var audioPlayerCold: AudioStreamPlayer = null
 func _ready() -> void:
 	if initialScene: loadScene(initialScene)
 	else: loadScene(main_menu)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func loadScene(scene: PackedScene):
 	unloadScene()
@@ -123,11 +118,11 @@ func spaceMusicCrossfade():
 		audioPlayer = audioPlayerHot
 	else:
 		audioPlayer = audioPlayerCold
-	
+	var crossfade_duration = 0.1
 	var tween = create_tween()
-	tween.tween_property(oldAudioPlayer, "volume_db", -20, 0.5)
+	tween.tween_property(oldAudioPlayer, "volume_db", -20, crossfade_duration)
 	var tween2 = create_tween()
-	tween2.tween_property(audioPlayer, "volume_db", maxVolume, 0.5)
+	tween2.tween_property(audioPlayer, "volume_db", maxVolume, crossfade_duration)
 	tween2.finished.connect(func():
 		oldAudioPlayer.volume_db = -80
 	)

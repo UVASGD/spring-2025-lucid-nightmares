@@ -44,7 +44,7 @@ texture = ExtResource("2_w0efg")
 expand_mode = 1
 
 [node name="Ice16" type="TextureRect" parent="."]
-texture_filter = 5
+texture_filter = 1
 offset_left = -17.0
 offset_top = -17.0
 offset_right = -1.0
@@ -53,7 +53,7 @@ texture = ExtResource("3_tmncn")
 expand_mode = 1
 
 [node name="Lava16" type="TextureRect" parent="."]
-texture_filter = 5
+texture_filter = 1
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 17.0

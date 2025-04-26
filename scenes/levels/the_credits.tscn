@@ -12,6 +12,10 @@ font_size = 32
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_p2cv1")
 
+[node name="QuitLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -187,9 +191,33 @@ text = "Some library level assets adapted from https://arcadeisland.itch.io/libr
 "
 horizontal_alignment = 1
 
+[node name="Logo" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game icon art by Catherine Xu
+
+"
+horizontal_alignment = 1
+
+[node name="-- Special Thanks --" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+
+Special Thanks
+
+
+"
+horizontal_alignment = 1
+
+[node name="SGD" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "To the club leadership of Student Game Developers @ UVA for their guidance and support
+
+"
+horizontal_alignment = 1
+
 [node name="Dax" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Special thanks to Dax Mikow for inspring the title"
+text = "And to Dax Mikow for inspring the title"
 horizontal_alignment = 1
 
 [node name="Thank you" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -201,7 +229,8 @@ Thank you for playing!"
 label_settings = SubResource("LabelSettings_1lotd")
 horizontal_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="ReturnButton" type="TextureButton" parent="."]
+visible = false
 offset_left = 13.0
 offset_top = 595.0
 offset_right = 107.0
@@ -214,4 +243,4 @@ texture_hover = ExtResource("3_2gviv")
 stream = ExtResource("5_nsfbh")
 autoplay = true
 
-[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="ReturnButton" to="." method="_on_texture_button_button_down"]
