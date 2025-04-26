@@ -10,12 +10,16 @@ var main_menu = load("uid://c0tvrj084xnrs")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CanvasLayer2/FadeRect.visible = true
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer2/FadeRect, "modulate:a", 0.0, 3.0)
+	
 	var start_y = 400
 	var end_y = -credits.size.y - 200
 	credits.position.y = start_y
 
-	var tween = create_tween()
-	tween.tween_property(credits, "position:y", end_y, scrollTime).set_trans(Tween.TRANS_LINEAR)
+	var tween2 = create_tween()
+	tween2.tween_property(credits, "position:y", end_y, scrollTime).set_trans(Tween.TRANS_LINEAR)
 
 
 func _input(event: InputEvent) -> void:

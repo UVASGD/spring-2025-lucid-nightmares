@@ -12,12 +12,23 @@ font_size = 32
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_p2cv1")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer2"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -174,6 +185,11 @@ layout_mode = 2
 text = "Some library level assets adapted from https://arcadeisland.itch.io/library-pack
 
 "
+horizontal_alignment = 1
+
+[node name="Dax" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special thanks to Dax Mikow for inspring the title"
 horizontal_alignment = 1
 
 [node name="Thank you" type="Label" parent="MarginContainer/VBoxContainer"]
