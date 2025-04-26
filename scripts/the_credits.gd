@@ -10,7 +10,7 @@ var main_menu = load("uid://c0tvrj084xnrs")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var start_y = 650
+	var start_y = 400
 	var end_y = -credits.size.y - 200
 	credits.position.y = start_y
 

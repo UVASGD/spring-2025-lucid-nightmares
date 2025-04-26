@@ -56,15 +56,45 @@ horizontal_alignment = 1
 [node name="Sebastian" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sebastian Fugle
-Director, Project Manager, Tech Artist, Programmer
+Director, Project Manager, Tech Artist
 
 "
 horizontal_alignment = 1
 
-[node name="Emma" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="--Music--" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Emma Mayo
-Pixel Artist, Fellow Goofball
+text = "
+
+"
+horizontal_alignment = 1
+
+[node name="Casey" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Casey Bloome
+Music Producer
+
+"
+horizontal_alignment = 1
+
+[node name="Megan" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Megan Vu
+Music Producer, Pixel Artist, Goofball
+
+"
+horizontal_alignment = 1
+
+[node name="Sahlar" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sahlar Salehi
+Music Producer
+
+"
+horizontal_alignment = 1
+
+[node name="-- Art --" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
 
 "
 horizontal_alignment = 1
@@ -77,6 +107,22 @@ Pixel Artist
 "
 horizontal_alignment = 1
 
+[node name="Crow" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "@crowwitch
+Pixel Artist
+
+"
+horizontal_alignment = 1
+
+[node name="Emma" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Emma Mayo
+Pixel Artist, Fellow Goofball
+
+"
+horizontal_alignment = 1
+
 [node name="Salma" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Salma Meraj
@@ -85,10 +131,9 @@ Pixel Artist
 "
 horizontal_alignment = 1
 
-[node name="Crow" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="-- Level --" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "@crowwitch
-Pixel Artist
+text = "
 
 "
 horizontal_alignment = 1
@@ -117,33 +162,16 @@ Level Designer
 "
 horizontal_alignment = 1
 
-[node name="Megan" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="-- Assets --" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Megan Vu
-Music Producer, Pixel Artist, Goofball
-
-"
-horizontal_alignment = 1
-
-[node name="Sahlar" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Sahlar Salehi
-Music Producer
-
-"
-horizontal_alignment = 1
-
-[node name="Casey" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Casey Bloome
-Music Producer
+text = "
 
 "
 horizontal_alignment = 1
 
 [node name="Hellantus" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Final level planets & background purchased from Helianthus Games
+text = "Final level planets & background licensed from Helianthus Games
 
 "
 horizontal_alignment = 1
@@ -155,7 +183,7 @@ text = "Some library level assets adapted from https://arcadeisland.itch.io/libr
 "
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Thank you" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
 
