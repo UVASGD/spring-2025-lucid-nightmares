@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://chn82e6ce6ssa"]
+[gd_scene load_steps=7 format=3 uid="uid://chn82e6ce6ssa"]
 
 [ext_resource type="Script" path="res://scripts/the_credits.gd" id="1_p2cv1"]
+[ext_resource type="Texture2D" uid="uid://cg6ed6e6lmjx1" path="res://assets/menu/titleyellow.png" id="2_n7iew"]
 [ext_resource type="Texture2D" uid="uid://mfpnwoembgb2" path="res://assets/menu/title.png" id="2_oot2p"]
 [ext_resource type="Texture2D" uid="uid://dicq6xskcbce5" path="res://assets/menu/titlehover.png" id="3_2gviv"]
 [ext_resource type="AudioStream" uid="uid://dsp3dco0skibj" path="res://assets/Sounds/music/Credits.mp3" id="5_nsfbh"]
@@ -38,6 +39,12 @@ grow_horizontal = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_n7iew")
+expand_mode = 5
+
 [node name="Aidan" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Aidan Liu
@@ -54,14 +61,6 @@ Director, Project Manager, Tech Artist, Programmer
 "
 horizontal_alignment = 1
 
-[node name="Megan" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Megan Vu
-Music Producer, Pixel Artist, Goofball
-
-"
-horizontal_alignment = 1
-
 [node name="Emma" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Emma Mayo
@@ -70,26 +69,10 @@ Pixel Artist, Fellow Goofball
 "
 horizontal_alignment = 1
 
-[node name="James" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Amrit" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "James Farnsworth
-Level Designer
-
-"
-horizontal_alignment = 1
-
-[node name="George" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "George Lothamer
-Level Designer, Music Producer, vibe facilitator
-
-"
-horizontal_alignment = 1
-
-[node name="Jack" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Jonathan Cooper
-Level Designer
+text = "Amrit Kaur
+Pixel Artist
 
 "
 horizontal_alignment = 1
@@ -102,10 +85,42 @@ Pixel Artist
 "
 horizontal_alignment = 1
 
-[node name="Amrit" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Crow" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Amrit Kaur
+text = "@crowwitch
 Pixel Artist
+
+"
+horizontal_alignment = 1
+
+[node name="George" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "George Lothamer
+Level Designer, Music Producer, vibe facilitator
+
+"
+horizontal_alignment = 1
+
+[node name="James" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "James Farnsworth
+Level Designer
+
+"
+horizontal_alignment = 1
+
+[node name="Jack" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jonathan Cooper
+Level Designer
+
+"
+horizontal_alignment = 1
+
+[node name="Megan" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Megan Vu
+Music Producer, Pixel Artist, Goofball
 
 "
 horizontal_alignment = 1
@@ -126,10 +141,16 @@ Music Producer
 "
 horizontal_alignment = 1
 
-[node name="Crow" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Hellantus" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "@crowwitch
-Pixel Artist
+text = "Final level planets & background purchased from Helianthus Games
+
+"
+horizontal_alignment = 1
+
+[node name="ArcadeIsland" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Some library level assets adapted from https://arcadeisland.itch.io/library-pack
 
 "
 horizontal_alignment = 1
