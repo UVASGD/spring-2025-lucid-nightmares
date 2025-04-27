@@ -129,6 +129,7 @@ offset = Vector2(0, -10)
 zoom = Vector2(3.5, 3.5)
 background_texture = ExtResource("5_vkw6j")
 background_scale = Vector2(2.7, 2.7)
+background_offset = Array[Vector2]([Vector2(-160, 0), Vector2(-200, 0)])
 trackingOffset = Vector2(0, -10)
 
 [node name="DamageBox" parent="." instance=ExtResource("7_fwb5r")]
