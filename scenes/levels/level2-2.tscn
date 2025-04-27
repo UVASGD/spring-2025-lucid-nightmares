@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://4nyrjdn4pkp3" path="res://scenes/objects/camera_override_area.tscn" id="16_x8pg3"]
 [ext_resource type="Texture2D" uid="uid://c3ipvhqm7uuq4" path="res://assets/train/Subway_Interior.png" id="17_37pgf"]
 [ext_resource type="Texture2D" uid="uid://ccfl406dqjhnt" path="res://assets/train/suitcase/SuitcasetallXtreme.png" id="18_2bwxj"]
-[ext_resource type="Texture2D" uid="uid://b4kicfkrs4v2e" path="res://assets/tileset/subway/area2_platform.tres" id="18_tefqm"]
+[ext_resource type="Texture2D" path="res://assets/tileset/subway/area2_platform.tres" id="18_tefqm"]
 [ext_resource type="Script" path="res://scripts/damage_box.gd" id="20_h7msg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgubd"]
@@ -242,7 +242,7 @@ poster_order = Array[int]([0, 1, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar3"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD1//v/CAABAAEAAED2//v/CAABAAEAAFAEAP7/BgAEAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAD+//7/BgAEAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAALAPv/CAABAAEAAFAKAPv/CAACAAAAAAAJAPv/CAABAAEAAEA=")
+tile_map_data = PackedByteArray("AAD1//v/CAABAAEAAED2//v/CAABAAEAAFAEAP7/BgAEAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAD+//7/BgAEAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAALAPv/CAABAAEAAFAKAPv/CAACAAAAAAAJAPv/CAABAAEAAED///7/BgABAAIAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="Handles_Basic3" type="Node2D" parent="Traincar3"]
@@ -292,7 +292,7 @@ poster_order = Array[int]([1, 0, 1])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar4"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD4//z/CAAAAAEAAGD4//v/CAACAAAAAGD4//r/CAACAAAAAGD+//7/CAACAAAAAFD+//3/CAACAAAAAFD+//z/CAACAAAAAFD+//v/CAACAAAAAFD+//r/CAAAAAEAAFD9//r/CAACAAAAAAD8//r/CAACAAAAAAD7//r/CAABAAEAAED6//z/CAABAAEAAHD5//z/CAACAAAAADADAPz/CAABAAEAACADAPv/CAACAAAAAGADAPr/CAABAAEAAAAGAP7/BgABAAMAAAAGAP3/CAABAAEAAAAGAPn/CAACAAAAAGAGAPj/CAABAAEAAAAGAPr/CAABAAEAACAHAPr/CAACAAAAADAIAPr/CAACAAAAADAJAPr/CAACAAAAADAKAPr/CAACAAAAADALAPr/CAABAAEAAHD4//n/CAACAAAAAGD4//j/CAABAAEAAAD1//7/BgACAAMAADA=")
+tile_map_data = PackedByteArray("AAD4//z/CAAAAAEAAGD4//v/CAACAAAAAGD4//r/CAACAAAAAGD+//7/CAACAAAAAFD+//3/CAACAAAAAFD+//z/CAACAAAAAFD+//v/CAACAAAAAFD+//r/CAAAAAEAAFD9//r/CAACAAAAAAD8//r/CAACAAAAAAD7//r/CAABAAEAAED6//z/CAABAAEAAHD5//z/CAACAAAAADADAPz/CAABAAEAACADAPv/CAACAAAAAGADAPr/CAABAAEAAAAGAP7/BgABAAMAAAAGAP3/CAABAAEAAAAGAPn/CAACAAAAAGAGAPj/CAABAAEAAAAGAPr/CAABAAEAACAHAPr/CAACAAAAADAIAPr/CAACAAAAADAJAPr/CAACAAAAADAKAPr/CAACAAAAADALAPr/CAABAAEAAHD4//n/CAACAAAAAGD4//j/CAABAAEAAAD1//7/BgACAAMAADD1//3/BgABAAIAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="TelekineticMovingPlatform" parent="Traincar4" instance=ExtResource("10_upwtw")]
