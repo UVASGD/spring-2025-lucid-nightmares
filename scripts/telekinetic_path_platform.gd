@@ -6,6 +6,8 @@ extends Path2D
 @onready var sprite = $AnimatableBody2D/Sprite2D
 @onready var teleController: TelekineticController = $AnimatableBody2D/TelekineticController
 
+var teleMaterial: ShaderMaterial = load("uid://cq8o2ros437rh")
+
 # to set up:
 # instantiate this scene
 # define a Curve2D in the inspector of the scene node
@@ -45,7 +47,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_telekinetic_controller_on_set_enabled(is_enabled: bool) -> void:
 	if is_enabled:
-		sprite.modulate = TelekineticController.spriteModulationColor
+		sprite.material = teleMaterial
+		# sprite.modulate = TelekineticController.spriteModulationColor
 	else:
-		sprite.modulate = Color("ffffff")
+		sprite.material = null
+		# sprite.modulate = Color("ffffff")
 		
