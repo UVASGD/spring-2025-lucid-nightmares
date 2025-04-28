@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf0l6trf1ldnm"]
+[gd_scene load_steps=8 format=3 uid="uid://cf0l6trf1ldnm"]
 
 [ext_resource type="Script" path="res://scripts/train_posters.gd" id="1_s6fkw"]
-[ext_resource type="Texture2D" uid="uid://33vv1pn1coh4" path="res://assets/train/Subway_Interior_v4.png" id="2_r8hgw"]
-[ext_resource type="Texture2D" uid="uid://b8jwse80wti3l" path="res://assets/train/Library_Posterv2.png" id="3_2ly7x"]
+[ext_resource type="Texture2D" uid="uid://bpyqv6lomg70s" path="res://assets/train/Subway_Interior_v6.png" id="2_83q1y"]
 [ext_resource type="Texture2D" uid="uid://bgmymsgwvmjip" path="res://assets/train/Library_Posterv3.png" id="3_eynxy"]
 [ext_resource type="Texture2D" uid="uid://2qfjx4hbvouo" path="res://assets/train/Platform_Posterv3.png" id="4_mcrri"]
 [ext_resource type="Texture2D" uid="uid://rdas36kjncpu" path="res://assets/train/Stranger_Posterv3.png" id="5_g0o0c"]
-[ext_resource type="Texture2D" uid="uid://b0l7o0se0simp" path="res://assets/train/Stranger_Posterv2.png" id="5_qj7np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifqm8"]
 size = Vector2(288, 3.99984)
@@ -61,10 +59,11 @@ shape = SubResource("RectangleShape2D_ifqm8")
 [node name="SubwayInteriorV3" type="Sprite2D" parent="."]
 z_index = -6
 position = Vector2(-5, -60)
-texture = ExtResource("2_r8hgw")
+texture = ExtResource("2_83q1y")
 
 [node name="LibraryPoster" type="TextureRect" parent="."]
 visible = false
+modulate = Color(0.8, 0.8, 0.8, 0.862745)
 z_index = -5
 offset_right = 140.0
 offset_bottom = 18.0
@@ -73,6 +72,7 @@ stretch_mode = 2
 
 [node name="CloudsPoster" type="TextureRect" parent="."]
 visible = false
+modulate = Color(0.8, 0.8, 0.8, 0.862745)
 z_index = -5
 offset_right = 140.0
 offset_bottom = 18.0
@@ -81,26 +81,12 @@ stretch_mode = 2
 
 [node name="StrangerPoster" type="TextureRect" parent="."]
 visible = false
+modulate = Color(0.8, 0.8, 0.8, 0.862745)
 z_index = -5
 offset_right = 140.0
 offset_bottom = 18.0
 texture = ExtResource("5_g0o0c")
 stretch_mode = 2
-
-[node name="a" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-texture = ExtResource("3_2ly7x")
-
-[node name="b" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-texture = ExtResource("4_mcrri")
-
-[node name="c" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-texture = ExtResource("5_qj7np")
 
 [node name="Left" type="Control" parent="."]
 clip_contents = true

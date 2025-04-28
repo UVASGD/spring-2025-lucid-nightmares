@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drf3lwf0ywy6f"]
 
 [ext_resource type="Script" path="res://scripts/handle.gd" id="1_ahbi8"]
-[ext_resource type="Texture2D" uid="uid://blel0s6h3htyh" path="res://assets/train/handles/handlev2.png" id="2_aeqq7"]
+[ext_resource type="Texture2D" uid="uid://cdqy7yh2xbwpx" path="res://assets/train/handles/handlev3.png" id="2_a0iro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anjjs"]
 size = Vector2(12, 9)
@@ -15,7 +15,7 @@ script = ExtResource("1_ahbi8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="HandleTransformed"]
 position = Vector2(0, 6.5)
-texture = ExtResource("2_aeqq7")
+texture = ExtResource("2_a0iro")
 
 [node name="Area2D" type="Area2D" parent="HandleTransformed"]
 collision_layer = 0
