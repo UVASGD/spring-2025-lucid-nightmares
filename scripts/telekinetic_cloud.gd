@@ -58,10 +58,10 @@ func _on_floor_area_area_exited(area: Area2D) -> void:
 
 func despawn():
 	sprite.visible = false
-	collisionShape.disabled = true
+	collisionShape.set_deferred("disabled", true)
 	respawnTimer.start()
 	
 func respawn():
 	sprite.visible = true
-	collisionShape.disabled = false
+	collisionShape.set_deferred("disabled", true)
 	

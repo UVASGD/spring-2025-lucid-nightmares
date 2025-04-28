@@ -33,16 +33,18 @@ func loadScene(scene: PackedScene):
 func reloadScene():
 	unloadScene()
 	var inst = current_scene.instantiate()
-	add_child(inst)
+	call_deferred("add_child", inst)
 			
 func unloadScene():
 	if not current_scene: return
 	for child in get_children():
 		if child.scene_file_path == current_scene.resource_path:
-			remove_child(child)
-			child.queue_free()
+			call_deferred("deferRemoveChild", child)
+
+func deferRemoveChild(child):
+	remove_child(child)
+	child.queue_free()
 	
-			
 func initAudioPlayer(music: AudioStream, fade: bool, maxVol: float, spaceMode: bool):
 	song = music
 	maxVolume = maxVol
