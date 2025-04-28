@@ -81,7 +81,9 @@ func deselectSelectedNode():
 	audioStream.stream = disconnectSound
 	randomize()
 	audioStream.pitch_scale = randf_range(0.95, 1.05)
-	if is_inside_tree():
+	if not audioStream.is_inside_tree():
+		return
+	if audioStream.is_inside_tree():
 		audioStream.play()
 	
 func selectNewNode(node: TelekineticController):
