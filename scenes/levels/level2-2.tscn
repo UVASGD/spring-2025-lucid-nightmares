@@ -129,6 +129,7 @@ offset = Vector2(0, -10)
 zoom = Vector2(3.5, 3.5)
 background_texture = ExtResource("5_vkw6j")
 background_scale = Vector2(2.7, 2.7)
+background_offset = Array[Vector2]([Vector2(-160, 0), Vector2(-200, 0)])
 trackingOffset = Vector2(0, -10)
 
 [node name="DamageBox" parent="." instance=ExtResource("7_fwb5r")]
@@ -242,7 +243,7 @@ poster_order = Array[int]([0, 1, 0])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Traincar3"]
 position = Vector2(3, 8)
-tile_map_data = PackedByteArray("AAD1//v/CAABAAEAAED2//v/CAABAAEAAFAEAP7/BgAEAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAD+//7/BgAEAAAAAAD+//3/AwAAAAAAAAD+//z/AwAAAAAAAAD+//v/AwAAAAAAAAD+//r/AwAAAAAAAAALAPv/CAABAAEAAFAKAPv/CAACAAAAAAAJAPv/CAABAAEAAEA=")
+tile_map_data = PackedByteArray("AAD1//v/CAABAAEAAED2//v/CAABAAEAAFAEAP7/BgAEAAAAAAAEAPv/AwAAAAAAAAAEAPr/AwAAAAAAAAALAPv/CAABAAEAAFAKAPv/CAACAAAAAAAJAPv/CAABAAEAAED+//r/AwAAAAAAAAD+//v/AwAAAAAAAAD+//z/AwAAAAAAAAD+//3/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAP3/AwAAAAAAAAD+//7/BgAEAAAAAAA=")
 tile_set = ExtResource("2_rtrf5")
 
 [node name="Handles_Basic3" type="Node2D" parent="Traincar3"]
