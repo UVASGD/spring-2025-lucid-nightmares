@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c8yybxwc2rweu" path="res://assets/tileset/marble.png" id="13_5fs8p"]
 [ext_resource type="Texture2D" uid="uid://c35pg0v0wwcd4" path="res://assets/train/suitcase/suitcase_atlas.png" id="14_b76f0"]
 [ext_resource type="Texture2D" uid="uid://cct4t2wi7p0ft" path="res://assets/tileset/Area_4_Tileset-aligned.png" id="14_cm4wh"]
-[ext_resource type="Texture2D" uid="uid://dlx4xy02u7tsn" path="res://assets/train/suitcase/pipev2.png" id="16_t4kl2"]
+[ext_resource type="Texture2D" uid="uid://bc5eql4mcp0kr" path="res://assets/train/suitcase/pipe.png" id="16_8d4rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lna6j"]
 texture = ExtResource("1_uarti")
@@ -541,7 +541,7 @@ texture = ExtResource("14_cm4wh")
 2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lyl65"]
-texture = ExtResource("16_t4kl2")
+texture = ExtResource("16_8d4rg")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -5, -8, -5)
 1:0/0 = 0
