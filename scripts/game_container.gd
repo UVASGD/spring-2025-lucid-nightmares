@@ -39,12 +39,9 @@ func unloadScene():
 	if not current_scene: return
 	for child in get_children():
 		if child.scene_file_path == current_scene.resource_path:
-			call_deferred("deferRemoveChild", child)
+			remove_child(child)
+			child.queue_free()
 
-func deferRemoveChild(child):
-	remove_child(child)
-	child.queue_free()
-	
 func initAudioPlayer(music: AudioStream, fade: bool, maxVol: float, spaceMode: bool):
 	song = music
 	maxVolume = maxVol

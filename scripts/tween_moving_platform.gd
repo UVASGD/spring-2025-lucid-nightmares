@@ -17,7 +17,8 @@ func _ready() -> void:
 	if platformTexture:
 		sprite.modulate = Color("ffffff")
 		sprite.texture = platformTexture
-	tween()
+	if not tweenPlatform:
+		tween()
 	if moveSound:
 		audioPlayer.stream = moveSound
 		audioPlayer.attenuation = attenuation
