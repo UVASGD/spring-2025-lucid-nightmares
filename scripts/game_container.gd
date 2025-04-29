@@ -27,7 +27,8 @@ func _ready() -> void:
 func loadScene(scene: PackedScene):
 	unloadScene()
 	current_scene = scene
-	var inst = scene.instantiate()
+	var inst = current_scene.instantiate()
+	await get_tree().process_frame
 	add_child(inst)
 	
 func reloadScene():
@@ -40,8 +41,9 @@ func unloadScene():
 		tween.kill()
 	for child in get_children():
 		if child.scene_file_path == current_scene.resource_path:
-			remove_child(child)
+			call_deferred("remove_child", child)
 			child.queue_free()
+			return
 
 func initAudioPlayer(music: AudioStream, fade: bool, maxVol: float, spaceMode: bool):
 	song = music
