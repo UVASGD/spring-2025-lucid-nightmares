@@ -31,12 +31,13 @@ func loadScene(scene: PackedScene):
 	add_child(inst)
 	
 func reloadScene():
-	unloadScene()
-	var inst = current_scene.instantiate()
-	call_deferred("add_child", inst)
+	loadScene(current_scene)
 			
 func unloadScene():
 	if not current_scene: return
+	var tweens = get_tree().get_processed_tweens()
+	for tween in tweens:
+		tween.kill()
 	for child in get_children():
 		if child.scene_file_path == current_scene.resource_path:
 			remove_child(child)
@@ -151,6 +152,7 @@ func fadeInMusic():
 	tween.tween_property(audioPlayer, "volume_db", maxVolume, 1.0)
 	tween.finished.connect(func():
 		audioPlayer.volume_db = maxVolume - 5
+		#fadeTweens
 	)
 	
 static func get_game_container(sceneTree: SceneTree) -> GameContainer:

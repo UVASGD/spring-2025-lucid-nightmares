@@ -37,6 +37,8 @@ var overridePhysics: bool = false
 var airborneTimer: int = 0
 var checkpoint_phase: int = -1
 
+var health = 1 # a variable used to batch damage
+
 func _ready() -> void:
 	if (PlayerGlobalVars.respawnPoint != Vector2.ZERO):
 		global_position = PlayerGlobalVars.respawnPoint
@@ -189,7 +191,9 @@ func _on_exit_camera_override_area(area: Area2D) -> void:
 		Level.getLevelObject(get_tree()).forceReality = false
 
 func _on_damage(amount: int):
-	if amount > 0:
+	var oldHealth = health
+	health -= amount
+	if oldHealth > 0 and health <= 0:
 		respawn()
 
 func respawn():

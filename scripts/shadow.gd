@@ -63,12 +63,7 @@ func _ready() -> void:
 	# Transform the sprite as well
 	sprite.region_rect.size = size
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if teleController.is_selected:
 		var direction = Input.get_axis("TelekineticLeft", "TelekineticRight")
 		var right: Vector2 = lightVector.rotated(-PI/2)
@@ -78,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	moveShadow.move_and_slide()
 	
 	# Update the polygon
-	var widthVector = Vector2(abs(lightVector.y), abs(lightVector.x)) * (shadowWidth / 2)
+	var widthVector = Vector2(abs(lightVector.y), abs(lightVector.x)) * (shadowWidth / 2.0)
 
 	var movePoint1 = moveShadow.position + widthVector
 	var movePoint2 = moveShadow.position - widthVector

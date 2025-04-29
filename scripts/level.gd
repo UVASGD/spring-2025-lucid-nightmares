@@ -71,6 +71,7 @@ func _ready() -> void:
 	if PlayerGlobalVars.firstLoad:
 		initAudioPlayer(false)
 	else:
+		spaceMusicChange()
 		GameContainer.get_game_container(get_tree()).fadeInMusic()
 	callRealityChange()
 	PlayerGlobalVars.firstLoad = false
