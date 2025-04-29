@@ -11,10 +11,16 @@ config_version=5
 [application]
 
 config/name="Lucid Nightmares"
+config/description="A puzzle-platformer in a dreamscape. Traverse five levels and enjoy eight original pieces as you try to find your way back to your bed, out of these Lucid Nightmares."
+config/version="1.0.7"
 run/main_scene="res://scenes/game_container.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0.74902, 0.898039, 1, 1)
+boot_splash/image="res://splash.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
