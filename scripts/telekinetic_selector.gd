@@ -15,10 +15,14 @@ var queue: Array = []
 var selected_node: TelekineticController = null
 
 const starterText = "[right][b]Tab/Q[/b]: Select objects\n[b]R[/b]: Reset to last checkpoint[/right]"
+const startTextNoTele = "[right][b]R[/b]: Reset to last checkpoint[/right]"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	controlLabel.text = starterText
+	if PlayerGlobalVars.interactLectern:
+		controlLabel.text = starterText
+	else:
+		controlLabel.text = startTextNoTele
 	updatePanel()
 
 
